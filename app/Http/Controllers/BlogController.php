@@ -21,6 +21,10 @@ class BlogController extends Controller
         $categories = BlogCategory::all();
         return view('dashboard.blog.addblog',compact('categories'));
     }
+
+    function blogInsert(Request $request){
+        return $request->all();
+    }
     
     //Category
     function category(){
