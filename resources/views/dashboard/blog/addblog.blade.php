@@ -11,7 +11,7 @@
         <a href="{{url('/home')}}" class="nav-link">Dashboard</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{route('blog')}}" class="nav-link">Blogs</a>
+        <a href="{{route('blog.add')}}" class="nav-link">New Post</a>
       </li>
     </ul>
 
@@ -139,5 +139,5 @@
   <!-- /.navbar -->
 @endsection
 @section('content')
-  @include('components.dashboard.blog.blog')
+  @include('components.dashboard.blog.blogform')
 @endsection

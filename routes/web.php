@@ -36,8 +36,10 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/faqs/delete/{id}', [FAQSController::class, 'faqsDelete'])->name('faqs.delete');
     Route::get('/faqs/edit/{id}', [FAQSController::class, 'faqsEdit'])->name('faqs.edit');
     Route::post('/faqs/update/{id}',[FAQSController::class, 'faqsUpdate'])->name('faqs.update');
-    //Blog
+    //Blog Post
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    Route::get('/blog/add', [BlogController::class, 'blogAdd'])->name('blog.add');
+    //Blog Category
     Route::get('/blog/category', [BlogController::class, 'category'])->name('category');
     Route::get('/blog/category/add', [BlogController::class, 'categoryAdd'])->name('category.add');
     Route::post('/blog/category/insert', [BlogController::class, 'categoryInsert'])->name('category.insert');

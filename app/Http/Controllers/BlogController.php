@@ -3,14 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogCategory;
+use App\Models\BlogPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
     function index(){
+        $posts = BlogPost::join('users','blog_posts.userId','=','users.id')
+        ->join('blog_categories','blog_posts.categoryId','=','blog_categories.id')
+        ->select('blog_posts.*','users.name as author','blog_categories.name as category')
+        ->get();
+        return view('dashboard.blog.blog',compact('posts'));
+    }
+
+    function blogAdd(){
+        $categories = BlogCategory::all();
+        return view('dashboard.blog.addblog',compact('categories'));
     }
     
+    //Category
     function category(){
         $categories = BlogCategory::all();
         return view('dashboard.blog.category',compact('categories'));

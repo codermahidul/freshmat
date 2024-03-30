@@ -12,4 +12,10 @@ class BlogCategory extends Model
         'name',
         'slug'
     ];
+
+    public function post(){
+        return $this->hasMany(BlogPost::class);
+    }
+    
+
 }

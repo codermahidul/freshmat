@@ -80,7 +80,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link {{ Route::currentRouteNamed('blog','category','category.add','category.insert') ? 'active':''}}">
+            <a href="#" class="nav-link {{ Route::currentRouteNamed('blog','blog.add','category','category.add','category.insert') ? 'active':''}}">
               <i class="nav-icon fas fa-pen-alt"></i>
               <p>
                 Blog
@@ -89,13 +89,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('blog.add')}}" class="nav-link {{Route::currentRouteNamed('blog.add') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>New Post</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('blog') }}" class="nav-link {{ Route::currentRouteNamed('blog') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Post</p>
                 </a>
