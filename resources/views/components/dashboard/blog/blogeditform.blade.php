@@ -6,17 +6,17 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">{{ __('Add New Post') }}</h3>
+              <h3 class="card-title">{{ __('Edit Post') }}</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('blog.insert')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('blog.update',$post->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
               <div class="card-body">
                 {{-- Title --}}
                 <div class="form-group">
                   <label for="title">{{ __('Post Title') }}</label>
-                  <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Enter Title" name="title" value="{{old('title')}}">
+                  <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Enter Title" name="title" value="{{old('title')}}{{$post->title}}">
                 @error('title')
                     <span class="text-danger">
                         {{$message}}
@@ -25,7 +25,7 @@
                 </div> 
                 <div class="form-group">
                   <label for="slug">{{ __('Slug') }}</label>
-                  <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Enter Slug" name="slug" value="{{old('slug')}}">
+                  <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Enter Slug" name="slug" value="{{old('slug')}}{{$post->slug}}">
                 @error('slug')
                     <span class="text-danger">
                         {{$message}}
@@ -35,7 +35,7 @@
                   {{-- Post Description --}}
                 <div class="form-group">
                   <label for="description"> {{ __('Post Description') }} </label>
-                  <textarea id="postdescription"  name="description">{{old('description')}}</textarea>
+                  <textarea id="postdescription"  name="description">{{old('description')}}{{$post->description}}</textarea>
                     @error('description')
                     <span class="text-danger">
                         {{$message}}
@@ -64,7 +64,7 @@
                             <label>{{ __('Category') }}</label>
                             <select class="form-control" name="categoryId">
                                 @foreach ($categories as $category)   
-                                <option value="{{$category->id}}" {{ ($category->slug == 'uncategorized') ? 'selected' : '' }} >{{$category->name}}</option>
+                                <option value="{{$category->id}}" {{ ($category->id == $post->categoryId) ? 'selected' : '' }} >{{$category->name}}</option>
                                 @endforeach
                             </select>
                           </div>
@@ -72,7 +72,7 @@
                   </div>
                 <div class="form-group">
                     <label for="seotitle"> {{ __('SEO Ttile') }} </label>
-                    <input type="text" class="form-control @error('seotitle') is-invalid @enderror" id="seotitle" placeholder="Enter SEO Title" name="seotitle" value="{{old('seotitle')}}">
+                    <input type="text" class="form-control @error('seotitle') is-invalid @enderror" id="seotitle" placeholder="Enter SEO Title" name="seotitle" value="{{old('seotitle')}}{{$post->seoTitle}}">
                   @error('seotitle')
                       <span class="text-danger">
                           {{$message}}
@@ -81,7 +81,7 @@
                   </div>
                   <div class="form-group">
                     <label for="seodescription"> {{ __('SEO Description') }} </label>
-                    <textarea id="seodescription" class="form-control" rows="3" name="seodescription">{{old('seodescription')}}</textarea>
+                    <textarea id="seodescription" class="form-control" rows="3" name="seodescription">{{old('seodescription')}}{{$post->seoDescription}}</textarea>
                   @error('seodescription')
                       <span class="text-danger">
                           {{$message}}
@@ -91,14 +91,14 @@
                   <div class="form-group">
                     <label>Status</label>
                     <select class="form-control" name="status">
-                        <option value="publish" selected>Publish</option>
-                        <option value="draft">Draft</option>
+                        <option value="publish" {{ ($post->status == 'publish' ) ? 'selected' : '' }}>Publish</option>
+                        <option value="draft" {{ ($post->status == 'draft' ) ? 'selected' : '' }}>Draft</option>
                     </select>
                   </div>
               
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Add Post</button>
+                <button type="submit" class="btn btn-primary">Update Post</button>
               </div>
             </form>
           </div>

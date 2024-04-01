@@ -23,14 +23,25 @@
                     <td> {{$category->name}} </td>
                     <td> {{$category->slug}} </a></td>
                     <td class="text-center">
-                        <a href="#" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                        <a href="#" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                        <a href="{{route('category.edit',$category->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('category.delete',$category->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
                   @endforeach
             </tbody>
           </table>
+          @if (session('success'))
+          <div class="alert alert-success" role="alert">
+            {{session('success')}}
+          </div> 
+          @endif
         </div>
+        @if (session('error'))
+        <div class="alert alert-danger" role="alert">
+          {{session('error')}}
+        </div> 
+        @endif
+      </div>
         <!-- /.card-body -->
         <div class="card-footer clearfix">
           <ul class="pagination pagination-sm m-0 float-right">

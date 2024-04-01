@@ -10,8 +10,8 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th style="width: 10px">#</th>
-                <th>Title</th>
+                <th style="width: 4%">#</th>
+                <th style="width: 30%">Title</th>
                 <th>Category</th>
                 <th>Author</th>
                 <th>Thumbnail</th>
@@ -27,12 +27,15 @@
                     <td>{{ $post->title }}</td>
                     <td>{{ $post->category }}</td>
                     <td>{{ $post->author }}</td>
-                    <td>{{ $post->thumbnail }}</td>
+                    {{-- <td>{{ $post->thumbnail }}</td> --}}
+                    <td>
+                      <img src="{{ asset($post->thumbnail) }}" class="img-thumbnail" width="100">
+                    </td>
                     <td>{{ $post->react }}</td>
                     <td>{{ $post->status }}</td>
                     <td class="text-center">
-                        <a href="#" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                        <a href="#" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                        <a href="{{route('blog.edit',$post->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('blog.delete',$post->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
                   @endforeach

@@ -40,8 +40,14 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     Route::get('/blog/add', [BlogController::class, 'blogAdd'])->name('blog.add');
     Route::post('/blog/insert', [BlogController::class, 'blogInsert'])->name('blog.insert');
+    Route::get('/blog/delete/{id}', [BlogController::class, 'blogDelete'])->name('blog.delete');
+    Route::get('/blog/edit/{id}', [BlogController::class, 'blogEdit'])->name('blog.edit');
+    Route::post('/blog/update/{id}', [BlogController::class, 'blogUpdate'])->name('blog.update');
     //Blog Category
     Route::get('/blog/category', [BlogController::class, 'category'])->name('category');
     Route::get('/blog/category/add', [BlogController::class, 'categoryAdd'])->name('category.add');
     Route::post('/blog/category/insert', [BlogController::class, 'categoryInsert'])->name('category.insert');
+    Route::get('/blog/category/delete/{id}', [BlogController::class, 'categoryDelete'])->name('category.delete');
+    Route::get('/blog/category/edit/{id}', [BlogController::class, 'categoryEdit'])->name('category.edit');
+    Route::post('/blog/category/update/{id}', [BlogController::class, 'categoryUpdate'])->name('category.update');
 });

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('thumbnail');
             $table->integer('react')->default(0);
-            $table->string('seoTitle');
-            $table->string('seoDescription');
+            $table->string('seoTitle')->nullable();
+            $table->string('seoDescription')->nullable();
             $table->enum('status',['publish','draft'])->default('publish');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
