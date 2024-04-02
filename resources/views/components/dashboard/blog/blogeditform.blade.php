@@ -96,10 +96,7 @@
                     </select>
                   </div>
               
-
-              <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Update Post</button>
-              </div>
             </form>
           </div>
           @if (session('success'))

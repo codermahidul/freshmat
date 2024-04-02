@@ -172,19 +172,13 @@
       </li>
     </ul>
   </nav>
-  <!-- /.navbar -->
-
   @include('components.dashboard.leftSidebar')
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <div class="container-fluid">
       @yield('breadcrumb')
       @yield('content')
     </div>
   </div>
-
-  <!-- /.content-wrapper -->
   @include('components.dashboard.footer')
 
   <!-- Control Sidebar -->

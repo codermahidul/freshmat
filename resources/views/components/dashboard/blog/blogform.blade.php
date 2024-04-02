@@ -95,11 +95,7 @@
                         <option value="draft">Draft</option>
                     </select>
                   </div>
-              
-
-              <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Add Post</button>
-              </div>
             </form>
           </div>
           @if (session('success'))

@@ -24,16 +24,12 @@
                       </span>
                   @enderror
                   </div>
-
               @if (session('success'))
                 <div class="alert alert-success" role="alert">
                     {{session('success')}}
                   </div>
               @endif
-
-              <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Reply Comment</button>
-              </div>
             </form>
           </div>
         </div>

@@ -1,15 +1,11 @@
 <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <!-- left column -->
         <div class="col-md-10 m-auto">
-          <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
               <h3 class="card-title">Add New Category</h3>
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
             <form action="{{route('category.insert')}}" method="POST">
                 @csrf
               <div class="card-body">
@@ -37,15 +33,10 @@
                     {{session('success')}}
                   </div>
               @endif
-
-              <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Add</button>
-              </div>
             </form>
           </div>
-          <!-- /.card -->
         </div>
       </div>
-      <!-- /.row -->
-    </div><!-- /.container-fluid -->
+    </div>
   </section>
