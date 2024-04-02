@@ -29,4 +29,8 @@ class BlogPost extends Model
         return $this->belongsTo(BlogCategory::class);
     }
 
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
 }

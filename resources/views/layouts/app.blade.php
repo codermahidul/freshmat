@@ -178,7 +178,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="container-fluid mt-3">
+    <div class="container-fluid">
       @yield('breadcrumb')
       @yield('content')
     </div>

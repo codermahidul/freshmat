@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
+use App\Models\Comment;
+use App\Models\CommentsReply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -134,11 +136,11 @@ class BlogController extends Controller
     //Category
     function category(){
         $categories = BlogCategory::all();
-        return view('dashboard.blog.category',compact('categories'));
+        return view('dashboard.category.category',compact('categories'));
     }
 
     function categoryAdd(){
-        return view('dashboard.blog.categoryadd');
+        return view('dashboard.category.categoryadd');
     }
 
     function categoryInsert(Request $request){
@@ -181,7 +183,7 @@ class BlogController extends Controller
     function categoryEdit($id){
 
         $category = BlogCategory::where('id',$id)->first();
-        return view('dashboard.blog.categoryedit',compact('category'));
+        return view('dashboard.category.categoryedit',compact('category'));
     }
 
     function categoryUpdate(Request $request, $id){
@@ -206,6 +208,51 @@ class BlogController extends Controller
         ]);
 
         return back()->with('success', 'Category Update Successfully!');
+    }
+
+    //Comments
+
+    function commentIndex(){
+        $comments = Comment::join('users','comments.userId','=','users.id')
+        ->join('blog_posts','comments.postId','=','blog_posts.id')
+        ->select('comments.*','users.name as userName','blog_posts.title as postTitle')->get();
+        return view('dashboard.comments.index',compact('comments'));
+    }
+
+    function commentStatus($id){
+        $status = Comment::where('id',$id)->first();
+
+        if ($status->status == 'approve') {
+            $status->update(['status' => 'pending']);
+        }
+        else{
+            $status->update(['status' => 'approve']);
+        }
+        return back();
+    }
+
+    function commentDelete($id){
+        Comment::where('id',$id)->delete();
+        return back();
+    }
+
+    function commentReply($id){
+        $comment = Comment::where('id',$id)->first();
+        return view('dashboard.comments.reply',compact('comment'));
+    }
+
+    function commentReplyInsert(Request $request, $id){
+
+        $request->validate([
+            'reply' => 'required',
+        ]);
+        
+        CommentsReply::insert([
+            'commentId' => $id,
+            'reply' => $request->input('reply')
+        ]);
+
+        return back()->with('success', 'Replied Successully');
     }
 
 }

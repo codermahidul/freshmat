@@ -50,4 +50,10 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/blog/category/delete/{id}', [BlogController::class, 'categoryDelete'])->name('category.delete');
     Route::get('/blog/category/edit/{id}', [BlogController::class, 'categoryEdit'])->name('category.edit');
     Route::post('/blog/category/update/{id}', [BlogController::class, 'categoryUpdate'])->name('category.update');
+    //Comments
+    Route::get('/blog/comments', [BlogController::class, 'commentIndex'])->name('comments');
+    Route::get('/blog/comment/status/{id}',[BlogController::class, 'commentStatus'])->name('blog.comment.status');
+    Route::get('/blog/comment/delete/{id}',[BlogController::class, 'commentDelete'])->name('blog.comment.delete');
+    Route::get('/blog/comment/reply/{id}',[BlogController::class, 'commentReply'])->name('blog.comment.reply');
+    Route::post('/blog/comment/reply/{id}',[BlogController::class, 'commentReplyInsert'])->name('blog.comment.reply');
 });
