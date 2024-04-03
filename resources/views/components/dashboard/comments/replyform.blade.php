@@ -8,9 +8,11 @@
             </div>
                 <div class="p-4">
                     <h5>Comment</h5>
-                    <p>{{$comment->content}}</p>
+                    <p><b>{{$comment->username}}: </b>{{$comment->content}}</p>
                     <h5 class="ml-4">Previus Reply</h5>
-                    <p class="ml-4">lkasdl sdlkf lsdk</p>
+                    @foreach ($commentreplies as $replies)      
+                      <p class="ml-4"><b>{{$replies->username}}:</b> {{$replies->reply}}</p>
+                    @endforeach
                 </div>
             <form action="{{route('blog.comment.reply',$comment->id)}}" method="POST">
                 @csrf

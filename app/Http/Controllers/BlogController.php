@@ -237,8 +237,15 @@ class BlogController extends Controller
     }
 
     function commentReply($id){
-        $comment = Comment::where('id',$id)->first();
-        return view('dashboard.comments.reply',compact('comment'));
+        $comment = Comment::join('users', 'comments.userId', '=', 'users.id')
+        ->select('comments.*', 'users.name as username')
+        ->where('comments.id', $id)->first();
+
+       $commentreplies =  CommentsReply::join('users','comments_replies.userId', '=', 'users.id')
+        ->select('comments_replies.*', 'users.name as username')
+        ->where('comments_replies.commentId',$id)->get();
+
+        return view('dashboard.comments.reply',compact('comment','commentreplies'));
     }
 
     function commentReplyInsert(Request $request, $id){
@@ -249,6 +256,7 @@ class BlogController extends Controller
         
         CommentsReply::insert([
             'commentId' => $id,
+            'userId' => Auth::user()->id,
             'reply' => $request->input('reply')
         ]);
 

@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('comments_replies', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('commentId');
+            $table->unsignedBigInteger('userId');
             $table->text('reply');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-            $table->foreign('commentId')->references('id')->on('comments')->onDelete('CASCADE');
+
+            $table->foreign('commentId')->references('id')->on('comments')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('userId')->references('id')->on('users')->onDelete('RESTRICT')->onUpdate('CASCADE');
         });
     }
 
