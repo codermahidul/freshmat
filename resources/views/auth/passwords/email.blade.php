@@ -47,6 +47,7 @@
 @endsection --}}
 
 @extends('layouts.authlayout')
+@section('title','Reset Password')
 @section('content')
 <div class="login-box">
     <div class="card">
@@ -74,6 +75,12 @@
             </div>
           </div>
         </form>
+
+        @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+        @endif
   
         <p class="mt-3 mb-1">
           <a href="{{route('login')}}">Login</a>

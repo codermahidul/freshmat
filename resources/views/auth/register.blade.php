@@ -77,6 +77,7 @@
 @endsection --}}
 
 @extends('layouts.authlayout')
+@section('title','Registration')
 @section('content')   
 @include('components.dashboard.auth.registerForm')
 @endsection

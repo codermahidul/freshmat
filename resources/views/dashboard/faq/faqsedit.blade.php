@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Edit FAQs | Dashboard')
 @section('content')
 @section('breadcrumb')
 <div class="content-header">

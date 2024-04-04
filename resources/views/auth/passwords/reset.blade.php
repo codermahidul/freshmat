@@ -65,6 +65,7 @@
 @endsection --}}
 
 @extends('layouts.authlayout')
+@section('title','Enter New Password')
 @section('content')
 <div class="login-box">
     <div class="card">

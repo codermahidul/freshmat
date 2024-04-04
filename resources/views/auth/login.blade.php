@@ -74,6 +74,7 @@
 
 
 @extends('layouts.authlayout')
+@section('title','Admin Login')
 @section('content')
   @include('components.dashboard.auth.loginForm')
 @endsection

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Edit Blog | Dashboard')
 @section('content')
 @section('breadcrumb')
 <div class="content-header">

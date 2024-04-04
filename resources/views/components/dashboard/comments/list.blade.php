@@ -3,7 +3,6 @@
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h3 class="card-title">Comments</h3>
-          <a href="" class="btn btn-primary ml-auto">Add New</a>
         </div>
         <div class="card-body">
           <table class="table table-bordered">
