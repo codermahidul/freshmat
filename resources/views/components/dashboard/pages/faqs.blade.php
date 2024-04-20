@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{$loop->index + 1}}</td>
                     <td>{{$faq->question}}</td>
-                    <td class="text-center"><a href="{{route('status',$faq->id)}}" class="btn-sm btn btn-danger<?php if($faq->status =='active'){echo 'btn btn-success';}?> ">{{$faq->status}}</a></td>
+                    <td class="text-center"><a href="{{route('status',$faq->id)}}" class="btn-sm btn btn-danger<?php if($faq->status =='deactive'){echo 'btn btn-success';}?> ">{{ ($faq->status == 'active') ? 'Deactive' : 'Active' }}</a></td>
                     <td>
                         <a href="{{route('faqs.edit',$faq->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                         <a href="{{route('faqs.delete',$faq->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>

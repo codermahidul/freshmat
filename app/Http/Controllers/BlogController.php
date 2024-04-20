@@ -18,7 +18,7 @@ class BlogController extends Controller
         $posts = BlogPost::join('users','blog_posts.userId','=','users.id')
         ->join('blog_categories','blog_posts.categoryId','=','blog_categories.id')
         ->select('blog_posts.*','users.name as author','blog_categories.name as category')
-        ->get();
+        ->latest()->paginate(10);
         return view('dashboard.blog.blog',compact('posts'));
     }
 
