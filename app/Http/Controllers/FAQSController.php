@@ -9,7 +9,7 @@ class FAQSController extends Controller
 {
 
     function index(){
-      $faqs= FAQS::all();
+      $faqs= FAQS::latest()->paginate(10);
         return view('dashboard.faq.faqs', compact('faqs'));
     }
 

@@ -43,7 +43,6 @@
           </table>
           @if (session('success'))
           <script>
-
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-right',
@@ -63,7 +62,7 @@
             </script>
           @endif
         </div>
-        <!-- /.card-body -->
+        <!-- Pagination -->
         {{ $posts->links('pagination.dashboardPagination') }}
       </div>
     </div>
