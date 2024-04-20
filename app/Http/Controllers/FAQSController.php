@@ -17,10 +17,10 @@ class FAQSController extends Controller
         $singleFAQ = FAQS::where('id',$id)->first();
         if ($singleFAQ->status == 'active') {
             FAQS::where('id',$id)->update(['status' => 'deactive']);
-            return back();
+            return back()->with('deactive','Question Active Successfully!');
         }else {
             FAQS::where('id',$id)->update(['status' => 'active']);
-            return back();
+            return back()->with('active','Question Deactive Successfully!');
         }
     }
 
@@ -43,7 +43,7 @@ class FAQSController extends Controller
 
     function faqsDelete($id){
         FAQS::where('id',$id)->delete();
-        return back()->with('success','Delete Successfully!');
+        return back()->with('success','FAQ Delete Successfully!');
     }
 
     function faqsEdit($id){

@@ -29,9 +29,25 @@
                   </div>
 
               @if (session('success'))
-                <div class="alert alert-success" role="alert">
-                    {{session('success')}}
-                  </div>
+              <script>
+
+              const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-right',
+                  iconColor: 'white',
+                  customClass: {
+                    popup: 'colored-toast',
+                  },
+                  showConfirmButton: false,
+                  timer: 3000,
+                  timerProgressBar: true,
+                })
+
+              Toast.fire({
+                  icon: 'success',
+                  title: "{{ session('success') }}",
+                })
+              </script>
               @endif
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>

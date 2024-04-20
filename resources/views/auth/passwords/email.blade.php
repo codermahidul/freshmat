@@ -50,6 +50,11 @@
 @section('title','Reset Password')
 @section('content')
 <div class="login-box">
+  @if (session('status'))
+  <div class="alert alert-success" role="alert">
+      {{ session('status') }}
+  </div>
+  @endif
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
@@ -75,13 +80,6 @@
             </div>
           </div>
         </form>
-
-        @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-        @endif
-  
         <p class="mt-3 mb-1">
           <a href="{{route('login')}}">Login</a>
         </p>

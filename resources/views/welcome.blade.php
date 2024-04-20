@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -130,4 +130,3148 @@
             </div>
         </div>
     </body>
+</html> --}}
+
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+    <title>Freshmat - Organic Food Store HTML Template</title>
+    <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/slick.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/venobox.min.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/scroll_button.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/custom_spacing.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/jquery.exzoom.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/nice-select.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/percircle.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/ranger_slider.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/select2.min.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/animate.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/mobile_menu.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/css/responsive.css">
+</head>
+
+<body>
+
+    <!--=========================
+        TOPBAR START
+    ==========================-->
+    <section class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-9 d-none d-md-block">
+                    <ul class="topbar_info d-flex flex-wrap">
+                        <li>
+                            <a href="callto:+1(700)230-0035"><i class="fas fa-phone-alt"></i> +1 (700) 230-0035</a>
+                        </li>
+                        <li>
+                            <a href="mailto:company@gmail.com"><i class="fas fa-envelope-open-text"></i>
+                                company@gmail.com</a>
+                        </li>
+                        <li>
+                            <p><i class="fas fa-map-marker-alt"></i> New York, United States</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-3">
+                    <ul class="topbar_icon d-flex flex-wrap">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        TOPBAR END
+    ==========================-->
+
+
+    <!--=========================
+        HEADER START
+    ==========================-->
+    <header>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <div class="header_logo_area">
+                        <a href="index.html" class="header_logo">
+                            <img src="{{asset('assets')}}/images/logo.png" alt="Freshmat" class="img-fluid w-100">
+                        </a>
+                        <div class="mobile_menu_icon d-block d-lg-none" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                            <span class="mobile_menu_icon"><i class="far fa-stream menu_icon_bar"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <form action="#">
+                        <input type="text" placeholder="Search your product...">
+                        <button type="submit"><i class="far fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="col-lg-3 d-none d-lg-block">
+                    <div class="header_support">
+                        <span class="icon"><i class="fal fa-headset"></i></span>
+                        <h3>
+                            55 0562-256
+                            <span>24/7 Support Center</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--=========================
+        HEADER END
+    ==========================-->
+
+
+    <!--=========================
+        MENU START
+    ==========================-->
+    <nav class="main_menu d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3">
+                    <div class="menu_category_bar">
+                        <p>
+                            <span>
+                                <img src="{{asset('assets')}}/images/menu_category_icon.png" alt="category icon">
+                            </span>
+                            Browse Categories
+                        </p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="menu_cat_item show_home toggle_menu">
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_15.png" alt="category">
+                                </span>
+                                fresh & Organic
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_10.png" alt="category">
+                                </span>
+                                sea fish
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_4.png" alt="category">
+                                </span>
+                                meat
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_12.png" alt="category">
+                                </span>
+                                bakery & biscuites
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_11.png" alt="category">
+                                </span>
+                                health & Beauty
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_14.png" alt="category">
+                                </span>
+                                freah fruits
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="images/category_list_icon_9.png" alt="category">
+                                </span>
+                                coffee & drinks
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="images/category_list_icon_2.png" alt="category">
+                                </span>
+                                cleaning
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="images/category_list_icon_7.png" alt="category">
+                                </span>
+                                Breakfast
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xl-9 col-lg-9">
+                    <ul class="menu_item">
+                        <li class="relative_li">
+                            <a class="active" href="#">home <i class="fas fa-chevron-down"></i></a>
+                            <ul class="menu_droapdown">
+                                <li><a class="active" href="index.html">Home style 01</a></li>
+                                <li><a href="index_2.html">Home style 02</a></li>
+                                <li><a href="index_3.html">Home style 03</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="shop.html">shop <i class="fas fa-chevron-down"></i></a>
+                            <div class="mega_menu">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4">
+                                        <div class="mega_menu_colum">
+                                            <h4>Fresh & Organic</h4>
+                                            <ul class="wsis__mega_menu_item">
+                                                <li><a href="#">Bakery & Biscuites</a></li>
+                                                <li><a href="#">Fresh & Organic</a></li>
+                                                <li><a href="#">Coffee & Drinks</a></li>
+                                                <li><a href="#">Breakfast</a></li>
+                                                <li><a href="#">Jam & Jelly</a></li>
+                                                <li><a href="#">Fresh & Organic</a> </li>
+                                                <li><a href="#">berries</a></li>
+                                                <li><a href="#">cherries</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4">
+                                        <div class="mega_menu_colum">
+                                            <h4>Bakery & Biscuites</h4>
+                                            <ul class="wsis__mega_menu_item">
+                                                <li><a href="#">Coffee & Drinks</a></li>
+                                                <li><a href="#">Bakery & Biscuites</a></li>
+                                                <li><a href="#">Fresh & Organic</a></li>
+                                                <li><a href="#">berries</a></li>
+                                                <li><a href="#">Breakfast</a></li>
+                                                <li><a href="#">Fresh & Organic</a> </li>
+                                                <li><a href="#">Jam & Jelly</a></li>
+                                                <li><a href="#">cherries</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4">
+                                        <div class="mega_menu_colum">
+                                            <h4>Coffee & Drinks</h4>
+                                            <ul class="wsis__mega_menu_item">
+                                                <li><a href="#">Bakery & Biscuites</a></li>
+                                                <li><a href="#">Fresh & Organic</a></li>
+                                                <li><a href="#">Coffee & Drinks</a></li>
+                                                <li><a href="#">Breakfast</a></li>
+                                                <li><a href="#">Jam & Jelly</a></li>
+                                                <li><a href="#">Fresh & Organic</a> </li>
+                                                <li><a href="#">berries</a></li>
+                                                <li><a href="#">cherries</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 d-lg-none d-xl-block">
+                                        <div class="mega_menu_colum menu_banner">
+                                            <a href="#">
+                                                <img src="images/menu_img.jpg" alt="images" class="img-fluid w-100">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="blogs.html">blog</a></li>
+                        <li class="relative_li"><a href="#">pages <i class="fas fa-chevron-down"></i></a>
+                            <ul class="menu_droapdown">
+                                <li><a href="about_us.html">about us</a></li>
+                                <li><a href="blogs_details.html">blog details</a></li>
+                                <li><a href="shop_details.html">shop details</a></li>
+                                <li><a href="cart_view.html">cart view</a></li>
+                                <li><a href="checkout.html">checkout</a></li>
+                                <li><a href="payment.html">Payment</a></li>
+                                <li><a href="dashboard.html">dashboard</a></li>
+                                <li><a href="order_tracking.html">order tracking</a></li>
+                                <li><a href="team.html">Our team</a></li>
+                                <li><a href="team_details.html">team details</a></li>
+                                <li><a href="error.html">error/404</a></li>
+                                <li><a href="faq.html">faq's</a></li>
+                                <li><a href="gallery.html">gallery</a></li>
+                                <li><a href="sign_in.html">sign in</a></li>
+                                <li><a href="sign_up.html">sign up</a></li>
+                                <li><a href="forgot_password.html">forgot password</a></li>
+                                <li><a href="privacy_policy.html">privacy policy</a></li>
+                                <li><a href="terms_condition.html">terms & condition</a></li>
+                                <li><a href="flash_sell.html">flash sell</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">contact</a></li>
+                    </ul>
+                    <ul class="menu_icon">
+                        <li><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                                aria-controls="offcanvasRight"><i class="far fa-shopping-basket"></i> <span>2</span></a>
+                        </li>
+                        <li><a href="#"><i class="far fa-heart"></i> <span>5</span></a></li>
+                        <li><a href="dashboard.html"><i class="far fa-user"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mini_cart">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasRightLabel"> my cart <span>(05)</span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                        class="far fa-times"></i></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul>
+                    <li>
+                        <div class="cart_img">
+                            <img src="images/cart_img_1.png" alt="product" class="img-fluid w-100">
+                            <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
+                        </div>
+                        <div class="cart_text">
+                            <a class="cart_title" href="#">Lemon Meat Bone</a>
+                            <p>$140 <del>$150</del></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cart_img">
+                            <img src="images/cart_img_2.png" alt="product" class="img-fluid w-100">
+                            <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
+                        </div>
+                        <div class="cart_text">
+                            <a class="cart_title" href="#">Three Carrot Vegetables</a>
+                            <p>$130 <del>$160</del></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cart_img">
+                            <img src="images/cart_img_3.png" alt="product" class="img-fluid w-100">
+                            <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
+                        </div>
+                        <div class="cart_text">
+                            <a class="cart_title" href="#">Bengal Meat Beef Bone</a>
+                            <p>$140 <del>$150</del></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cart_img">
+                            <img src="images/cart_img_4.png" alt="product" class="img-fluid w-100">
+                            <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
+                        </div>
+                        <div class="cart_text">
+                            <a class="cart_title" href="#">Three Carrot Vegetables</a>
+                            <p>$140</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cart_img">
+                            <img src="images/cart_img_5.png" alt="product" class="img-fluid w-100">
+                            <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
+                        </div>
+                        <div class="cart_text">
+                            <a class="cart_title" href="#">Orange Slice Mix</a>
+                            <p>$140</p>
+                        </div>
+                    </li>
+                </ul>
+                <h5>sub total <span>$3540</span></h5>
+                <div class="minicart_btn_area">
+                    <a class="common_btn" href="cart_view.html">view cart<span></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=========================
+        MENU END
+    ==========================-->
+
+
+    <!--============================
+        MOBILE MENU START
+    ==============================-->
+    <div class="mobile_menu_area">
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                    class="fal fa-times"></i></button>
+            <div class="offcanvas-body">
+
+                <ul class="mobile_menu_header d-flex flex-wrap">
+                    <li><a href="cart_view.html"><i class="far fa-shopping-basket"></i> <span>2</span></a>
+                    </li>
+                    <li><a href="dashboard_wishlist.html"><i class="far fa-heart"></i> <span>5</span></a></li>
+                    <li><a href="dashboard.html"><i class="far fa-user"></i></a></li>
+                </ul>
+
+                <form class="mobile_menu_search">
+                    <input type="text" placeholder="Search">
+                    <button type="submit"><i class="far fa-search"></i></button>
+                </form>
+
+                <div class="mobile_menu_item_area">
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">Categories</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">menu</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                            aria-labelledby="pills-home-tab" tabindex="0">
+                            <ul class="main_mobile_menu">
+                                <li class="mobile_dropdown">
+                                    <a href="#">Fresh & Organic</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">Fresh & Organic</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                        <li><a href="shop.html">meat</a></li>
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                        <li><a href="shop.html">Coffee & Drinks</a></li>
+                                        <li><a href="shop.html">Cleaning</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">Sea Fish</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">meat</a></li>
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">meat</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">Fresh & Organic</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                        <li><a href="shop.html">meat</a></li>
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">Bakery & Biscuites</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                        <li><a href="shop.html">Coffee & Drinks</a></li>
+                                        <li><a href="shop.html">Cleaning</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">Health & Beauty</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                        <li><a href="shop.html">Coffee & Drinks</a></li>
+                                        <li><a href="shop.html">Cleaning</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">Freah Fruits</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">Fresh & Organic</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                        <li><a href="shop.html">meat</a></li>
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">Coffee & Drinks</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">meat</a></li>
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                        <li><a href="shop.html">Coffee & Drinks</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">Cleaning</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">Fresh & Organic</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                        <li><a href="shop.html">meat</a></li>
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">Sea Fish</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                        <li><a href="shop.html">Coffee & Drinks</a></li>
+                                        <li><a href="shop.html">Cleaning</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">Fresh & Organic</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">Fresh & Organic</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                        <li><a href="shop.html">meat</a></li>
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">Bakery & Biscuites</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                        <li><a href="shop.html">Coffee & Drinks</a></li>
+                                        <li><a href="shop.html">Cleaning</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">Health & Beauty</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">meat</a></li>
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                        <li><a href="shop.html">Coffee & Drinks</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab" tabindex="0">
+                            <ul class="main_mobile_menu">
+                                <li class="mobile_dropdown">
+                                    <a href="#">home</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="index.html">home style 01</a></li>
+                                        <li><a href="index_2.html">home style 02</a></li>
+                                        <li><a href="index_3.html">home style 03</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about_us.html">about</a></li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">shop</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="shop.html">Fresh & Organic</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                        <li><a href="shop.html">meat</a></li>
+                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
+                                        <li><a href="shop.html">Health & Beauty</a></li>
+                                        <li><a href="shop.html">Freah Fruits</a></li>
+                                        <li><a href="shop.html">Coffee & Drinks</a></li>
+                                        <li><a href="shop.html">Cleaning</a></li>
+                                        <li><a href="shop.html">Sea Fish</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="blogs.html">blog</a></li>
+                                <li class="mobile_dropdown">
+                                    <a href="#">pages</a>
+                                    <ul class="inner_menu">
+                                        <li><a href="about_us.html">about us</a></li>
+                                        <li><a href="blogs_details.html">blog details</a></li>
+                                        <li><a href="shop_details.html">shop details</a></li>
+                                        <li><a href="cart_view.html">cart view</a></li>
+                                        <li><a href="checkout.html">checkout</a></li>
+                                        <li><a href="payment.html">Payment</a></li>
+                                        <li><a href="dashboard.html">dashboard</a></li>
+                                        <li><a href="order_tracking.html">order tracking</a></li>
+                                        <li><a href="team.html">Our team</a></li>
+                                        <li><a href="team_details.html">team details</a></li>
+                                        <li><a href="error.html">error/404</a></li>
+                                        <li><a href="faq.html">faq's</a></li>
+                                        <li><a href="gallery.html">gallery</a></li>
+                                        <li><a href="sign_in.html">sign in</a></li>
+                                        <li><a href="sign_up.html">sign up</a></li>
+                                        <li><a href="forgot_password.html">forgot password</a></li>
+                                        <li><a href="privacy_policy.html">privacy policy</a></li>
+                                        <li><a href="terms_condition.html">terms & condition</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">contact</a></li>
+                                <li><a href="flash_sell.html">flash sell</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--============================
+        MOBILE MENU END
+    ==============================-->
+
+
+    <!--=========================
+        BANNER START
+    ==========================-->
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 d-none d-lg-block">
+                    <ul class="menu_cat_item">
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_15.png" alt="category">
+                                </span>
+                                fresh & Organic
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_10.png" alt="category">
+                                </span>
+                                sea fish
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_4.png" alt="category">
+                                </span>
+                                meat
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_12.png" alt="category">
+                                </span>
+                                bakery & biscuites
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_11.png" alt="category">
+                                </span>
+                                health & Beauty
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_14.png" alt="category">
+                                </span>
+                                freah fruits
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_9.png" alt="category">
+                                </span>
+                                coffee & drinks
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_2.png" alt="category">
+                                </span>
+                                cleaning
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>
+                                    <img src="{{asset('assets')}}/images/category_list_icon_7.png" alt="category">
+                                </span>
+                                Breakfast
+                            </a>
+                            <ul class="menu_cat_droapdown">
+                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">bananas</a></li>
+                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">graps</a></li>
+                                <li><a href="#">tomatos</a></li>
+                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
+                                    <ul class="sub_category">
+                                        <li><a href="#">celery</a></li>
+                                        <li><a href="#">broccolis</a></li>
+                                        <li><a href="#">apples</a> </li>
+                                        <li><a href="#">bananas</a></li>
+                                        <li><a href="#">graps</a></li>
+                                        <li><a href="#">tomatos</a></li>
+                                        <li><a href="#">berries</a></li>
+                                        <li><a href="#">cherries</a></li>
+                                        <li><a href="#">caulifollowers </a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">berries</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-9">
+                    <div class="banner_content">
+                        <div class="row banner_slider">
+                            <div class="col-xl-12">
+                                <div class="single_slider" style="background: url({{asset('assets')}}/images/slider_3.jpg);">
+                                    <div class="single_slider_text wow fadeInDown">
+                                        <h3>Organic 100% Genuine Product</h3>
+                                        <h1>Tasty & <span>Healthy</span> Organic Food</h1>
+                                        <p>Contrary to popular belief, Lorem Ipsum is not random text classical
+                                            Latin
+                                            literature.</p>
+                                        <a class="common_btn" href="shop_details.html">shop now <i
+                                                class="fas fa-long-arrow-right"></i> <span></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="single_slider" style="background: url({{asset('assets')}}/images/slider_1.jpg);">
+                                    <div class="single_slider_text wow fadeInLeft">
+                                        <h3>Up to 50% OFF</h3>
+                                        <h1>We Offer <span>Premium</span> & Organic Food</h1>
+                                        <p>Contrary to popular belief, Lorem Ipsum is not random text classical
+                                            Latin
+                                            literature.</p>
+                                        <a class="common_btn" href="shop_details.html">shop now <i
+                                                class="fas fa-long-arrow-right"></i> <span></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="single_slider" style="background: url({{asset('assets')}}/images/slider_2.jpg);">
+                                    <div class="single_slider_text wow fadeInLeft">
+                                        <h3>Organic 100% Genuine Product</h3>
+                                        <h1> Our <span>Garden's</span> Most Favorite Food</h1>
+                                        <p>Contrary to popular belief, Lorem Ipsum is not random text classical
+                                            Latin
+                                            literature.</p>
+                                        <a class="common_btn" href="shop_details.html">shop now <i
+                                                class="fas fa-long-arrow-right"></i> <span></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        BANNER END
+    ==========================-->
+
+
+    <!--=========================
+        CATEGORIES START
+    ==========================-->
+    <section class="categories pt_110 xs_pt_70">
+        <div class="container">
+            <div class="slider_padding">
+                <div class="row category_slider">
+                    <div class="col-xl-2">
+                        <a href="shop.html" class="category_item color_1 wow fadeInUp">
+                            <div class="icon">
+                                <img src="{{asset('assets')}}/images/category_icon_1.png" alt="category" class="img-fluid w-100">
+                            </div>
+                            <h4>Blueberry</h4>
+                        </a>
+                    </div>
+                    <div class="col-xl-2">
+                        <a href="shop.html" class="category_item color_2 wow fadeInUp">
+                            <div class="icon">
+                                <img src="{{asset('assets')}}/images/category_icon_2.png" alt="category" class="img-fluid w-100">
+                            </div>
+                            <h4>Strawberry</h4>
+                        </a>
+                    </div>
+                    <div class="col-xl-2">
+                        <a href="shop.html" class="category_item color_3 wow fadeInUp">
+                            <div class="icon">
+                                <img src="{{asset('assets')}}/images/category_icon_3.png" alt="category" class="img-fluid w-100">
+                            </div>
+                            <h4>Cabbage</h4>
+                        </a>
+                    </div>
+                    <div class="col-xl-2">
+                        <a href="shop.html" class="category_item color_4 wow fadeInUp">
+                            <div class="icon">
+                                <img src="{{asset('assets')}}/images/category_icon_4.png" alt="category" class="img-fluid w-100">
+                            </div>
+                            <h4>Eggplant</h4>
+                        </a>
+                    </div>
+                    <div class="col-xl-2">
+                        <a href="shop.html" class="category_item color_5 wow fadeInUp">
+                            <div class="icon">
+                                <img src="{{asset('assets')}}/images/category_icon_5.png" alt="category" class="img-fluid w-100">
+                            </div>
+                            <h4>Orange</h4>
+                        </a>
+                    </div>
+                    <div class="col-xl-2">
+                        <a href="shop.html" class="category_item color_6 wow fadeInUp">
+                            <div class="icon">
+                                <img src="{{asset('assets')}}/images/category_icon_6.png" alt="category" class="img-fluid w-100">
+                            </div>
+                            <h4>Apple</h4>
+                        </a>
+                    </div>
+                    <div class="col-xl-2">
+                        <a href="shop.html" class="category_item color_7 wow fadeInUp">
+                            <div class="icon">
+                                <img src="{{asset('assets')}}/images/category_icon_3.png" alt="category" class="img-fluid w-100">
+                            </div>
+                            <h4>Cabbage</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        CATEGORIES END
+    ==========================-->
+
+
+    <!--=========================
+        ADD BANNER START
+    ==========================-->
+    <section class="add_banner pt_95 xs_pt_55">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="add_banner_item wow fadeInUp" style="background: url({{asset('assets')}}/images/banner_bg_1.jpg);">
+                        <div class="add_banner_item_text wow fadeInLeft">
+                            <h4>Black Friday Offer</h4>
+                            <h2>Organic Foods Up To 45% Off</h2>
+                            <a class="common_btn" href="shop_details.html">shop now <i
+                                    class="fas fa-long-arrow-right"></i>
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="add_banner_item wow fadeInUp" style="background: url({{asset('assets')}}/images/banner_bg_2.jpg);">
+                        <div class="add_banner_item_text wow fadeInLeft">
+                            <h4>Daily Offer</h4>
+                            <h2>Vegetables Up To 65% Off</h2>
+                            <a class="common_btn bg_blck" href="shop_details.html">shop now <i
+                                    class="fas fa-long-arrow-right"></i>
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        ADD BANNER END
+    ==========================-->
+
+
+    <!--=========================
+        FRESH PRODUCTS START
+    ==========================-->
+    <section class="fresh_products pt_115 xs_pt_75">
+        <div class="container">
+            <div class="row wow fadeInUp">
+                <div class="col-xl-5 m-auto">
+                    <div class="section_heading mb_35">
+                        <h4>Our Products</h4>
+                        <h2>Our Fresh Products</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row wow fadeInUp">
+                <div class="col-xl-6 m-auto">
+                    <div class="product_filter mb_25">
+                        <button class=" active" data-filter="*">All Products</button>
+                        <button data-filter=".vegetables">Vegetables</button>
+                        <button data-filter=".fruits">Fruits</button>
+                        <button data-filter=".nuts">Nuts</button>
+                        <button data-filter=".drinks">Drinks</button>
+                        <button data-filter=".root">Root</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row grid">
+                <div class="col-xl-3 col-sm-6 col-lg-4 fruits drinks">
+                    <div class="single_product wow fadeInUp">
+                        <div class="single_product_img">
+                            <img src="{{asset('assets')}}/images/product_img_1.jpg" alt="Product" class="img_fluid w-100">
+                            <ul>
+                                <li><a href="#"><i class="far fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="single_product_text">
+                            <a class="title" href="shop_details.html">Lemon Meat Bone</a>
+                            <p>$20.00 <del>$25.00</del> </p>
+                            <a class="cart_btn" href="shop_details.html" data-bs-toggle="modal"
+                                data-bs-target="#cart_popup_modal"><i class="far fa-shopping-basket"></i> Add To
+                                Cart
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-lg-4 vegetables root">
+                    <div class="single_product wow fadeInUp">
+                        <div class="single_product_img">
+                            <img src="{{asset('assets')}}/images/product_img_2.jpg" alt="Product" class="img_fluid w-100">
+                            <ul>
+                                <li><a href="#"><i class="far fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="single_product_text">
+                            <a class="title" href="product_details.html">Fresh Red Seedless</a>
+                            <p>$12.00 <del>$10.00</del> </p>
+                            <a class="cart_btn" href="shop_details.html" data-bs-toggle="modal"
+                                data-bs-target="#cart_popup_modal"><i class="far fa-shopping-basket"></i> Add To
+                                Cart
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-lg-4 fruits nuts drinks">
+                    <div class="single_product wow fadeInUp">
+                        <div class="single_product_img">
+                            <img src="{{asset('assets')}}/images/product_img_3.jpg" alt="Product" class="img_fluid w-100">
+                            <ul>
+                                <li><a href="#"><i class="far fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="single_product_text">
+                            <a class="title" href="shop_details.html">Carrot Vegetables</a>
+                            <p>$33.00 <del>$28.00</del> </p>
+                            <a class="cart_btn" href="shop_details.html" data-bs-toggle="modal"
+                                data-bs-target="#cart_popup_modal"><i class="far fa-shopping-basket"></i> Add To
+                                Cart
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-lg-4 vegetables drinks root">
+                    <div class="single_product wow fadeInUp">
+                        <div class="single_product_img">
+                            <img src="{{asset('assets')}}/images/product_img_4.jpg" alt="Product" class="img_fluid w-100">
+                            <ul>
+                                <li><a href="#"><i class="far fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="single_product_text">
+                            <a class="title" href="shop_details.html">Bengal Beef Bone</a>
+                            <p>$12.00 <del>$10.00</del> </p>
+                            <a class="cart_btn" href="shop_details.html" data-bs-toggle="modal"
+                                data-bs-target="#cart_popup_modal"><i class="far fa-shopping-basket"></i> Add To
+                                Cart
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-lg-4 fruits root">
+                    <div class="single_product wow fadeInUp">
+                        <div class="single_product_img">
+                            <img src="{{asset('assets')}}/images/product_img_5.jpg" alt="Product" class="img_fluid w-100">
+                            <ul>
+                                <li><a href="#"><i class="far fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="single_product_text">
+                            <a class="title" href="shop_details.html">Carrot Vegetables</a>
+                            <p>$45.00 <del>$50.00</del> </p>
+                            <a class="cart_btn" href="shop_details.html" data-bs-toggle="modal"
+                                data-bs-target="#cart_popup_modal"><i class="far fa-shopping-basket"></i> Add To
+                                Cart
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-lg-4 vegetables nuts">
+                    <div class="single_product wow fadeInUp">
+                        <div class="single_product_img">
+                            <img src="{{asset('assets')}}/images/product_img_6.jpg" alt="Product" class="img_fluid w-100">
+                            <ul>
+                                <li><a href="#"><i class="far fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="single_product_text">
+                            <a class="title" href="shop_details.html">Orange Slice Mix</a>
+                            <p>$29.00 <del>$35.00</del> </p>
+                            <a class="cart_btn" href="shop_details.html" data-bs-toggle="modal"
+                                data-bs-target="#cart_popup_modal"><i class="far fa-shopping-basket"></i> Add To
+                                Cart
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-lg-4 fruits nuts root">
+                    <div class="single_product wow fadeInUp">
+                        <div class="single_product_img">
+                            <img src="{{asset('assets')}}/images/product_img_7.jpg" alt="Product" class="img_fluid w-100">
+                            <ul>
+                                <li><a href="#"><i class="far fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="single_product_text">
+                            <a class="title" href="shop_details.html">Beef Butter Cake</a>
+                            <p>$30.00 <del>$34.00</del> </p>
+                            <a class="cart_btn" href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
+                                    class="far fa-shopping-basket"></i> Add To
+                                Cart
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-lg-4 vegetables drinks">
+                    <div class="single_product wow fadeInUp">
+                        <div class="single_product_img">
+                            <img src="{{asset('assets')}}/images/product_img_8.jpg" alt="Product" class="img_fluid w-100">
+                            <ul>
+                                <li><a href="#"><i class="far fa-eye"></i></a></li>
+                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="single_product_text">
+                            <a class="title" href="shop_details.html">Fresh Mango Fruits</a>
+                            <p>$22.00 <del>$26.00</del> </p>
+                            <a class="cart_btn" href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
+                                    class="far fa-shopping-basket"></i> Add To
+                                Cart
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cart_popup_modal">
+        <div class="modal fade" id="cart_popup_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <div class="row align-items-center">
+                            <div class="col-xl-6 col-md-6">
+                                <div class="cart_popup_modal_img">
+                                    <img src="{{asset('assets')}}/images/home2_product_img_4.jpg" alt="Product img-fluid w-100">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-6">
+                                <div class="product_det_text">
+                                    <h2 class="details_title">Nestle Nescafe Classic Instant</h2>
+                                    <p class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                        <span>Review (20)</span>
+                                    </p>
+                                    <p class="price">$10.50 <del>$12.00</del></p>
+                                    <div class="details_quentity_area">
+                                        <p><span>Qti Weight</span> (in kg) :</p>
+                                        <div class="button_area">
+                                            <button>-</button>
+                                            <input type="text" placeholder="01">
+                                            <button>+</button>
+                                        </div>
+                                        <h3>= $10.50</h3>
+                                    </div>
+                                    <div class="details_cart_btn">
+                                        <a class="common_btn" href="#"><i class="far fa-shopping-basket"></i>
+                                            Add To
+                                            Cart
+                                            <span></span></a>
+                                        <a class="love" href="#"><i class="far fa-heart"></i></a>
+                                    </div>
+                                    <p class="category"><span>Category:</span>Coffee</p>
+                                    <ul class="tags">
+                                        <li>Tags:</li>
+                                        <li><a href="#">Black Coffee, </a></li>
+                                        <li><a href="#">Popular,</a></li>
+                                        <li><a href="#">Top Sell</a></li>
+                                    </ul>
+                                    <ul class="share">
+                                        <li>Share with friends:</li>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=========================
+        FRESH PRODUCTS END
+    ==========================-->
+
+
+    <!--=========================
+        FARMING START
+    ==========================-->
+    <section class="farming mt_120 xs_mt_80 pt_95 xs_pt_80 pb_120 xs_pb_80"
+        style="background: url({{asset('assets')}}/images/farming_bg.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-10">
+                    <div class="farming_text wow fadeInLeft">
+                        <div class="section_heading heading_left">
+                            <h4>New Tech Farming</h4>
+                            <h2>Watch Our Farming And Cultivations</h2>
+                        </div>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                            suffered alteration in some form, by injected humour, or randomised words which slightly
+                            believable.</p>
+                        <a class="common_btn" href="#">Read more <i class="fas fa-long-arrow-right"></i>
+                            <span></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-xl-6 col-sm-6">
+                            <div class="farming_img wow fadeInUp">
+                                <img src="{{asset('assets')}}/images/farming_img_1.jpg" alt="farming" class="img-fluid w-100">
+                                <div class="overlay">
+                                    <a class="venobox play_btn" data-autoplay="true" data-vbtype="video"
+                                        href="https://youtu.be/nqye02H_H6I?si=Yq79QYJhfIT_wkC_">
+                                        <i class=" fas fa-play"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-sm-6">
+                            <div class="farming_img wow fadeInUp">
+                                <img src="{{asset('assets')}}/images/farming_img_2.jpg" alt="farming" class="img-fluid w-100">
+                                <div class="overlay">
+                                    <a class="venobox play_btn" data-autoplay="true" data-vbtype="video"
+                                        href="https://youtu.be/nqye02H_H6I?si=Yq79QYJhfIT_wkC_">
+                                        <i class=" fas fa-play"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-sm-6">
+                            <div class="farming_img wow fadeInUp">
+                                <img src="{{asset('assets')}}/images/farming_img_3.jpg" alt="farming" class="img-fluid w-100">
+                                <div class="overlay">
+                                    <a class="venobox play_btn" data-autoplay="true" data-vbtype="video"
+                                        href="https://youtu.be/nqye02H_H6I?si=Yq79QYJhfIT_wkC_">
+                                        <i class=" fas fa-play"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-sm-6">
+                            <div class="farming_img wow fadeInUp">
+                                <img src="{{asset('assets')}}/images/farming_img_4.jpg" alt="farming" class="img-fluid w-100">
+                                <div class="overlay">
+                                    <a class="venobox play_btn" data-autoplay="true" data-vbtype="video"
+                                        href="https://youtu.be/nqye02H_H6I?si=Yq79QYJhfIT_wkC_">
+                                        <i class=" fas fa-play"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        FARMING END
+    ==========================-->
+
+
+    <!--=========================
+        BRAND START
+    ==========================-->
+    <section class="brand mt_115 xs_mt_75">
+        <div class="container">
+            <div class="row wow fadeInUp">
+                <div class="col-xl-5 m-auto">
+                    <div class="section_heading mb_45">
+                        <h4>Our Partners</h4>
+                        <h2>Our Organic Farm Partners</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="brand_item_area">
+                <div class="row wow fadeInUp">
+                    <div class="col-12">
+                        <div class="marquee_animi">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="{{asset('assets')}}/images/brand_item_1.png" alt="brand" class="img-fluid w-100">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="{{asset('assets')}}/images/brand_item_2.png" alt="brand" class="img-fluid w-100">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="{{asset('assets')}}/images/brand_item_3.png" alt="brand" class="img-fluid w-100">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="{{asset('assets')}}/images/brand_item_4.png" alt="brand" class="img-fluid w-100">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="{{asset('assets')}}/images/brand_item_5.png" alt="brand" class="img-fluid w-100">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="{{asset('assets')}}/images/brand_item_6.png" alt="brand" class="img-fluid w-100">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="{{asset('assets')}}/images/brand_item_4.png" alt="brand" class="img-fluid w-100">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        BRAND END
+    ==========================-->
+
+
+    <!--=========================
+        SPECIAL PRODUCT START
+    ==========================-->
+    <section class="special_product pt_115 xs_pt_75">
+        <div class="container">
+            <div class="row wow fadeInUp">
+                <div class="col-xl-5 m-auto">
+                    <div class="section_heading mb_25">
+                        <h4>Special Products</h4>
+                        <h2>Our Special Products</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xxl-4 col-lg-3 col-xl-3">
+                    <div class="special_product_banner wow fadeInLeft">
+                        <img src="{{asset('assets')}}/images/special_pro_banner_img.jpg" alt="special product" class="img-fluid w-100">
+                        <div class="text">
+                            <h5>Weekly Discounts on</h5>
+                            <h3>Fruits and Vegetables</h3>
+                            <p>It is a long established fact that a reader
+                                acted by the readable content.</p>
+                            <a class="common_btn black_btn" href="shop_details.html">shop now <i
+                                    class="fas fa-long-arrow-right"></i>
+                                <span></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-8 col-lg-9 col-xl-9">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="special_product_item wow fadeInUp">
+                                <div class="special_product_img">
+                                    <img src="{{asset('assets')}}/images/special_product_1.jpg" alt="product" class="img-fluid w-100">
+                                    <span class="discount">save 70%</span>
+                                </div>
+                                <div class="special_product_text">
+                                    <a class="title" href="shop_details.html">Butter garlic crab</a>
+                                    <span>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                    <p>$10.00 <del>$12.00</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="special_product_item wow fadeInUp">
+                                <div class="special_product_img">
+                                    <img src="{{asset('assets')}}/images/special_product_2.jpg" alt="product" class="img-fluid w-100">
+                                </div>
+                                <div class="special_product_text">
+                                    <a class="title" href="shop_details.html">Bengal Meat Bone</a>
+                                    <span>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                    <p>$13.00 <del>$15.00</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="special_product_item wow fadeInUp">
+                                <div class="special_product_img">
+                                    <img src="{{asset('assets')}}/images/special_product_3.jpg" alt="product" class="img-fluid w-100">
+                                    <span class="discount">save 40%</span>
+                                </div>
+                                <div class="special_product_text">
+                                    <a class="title" href="shop_details.html">Three Carrot</a>
+                                    <span>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                    <p>$17.00 <del>$20.00</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="special_product_item wow fadeInUp">
+                                <div class="special_product_img">
+                                    <img src="{{asset('assets')}}/images/special_product_4.jpg" alt="product" class="img-fluid w-100">
+                                    <span class="discount">save 50%</span>
+                                </div>
+                                <div class="special_product_text">
+                                    <a class="title" href="shop_details.html">Lemon Meat Bone</a>
+                                    <span>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                    <p>$29.00 <del>$32.00</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="special_product_item wow fadeInUp">
+                                <div class="special_product_img">
+                                    <img src="{{asset('assets')}}/images/special_product_5.jpg" alt="product" class="img-fluid w-100">
+                                </div>
+                                <div class="special_product_text">
+                                    <a class="title" href="shop_details.html">Orange Slice Mix</a>
+                                    <span>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                    <p>$20.00 <del>$22.00</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="special_product_item wow fadeInUp">
+                                <div class="special_product_img">
+                                    <img src="{{asset('assets')}}/images/special_product_6.jpg" alt="product" class="img-fluid w-100">
+                                    <span class="discount">save 30%</span>
+                                </div>
+                                <div class="special_product_text">
+                                    <a class="title" href="shop_details.html">Carrot Vegetables</a>
+                                    <span>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                    <p>$16.00 <del>$18.00</del></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        SPECIAL PRODUCT END
+    ==========================-->
+
+
+    <!--=========================
+        COUNTDOWN START
+    ==========================-->
+    <section class="countdown mt_120 xs_mt_80 pt_115 xs_pt_75 pb_115 xs_pb_75"
+        style="background: url({{asset('assets')}}/images/countdown_bg.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-5 col-md-9 col-lg-6 col-xl-6">
+                    <div class="countdown_text wow fadeInLeft">
+                        <div class="section_heading heading_left">
+                            <h4>Sales on Weekly Offers</h4>
+                            <h2>Our special products deal of the day</h2>
+                        </div>
+                        <p>There are many variations of passages of Lorem Ipsum available butmajority have suffered
+                            alteration in some form.</p>
+                        <div class="simply-countdown simply-countdown-one"></div>
+                        <a class="common_btn" href="shop_details.html">shop now <i class="fas fa-long-arrow-right"></i>
+                            <span></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        COUNTDOWN END
+    ==========================-->
+
+
+    <!--=========================
+        DOWNLOAD START
+    ==========================-->
+    <section class="download pt_110 xs_pt_70 pb_110 xs_pb_80">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-md-5 col-lg-5 wow flipInX">
+                    <div class="download_img">
+                        <img src="{{asset('assets')}}/images/download_img.png" alt="download" class="img-fluid w-100">
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-7 col-lg-7 m-auto wow fadeInRight">
+                    <div class="download_text">
+                        <div class="section_heading heading_left">
+                            <h4>Download This App</h4>
+                            <h2>Simple Way to Order Your Food Faster</h2>
+                        </div>
+                        <P>It is a long established fact that a reader will be distracted by the readable content of
+                            a
+                            page when looking at its layout The point.</P>
+                        <ul>
+                            <li>
+                                <a class="common_btn" href="#"><i class="fab fa-apple"></i> Apple Store
+                                    <span></span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-google-play"></i>Play Store</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        DOWNLOAD END
+    ==========================-->
+
+
+    <!--=========================
+        TESTIMONIAL START
+    ==========================-->
+    <section class="testimonial pt_115 xs_pt_75 pb_160 xs_pb_120" style="background: url({{asset('assets')}}/images/testimonial_bg.jpg);">
+        <div class="container">
+            <div class="row wow fadeInUp">
+                <div class="col-xl-5 m-auto">
+                    <div class="section_heading mb_50">
+                        <h4>Testimonials</h4>
+                        <h2>What Our Customer Say</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row testi_slider">
+                <div class="col-xl-4">
+                    <div class="testimonial_item wow fadeInUp">
+                        <p class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </p>
+                        <p class="review_text">Adipiscng bibendum est ultricies integr quis. it’s Tortor at risus
+                            viverra adipiscing. Nulla facili mor tempus iaculis urna id volutpat lacus. Hac habi
+                            tasse
+                            platea dictumst quisque</p>
+                        <div class="testimonial_footer">
+                            <div class="img">
+                                <img src="{{asset('assets')}}/images/testimonial_img_1.jpg" alt="testimonial" class="img-fluid w-100">
+                            </div>
+                            <div class="text">
+                                <h3>Bartholomew</h3>
+                                <p>Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="testimonial_item wow fadeInUp">
+                        <p class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5</span>
+                        </p>
+                        <p class="review_text">Adipiscng bibendum est ultricies integr quis. it’s Tortor at risus
+                            viverra adipiscing. Nulla facili mor tempus iaculis urna id volutpat lacus. Hac habi
+                            tasse
+                            platea dictumst quisque</p>
+                        <div class="testimonial_footer">
+                            <div class="img">
+                                <img src="{{asset('assets')}}/images/testimonial_img_2.jpg" alt="testimonial" class="img-fluid w-100">
+                            </div>
+                            <div class="text">
+                                <h3>Nigel Nigel</h3>
+                                <p>Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="testimonial_item wow fadeInUp">
+                        <p class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            <span>3.5</span>
+                        </p>
+                        <p class="review_text">Adipiscng bibendum est ultricies integr quis. it’s Tortor at risus
+                            viverra adipiscing. Nulla facili mor tempus iaculis urna id volutpat lacus. Hac habi
+                            tasse
+                            platea dictumst quisque</p>
+                        <div class="testimonial_footer">
+                            <div class="img">
+                                <img src="{{asset('assets')}}/images/testimonial_img_3.jpg" alt="testimonial" class="img-fluid w-100">
+                            </div>
+                            <div class="text">
+                                <h3>Robert Deni</h3>
+                                <p>Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="testimonial_item wow fadeInUp">
+                        <p class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5</span>
+                        </p>
+                        <p class="review_text">Adipiscng bibendum est ultricies integr quis. it’s Tortor at risus
+                            viverra adipiscing. Nulla facili mor tempus iaculis urna id volutpat lacus. Hac habi
+                            tasse
+                            platea dictumst quisque</p>
+                        <div class="testimonial_footer">
+                            <div class="img">
+                                <img src="{{asset('assets')}}/images/testimonial_img_2.jpg" alt="testimonial" class="img-fluid w-100">
+                            </div>
+                            <div class="text">
+                                <h3>Nigel Nigel</h3>
+                                <p>Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        TESTIMONIAL END
+    ==========================-->
+
+
+    <!--=========================
+        BLOG START
+    ==========================-->
+    <section class="blog pt_115 xs_pt_75">
+        <div class="container">
+            <div class="row wow fadeInUp">
+                <div class="col-xl-5 m-auto">
+                    <div class="section_heading mb_15">
+                        <h4>Our Blog Post</h4>
+                        <h2>Latest News & Articles</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog_item wow fadeInUp">
+                        <div class="blog_img">
+                            <img src="{{asset('assets')}}/images/blog_img_1.jpg" alt="blog" class="img-fluid w-100">
+                        </div>
+                        <div class="blog_text">
+                            <ul class="top">
+                                <li><i class="far fa-tag"></i> Drink</li>
+                                <li><i class="far fa-user-circle"></i> Admin</li>
+                            </ul>
+                            <a class="title" href="blogs_details.html">Freshly Served Exploring the World of
+                                Fresh</a>
+                            <ul class="bottom">
+                                <li><a href="blogs_details.html">read more <i class="fas fa-long-arrow-right"></i></a>
+                                </li>
+                                <li><span><i class="far fa-comment-dots"></i> 15 Comments</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog_item wow fadeInUp">
+                        <div class="blog_img">
+                            <img src="{{asset('assets')}}/images/blog_img_2.jpg" alt="blog" class="img-fluid w-100">
+                        </div>
+                        <div class="blog_text">
+                            <ul class="top">
+                                <li><i class="far fa-tag"></i> Fish</li>
+                                <li><i class="far fa-user-circle"></i> Admin</li>
+                            </ul>
+                            <a class="title" href="blogs_details.html">The Fresh Connection Exploring the Link
+                                Between</a>
+                            <ul class="bottom">
+                                <li><a href="blogs_details.html">read more <i class="fas fa-long-arrow-right"></i></a>
+                                </li>
+                                <li><span><i class="far fa-comment-dots"></i> 42 Comments</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog_item wow fadeInUp">
+                        <div class="blog_img">
+                            <img src="{{asset('assets')}}/images/blog_img_3.jpg" alt="blog" class="img-fluid w-100">
+                        </div>
+                        <div class="blog_text">
+                            <ul class="top">
+                                <li><i class="far fa-tag"></i> Meat</li>
+                                <li><i class="far fa-user-circle"></i> Admin</li>
+                            </ul>
+                            <a class="title" href="blogs_details.html">Common Engine Oil Problems and Solutions</a>
+                            <ul class="bottom">
+                                <li><a href="blogs_details.html">read more <i class="fas fa-long-arrow-right"></i></a>
+                                </li>
+                                <li><span><i class="far fa-comment-dots"></i> 36 Comments</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        BLOG END
+    ==========================-->
+
+
+    <!--=========================
+        FOOTER START
+    ==========================-->
+    <footer class="mt_200 xs_mt_160">
+        <div class="footer_overlay">
+            <div class="container">
+                <div class="footer_info" style="background: url({{asset('assets')}}/images/footer_info_bg.jpg);">
+                    <div class="row wow fadeInUp">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="footer_info_item">
+                                <div class="icon">
+                                    <img src="{{asset('assets')}}/images/footer_info_icon_1.png" alt="Icon" class="img-fluid w-100">
+                                </div>
+                                <div class="text">
+                                    <h3>Free Shipping</h3>
+                                    <p>Worldwide</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="footer_info_item">
+                                <div class="icon">
+                                    <img src="{{asset('assets')}}/images/footer_info_icon_2.png" alt="Icon" class="img-fluid w-100">
+                                </div>
+                                <div class="text">
+                                    <h3>Helpline</h3>
+                                    <p>+1256 25632 565</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="footer_info_item">
+                                <div class="icon">
+                                    <img src="{{asset('assets')}}/images/footer_info_icon_3.png" alt="Icon" class="img-fluid w-100">
+                                </div>
+                                <div class="text">
+                                    <h3>24/7 Support</h3>
+                                    <p>Free For Customers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="footer_info_item">
+                                <div class="icon">
+                                    <img src="{{asset('assets')}}/images/footer_info_icon_4.png" alt="Icon" class="img-fluid w-100">
+                                </div>
+                                <div class="text">
+                                    <h3>Returns</h3>
+                                    <p>30 Days Free Exchanges</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-lg-3 col-md-8">
+                        <div class="footer_logo_area">
+                            <a class="footer_logo" href="index.html">
+                                <img src="{{asset('assets')}}/images/footer_logo.png" alt="Freshmat" class="img-fluid w-100">
+                            </a>
+                            <p>Lorem ipsum dolor sit amet, cons ectetur adipiscing elit sed.</p>
+                            <span>Hello to : <a href="mailto:support@mail.com">support@mail.com</a></span>
+                            <ul>
+                                <li><span>Follow :</span></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-md-4">
+                        <div class="footer_link">
+                            <h3>Category</h3>
+                            <ul>
+                                <li><a href="shop.html">Milk & Dairy</a></li>
+                                <li><a href="shop.html">Coffee & Drinks</a></li>
+                                <li><a href="shop.html">Fresh & Fruits</a></li>
+                                <li><a href="shop.html">Fresh Dessert</a></li>
+                                <li><a href="shop.html">Cleaning Essential</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-md-4">
+                        <div class="footer_link">
+                            <h3>Quick Links</h3>
+                            <ul>
+                                <li><a href="#">Aarong Dairy</a></li>
+                                <li><a href="#">Alshifa Natural</a></li>
+                                <li><a href="#">Agro Acres</a></li>
+                                <li><a href="#">Service</a></li>
+                                <li><a href="#">News</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-md-4">
+                        <div class="footer_link">
+                            <h3>Our Services</h3>
+                            <ul>
+                                <li><a href="#">Agriculture</a></li>
+                                <li><a href="#">Organic Products</a></li>
+                                <li><a href="#">Milk Sweet</a></li>
+                                <li><a href="#">Delivery Service</a></li>
+                                <li><a href="#">Fresh Vegetables</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-md-4">
+                        <div class="footer_link">
+                            <h3>Contact Us</h3>
+                            <ul>
+                                <li><a href="about_us.html">About Us</a></li>
+                                <li><a href="sign_in.html">Sign In</a></li>
+                                <li><a href="sign_up.html">Sign Up</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a href="team.html">Team</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer_copyright mt_75">
+                            <p>Copyright @ Freshmat 2023. All right reserved.</p>
+                            <ul>
+                                <li>Payment by :</li>
+                                <li>
+                                    <img src="{{asset('assets')}}/images/footer_payment_icon_1.jpg" alt="payment" class="img-fluid w-100">
+                                </li>
+                                <li>
+                                    <img src="{{asset('assets')}}/images/footer_payment_icon_2.jpg" alt="payment" class="img-fluid w-100">
+                                </li>
+                                <li>
+                                    <img src="{{asset('assets')}}/images/footer_payment_icon_3.jpg" alt="payment" class="img-fluid w-100">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--=========================
+        FOOTER END
+    ==========================-->
+
+
+    <!--==========================
+        SCROLL BUTTON START
+    ===========================-->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!--==========================
+        SCROLL BUTTON END
+    ===========================-->
+
+
+    <!--jquery library js-->
+    <script src="{{asset('assets')}}/js/jquery-3.7.0.min.js"></script>
+    <!--bootstrap js-->
+    <script src="{{asset('assets')}}/js/bootstrap.bundle.min.js"></script>
+    <!--font-awesome js-->
+    <script src="{{asset('assets')}}/js/Font-Awesome.js"></script>
+    <!--slick slider js-->
+    <script src="{{asset('assets')}}/js/slick.min.js"></script>
+    <!--isotope js-->
+    <script src="{{asset('assets')}}/js/isotope.pkgd.min.js"></script>
+    <!--venobox js-->
+    <script src="{{asset('assets')}}/js/venobox.min.js"></script>
+    <!--marquee animi-->
+    <script src="{{asset('assets')}}/js/jquery.marquee.min.js"></script>
+    <!--simply countdown js-->
+    <script src="{{asset('assets')}}/js/simplyCountdown.js"></script>
+    <!--scroll button js-->
+    <script src="{{asset('assets')}}/js/scroll_button.js"></script>
+    <!--counter-up js-->
+    <script src="{{asset('assets')}}/js/jquery.waypoints.min.js"></script>
+    <script src="{{asset('assets')}}/js/jquery.countup.min.js"></script>
+    <!--exzoom js-->
+    <script src="{{asset('assets')}}/js/jquery.exzoom.js"></script>
+    <!--nice select js-->
+    <script src="{{asset('assets')}}/js/jquery.nice-select.min.js"></script>
+    <!--percircle js-->
+    <script src="{{asset('assets')}}/js/percircle.js"></script>
+    <!--price ranger js-->
+    <script src="{{asset('assets')}}/js/ranger_jquery-ui.min.js"></script>
+    <script src="{{asset('assets')}}/js/ranger_slider.js"></script>
+    <!--select2 js-->
+    <script src="{{asset('assets')}}/js/select2.min.js"></script>
+    <!--sticky sidebar js-->
+    <script src="{{asset('assets')}}/js/sticky_sidebar.js"></script>
+    <!--aos js-->
+    <script src="{{asset('assets')}}/js/wow.min.js"></script>
+    <!--script js-->
+    <script src="{{asset('assets')}}/js/main.js"></script>
+
+</body>
+
 </html>

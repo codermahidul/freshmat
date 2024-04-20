@@ -31,6 +31,71 @@
                 @endforeach
             </tbody>
           </table>
+          @if(session('success'))
+          <script>
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-right',
+                iconColor: 'white',
+                customClass: {
+                  popup: 'colored-toast',
+                },
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+              })
+
+              Toast.fire({
+                icon: 'success',
+                title: "{{ session('success') }}",
+              })
+            </script>
+          @endif
+
+          @if(session('deactive'))
+          <script>
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-right',
+                iconColor: 'white',
+                customClass: {
+                  popup: 'colored-toast',
+                },
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+              })
+
+              Toast.fire({
+                icon: 'success',
+                title: "{{ session('deactive') }}",
+              })
+            </script>
+          @endif
+
+          @if(session('active'))
+          <script>
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-right',
+                iconColor: 'white',
+                customClass: {
+                  popup: 'colored-toast',
+                },
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+              })
+
+              Toast.fire({
+                icon: 'success',
+                title: "{{ session('active') }}",
+              })
+            </script>
+          @endif
         </div>
         <!-- /.card-body -->
         <div class="card-footer clearfix">
