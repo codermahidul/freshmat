@@ -3,6 +3,7 @@
 use App\Http\Controllers\FAQSController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -56,4 +57,8 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/blog/comment/delete/{id}',[BlogController::class, 'commentDelete'])->name('blog.comment.delete');
     Route::get('/blog/comment/reply/{id}',[BlogController::class, 'commentReply'])->name('blog.comment.reply');
     Route::post('/blog/comment/reply/{id}',[BlogController::class, 'commentReplyInsert'])->name('blog.comment.reply');
+    //Product Category
+    Route::get('/product/category', [ProductController::class, 'index'])->name('productCategory');
+    Route::get('/product/category/add', [ProductController::class, 'add'])->name('productCategoryAdd');
+    Route::post('/product/category/store', [ProductController::class, 'store'])->name('productCategoryStore');
 });

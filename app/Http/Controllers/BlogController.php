@@ -135,7 +135,7 @@ class BlogController extends Controller
     
     //Category
     function category(){
-        $categories = BlogCategory::all();
+        $categories = BlogCategory::latest()->paginate(10);
         return view('dashboard.category.category',compact('categories'));
     }
 

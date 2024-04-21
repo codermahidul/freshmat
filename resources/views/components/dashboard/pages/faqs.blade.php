@@ -46,7 +46,7 @@
                 timerProgressBar: true,
               })
 
-              Toast.fire({
+                      Toast.fire({
                 icon: 'success',
                 title: "{{ session('success') }}",
               })

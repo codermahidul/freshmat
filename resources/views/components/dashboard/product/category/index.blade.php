@@ -2,8 +2,8 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h3 class="card-title">FAQs List</h3>
-          <a href="{{route('category.add')}}" class="btn btn-primary ml-auto">Add New</a>
+          <h3 class="card-title">Product Category List</h3>
+          <a href="{{ route('productCategoryAdd') }}" class="btn btn-primary ml-auto">Add New</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -13,15 +13,19 @@
                 <th style="width: 10px">#</th>
                 <th>Name</th>
                 <th>Slug</th>
+                <th>Icon</th>
                 <th class="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($categories as $category)
+              @foreach ($productcategory as $category)
                 <tr>
                     <td> {{$loop->index +1}} </td>
                     <td> {{$category->name}} </td>
-                    <td> {{$category->slug}} </a></td>
+                    <td> {{$category->slug}} </td>
+                    <td width="10">
+                        <img src="{{ asset($category->icon) }}" alt="">
+                    </td>
                     <td class="text-center">
                         <a href="{{route('category.edit',$category->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                         <a href="{{route('category.delete',$category->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
@@ -75,7 +79,7 @@
         @endif
       </div>
         <!-- Pagination -->
-        {{ $categories->links('pagination.dashboardPagination') }}
+        {{ $productcategory->links('pagination.dashboardPagination') }}
       </div>
     </div>
   </div>
