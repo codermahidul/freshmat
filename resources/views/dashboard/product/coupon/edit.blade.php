@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','New Post | Dashboard')
+@section('title','Edit Categories | Dashboard')
 @section('content')
 @section('breadcrumb')
 <div class="content-header">
@@ -12,12 +12,12 @@
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
           <li class="breadcrumb-item"><a href="{{route('coupon')}}">Coupon</a></li>
-          <li class="breadcrumb-item active">Add New Coupon</li>
+          <li class="breadcrumb-item active">Coupon Edit</li>
         </ol>
       </div>
     </div>
   </div>
 </div>
 @endsection
-  @include('components.dashboard.product.coupon.add')
+  @include('components.dashboard.product.coupon.edit')
 @endsection

@@ -76,4 +76,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Coupon
     Route::get('coupon/', [CouponController::class, 'index'])->name('coupon');
     Route::get('coupon/add', [CouponController::class, 'show'])->name('couponadd');
+    Route::post('coupon/insert', [CouponController::class, 'insert'])->name('couponinsert');
+    Route::get('coupon/edit/{id}', [CouponController::class, 'edit'])->name('couponedit');
+    Route::post('coupon/update/{id}', [CouponController::class, 'update'])->name('couponupdate');
 });

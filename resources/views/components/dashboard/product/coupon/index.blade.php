@@ -35,7 +35,7 @@
                     <td> {{ $coupon->expireDate}} </td>
                     <td> {{ $coupon->status}} </td>
                     <td class="text-center">
-                        <a href="{{route('productcategoryedit',$coupon->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('couponedit',$coupon->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                         <a href="{{route('productcategorydelete',$coupon->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>

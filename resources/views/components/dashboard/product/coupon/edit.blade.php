@@ -6,17 +6,17 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">{{ __('Add New Coupon') }}</h3>
+              <h3 class="card-title">{{ __('Edit Coupon') }}</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('couponinsert')}}" method="POST">
+            <form action="{{route('couponupdate',$coupon->id)}}" method="POST">
                 @csrf
               <div class="card-body">
                 {{-- Title --}}
                 <div class="form-group">
                   <label for="name">{{ __('Coupon Name') }}</label>
-                  <input type="text" class="form-control @error('name') is-invalid @enderror" id="title" placeholder="Enter Coupon Name" name="name" value="{{old('name')}}">
+                  <input type="text" class="form-control @error('name') is-invalid @enderror" id="title" placeholder="Enter Coupon Name" name="name" value="{{old('name')}}{{ $coupon->name }}">
                     @error('name')
                         <span class="text-danger">
                             {{$message}}
@@ -27,7 +27,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="discount">{{ __('Discount') }}</label>
-                      <input type="number" class="form-control @error('discount') is-invalid @enderror" id="discount" placeholder="Enter Discount Ammount" name="discount" value="{{old('discount')}}">
+                      <input type="number" class="form-control @error('discount') is-invalid @enderror" id="discount" placeholder="Enter Discount Ammount" name="discount" value="{{old('discount')}}{{ $coupon->discount }}">
                         @error('discount')
                             <span class="text-danger">
                                 {{$message}}
@@ -39,9 +39,8 @@
                     <div class="form-group">
                       <label>Type</label>
                       <select class="form-control @error('type') is-invalid @enderror" name="type">
-                          <option value="" selected>Discount Type</option>
-                          <option value="fixed">Fixed</option>
-                          <option value="flat">Percentage</option>
+                          <option value="fixed" {{ ($coupon->type == 'fixed') ? 'selected' : '' }}>Fixed</option>
+                          <option value="flat" {{ ($coupon->type == 'flat') ? 'selected' : '' }}>Percentage</option>
                       </select>
                       @error('type')
                       <span class="text-danger">
@@ -55,7 +54,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="minOrder">{{ __('Minimum Order Ammount') }}</label>
-                      <input type="number" class="form-control @error('minOrder') is-invalid @enderror" id="minOrder" placeholder="Enter Minimum Order Ammount" name="minOrder" value="{{old('minOrder')}}">
+                      <input type="number" class="form-control @error('minOrder') is-invalid @enderror" id="minOrder" placeholder="Enter Minimum Order Ammount" name="minOrder" value="{{old('minOrder')}}{{ $coupon->minOrder }}">
                         @error('minOrder')
                             <span class="text-danger">
                                 {{$message}}
@@ -66,7 +65,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="maxOrder">{{ __('Maximum Order Ammount') }}</label>
-                      <input type="number" class="form-control @error('maxOrder') is-invalid @enderror" id="maxOrder" placeholder="Enter Maximum Order Ammount" name="maxOrder" value="{{old('maxOrder')}}">
+                      <input type="number" class="form-control @error('maxOrder') is-invalid @enderror" id="maxOrder" placeholder="Enter Maximum Order Ammount" name="maxOrder" value="{{old('maxOrder')}}{{ $coupon->maxOrder }}">
                         @error('maxOrder')
                             <span class="text-danger">
                                 {{$message}}
@@ -79,7 +78,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="limit">{{ __('Limit') }}</label>
-                      <input type="number" class="form-control @error('limit') is-invalid @enderror" id="limit" placeholder="Enter Limit" name="limit" value="{{old('limit')}}">
+                      <input type="number" class="form-control @error('limit') is-invalid @enderror" id="limit" placeholder="Enter Limit" name="limit" value="{{old('limit')}}{{ $coupon->limit }}">
                         @error('limit')
                             <span class="text-danger">
                                 {{$message}}
@@ -90,7 +89,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="expireDate">{{ __('Expire Date') }}</label>
-                      <input type="date" class="form-control @error('expireDate') is-invalid @enderror" id="expireDate" name="expireDate" value="{{old('expireDate')}}">
+                      <input type="date" class="form-control @error('expireDate') is-invalid @enderror" id="expireDate" name="expireDate" value="{{old('expireDate')}}{{ $coupon->expireDate }}">
                         @error('expireDate')
                             <span class="text-danger">
                                 {{$message}}
@@ -102,11 +101,11 @@
                   <div class="form-group">
                     <label>Status</label>
                     <select class="form-control" name="status">
-                        <option value="active" selected>Active</option>
-                        <option value="deactive">Deactive</option>
+                        <option value="active" {{ ($coupon->status == 'active') ? 'selected' : '' }}>Active</option>
+                        <option value="deactive" {{ ($coupon->status == 'deactive') ? 'selected' : '' }}>Deactive</option>
                     </select>
                   </div>
-                <button type="submit" class="btn btn-primary">Add New Coupon</button>
+                <button type="submit" class="btn btn-primary">Update Coupon</button>
             </form>
           </div>
           @if (session('success'))
