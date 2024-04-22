@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FAQSController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CouponController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -68,4 +69,11 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('product/', [ProductController::class, 'productindex'])->name('products');
     Route::get('product/add', [ProductController::class, 'productadd'])->name('productadd');
     Route::post('product/insert', [ProductController::class, 'productinsert'])->name('productinsert');
+    Route::get('product/edit/{id}', [ProductController::class, 'productedit'])->name('productedit');
+    Route::post('product/update/{id}', [ProductController::class, 'productupdate'])->name('productupdate');
+    Route::get('product/delete/{id}', [ProductController::class, 'productdelete'])->name('productdelete');
+
+    //Coupon
+    Route::get('coupon/', [CouponController::class, 'index'])->name('coupon');
+    Route::get('coupon/add', [CouponController::class, 'show'])->name('couponadd');
 });

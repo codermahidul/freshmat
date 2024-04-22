@@ -151,12 +151,6 @@ class ProductController extends Controller
              $slug = Str::slug($request->input('slug'),'-');
         }
 
-        //Tags
-        $tags = "";
-        if ($request->input('tags')) {
-            $tags = Str::lower($request->input('tags'));
-            $tags = Str::of($tags)->explode(', ');
-        }
 
         //Feature Image
         $manager = new ImageManager(new Driver());
@@ -180,7 +174,7 @@ class ProductController extends Controller
             'categoryId' => $request->input('categoryId'),
             'thumbnail' => $save_url,
             'sku' => $request->input('sku'),
-            'tags' => $tags,
+            'tags' => $request->input('tags'),
             'status' => $request->input('status'),
         ]);
 
@@ -207,4 +201,112 @@ class ProductController extends Controller
         return back()->with('success','Product Added Successfully!');
 
     }
+
+
+    public function productedit($id){
+        $categories = ProductCategory::all();
+        $product = Product::where('id',$id)->with('productcategories','productgallery')->first();
+        return view('dashboard.product.edit',compact('categories','product'));
+    }
+
+
+
+    public function productupdate(Request $request, $id){
+        $request->validate([
+            'title' => 'required',
+            'shortDescription' => 'required',
+            'selePrice' => 'required',
+            'unitType' => 'required',
+            'categoryId' => 'required',
+            'sku' => 'required',
+        ]);
+
+        //Slug
+        $slug = "";
+        if ($request->input('slug') == '') {
+            $slug = Str::slug($request->input('title','-'));
+        }else {
+             $slug = Str::slug($request->input('slug'),'-');
+        }
+
+        //Feature Image
+        $thumbnailUrl = Product::where('id',$id)->first()->thumbnail;
+        if ($request->file('thumbnail')) {
+            unlink(base_path('public/'.$thumbnailUrl));
+
+            $manager = new ImageManager(new Driver());
+            $thumbnail = $request->file('thumbnail');
+            $name = $slug.'-'.Str::uuid()->toString().'.'.$thumbnail->getClientOriginalExtension();
+            $img = $manager->read($thumbnail);
+            $img = $img->resize(310,250);
+            $img->toJpeg(90)->save(base_path('public/uploads/products/feature/'.$name));
+            $thumbnailUrl = 'uploads/products/feature/'.$name;
+        }
+
+
+
+        $product = Product::where('id',$id)->update([
+            'title' => $request->input('title'),
+            'slug' => $slug,
+            'shortDescription' => $request->input('shortDescription'),
+            'description' => $request->input('description'),
+            'regularPrice' => $request->input('regularPrice'),
+            'selePrice' => $request->input('selePrice'),
+            'unitType' => $request->input('unitType'),
+            'categoryId' => $request->input('categoryId'),
+            'thumbnail' => $thumbnailUrl,
+            'sku' => $request->input('sku'),
+            'tags' => $request->input('tags'),
+            'status' => $request->input('status'),
+        ]);
+
+        if ($request->file('photo')) {
+
+            foreach ($request->file('photo') as $photo) {
+                $manager = new ImageManager(new Driver);
+                $name = $slug.'-'.Str::uuid()->toString().'.'.$photo->getClientOriginalExtension();
+                $img = $manager->read($photo);
+                $img = $img->resize(310,250);
+                $img->toJpeg(90)->save(base_path('public/uploads/products/gallery/'.$name));
+                $gallery_image_url = 'uploads/products/gallery/'.$name;
+
+                //insert into databse
+                ProductGallery::insert([
+                    'productId' => $id,
+                    'photo' => $gallery_image_url,
+                ]);
+        
+            }
+
+        }
+
+        return back()->with('success','Product Update Successfully!');
+
+    }
+
+
+    public function productdelete($id){
+        $thumbnailUrl = Product::where('id',$id)->first()->thumbnail;
+        unlink(base_path('public/'.$thumbnailUrl));
+
+       $imageGallery = ProductGallery::where('productId',$id)->get();
+
+        if (count($imageGallery) > 0 ) {
+            foreach ($imageGallery as $image) {
+                $imgUrl = $image->photo;
+                unlink(base_path('public/'.$imgUrl));
+                $image->delete();
+            }
+        }
+
+        Product::where('id',$id)->first()->delete();
+
+        return back()->with('success', 'Product Deleted Successfully!');
+
+    }
+
+
+
+
+
 }

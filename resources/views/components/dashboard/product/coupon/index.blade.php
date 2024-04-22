@@ -2,8 +2,8 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h3 class="card-title">Product List</h3>
-          <a href="{{ route('productadd') }}" class="btn btn-primary ml-auto">Add New</a>
+          <h3 class="card-title">Coupon List</h3>
+          <a href="{{ route('couponadd') }}" class="btn btn-primary ml-auto">Add New</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -11,35 +11,37 @@
             <thead>
               <tr>
                 <th style="width: 10px">#</th>
-                <th>Product Title</th>
-                <th>Category</th>
-                <th>Thumbnail</th>
-                <th>Price</th>
-                <th>Unit Type</th>
+                <th>Name</th>
+                <th>Discount</th>
+                <th>Type</th>
+                <th>Minimum Order Amount</th>
+                <th>Maximum Order Amount</th>
+                <th>Limit</th>
+                <th>Expire Date</th>
                 <th>Status</th>
                 <th class="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
-                  @forelse ($products as $product)
+                  @forelse ($coupons as $coupon)
                   <tr>
                     <td> {{$loop->index +1}} </td>
-                    <td> {{$product->title}} </td>
-                    <td> {{$product->productcategories->name}} </td>
-                    <td width="10">
-                        <img width="80px" src="{{ asset($product->thumbnail) }}" alt="">
-                    </td>
-                    <td> <del>{{ $product->regularPrice }}</del> {{$product->selePrice}} </td>
-                    <td> {{ $product->unitType }} </td>
-                    <td> {{$product->status}} </td>
+                    <td> {{$coupon->name}} </td>
+                    <td> {{$coupon->discount}} </td>
+                    <td> {{ $coupon->type}} </td>
+                    <td> {{ $coupon->minOrder}} </td>
+                    <td> {{ $coupon->maxOrder}} </td>
+                    <td> {{ $coupon->limit}} </td>
+                    <td> {{ $coupon->expireDate}} </td>
+                    <td> {{ $coupon->status}} </td>
                     <td class="text-center">
-                        <a href="{{route('productedit',$product->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                        <a href="{{route('productdelete',$product->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                        <a href="{{route('productcategoryedit',$coupon->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('productcategorydelete',$coupon->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
                   @empty
                       <tr align="center">
-                        <td colspan="10" class="py-5">No Product Found! <a href="{{ route('productadd') }}">Add New</a></td>
+                        <td colspan="10" class="py-5">No Coupon Found! <a href="{{ route('couponadd') }}">Add New</a></td>
                       </tr>
                   @endforelse
             </tbody>
@@ -89,7 +91,7 @@
         @endif
       </div>
         <!-- Pagination -->
-        {{ $products->links('pagination.dashboardPagination') }}
+        {{ $coupons->links('pagination.dashboardPagination') }}
       </div>
     </div>
   </div>
