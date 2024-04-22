@@ -32,6 +32,34 @@
                     </span>
                 @enderror
                 </div>
+                <div class="row">
+                  <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputFile"> {{ __('Thumbnail') }} </label>
+                          <div class="input-group">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input @error('thumbnail') is-invalid @enderror" id="thumbnail" name="thumbnail" value="{{ old('thumbnail') }}">
+                              <label class="custom-file-label" for="thumbnail">Choose file</label>
+                            </div>
+                          </div>
+                          @error('thumbnail')
+                          <span class="text-danger">
+                              {{$message}}
+                          </span>
+                      @enderror
+                        </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label>{{ __('Category') }}</label>
+                          <select class="form-control" name="categoryId">
+                              @foreach ($categories as $category)   
+                              <option value="{{$category->id}}" {{ ($category->slug == 'uncategorized') ? 'selected' : '' }} >{{$category->name}}</option>
+                              @endforeach
+                          </select>
+                        </div>
+                  </div>
+                </div>
                   {{-- Post Description --}}
                 <div class="form-group">
                   <label for="description"> {{ __('Post Description') }} </label>
@@ -42,34 +70,6 @@
                     </span>
                 @enderror
                 </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                          <div class="form-group">
-                            <label for="exampleInputFile"> {{ __('Thumbnail') }} </label>
-                            <div class="input-group">
-                              <div class="custom-file">
-                                <input type="file" class="custom-file-input @error('thumbnail') is-invalid @enderror" id="thumbnail" name="thumbnail" value="{{ old('thumbnail') }}">
-                                <label class="custom-file-label" for="thumbnail">Choose file</label>
-                              </div>
-                            </div>
-                            @error('thumbnail')
-                            <span class="text-danger">
-                                {{$message}}
-                            </span>
-                        @enderror
-                          </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>{{ __('Category') }}</label>
-                            <select class="form-control" name="categoryId">
-                                @foreach ($categories as $category)   
-                                <option value="{{$category->id}}" {{ ($category->slug == 'uncategorized') ? 'selected' : '' }} >{{$category->name}}</option>
-                                @endforeach
-                            </select>
-                          </div>
-                    </div>
-                  </div>
                 <div class="form-group">
                     <label for="seotitle"> {{ __('SEO Ttile') }} </label>
                     <input type="text" class="form-control @error('seotitle') is-invalid @enderror" id="seotitle" placeholder="Enter SEO Title" name="seotitle" value="{{old('seotitle')}}">

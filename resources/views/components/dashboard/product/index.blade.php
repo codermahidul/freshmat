@@ -2,8 +2,8 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h3 class="card-title">Product Category List</h3>
-          <a href="{{ route('productCategoryAdd') }}" class="btn btn-primary ml-auto">Add New</a>
+          <h3 class="card-title">Product List</h3>
+          <a href="{{ route('productadd') }}" class="btn btn-primary ml-auto">Add New</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -11,24 +11,30 @@
             <thead>
               <tr>
                 <th style="width: 10px">#</th>
-                <th>Name</th>
-                <th>Slug</th>
-                <th>Icon</th>
+                <th>Product Title</th>
+                <th>Category</th>
+                <th>Thumbnail</th>
+                <th>Price</th>
+                <th>Unit Type</th>
+                <th>Status</th>
                 <th class="text-center">Action</th>
               </tr>
             </thead>
             <tbody>
-                  @forelse ($productcategory as $category)
+                  @forelse ($products as $product)
                   <tr>
                     <td> {{$loop->index +1}} </td>
-                    <td> {{$category->name}} </td>
-                    <td> {{$category->slug}} </td>
+                    <td> {{$product->title}} </td>
+                    <td> {{$product->productcategories->name}} </td>
                     <td width="10">
-                        <img src="{{ asset($category->icon) }}" alt="">
+                        <img width="80px" src="{{ asset($product->thumbnail) }}" alt="">
                     </td>
+                    <td> <del>{{ $product->regularPrice }}</del> {{$product->selePrice}} </td>
+                    <td> {{ $product->unitType }} </td>
+                    <td> {{$product->status}} </td>
                     <td class="text-center">
-                        <a href="{{route('productcategoryedit',$category->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                        <a href="{{route('productcategorydelete',$category->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                        <a href="{{route('productcategoryedit',$product->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('productcategorydelete',$product->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
                   @empty
@@ -83,7 +89,7 @@
         @endif
       </div>
         <!-- Pagination -->
-        {{ $productcategory->links('pagination.dashboardPagination') }}
+        {{ $products->links('pagination.dashboardPagination') }}
       </div>
     </div>
   </div>

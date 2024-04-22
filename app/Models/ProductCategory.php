@@ -13,4 +13,11 @@ class ProductCategory extends Model
         'slug',
         'icon'
     ];
+
+
+    //Relationship
+    public function product(){
+        return $this->hasMany(Product::class,'categoryId');
+    }
+
 }

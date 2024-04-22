@@ -61,4 +61,11 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/product/category', [ProductController::class, 'index'])->name('productCategory');
     Route::get('/product/category/add', [ProductController::class, 'add'])->name('productCategoryAdd');
     Route::post('/product/category/store', [ProductController::class, 'store'])->name('productCategoryStore');
+    Route::get('/product/category/edit/{id}', [ProductController::class, 'edit'])->name('productcategoryedit');
+    Route::post('/product/category/update/{id}', [ProductController::class, 'update'])->name('productcategoryupdate');
+    Route::get('/product/category/delete/{id}', [ProductController::class, 'delete'])->name('productcategorydelete');
+    //Products
+    Route::get('product/', [ProductController::class, 'productindex'])->name('products');
+    Route::get('product/add', [ProductController::class, 'productadd'])->name('productadd');
+    Route::post('product/insert', [ProductController::class, 'productinsert'])->name('productinsert');
 });

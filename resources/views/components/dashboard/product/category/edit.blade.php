@@ -6,7 +6,7 @@
             <div class="card-header">
               <h3 class="card-title">Edit <b>'{{$category->name}}'</b> Category</h3>
             </div>
-            <form action="{{route('category.update',$category->id)}}" method="POST">
+            <form action="{{route('productcategoryupdate',$category->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
               <div class="card-body">
                 <div class="form-group">
@@ -26,6 +26,23 @@
                           {{$message}}
                       </span>
                   @enderror
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="icon">Category Icon</label>
+                            <input type="file" class="form-control @error('icon') is-invalid @enderror" id="icon" name="icon" value="{{old('icon')}}">
+                          @error('icon')
+                              <span class="text-danger">
+                                  {{$message}}
+                              </span>
+                          @enderror
+                          </div>
+                    </div>
+                    <div class="col-md-4 text-center mt-2">
+                        <img src="{{ asset($category->icon) }}" class="img-thumbnail" alt="">
+                    </div>
                   </div>
 
               @if (session('success'))

@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    use HasFactory;
+    protected $fillable = [
+        'title',
+        'slug',
+        'shortDescription',
+        'description',
+        'regularPrice',
+        'selePrice',
+        'unitType',
+        'categoryId',
+        'thumbnail',
+        'sku',
+        'status',
+        'tags',
+    ];
+
+
+    //Relationship
+    public function productcategories(){
+        return $this->belongsTo(ProductCategory::class,'categoryId');
+    }
+
+    public function productgallery(){
+        return $this->hasMany(ProductGallery::class,'productId');
+    }
+
+}
