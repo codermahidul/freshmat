@@ -18,7 +18,7 @@
             </thead>
             <tbody>
             
-                @foreach ($faqs as $faq)
+                @forelse ($faqs as $faq)
                 <tr>
                     <td>{{$loop->index + 1}}</td>
                     <td>{{$faq->question}}</td>
@@ -28,7 +28,11 @@
                         <a href="{{route('faqs.delete',$faq->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
-                @endforeach
+                @empty 
+                <tr align="center">
+                  <td colspan="10" class="py-5">No FAQs Found! <a href="{{ route('faqs.add') }}">Add New</a></td>
+                </tr>
+                @endforelse
             </tbody>
           </table>
           @if(session('success'))

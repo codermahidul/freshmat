@@ -3,6 +3,7 @@
 use App\Http\Controllers\FAQSController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -19,15 +20,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-
+//User Routes
+Route::get('/', [FrontendController::class, 'index'])->name('index');
 
 //Admin Routes
+Route::prefix('admin')->group(function(){
+Auth::routes();
+    //Admin Routes
 Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     //FAQ
@@ -79,4 +78,5 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('coupon/insert', [CouponController::class, 'insert'])->name('couponinsert');
     Route::get('coupon/edit/{id}', [CouponController::class, 'edit'])->name('couponedit');
     Route::post('coupon/update/{id}', [CouponController::class, 'update'])->name('couponupdate');
+});
 });

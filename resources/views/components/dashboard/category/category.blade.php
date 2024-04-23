@@ -17,7 +17,7 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($categories as $category)
+              @forelse ($categories as $category)
                 <tr>
                     <td> {{$loop->index +1}} </td>
                     <td> {{$category->name}} </td>
@@ -27,7 +27,11 @@
                         <a href="{{route('category.delete',$category->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
-                  @endforeach
+                  @empty 
+                  <tr align="center">
+                    <td colspan="10" class="py-5">No Category Found! <a href="{{ route('category.add') }}">Add New</a></td>
+                  </tr>
+                  @endforelse
             </tbody>
           </table>
           @if (session('success'))

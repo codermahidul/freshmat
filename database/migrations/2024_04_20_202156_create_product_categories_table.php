@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('icon');
             $table->string('slug')->nullable();
+            $table->enum('status',['active','deactive'])->default('active');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

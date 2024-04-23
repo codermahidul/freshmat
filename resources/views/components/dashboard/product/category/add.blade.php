@@ -38,6 +38,14 @@
                   @enderror
                   </div>
 
+                  <div class="form-group">
+                    <label>Status</label>
+                    <select class="form-control" name="status">
+                        <option value="active" selected>Active</option>
+                        <option value="deactive">Deactive</option>
+                    </select>
+                  </div>
+
               @if (session('success'))
               <script>
 

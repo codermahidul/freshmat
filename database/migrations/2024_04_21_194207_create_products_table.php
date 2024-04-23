@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->nullable();
-            $table->string('shortDescription');
-            $table->string('description')->nullable();
+            $table->text('shortDescription');
+            $table->longText('description')->nullable();
             $table->integer('regularPrice')->nullable();
             $table->integer('selePrice');
             $table->enum('unitType',['kg','gram','pics','dozen','liter']);

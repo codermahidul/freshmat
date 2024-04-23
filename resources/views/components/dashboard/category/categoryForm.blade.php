@@ -21,11 +21,11 @@
                 <div class="form-group">
                     <label for="slug">Category Slug</label>
                     <input type="text" class="form-control @error('slug') is-invalid @enderror" id="question" placeholder="Enter Slug" name="slug" value="{{old('slug')}}">
-                  @error('slug')
-                      <span class="text-danger">
-                          {{$message}}
-                      </span>
-                  @enderror
+                    @error('slug')
+                        <span class="text-danger">
+                            {{$message}}
+                        </span>
+                    @enderror
                   </div>
 
               @if (session('success'))

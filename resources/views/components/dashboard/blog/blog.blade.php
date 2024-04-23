@@ -21,7 +21,7 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($posts as $post)
+              @forelse ($posts as $post)
                 <tr>
                     <td>{{ $loop->index +1 }}</td>
                     <td>{{ $post->title }}</td>
@@ -38,7 +38,11 @@
                         <a href="{{route('blog.delete',$post->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
-                  @endforeach
+                  @empty
+                  <tr align="center">
+                    <td colspan="10" class="py-5">No Post Found! <a href="{{ route('blog.add') }}">Add New</a></td>
+                  </tr>
+                  @endforelse
             </tbody>
           </table>
           @if (session('success'))

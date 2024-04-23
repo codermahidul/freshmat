@@ -51,6 +51,7 @@ class ProductController extends Controller
         ProductCategory::insert([
             'name' => $request->input('name'),
             'slug' => $slug,
+            'status' => $request->input('status'),
             'icon' => $save_url,
         ]);
 
@@ -95,6 +96,7 @@ class ProductController extends Controller
         ProductCategory::where('id',$id)->update([
             'name' => $request->input('name'),
             'slug' => $slug,
+            'status' => $request->input('status'),
             'icon' => $save_url,
         ]);
 
