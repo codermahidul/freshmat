@@ -22,6 +22,12 @@ use Illuminate\Support\Facades\Route;
 
 //User Routes
 Route::get('/', [FrontendController::class, 'index'])->name('index');
+Route::get('/login', [FrontendController::class, 'login'])->name('userLogin');
+Route::get('/register', [FrontendController::class, 'register'])->name('userRegister');
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('userDashboard');
+});
 
 //Admin Routes
 Route::prefix('admin')->group(function(){
@@ -79,4 +85,5 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('coupon/edit/{id}', [CouponController::class, 'edit'])->name('couponedit');
     Route::post('coupon/update/{id}', [CouponController::class, 'update'])->name('couponupdate');
 });
+
 });

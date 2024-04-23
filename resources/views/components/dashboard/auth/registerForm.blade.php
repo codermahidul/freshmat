@@ -17,11 +17,11 @@
               <span class="fas fa-user"></span>
             </div>
           </div>
-          @error('email')
+          @error('name')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
           </span>
-        @enderror
+          @enderror
         </div>
         <div class="input-group mb-3">
           <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{old('email')}}">
@@ -47,7 +47,7 @@
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
           </span>
-        @enderror
+          @enderror
         </div>
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Retype password" name="password_confirmation">

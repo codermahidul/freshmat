@@ -20,7 +20,7 @@
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
-          @enderror
+            @enderror
           </div>
           <div class="input-group mb-3">
             <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password">

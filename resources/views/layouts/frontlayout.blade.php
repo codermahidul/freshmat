@@ -205,7 +205,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-3">
                     <div class="header_logo_area">
-                        <a href="index.html" class="header_logo">
+                        <a href="{{ route('index') }}" class="header_logo">
                             <img src="{{asset('assets')}}/images/logo.png" alt="Freshmat" class="img-fluid w-100">
                         </a>
                         <div class="mobile_menu_icon d-block d-lg-none" data-bs-toggle="offcanvas"
@@ -1067,7 +1067,7 @@
                                 aria-controls="offcanvasRight"><i class="far fa-shopping-basket"></i> <span>2</span></a>
                         </li>
                         <li><a href="#"><i class="far fa-heart"></i> <span>5</span></a></li>
-                        <li><a href="dashboard.html"><i class="far fa-user"></i></a></li>
+                        <li><a href="{{ route('userDashboard') }}"><i class="far fa-user"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -1377,6 +1377,7 @@
         MOBILE MENU END
     ==============================-->
 
+    @yield('breadcrumb')
     @yield('content')
 
       <!--=========================
