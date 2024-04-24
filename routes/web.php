@@ -33,6 +33,13 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard/review', [FrontendController::class, 'review'])->name('userReview');
     Route::get('/dashboard/wishlist', [FrontendController::class, 'wishlist'])->name('userWishlist');
     Route::get('/dashboard/password-change', [FrontendController::class, 'passwordChange'])->name('userPasswordChange');
+    //Wishlists
+    Route::get('/product/wishlist/add/{id}',[FrontendController::class, 'addToWishlists'])->name('adToWishlist');
+    //Cart
+    Route::get('/product/cart/add/{id}',[FrontendController::class, 'addToCart'])->name('addToCart');
+    Route::get('/product/cart/remove/{id}',[FrontendController::class, 'removeCartItem'])->name('removeCartItem');
+    Route::get('/product/cart/',[FrontendController::class, 'cart'])->name('cart');
+
 });
 
 //Admin Routes

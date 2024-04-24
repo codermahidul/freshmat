@@ -39,8 +39,9 @@
         </div>
     </section>
 
+    @foreach ($wishlists as $wishlist)
     <div class="cart_popup_modal">
-        <div class="modal fade" id="cart_popup_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="cart_popup_modal{{ $wishlist->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -49,12 +50,12 @@
                         <div class="row align-items-center">
                             <div class="col-xl-6">
                                 <div class="cart_popup_modal_img">
-                                    <img src="{{ asset('assets') }}/images/home2_product_img_4.jpg" alt="Product img-fluid w-100">
+                                    <img src="{{ asset($wishlist->products->thumbnail) }}" alt="Product img-fluid w-100">
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="product_det_text">
-                                    <h2 class="details_title">Nestle Nescafe Classic Instant</h2>
+                                    <h2 class="details_title">{{ $wishlist->products->title }}</h2>
                                     <p class="rating">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -63,9 +64,9 @@
                                         <i class="far fa-star"></i>
                                         <span>Review (20)</span>
                                     </p>
-                                    <p class="price">$10.50 <del>$12.00</del></p>
+                                    <p class="price">${{ $wishlist->products->selePrice }} <del>{{ ($wishlist->products->regularPrice) ? '$' : '' }}{{ $wishlist->products->regularPrice }}</del></p>
                                     <div class="details_quentity_area">
-                                        <p><span>Qti Weight</span> (in kg) :</p>
+                                        <p><span>Qti </span> (in {{ $wishlist->products->unitType }}) :</p>
                                         <div class="button_area">
                                             <button>-</button>
                                             <input type="text" placeholder="01">
@@ -77,14 +78,12 @@
                                         <a class="common_btn" href="#"><i class="far fa-shopping-basket"></i> Add To
                                             Cart
                                             <span></span></a>
-                                        <a class="love" href="#"><i class="far fa-heart"></i></a>
+                                        <a class="love" href="{{ route('adToWishlist',$wishlist->products->id) }}"><i class="far fa-heart"></i></a>
                                     </div>
-                                    <p class="category"><span>Category:</span> Coffee</p>
+                                    <p class="category"><span>Category:</span> {{ $wishlist->products->productcategories->name }}</p>
                                     <ul class="tags">
                                         <li>Tags:</li>
-                                        <li><a href="#">Black Coffee, </a></li>
-                                        <li><a href="#">Popular,</a></li>
-                                        <li><a href="#">Top Sell</a></li>
+                                        <li><a href="#">{{ $wishlist->products->tags }}</a></li>
                                     </ul>
                                     <ul class="share">
                                         <li>Share with friends:</li>
@@ -101,6 +100,7 @@
             </div>
         </div>
     </div>
+    @endforeach
     <!--================================
         DASHBOARD WISHLIST END
     =================================-->

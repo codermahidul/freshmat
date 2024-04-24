@@ -1064,9 +1064,9 @@
                     </ul>
                     <ul class="menu_icon">
                         <li><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                aria-controls="offcanvasRight"><i class="far fa-shopping-basket"></i> <span>2</span></a>
+                                aria-controls="offcanvasRight"><i class="far fa-shopping-basket"></i> <span class="{{ (cartTotal(Auth::id()) <= 0) ? 'd-none' : '' }}">{{ (Auth::check()) ? cartTotal(Auth::id()) : '' }}</span></a>
                         </li>
-                        <li><a href="#"><i class="far fa-heart"></i> <span>5</span></a></li>
+                        <li><a href="{{ route('userWishlist') }}"><i class="far fa-heart"></i> <span class="{{ (wishlistTotalItem(Auth::id())) ? '' : 'd-none' }}">{{ (Auth::check()) ? wishlistTotalItem(Auth::id()) : '' }}</span></a></li>
                         <li><a href="{{ route('userDashboard') }}"><i class="far fa-user"></i></a></li>
                     </ul>
                 </div>
@@ -1077,66 +1077,34 @@
     <div class="mini_cart">
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel"> my cart <span>(05)</span></h5>
+                <h5 class="offcanvas-title" id="offcanvasRightLabel"> my cart <span>({{ count(cartProducts(Auth::id())) }})</span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
                         class="far fa-times"></i></button>
             </div>
             <div class="offcanvas-body">
                 <ul>
-                    <li>
-                        <div class="cart_img">
-                            <img src="images/cart_img_1.png" alt="product" class="img-fluid w-100">
-                            <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
-                        </div>
-                        <div class="cart_text">
-                            <a class="cart_title" href="#">Lemon Meat Bone</a>
-                            <p>$140 <del>$150</del></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cart_img">
-                            <img src="images/cart_img_2.png" alt="product" class="img-fluid w-100">
-                            <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
-                        </div>
-                        <div class="cart_text">
-                            <a class="cart_title" href="#">Three Carrot Vegetables</a>
-                            <p>$130 <del>$160</del></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cart_img">
-                            <img src="images/cart_img_3.png" alt="product" class="img-fluid w-100">
-                            <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
-                        </div>
-                        <div class="cart_text">
-                            <a class="cart_title" href="#">Bengal Meat Beef Bone</a>
-                            <p>$140 <del>$150</del></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cart_img">
-                            <img src="images/cart_img_4.png" alt="product" class="img-fluid w-100">
-                            <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
-                        </div>
-                        <div class="cart_text">
-                            <a class="cart_title" href="#">Three Carrot Vegetables</a>
-                            <p>$140</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cart_img">
-                            <img src="images/cart_img_5.png" alt="product" class="img-fluid w-100">
-                            <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
-                        </div>
-                        <div class="cart_text">
-                            <a class="cart_title" href="#">Orange Slice Mix</a>
-                            <p>$140</p>
-                        </div>
-                    </li>
+                    @if (Auth::check())
+                        @forelse ((cartProducts(Auth::id())) as $cart)
+                        <li>
+                            <div class="cart_img">
+                                <img src="{{ asset($cart->product->thumbnail) }}" alt="product" class="img-fluid w-100">
+                                <a class="wsis__del_icon" href="{{ route('removeCartItem',$cart->id) }}"><i class="fas fa-minus-circle"></i></a>
+                            </div>
+                            <div class="cart_text">
+                                <a class="cart_title" href="#">{{$cart->product->title}}</a>
+                                <p>${{ $cart->product->selePrice }} <del>{{ ($cart->product->regularPrice) ? '$' : '' }}{{ $cart->product->regularPrice }}</del></p>
+                            </div>
+                        </li>
+                        @empty
+                            Empty
+                        @endforelse
+                    @else
+                        
+                    @endif
                 </ul>
-                <h5>sub total <span>$3540</span></h5>
+                <h5>sub total <span>${{ (cartTotalPrice(Auth::id())) }}</span></h5>
                 <div class="minicart_btn_area">
-                    <a class="common_btn" href="cart_view.html">view cart<span></span></a>
+                    <a class="common_btn" href="{{ route('cart') }}">view cart<span></span></a>
                 </div>
             </div>
         </div>

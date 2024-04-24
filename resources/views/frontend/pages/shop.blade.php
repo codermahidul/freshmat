@@ -144,7 +144,7 @@
                                     <img src="{{ asset($product->thumbnail) }}" alt="Product" class="img_fluid w-100">
                                     <ul>
                                         <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                        <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                        <li><a href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="single_product_text">
@@ -204,11 +204,11 @@
                                         <h3>= $10.50</h3>
                                     </div>
                                     <div class="details_cart_btn">
-                                        <a class="common_btn" href="#"><i class="far fa-shopping-basket"></i>
+                                        <a class="common_btn" href="{{ route('addToCart',$product->id) }}"><i class="far fa-shopping-basket"></i>
                                             Add To
                                             Cart
                                             <span></span></a>
-                                        <a class="love" href="#"><i class="far fa-heart"></i></a>
+                                        <a class="love" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
                                     </div>
                                     <p class="category"><span>Category:</span>{{ $product->productcategories->name }}</p>
                                     <ul class="tags">

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,7 +65,54 @@ class FrontendController extends Controller
     }
 
     public function wishlist(){
-        return view('frontend.pages.dashboard.wishlist');
+        $wishlists = Wishlist::where('userId',Auth::id())->with('products','products.productcategories')->latest()->get();
+        return view('frontend.pages.dashboard.wishlist',compact([
+            'wishlists',
+        ]));
+    }
+
+    public function addToWishlists($id){
+       $wishlistsCheck = Wishlist::where('userId',Auth::id())->where('productId',$id)->get();
+       if ($wishlistsCheck->isEmpty()) {
+        Wishlist::insert([
+            'userId' => Auth::id(),
+            'productId' => $id,
+        ]);
+       } else {
+        Wishlist::where('userId',Auth::id())->where('productId',$id)->delete();
+       }
+
+       return back();
+       
+    }
+
+    public function addToCart($id){
+       $cartlistCheck = Cart::where('userId',Auth::id())->where('productId',$id)->get();
+       $price = Product::where('id',$id)->first()->selePrice;
+       if ($cartlistCheck->isEmpty()) {
+        Cart::insert([
+            'userId' => Auth::id(),
+            'productId' => $id,
+            'price' => $price,
+        ]);
+       } else {
+        Cart::where('userId',Auth::id())->where('productId',$id)->increment('quantity',1);
+       }
+
+       return back();
+       
+    }
+
+    public function removeCartItem($id){
+        Cart::where('id',$id)->delete();
+        return back();
+    }
+
+    public function cart(){
+        $cartItems = Cart::where('userId',Auth::id())->with('product')->get();
+        return view('frontend.pages.cart',compact([
+            'cartItems',
+        ]));
     }
 
     public function passwordChange(){

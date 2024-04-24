@@ -51,5 +51,9 @@ class User extends Authenticatable
         return $this->hasMany(CommentsReply::class);
     }
 
+    public function wishlits(){
+        return $this->hasMany(Wishlist::class);
+    }
+
 
 }
