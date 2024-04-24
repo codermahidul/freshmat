@@ -1,4 +1,5 @@
 @extends('layouts.frontlayout')
+@section('title','Login')
 @section('breadcrumb')
           <!--=========================
         BREADCRUMB START
@@ -9,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Sign Up</h1>
+                            <h1>Sign In</h1>
                             <ul>
                                 <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">Sign Up</a></li>
+                                <li><a href="">Sign In</a></li>
                             </ul>
                         </div>
                     </div>
@@ -25,27 +26,28 @@
     ==========================-->
 @endsection
 @section('content')
+
+
+
+
+
     <!--=========================
-        SIGN UP PAGE START
+        SIGN IN PAGE START
     ==========================-->
-    <section class="sign_up pt_120 xs_pt_80">
+    <section class="sign_in pt_120 xs_pt_80">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-3 col-lg-4 d-none d-lg-block wow fadeInLeft">
                     <div class="sign_in_img">
-                        <img src="{{ asset('assets') }}/images/sign_in_img_2.jpg" alt="Sign In" class="img-fluid w-100">
+                        <img src="{{ asset('assets') }}/images/sign_in_img_1.jpg" alt="Sign In" class="img-fluid w-100">
                     </div>
                 </div>
                 <div class="col-xxl-5 col-md-10 col-lg-7 col-xl-6 wow fadeInRight">
                     <div class="sign_in_form">
-                        <h3>Sign Up to Continue 👋</h3>
-                        <form action="{{route('register')}}" method="post">
+                        <h3>Sign In Your Account 👋</h3>
+                        <form action="{{route('login')}}" method="POST">
                             @csrf
-                            <input type="text" placeholder="Enter name" name="name">
-                            @error('name')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                            <input type="email" placeholder="Enter email address" name="email">
+                            <input type="email" placeholder="Enter email address" name="email" class="is-invalid">
                             @error('email')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -53,14 +55,19 @@
                             @error('password')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                            <input type="password" placeholder="Confirm password" name="password_confirmation">
-                            @error('password_confirmation')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                            <button type="submit" class="common_btn">Sign Up<span></span></button>
+                            <div class="forgot">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Remeber Me
+                                    </label>
+                                </div>
+                                <a href="forgot_password.html">Forgot Password ?</a>
+                            </div>
+                            <button type="submit" class="common_btn">Sign In<span></span></button>
                         </form>
 
-                        <p class="dont_account">Already have an account? <a href="{{ route('userLogin') }}">Sign In</a></p>
+                        <p class="dont_account">Don’t have an account? <a href="{{ route('userRegister') }}">Sign Up</a></p>
                         <p class="or">or</p>
                         <ul>
                             <li>
@@ -94,6 +101,6 @@
         </div>
     </section>
     <!--=========================
-        SIGN UP PAGE END
+        SIGN IN PAGE END
     ==========================-->
 @endsection

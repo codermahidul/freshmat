@@ -15,19 +15,40 @@ class FrontendController extends Controller
         if (Auth::check()) {
          return redirect(route('index'));
         }
-        return view('frontend.pages.login');
+        return view('frontend.pages.auth.login');
     }
     //User Register
     public function register(){
         if (Auth::check()) {
             return redirect(route('index'));
            }
-        return view('frontend.pages.register');
+        return view('frontend.pages.auth.register');
+    }
+
+    //Shop
+    public function shop(){
+        return view('frontend.pages.shop');
     }
 
     //Protected Route
     public function dashboard(){
-        return view('frontend.pages.dashboard');
+        return view('frontend.pages.dashboard.dashboard');
+    } 
+
+    public function order(){
+        return view('frontend.pages.dashboard.order');
+    }
+
+    public function review(){
+        return view('frontend.pages.dashboard.review');
+    }
+
+    public function wishlist(){
+        return view('frontend.pages.dashboard.wishlist');
+    }
+
+    public function passwordChange(){
+        return view('frontend.pages.dashboard.passwordChange');
     }
 
     public function index(){

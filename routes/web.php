@@ -24,9 +24,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/login', [FrontendController::class, 'login'])->name('userLogin');
 Route::get('/register', [FrontendController::class, 'register'])->name('userRegister');
+Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('userDashboard');
+    Route::get('/dashboard/order', [FrontendController::class, 'order'])->name('userOrder');
+    Route::get('/dashboard/review', [FrontendController::class, 'review'])->name('userReview');
+    Route::get('/dashboard/wishlist', [FrontendController::class, 'wishlist'])->name('userWishlist');
+    Route::get('/dashboard/password-change', [FrontendController::class, 'passwordChange'])->name('userPasswordChange');
 });
 
 //Admin Routes

@@ -140,7 +140,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
-    <title>Freshmat - Organic Food Store HTML Template</title>
+    <title>@yield('title')</title>
     <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}">
     <link rel="stylesheet" href="{{asset('assets')}}/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/css/bootstrap.min.css">
@@ -1029,7 +1029,7 @@
                                     <div class="col-xl-3 d-lg-none d-xl-block">
                                         <div class="mega_menu_colum menu_banner">
                                             <a href="#">
-                                                <img src="images/menu_img.jpg" alt="images" class="img-fluid w-100">
+                                                <img src="{{ asset('assets') }}/images/menu_img.jpg" alt="images" class="img-fluid w-100">
                                             </a>
                                         </div>
                                     </div>
@@ -1052,8 +1052,8 @@
                                 <li><a href="error.html">error/404</a></li>
                                 <li><a href="faq.html">faq's</a></li>
                                 <li><a href="gallery.html">gallery</a></li>
-                                <li><a href="sign_in.html">sign in</a></li>
-                                <li><a href="sign_up.html">sign up</a></li>
+                                <li><a href="{{ route('userLogin') }}">sign in</a></li>
+                                <li><a href="{{ route('userRegister') }}">sign up</a></li>
                                 <li><a href="forgot_password.html">forgot password</a></li>
                                 <li><a href="privacy_policy.html">privacy policy</a></li>
                                 <li><a href="terms_condition.html">terms & condition</a></li>
