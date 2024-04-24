@@ -37,7 +37,7 @@
                             </ul>
                         </div>
                         <div class="single_product_text">
-                            <a class="title" href="shop_details.html">{{ $product->title }}</a>
+                            <a class="title" href="{{ route('productDetails',$product->slug) }}">{{ $product->title }}</a>
                             <p>${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del> </p>
                             <a class="cart_btn" href="shop_details.html" data-bs-toggle="modal"
                                 data-bs-target="#cart_popup_modal{{ $product->id }}"><i class="far fa-shopping-basket"></i> Add To

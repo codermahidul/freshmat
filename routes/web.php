@@ -25,6 +25,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/login', [FrontendController::class, 'login'])->name('userLogin');
 Route::get('/register', [FrontendController::class, 'register'])->name('userRegister');
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
+Route::get('/shop/product/{slug}', [FrontendController::class, 'productDetails'])->name('productDetails');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('userDashboard');

@@ -27,7 +27,26 @@ class FrontendController extends Controller
 
     //Shop
     public function shop(){
-        return view('frontend.pages.shop');
+        $products = Product::where('status','active')->latest()->paginate(9);
+        return view('frontend.pages.shop',compact([
+            'products',
+        ]));
+    }
+
+    //Product Details
+    public function productDetails($slug){
+
+        $productInfo = Product::where('slug', $slug)->with('productcategories','productgallery')->first();
+        $currentProductId = $productInfo->id;
+
+        $categoryId = $productInfo->productcategories->id;
+
+        $relatedProducts = Product::where('categoryId',$categoryId)->where('id','!=',$currentProductId)->latest()->take(10)->get();
+
+        return view('frontend.pages.productDetails',compact([
+            'productInfo',
+            'relatedProducts',
+        ]));
     }
 
     //Protected Route

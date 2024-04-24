@@ -978,7 +978,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="shop.html">shop <i class="fas fa-chevron-down"></i></a>
+                            <a href="{{ route('shop') }}">shop <i class="fas fa-chevron-down"></i></a>
                             <div class="mega_menu">
                                 <div class="row">
                                     <div class="col-xl-3 col-lg-4">
