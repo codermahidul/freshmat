@@ -67,7 +67,7 @@
                                             </div>
                                         </td>
                                         <td class="total">
-                                            <span>$45.00</span>
+                                            <span>${{ $cart->price * $cart->quantity }}</span>
                                         </td>
                                         <td class="delete">
                                             <a class="del" href="{{ route('removeCartItem',$cart->id) }}"><i class="fal fa-times-circle"></i></a>
@@ -79,23 +79,59 @@
                                 </tbody>
                             </table>
                         </div>
-                        <form>
-                            <input type="text" placeholder="Coupon Code">
+                        <form action="{{ route('couponClaim') }}" method="POST">
+                            @csrf
+                            <input type="text" placeholder="Coupon Code" name="coupon" value="{{ old('coupon') }}">
                             <button type="submit" class="common_btn">Apply Coupon <span></span></button>
+                            @error('coupon')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            {{-- @if (session()->has('nofound'))
+                                @foreach (session()->all() as $key => $value)
+                                    <span class="text-danger">{{ $value }}</span>
+                                @endforeach
+                            @endif --}}
+
+                            @if (session('nofound'))
+                                <span class="text-danger">{{ session('nofound') }}</span>
+                            @endif
+                            @if (session('success'))
+                            <span class="text-success">{{ session('success') }}</span>
+                            @endif
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8">
                     <div class="cart_sidebar" id="sticky_sidebar">
-                        <h3>Total Cart (03)</h3>
+                        <h3>Total Cart ({{ cartTotal(Auth::id()) }})</h3>
                         <div class="cart_sidebar_info">
-                            <h4>Subtotal : <span>$250.00</span></h4>
-                            <p>Delivery : <span>$53.00</span></p>
-                            <p>Discount : <span>$12.00</span></p>
-                            <h5>Total : <span>$315.00</span></h5>
-                            <a class="common_btn" href="#">Checkout <i class="fas fa-long-arrow-right"></i>
+                            <h4>Subtotal : <span>$ <span id="subtotal">{{ cartTotalPrice(Auth::id()) }}</span></span></h4>
+                            <p>Delivery : <span>$ <span id="delivery">50</span></span></p>
+                            @if (session('discountAmmount'))
+                            <p>Discount : {{ session('couponName') }} <span>$ 
+                                        <span id="discount">{{ session('discountAmmount') }}</span>
+                                    </span></p>
+                                    @endif
+                            <h5>Total : <span>$ <span id="total">0</span></span></h5>
+                            @if (session('couponName'))
+                                <?php $coupon = session('couponName') ?>
+                            @else
+                            <?php $coupon = null; ?>
+                            @endif
+                            <a class="common_btn" href="{{ route('checkout',$coupon) }}">Checkout <i class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
+                        <script>
+                            var subtotal = Number(document.getElementById('subtotal').innerText);
+                            var delivery = Number(document.getElementById('delivery').innerText);
+                            var discountElement = document.getElementById('discount');
+                            var total = subtotal+delivery;
+                            if (discountElement) {
+                                var discount = Number(discountElement.innerText);
+                                var total = total-discount;
+                            }
+                            document.getElementById('total').innerText = total;
+                        </script>
                     </div>
                 </div>
             </div>

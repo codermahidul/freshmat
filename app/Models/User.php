@@ -55,5 +55,9 @@ class User extends Authenticatable
         return $this->hasMany(Wishlist::class);
     }
 
+    public function userProfile(){
+        return $this->hasOne(UserProfile::class, 'userId');
+    }
+
 
 }

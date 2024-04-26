@@ -39,6 +39,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/product/cart/add/{id}',[FrontendController::class, 'addToCart'])->name('addToCart');
     Route::get('/product/cart/remove/{id}',[FrontendController::class, 'removeCartItem'])->name('removeCartItem');
     Route::get('/product/cart/',[FrontendController::class, 'cart'])->name('cart');
+    Route::post('/product/coupon/claim',[FrontendController::class, 'couponClaim'])->name('couponClaim');
+    Route::get('/product/cart/checkout/{coupon?}',[FrontendController::class, 'checkout'])->name('checkout');
 
 });
 

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 
 class FrontendController extends Controller
 {
@@ -112,6 +114,101 @@ class FrontendController extends Controller
         $cartItems = Cart::where('userId',Auth::id())->with('product')->get();
         return view('frontend.pages.cart',compact([
             'cartItems',
+        ]));
+    }
+
+    public function couponClaim(Request $request){
+        $request->validate([
+            'coupon' => 'required',
+        ]);
+
+        $claimCupon = $request->coupon;
+        $coupon = Coupon::where('name',$claimCupon)->where('status','active')->first();
+
+        if (empty($coupon)) {
+            return back()->with('nofound', 'Your claimed coupon not found!');
+        } else {
+            $coupon->expireDate;
+            $date = date('Y-m-d');
+            if ($date <= $coupon->expireDate) {
+                if (cartTotalPrice(Auth::id()) <= $coupon->minOrder) {
+                    return back()->with('nofound', 'Your claimed coupon minimum order ammount $'.$coupon->minOrder.'!');
+                }else {
+                    if (!empty($coupon->maxOrder)) {
+                        if (cartTotalPrice(Auth::id()) <= $coupon->maxOrder) {
+                            if ($coupon->limit <= 0) {
+                                return back()->with('nofound', 'Your claimed coupon has no limit!');
+                            }else {
+                                $totalAmountOfOrder = cartTotalPrice(Auth::id());
+                                $discountType =$coupon->type;
+                                $discountAmmount = 0;
+                                if ($discountType == 'flat') {
+                                    $discountAmmount = $totalAmountOfOrder / 100 * $coupon->discount;
+                                    return back()->with([
+                                        'success' => 'Your coupon has been successfully redeemed.',
+                                        'discountAmmount'=> $discountAmmount,
+                                        'couponName'=> $coupon->name,
+                                    ]);
+                                } else{
+                                    $discountAmmount = $totalAmountOfOrder - $coupon->discount;
+                                    return back()->with([
+                                        'success' => 'Your coupon has been successfully redeemed.',
+                                        'discountAmmount'=> $discountAmmount,
+                                        'couponName'=> $coupon->name,
+                                    ]);
+                                }
+                            }
+                        } else {
+                            return back()->with('nofound', 'Your claimed coupon maximum order ammount $'.$coupon->maxOrder.'!');
+                        }
+                        
+                    } else {
+                        if ($coupon->limit <= 0) {
+                            return back()->with('nofound', 'Your claimed coupon has no limit!');
+                        }else {
+                            $totalAmountOfOrder = cartTotalPrice(Auth::id());
+                            $discountType =$coupon->type;
+                            $discountAmmount = '';
+                            if ($discountType == 'flat') {
+                                $discountAmmount = ($totalAmountOfOrder / 100) * $coupon->discount;
+                                return back()->with([
+                                    'success' => 'Your coupon has been successfully redeemed.',
+                                    'discountAmmount'=> $discountAmmount,
+                                    'couponName'=> $coupon->name,
+                                ]);
+                            } else{
+                                $discountAmmount = $coupon->discount;
+                                return back()->with([
+                                    'success' => 'Your coupon has been successfully redeemed.',
+                                    'discountAmmount'=> $discountAmmount,
+                                    'couponName'=> $coupon->name,
+                                ]);
+                            }
+                        }
+                    }
+                    
+                }
+            } else {
+                return back()->with('nofound', 'Your claimed coupon vlidity expired!');
+            }
+        
+        }
+        
+    
+    }
+
+    public function checkout(?string $coupon = null){
+        if (!$coupon== null) {
+            $coupon = Coupon::where('name',$coupon)->first();
+            if ($coupon->type == 'flat') {
+                $discount = (cartTotalPrice(Auth::id()) / 100)*$coupon->discount;
+            }else {
+                $discount = cartTotalPrice(Auth::id()) - $coupon->discount;
+            }
+        }
+
+        return view('frontend.pages.checkout',compact([
+            'discount',
         ]));
     }
 
