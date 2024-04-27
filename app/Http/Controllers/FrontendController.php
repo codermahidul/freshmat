@@ -37,6 +37,16 @@ class FrontendController extends Controller
         ]));
     }
 
+    public function categoryWiseProduct($slug){
+        $categoryId = ProductCategory::where('slug',$slug)->first()->id;
+        $categoryName = ProductCategory::where('slug',$slug)->first()->name;
+        $categoryWiseProducts = Product::where('status','active')->where('categoryId',$categoryId)->latest()->paginate(10);
+        return view('frontend.pages.categorywiseproduct',compact([
+            'categoryWiseProducts',
+            'categoryName'
+        ]));
+    }
+
     //Product Details
     public function productDetails($slug){
 
@@ -88,33 +98,10 @@ class FrontendController extends Controller
        
     }
 
-    public function addToCart($id){
-       $cartlistCheck = Cart::where('userId',Auth::id())->where('productId',$id)->get();
-       $price = Product::where('id',$id)->first()->selePrice;
-       if ($cartlistCheck->isEmpty()) {
-        Cart::insert([
-            'userId' => Auth::id(),
-            'productId' => $id,
-            'price' => $price,
-        ]);
-       } else {
-        Cart::where('userId',Auth::id())->where('productId',$id)->increment('quantity',1);
-       }
-
-       return back();
-       
-    }
 
     public function removeCartItem($id){
         Cart::where('id',$id)->delete();
         return back();
-    }
-
-    public function cart(){
-        $cartItems = Cart::where('userId',Auth::id())->with('product')->get();
-        return view('frontend.pages.cart',compact([
-            'cartItems',
-        ]));
     }
 
     public function couponClaim(Request $request){
@@ -198,6 +185,7 @@ class FrontendController extends Controller
     }
 
     public function checkout(?string $coupon = null){
+        $discount = 0;
         if (!$coupon== null) {
             $coupon = Coupon::where('name',$coupon)->first();
             if ($coupon->type == 'flat') {

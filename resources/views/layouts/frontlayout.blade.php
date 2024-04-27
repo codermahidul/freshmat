@@ -1064,7 +1064,7 @@
                     </ul>
                     <ul class="menu_icon">
                         <li><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                                aria-controls="offcanvasRight"><i class="far fa-shopping-basket"></i> <span class="{{ (cartTotal(Auth::id()) <= 0) ? 'd-none' : '' }}">{{ (Auth::check()) ? cartTotal(Auth::id()) : '' }}</span></a>
+                                aria-controls="offcanvasRight"><i class="far fa-shopping-basket"></i> <span class="{{ (Session::has('cart')) ? '' : 'd-none' }}">{{ (Session::has('cart')) ? count(Session::get('cart')) : '' }}</span></a>
                         </li>
                         <li><a href="{{ route('userWishlist') }}"><i class="far fa-heart"></i> <span class="{{ (wishlistTotalItem(Auth::id())) ? '' : 'd-none' }}">{{ (Auth::check()) ? wishlistTotalItem(Auth::id()) : '' }}</span></a></li>
                         <li><a href="{{ route('userDashboard') }}"><i class="far fa-user"></i></a></li>
@@ -1077,32 +1077,36 @@
     <div class="mini_cart">
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel"> my cart <span>({{ count(cartProducts(Auth::id())) }})</span></h5>
+                <h5 class="offcanvas-title" id="offcanvasRightLabel"> my cart <span>({{ (Session::has('cart')) ? count(Session::get('cart')) : '0' }})</span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
                         class="far fa-times"></i></button>
             </div>
             <div class="offcanvas-body">
                 <ul>
-                    @if (Auth::check())
-                        @forelse ((cartProducts(Auth::id())) as $cart)
+                    @if (Session::has('cart'))
+                    @php 
+                        $subtotal = 0;
+                    @endphp
+                        @foreach ((Session::get('cart')) as $cart)
                         <li>
                             <div class="cart_img">
-                                <img src="{{ asset($cart->product->thumbnail) }}" alt="product" class="img-fluid w-100">
-                                <a class="wsis__del_icon" href="{{ route('removeCartItem',$cart->id) }}"><i class="fas fa-minus-circle"></i></a>
+                                <img src="{{ asset($cart['thumbnail']) }}" alt="product" class="img-fluid w-100">
+                                <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
                             </div>
                             <div class="cart_text">
-                                <a class="cart_title" href="#">{{$cart->product->title}}</a>
-                                <p>${{ $cart->product->selePrice }} <del>{{ ($cart->product->regularPrice) ? '$' : '' }}{{ $cart->product->regularPrice }}</del></p>
+                                <a class="cart_title" href="#">{{$cart['title']}}</a>
+                                <p>${{ $cart['price'] }} x {{ $cart['quantity'] }}</p>
                             </div>
                         </li>
-                        @empty
-                            Empty
-                        @endforelse
+                        @php 
+                            $subtotal += $cart['price']*$cart['quantity'];
+                        @endphp
+                        @endforeach
                     @else
-                        
+                        <li>No cart item found!</li>
                     @endif
                 </ul>
-                <h5>sub total <span>${{ (cartTotalPrice(Auth::id())) }}</span></h5>
+                <h5>sub total <span>${{ $subtotal }}</span></h5>
                 <div class="minicart_btn_area">
                     <a class="common_btn" href="{{ route('cart') }}">view cart<span></span></a>
                 </div>

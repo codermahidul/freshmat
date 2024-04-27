@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FAQSController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
@@ -25,7 +26,11 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/login', [FrontendController::class, 'login'])->name('userLogin');
 Route::get('/register', [FrontendController::class, 'register'])->name('userRegister');
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
+Route::get('/shop/category/{slug}', [FrontendController::class, 'categoryWiseProduct'])->name('categoryWiseProduct');
 Route::get('/shop/product/{slug}', [FrontendController::class, 'productDetails'])->name('productDetails');
+//Cart
+Route::post('/product/cart/add/',[CartController::class, 'addToCart'])->name('addToCart');
+Route::get('/product/cart/',[CartController::class, 'cart'])->name('cart');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('userDashboard');
@@ -36,9 +41,8 @@ Route::middleware(['auth'])->group(function(){
     //Wishlists
     Route::get('/product/wishlist/add/{id}',[FrontendController::class, 'addToWishlists'])->name('adToWishlist');
     //Cart
-    Route::get('/product/cart/add/{id}',[FrontendController::class, 'addToCart'])->name('addToCart');
+
     Route::get('/product/cart/remove/{id}',[FrontendController::class, 'removeCartItem'])->name('removeCartItem');
-    Route::get('/product/cart/',[FrontendController::class, 'cart'])->name('cart');
     Route::post('/product/coupon/claim',[FrontendController::class, 'couponClaim'])->name('couponClaim');
     Route::get('/product/cart/checkout/{coupon?}',[FrontendController::class, 'checkout'])->name('checkout');
 

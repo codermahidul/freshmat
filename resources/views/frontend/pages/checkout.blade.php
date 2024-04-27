@@ -40,25 +40,25 @@
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Name *</label>
-                                    <input type="text" placeholder="Name">
+                                    <input type="text" placeholder="Name" value="{{ Auth::user()->name }}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Email *</label>
-                                    <input type="email" placeholder="Email">
+                                    <input type="email" placeholder="Email" value="{{ Auth::user()->email }}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Phone</label>
-                                    <input type="email" placeholder="Phone">
+                                    <input type="email" placeholder="Phone" value="{{ Auth::user()->userProfile->phone }}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Company Name</label>
-                                    <input type="text" placeholder="Company Name">
+                                    <input type="text" placeholder="Company Name" value="{{ Auth::user()->userProfile->companyName }}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -92,25 +92,25 @@
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>State *</label>
-                                    <input type="text" placeholder="State *">
+                                    <input type="text" placeholder="State *" value="{{ Auth::user()->userProfile->state }}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Zip *</label>
-                                    <input type="text" placeholder="Zip *">
+                                    <input type="text" placeholder="Zip *" value="{{ Auth::user()->userProfile->zip }}">
                                 </div>
                             </div>
                             <div class="col-xl-12">
                                 <div class="checkout_input_box">
                                     <label>Address *</label>
-                                    <input type="text" placeholder="Address *">
+                                    <input type="text" placeholder="Address *" value="{{ Auth::user()->userProfile->address }}">
                                 </div>
                             </div>
                             <div class="col-xl-12">
                                 <div class="checkout_input_box">
                                     <label>Note</label>
-                                    <textarea rows="5" placeholder="Note"></textarea>
+                                    <textarea rows="5" placeholder="Note" name="note"></textarea>
                                 </div>
                             </div>
 

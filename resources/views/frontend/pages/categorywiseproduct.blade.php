@@ -10,10 +10,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Shop</h1>
+                            <h1>{{ $categoryName }}</h1>
                             <ul>
                                 <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">Shop</a></li>
+                                <li><a href="{{ route('shop') }}">Shop</a></li>
+                                <li><a >{{ $categoryName }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -137,7 +138,7 @@
                 </div>
                 <div class="col-xl-9 order-lg-2 col-lg-8 xs_mb_50 shop_mb_margin">
                     <div class="row">
-                        @forelse ($products as $product)
+                        @forelse ($categoryWiseProducts as $product)
                         <div class="col-xl-4 col-sm-6 wow fadeInUp">
                             <div class="single_product">
                                 <div class="single_product_img">
@@ -162,15 +163,13 @@
                         @endforelse
                     </div>
                     {{-- Pagination --}}
-                    {{ $products->links('pagination.frontendPagination') }}
+                    {{ $categoryWiseProducts->links('pagination.frontendPagination') }}
                 </div>
             </div>
         </div>
     </section>
 
-    @foreach ($products as $product)
-    <form action="{{ route('addToCart') }}" method="post">
-        @csrf
+    @foreach ($categoryWiseProducts as $product)
     <div class="cart_popup_modal">
         <div class="modal fade" id="cart_popup_modal{{ $product->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-hidden="true">
@@ -199,31 +198,17 @@
                                     <div class="details_quentity_area">
                                         <p><span>Qti</span> (in {{ $product->unitType }}) :</p>
                                         <div class="button_area">
-                                            <button onclick="decrement()" class="disabled">-</button>
-                                            <input type="text" value="1" id="quantity" name="quantity">
-                                            <button id="increment" class="disabled" onclick="increment()">+</button>
-                                            {{-- <script>
-                                                var quantityInput = document.getElementById('quantity');
-                                                function decrement() {
-                                                    var value = parseInt(quantityInput.value);
-                                                    if (value > 1) {
-                                                        quantityInput.value = value - 1;
-                                                    }
-                                                }
-                                        
-                                                function increment() {
-                                                    var value = parseInt(quantityInput.value);
-                                                    quantityInput.value = value + 1;
-                                                }
-                                            </script> --}}
+                                            <button>-</button>
+                                            <input type="text" placeholder="01">
+                                            <button>+</button>
                                         </div>
-                                        <h3>= ${{ $product->selePrice }}</h3>
+                                        <h3>= $10.50</h3>
                                     </div>
                                     <div class="details_cart_btn">
-                                        <button type="submit" class="common_btn"><i class="far fa-shopping-basket"></i>
+                                        <a class="common_btn" href="{{ route('addToCart',$product->id) }}"><i class="far fa-shopping-basket"></i>
                                             Add To
                                             Cart
-                                            <span></span></button>
+                                            <span></span></a>
                                         <a class="love" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
                                     </div>
                                     <p class="category"><span>Category:</span>{{ $product->productcategories->name }}</p>
@@ -246,8 +231,6 @@
             </div>
         </div>
     </div>
-    <input type="hidden" name="productId" value="{{ $product->id }}">
-</form>
     @endforeach
     <!--=========================
         SHOP PAGE END

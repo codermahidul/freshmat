@@ -48,34 +48,44 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($cartItems as $cart)
+                                    @if (Session::has('cart'))
+                                    @php 
+                                        $subtotal = 0;
+                                    @endphp
+                                    @foreach (Session::get('cart') as $cart)
                                     <tr>
                                         <td class="images">
-                                            <img src="{{ asset($cart->product->thumbnail) }}" alt="cart" class="img-fluid w-100">
+                                            <img src="{{ asset($cart['thumbnail']) }}" alt="cart" class="img-fluid w-100">
                                         </td>
                                         <td class="name">
-                                            <a class="title" href="shop_details.html">{{ $cart->product->title }}</a>
+                                            <a class="title" href="shop_details.html">{{ $cart['title'] }}</a>
                                         </td>
                                         <td class="price">
-                                            <p>${{ $cart->product->selePrice }}</p>
+                                            <p>${{ $cart['price'] }}</p>
                                         </td>
                                         <td class="qty">
                                             <div class="button_area">
                                                 <button>-</button>
-                                                <input type="text" placeholder="{{ $cart->quantity }}">
+                                                <input type="text" placeholder="{{ $cart['quantity'] }}">
                                                 <button>+</button>
                                             </div>
                                         </td>
                                         <td class="total">
-                                            <span>${{ $cart->price * $cart->quantity }}</span>
+                                            <span>${{ $cart['price']*$cart['quantity'] }}</span>
                                         </td>
                                         <td class="delete">
-                                            <a class="del" href="{{ route('removeCartItem',$cart->id) }}"><i class="fal fa-times-circle"></i></a>
+                                            <a class="del" href="{{ route('removeCartItem',$cart['productId']) }}"><i class="fal fa-times-circle"></i></a>
                                         </td>
                                     </tr>
-                                    @empty
-                                        No Product Found!
-                                    @endforelse
+                                    @php 
+                                        $subtotal += $cart['price']*$cart['quantity'];
+                                    @endphp
+                                    @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="8">No cart item found!</td>
+                                        </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -86,11 +96,6 @@
                             @error('coupon')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                            {{-- @if (session()->has('nofound'))
-                                @foreach (session()->all() as $key => $value)
-                                    <span class="text-danger">{{ $value }}</span>
-                                @endforeach
-                            @endif --}}
 
                             @if (session('nofound'))
                                 <span class="text-danger">{{ session('nofound') }}</span>
@@ -103,9 +108,9 @@
                 </div>
                 <div class="col-lg-4 col-md-8">
                     <div class="cart_sidebar" id="sticky_sidebar">
-                        <h3>Total Cart ({{ cartTotal(Auth::id()) }})</h3>
+                        <h3>Total Cart ({{ (Session::has('cart')) ? count(Session::get('cart')) : '0' }})</h3>
                         <div class="cart_sidebar_info">
-                            <h4>Subtotal : <span>$ <span id="subtotal">{{ cartTotalPrice(Auth::id()) }}</span></span></h4>
+                            <h4>Subtotal : <span>$ <span id="subtotal">{{ $subtotal }}</span></span></h4>
                             <p>Delivery : <span>$ <span id="delivery">50</span></span></p>
                             @if (session('discountAmmount'))
                             <p>Discount : {{ session('couponName') }} <span>$ 

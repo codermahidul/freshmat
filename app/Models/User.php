@@ -59,5 +59,9 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class, 'userId');
     }
 
+    public function invoices(){
+        return $this->hasMany(Invoice::class);
+    }
+
 
 }
