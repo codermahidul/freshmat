@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Coupon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CouponController extends Controller
 {
@@ -74,6 +75,114 @@ class CouponController extends Controller
         ]);
         
         return back()->with('success','Coupon Update Successfully!');
+    }
+
+
+    //Frontedn coupon claimed
+    public function couponClaim(Request $request){
+        $request->validate([
+            'coupon' => 'required',
+        ]);
+
+        $totalordersum = 0;
+
+        if (Session::has('cart')) {
+            foreach (Session::get('cart') as $cart) {
+                $totalordersum += $cart['price']*$cart['quantity'];
+            }
+        }
+
+        $claimCupon = $request->coupon;
+        $coupon = Coupon::where('name',$claimCupon)->where('status','active')->first();
+
+        if (empty($coupon)) {
+            return back()->with('nofound', 'Your claimed coupon not found!');
+        } else {
+            $coupon->expireDate;
+            $date = date('Y-m-d');
+            if ($date <= $coupon->expireDate) {
+                if ($totalordersum <= $coupon->minOrder) {
+                    return back()->with('nofound', 'Your claimed coupon minimum order ammount $'.$coupon->minOrder.'!');
+                }else {
+                    if (!empty($coupon->maxOrder)) {
+                        if ($totalordersum <= $coupon->maxOrder) {
+                            if ($coupon->limit <= 0) {
+                                return back()->with('nofound', 'Your claimed coupon has no limit!');
+                            }else {
+                                $totalAmountOfOrder = $totalordersum;
+                                $discountType =$coupon->type;
+                                $discountAmmount = 0;
+                                if ($discountType == 'flat') {
+                                    $discountAmmount = $totalAmountOfOrder / 100 * $coupon->discount;
+                                    $redemCoupon = [
+                                        'couponName' => $coupon->name,
+                                        'discountAmmount' => $discountAmmount,
+                                    ];
+                                     Session::put('coupon',$redemCoupon);
+                                    return back()->with([
+                                        'success' => 'Your coupon has been successfully redeemed.'
+                                    ]);
+                                } else{
+                                    $discountAmmount = $totalAmountOfOrder - $coupon->discount;
+                                    $redemCoupon = [
+                                        'couponName' => $coupon->name,
+                                        'discountAmmount' => $discountAmmount,
+                                    ];
+                                    Session::put('coupon',$redemCoupon);
+                                    return back()->with([
+                                        'success' => 'Your coupon has been successfully redeemed.'
+                                    ]);
+                                }
+                            }
+                        } else {
+                            return back()->with('nofound', 'Your claimed coupon maximum order ammount $'.$coupon->maxOrder.'!');
+                        }
+                        
+                    } else {
+                        if ($coupon->limit <= 0) {
+                            return back()->with('nofound', 'Your claimed coupon has no limit!');
+                        }else {
+                            $totalAmountOfOrder = $totalordersum;
+                            $discountType =$coupon->type;
+                            $discountAmmount = '';
+                            if ($discountType == 'flat') {
+                                $discountAmmount = ($totalAmountOfOrder / 100) * $coupon->discount;
+                                $redemCoupon = [
+                                    'couponName' => $coupon->name,
+                                    'discountAmmount' => $discountAmmount,
+                                ];
+                                 Session::put('coupon',$redemCoupon);
+                                return back()->with([
+                                    'success' => 'Your coupon has been successfully redeemed.',
+                                ]);
+                            } else{
+                                $discountAmmount = $coupon->discount;
+                                $redemCoupon = [
+                                    'couponName' => $coupon->name,
+                                    'discountAmmount' => $discountAmmount,
+                                ];
+                                Session::put('coupon',$redemCoupon);
+                                return back()->with([
+                                    'success' => 'Your coupon has been successfully redeemed.',
+                                ]);
+                            }
+                        }
+                    }
+                    
+                }
+            } else {
+                return back()->with('nofound', 'Your claimed coupon vlidity expired!');
+            }
+        
+        }
+        
+    
+    }
+
+
+
+    public function checkroute(){
+        dd(session()->all());
     }
 
 

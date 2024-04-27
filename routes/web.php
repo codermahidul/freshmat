@@ -31,6 +31,10 @@ Route::get('/shop/product/{slug}', [FrontendController::class, 'productDetails']
 //Cart
 Route::post('/product/cart/add/',[CartController::class, 'addToCart'])->name('addToCart');
 Route::get('/product/cart/',[CartController::class, 'cart'])->name('cart');
+//Coupon
+Route::get('/product/cart/checkout/{coupon?}',[FrontendController::class, 'checkout'])->name('checkout');
+Route::post('/product/coupon/claim',[CouponController::class, 'couponClaim'])->name('couponClaim');
+Route::get('/checkroute',[CouponController::class, 'checkroute'])->name('checkroute');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('userDashboard');
@@ -43,8 +47,6 @@ Route::middleware(['auth'])->group(function(){
     //Cart
 
     Route::get('/product/cart/remove/{id}',[FrontendController::class, 'removeCartItem'])->name('removeCartItem');
-    Route::post('/product/coupon/claim',[FrontendController::class, 'couponClaim'])->name('couponClaim');
-    Route::get('/product/cart/checkout/{coupon?}',[FrontendController::class, 'checkout'])->name('checkout');
 
 });
 

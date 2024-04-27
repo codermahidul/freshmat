@@ -112,12 +112,14 @@
                         <div class="cart_sidebar_info">
                             <h4>Subtotal : <span>$ <span id="subtotal">{{ $subtotal }}</span></span></h4>
                             <p>Delivery : <span>$ <span id="delivery">50</span></span></p>
-                            @if (session('discountAmmount'))
-                            <p>Discount : {{ session('couponName') }} <span>$ 
-                                        <span id="discount">{{ session('discountAmmount') }}</span>
-                                    </span></p>
-                                    @endif
-                            <h5>Total : <span>$ <span id="total">0</span></span></h5>
+                            @if (Session::has('coupon'))
+                                <p>Discount : {{ Session::get('coupon')['couponName'] }} 
+                                    <span>$ 
+                                        <span id="discount">{{ Session::get('coupon')['discountAmmount'] }}</span>
+                                    </span>
+                                </p>
+                            @endif
+                            <h5>Total : <span>$ <span id="total">{{ $subtotal - (Session::has('coupon') ? Session::get('coupon')['discountAmmount'] : 0) }}</span></span></h5>
                             @if (session('couponName'))
                                 <?php $coupon = session('couponName') ?>
                             @else
@@ -126,7 +128,7 @@
                             <a class="common_btn" href="{{ route('checkout',$coupon) }}">Checkout <i class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
-                        <script>
+                        {{-- <script>
                             var subtotal = Number(document.getElementById('subtotal').innerText);
                             var delivery = Number(document.getElementById('delivery').innerText);
                             var discountElement = document.getElementById('discount');
@@ -136,7 +138,7 @@
                                 var total = total-discount;
                             }
                             document.getElementById('total').innerText = total;
-                        </script>
+                        </script> --}}
                     </div>
                 </div>
             </div>
