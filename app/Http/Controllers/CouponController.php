@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Faker\Generator as Faker;
 
 use App\Models\Coupon;
 use Illuminate\Http\Request;
@@ -180,9 +181,25 @@ class CouponController extends Controller
     }
 
 
+    //dfsdfsd
+    protected $faker;
+
+    public function __construct(Faker $faker)
+    {
+        $this->faker = $faker;
+    }
+
+
 
     public function checkroute(){
-        dd(session()->all());
+        
+        $faker = $this->faker;
+        $thumbnailUrl = $faker->imageUrl($width = 620, $height = 500);
+        $filename = uniqid() . '.jpg';
+        $thumbnailPath = 'uploads/products/feature/' . $filename;
+        $imageData = file_get_contents($thumbnailUrl); 
+        file_put_contents(public_path($thumbnailPath), $imageData); 
+
     }
 
 

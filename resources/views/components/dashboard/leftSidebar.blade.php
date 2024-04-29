@@ -35,7 +35,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item">
             <a href="{{route('home')}}" class="nav-link {{ Route::currentRouteNamed('home') ? 'active':''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -44,8 +44,8 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item {{ (Route::currentRouteNamed('productadd','productedit','products','productCategory','productCategoryAdd','coupon','couponadd','delivery.location','delivery.edit','delivery.add','productcategoryedit')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (Route::currentRouteNamed('productadd','products','productCategory','productCategoryAdd','coupon','couponadd','delivery.location')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 eCommerce
@@ -54,33 +54,39 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('productadd') }}" class="nav-link">
+                <a href="{{ route('productadd') }}" class="nav-link {{ (Route::currentRouteNamed('productadd')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add New Product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('products') }}" class="nav-link">
+                <a href="{{ route('products') }}" class="nav-link {{ (Route::currentRouteNamed('products','productedit')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Product List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('productCategory') }}" class="nav-link">
+                <a href="{{ route('productCategory') }}" class="nav-link {{ (Route::currentRouteNamed('productCategory','productCategoryAdd','productcategoryedit')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Product Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('coupon') }}" class="nav-link">
+                <a href="{{ route('coupon') }}" class="nav-link {{ (Route::currentRouteNamed('coupon','couponadd')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Coupon</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('delivery.location') }}" class="nav-link {{ (Route::currentRouteNamed('delivery.location','delivery.edit','delivery.add')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Location</p>
+                </a>
+              </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link {{ Route::currentRouteNamed('blog','blog.add','category','category.add','category.insert') ? 'active':''}}">
+          <li class="nav-item {{ Route::currentRouteNamed('category.edit','blog','blog.add','category','category.add','category.insert','comments') ? 'menu-open':''}}">
+            <a href="#" class="nav-link {{ Route::currentRouteNamed('blog','blog.add','category','category.add','category.insert','comments') ? 'active':''}}">
               <i class="nav-icon fas fa-pen-alt"></i>
               <p>
                 Blog
@@ -101,7 +107,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('category')}}" class="nav-link {{ Route::currentRouteNamed('category') ? 'active' : '' }}">
+                <a href="{{route('category')}}" class="nav-link {{ Route::currentRouteNamed('category','category.add','category.edit') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Category</p>
                 </a>
@@ -114,7 +120,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Route::currentRouteNamed('faqs','faqs.add') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
               <i class="nav-icon fas fa-file-alt"></i>
               <p>

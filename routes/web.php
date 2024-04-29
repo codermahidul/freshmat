@@ -4,6 +4,7 @@ use App\Http\Controllers\FAQSController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -105,6 +106,14 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('coupon/insert', [CouponController::class, 'insert'])->name('couponinsert');
     Route::get('coupon/edit/{id}', [CouponController::class, 'edit'])->name('couponedit');
     Route::post('coupon/update/{id}', [CouponController::class, 'update'])->name('couponupdate');
+
+    //Delivery Location
+    Route::get('delivery/location/', [DeliveryLocationController::class, 'index'])->name('delivery.location');
+    Route::get('delivery/location/add', [DeliveryLocationController::class, 'show'])->name('delivery.add');
+    Route::post('delivery/location/insert', [DeliveryLocationController::class, 'insert'])->name('delivery.insert');
+    Route::get('delivery/location/edit/{id}', [DeliveryLocationController::class, 'edit'])->name('delivery.edit');
+    Route::post('delivery/location/update/{id}', [DeliveryLocationController::class, 'update'])->name('delivery.update');
+    Route::get('delivery/location/delete/{id}', [DeliveryLocationController::class, 'delete'])->name('delivery.delete');
 });
 
 });

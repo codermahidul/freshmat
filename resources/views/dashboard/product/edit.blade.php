@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','New Post | Dashboard')
+@section('title','Edit Product | Dashboard')
 @section('content')
 @section('breadcrumb')
 <div class="content-header">

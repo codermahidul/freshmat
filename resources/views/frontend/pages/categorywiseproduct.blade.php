@@ -1,5 +1,5 @@
 @extends('layouts.frontlayout')
-@section('title','Shop')
+@section('title','Shop | '.$categoryName)
 @section('breadcrumb')
           <!--=========================
         BREADCRUMB START

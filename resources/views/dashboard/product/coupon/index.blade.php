@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Categories | Dashboard')
+@section('title','Coupons List | Dashboard')
 @section('content')
 @section('breadcrumb')
 <div class="content-header">

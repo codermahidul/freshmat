@@ -1106,7 +1106,7 @@
                         <li>No cart item found!</li>
                     @endif
                 </ul>
-                <h5>sub total <span>${{ $subtotal }}</span></h5>
+                <h5>sub total <span>${{ (Session::has('cart') ? $subtotal : 0) }}</span></h5>
                 <div class="minicart_btn_area">
                     <a class="common_btn" href="{{ route('cart') }}">view cart<span></span></a>
                 </div>

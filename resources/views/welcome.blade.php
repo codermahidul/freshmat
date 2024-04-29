@@ -1,4 +1,5 @@
 @extends('layouts.frontlayout')
+@section('title','Freshmat')
 @section('content')
 
 @include('components.frontend.home.banner')

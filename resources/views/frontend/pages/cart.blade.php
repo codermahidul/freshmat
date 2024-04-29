@@ -89,6 +89,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        @if(Session::has('cart'))
                         <form action="{{ route('couponClaim') }}" method="POST">
                             @csrf
                             <input type="text" placeholder="Coupon Code" name="coupon" value="{{ old('coupon') }}">
@@ -104,13 +105,14 @@
                             <span class="text-success">{{ session('success') }}</span>
                             @endif
                         </form>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8">
                     <div class="cart_sidebar" id="sticky_sidebar">
                         <h3>Total Cart ({{ (Session::has('cart')) ? count(Session::get('cart')) : '0' }})</h3>
                         <div class="cart_sidebar_info">
-                            <h4>Subtotal : <span>$ <span id="subtotal">{{ $subtotal }}</span></span></h4>
+                            <h4>Subtotal : <span>$ <span id="subtotal">{{ (Session::has('cart') ? $subtotal : 0) }}</span></span></h4>
                             <p>Delivery : <span>$ <span id="delivery">50</span></span></p>
                             @if (Session::has('coupon'))
                                 <p>Discount : {{ Session::get('coupon')['couponName'] }} 
@@ -119,7 +121,7 @@
                                     </span>
                                 </p>
                             @endif
-                            <h5>Total : <span>$ <span id="total">{{ $subtotal - (Session::has('coupon') ? Session::get('coupon')['discountAmmount'] : 0) }}</span></span></h5>
+                            <h5>Total : <span>$ <span id="total">{{ (Session::has('cart') ? $subtotal : 0) - (Session::has('coupon') ? Session::get('coupon')['discountAmmount'] : 0) }}</span></span></h5>
                             @if (session('couponName'))
                                 <?php $coupon = session('couponName') ?>
                             @else
