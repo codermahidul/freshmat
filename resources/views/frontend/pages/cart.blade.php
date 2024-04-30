@@ -1,5 +1,5 @@
 @extends('layouts.frontlayout')
-@section('title','Shop')
+@section('title','Cart')
 @section('breadcrumb')
           <!--=========================
         BREADCRUMB START
@@ -49,9 +49,6 @@
                                 </thead>
                                 <tbody>
                                     @if (Session::has('cart'))
-                                    @php 
-                                        $subtotal = 0;
-                                    @endphp
                                     @foreach (Session::get('cart') as $cart)
                                     <tr>
                                         <td class="images">
@@ -77,9 +74,6 @@
                                             <a class="del" href="{{ route('removeCartItem',$cart['productId']) }}"><i class="fal fa-times-circle"></i></a>
                                         </td>
                                     </tr>
-                                    @php 
-                                        $subtotal += $cart['price']*$cart['quantity'];
-                                    @endphp
                                     @endforeach
                                     @else
                                         <tr>
@@ -110,18 +104,18 @@
                 </div>
                 <div class="col-lg-4 col-md-8">
                     <div class="cart_sidebar" id="sticky_sidebar">
-                        <h3>Total Cart ({{ (Session::has('cart')) ? count(Session::get('cart')) : '0' }})</h3>
+                        <h3>Total Cart ({{ cartTotal() }})</h3>
                         <div class="cart_sidebar_info">
-                            <h4>Subtotal : <span>$ <span id="subtotal">{{ (Session::has('cart') ? $subtotal : 0) }}</span></span></h4>
-                            <p>Delivery : <span>$ <span id="delivery">50</span></span></p>
+                            <h4>Subtotal : <span>$ <span id="subtotal">{{ subTotal() }}</span></span></h4>
+                            {{-- <p>Delivery : <span>$ <span id="delivery">50</span></span></p> --}}
                             @if (Session::has('coupon'))
                                 <p>Discount : {{ Session::get('coupon')['couponName'] }} 
                                     <span>$ 
-                                        <span id="discount">{{ Session::get('coupon')['discountAmmount'] }}</span>
+                                        <span id="discount">{{ discount() }}</span>
                                     </span>
                                 </p>
                             @endif
-                            <h5>Total : <span>$ <span id="total">{{ (Session::has('cart') ? $subtotal : 0) - (Session::has('coupon') ? Session::get('coupon')['discountAmmount'] : 0) }}</span></span></h5>
+                            <h5>Total : <span>$ <span id="total">{{ subTotal() - (Session::has('coupon') ? discount() : 0) }}</span></span></h5>
                             @if (session('couponName'))
                                 <?php $coupon = session('couponName') ?>
                             @else

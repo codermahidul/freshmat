@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -14,11 +16,15 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
+        $user = User::create([
             'name' => 'Mahidul Islam',
             'email' => 'admin@freshmat.com',
             'password' => Hash::make('admin'),
             'role' => '2',
+        ]);
+
+        UserProfile::create([
+            'userId' => $user->id,
         ]);
     }
 }

@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
     
-        Product::factory(50)->has(
-            ProductGallery::factory(5)
-        ,'productgallery')->create();
+        // Product::factory(50)->has(
+        //     ProductGallery::factory(5)
+        // ,'productgallery')->create();
         
     $this->call([
-        // UserSeeder::class,
-        // BlogCategorySeeder::class,
+         UserSeeder::class,
+         BlogCategorySeeder::class,
     ]);
     }
 }

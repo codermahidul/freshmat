@@ -104,21 +104,6 @@ class FrontendController extends Controller
         return back();
     }
 
-    public function checkout(?string $coupon = null){
-        $discount = 0;
-        if (!$coupon== null) {
-            $coupon = Coupon::where('name',$coupon)->first();
-            if ($coupon->type == 'flat') {
-                $discount = (cartTotalPrice(Auth::id()) / 100)*$coupon->discount;
-            }else {
-                $discount = cartTotalPrice(Auth::id()) - $coupon->discount;
-            }
-        }
-
-        return view('frontend.pages.checkout',compact([
-            'discount',
-        ]));
-    }
 
     public function passwordChange(){
         return view('frontend.pages.dashboard.passwordChange');

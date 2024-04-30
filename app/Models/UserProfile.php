@@ -13,10 +13,7 @@ class UserProfile extends Model
         'phone',
         'photo',
         'companyName',
-        'country',
         'city',
-        'state',
-        'zip',
         'address'
     ];
 }

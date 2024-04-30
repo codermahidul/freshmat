@@ -1077,16 +1077,13 @@
     <div class="mini_cart">
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel"> my cart <span>({{ (Session::has('cart')) ? count(Session::get('cart')) : '0' }})</span></h5>
+                <h5 class="offcanvas-title" id="offcanvasRightLabel"> my cart <span>({{ cartTotal() }})</span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
                         class="far fa-times"></i></button>
             </div>
             <div class="offcanvas-body">
                 <ul>
                     @if (Session::has('cart'))
-                    @php 
-                        $subtotal = 0;
-                    @endphp
                         @foreach ((Session::get('cart')) as $cart)
                         <li>
                             <div class="cart_img">
@@ -1098,15 +1095,12 @@
                                 <p>${{ $cart['price'] }} x {{ $cart['quantity'] }}</p>
                             </div>
                         </li>
-                        @php 
-                            $subtotal += $cart['price']*$cart['quantity'];
-                        @endphp
                         @endforeach
                     @else
                         <li>No cart item found!</li>
                     @endif
                 </ul>
-                <h5>sub total <span>${{ (Session::has('cart') ? $subtotal : 0) }}</span></h5>
+                <h5>sub total <span>${{ subTotal() }}</span></h5>
                 <div class="minicart_btn_area">
                     <a class="common_btn" href="{{ route('cart') }}">view cart<span></span></a>
                 </div>

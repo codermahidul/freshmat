@@ -3,6 +3,7 @@
 use App\Http\Controllers\FAQSController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\FrontendController;
@@ -33,7 +34,6 @@ Route::get('/shop/product/{slug}', [FrontendController::class, 'productDetails']
 Route::post('/product/cart/add/',[CartController::class, 'addToCart'])->name('addToCart');
 Route::get('/product/cart/',[CartController::class, 'cart'])->name('cart');
 //Coupon
-Route::get('/product/cart/checkout/{coupon?}',[FrontendController::class, 'checkout'])->name('checkout');
 Route::post('/product/coupon/claim',[CouponController::class, 'couponClaim'])->name('couponClaim');
 Route::get('/checkroute',[CouponController::class, 'checkroute'])->name('checkroute');
 
@@ -46,8 +46,10 @@ Route::middleware(['auth'])->group(function(){
     //Wishlists
     Route::get('/product/wishlist/add/{id}',[FrontendController::class, 'addToWishlists'])->name('adToWishlist');
     //Cart
-
     Route::get('/product/cart/remove/{id}',[FrontendController::class, 'removeCartItem'])->name('removeCartItem');
+    //Checkout
+    
+    Route::get('/product/cart/checkout/',[CheckoutController::class, 'checkout'])->name('checkout');
 
 });
 

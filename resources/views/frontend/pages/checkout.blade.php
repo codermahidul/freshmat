@@ -1,5 +1,5 @@
 @extends('layouts.frontlayout')
-@section('title','Shop')
+@section('title','Checkout')
 @section('breadcrumb')
           <!--=========================
         BREADCRUMB START
@@ -40,28 +40,28 @@
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Name *</label>
-                                    <input type="text" placeholder="Name" value="{{ Auth::user()->name }}">
+                                    <input type="text" placeholder="Name" value="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Email *</label>
-                                    <input type="email" placeholder="Email" value="{{ Auth::user()->email }}">
+                                    <input type="email" placeholder="Email" value="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Phone</label>
-                                    <input type="email" placeholder="Phone" value="{{ Auth::user()->userProfile->phone }}">
+                                    <input type="email" placeholder="Phone" value="">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            {{-- <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Company Name</label>
-                                    <input type="text" placeholder="Company Name" value="{{ Auth::user()->userProfile->companyName }}">
+                                    <input type="text" placeholder="Company Name" value="">
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
+                            </div> --}}
+                            {{-- <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Country *</label>
                                     <select class="select_2" name="state">
@@ -74,37 +74,35 @@
                                     </select>
 
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>City *</label>
-                                    <select class="select_2" name="state">
-                                        <option value="AL">City</option>
-                                        <option value="">dhaka</option>
-                                        <option value="">barisal</option>
-                                        <option value="">khulna</option>
-                                        <option value="">rajshahi</option>
-                                        <option value="">bogura</option>
+                                    <select class="select_2" name="state" id="delivaryArea" onchange="charge()">
+                                        <option value="0">City</option>
+                                        @foreach ($cities as $city)    
+                                        <option value="{{ $city->charge }}">{{ $city->address }}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            {{-- <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>State *</label>
-                                    <input type="text" placeholder="State *" value="{{ Auth::user()->userProfile->state }}">
+                                    <input type="text" placeholder="State *" value="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Zip *</label>
-                                    <input type="text" placeholder="Zip *" value="{{ Auth::user()->userProfile->zip }}">
+                                    <input type="text" placeholder="Zip *" value="">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-xl-12">
                                 <div class="checkout_input_box">
                                     <label>Address *</label>
-                                    <input type="text" placeholder="Address *" value="{{ Auth::user()->userProfile->address }}">
+                                    <input type="text" placeholder="Address *" value="">
                                 </div>
                             </div>
                             <div class="col-xl-12">
@@ -120,12 +118,12 @@
                 </div>
                 <div class="col-lg-4 col-md-8">
                     <div class="cart_sidebar" id="sticky_sidebar">
-                        <h3>Total Cart ({{ cartTotal(Auth::id()) }})</h3>
+                        <h3>Total Cart ({{ cartTotal() }})</h3>
                         <div class="cart_sidebar_info">
-                            <h4>Subtotal : <span>${{ cartTotalPrice(Auth::id()) }}</span></h4>
-                            <p>Delivery : <span>${{ 50 }}</span></p>
-                            <p>Discount : <span>${{ $discount }}</span></p>
-                            <h5>Total : <span>${{ cartTotalPrice(Auth::id()) - $discount - 50 }}</span></h5>
+                            <h4>Subtotal : <span>${{ subTotal() }}</span></h4>
+                            <p>Delivery : <span id="charge">0</span></p>
+                            <p>Discount : <span>${{ discount() }}</span></p>
+                            <h5>Total : <span>${{ subTotal() }}</span></h5>
                             <a class="common_btn" href="#">Payment <i class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
@@ -134,6 +132,15 @@
             </div>
         </div>
     </section>
+    <script>
+        function charge(){
+            var selectElement = document.getElementById("delivaryArea");
+            var selectedOption = selectElement.options[selectElement.selectedIndex];
+            // Get the value of the selected option
+            var selectedValue = selectedOption.value;
+            document.getElementById("charge").innerText = "$"+selectedValue;
+        }
+    </script>
     <!--=========================
         CHECKOUT END
     ==========================-->
