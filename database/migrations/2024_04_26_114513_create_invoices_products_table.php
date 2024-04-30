@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('invoices_products', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('productId');
+            $table->unsignedBigInteger('invoiceId');
+            $table->string('quantity')->default(1);
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+
+            $table->foreign('productId')->references('id')->on('products')->onDelete('RESTRICT')->onUpdate('CASCADE');
+            $table->foreign('invoiceId')->references('id')->on('invoices')->onDelete('RESTRICT')->onUpdate('CASCADE');
         });
     }
 

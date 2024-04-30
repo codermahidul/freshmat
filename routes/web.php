@@ -8,6 +8,7 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -48,8 +49,10 @@ Route::middleware(['auth'])->group(function(){
     //Cart
     Route::get('/product/cart/remove/{id}',[FrontendController::class, 'removeCartItem'])->name('removeCartItem');
     //Checkout
-    
     Route::get('/product/cart/checkout/',[CheckoutController::class, 'checkout'])->name('checkout');
+    //Payment
+    Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
+    
 
 });
 

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('userId');
             $table->string('phone')->nullable();
             $table->string('photo')->nullable();
-            $table->string('companyName')->nullable();
             $table->string('city')->nullable();
             $table->string('address')->nullable();
             $table->timestamp('created_at')->useCurrent();

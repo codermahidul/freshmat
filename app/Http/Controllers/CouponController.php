@@ -5,6 +5,7 @@ use Faker\Generator as Faker;
 
 use App\Models\Coupon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CouponController extends Controller
@@ -193,12 +194,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        $faker = $this->faker;
-        $thumbnailUrl = $faker->imageUrl($width = 620, $height = 500);
-        $filename = uniqid() . '.jpg';
-        $thumbnailPath = 'uploads/products/feature/' . $filename;
-        $imageData = file_get_contents($thumbnailUrl); 
-        file_put_contents(public_path($thumbnailPath), $imageData); 
+        return Auth::user()->id;
 
     }
 
