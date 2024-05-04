@@ -10,6 +10,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -119,6 +120,10 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('delivery/location/edit/{id}', [DeliveryLocationController::class, 'edit'])->name('delivery.edit');
     Route::post('delivery/location/update/{id}', [DeliveryLocationController::class, 'update'])->name('delivery.update');
     Route::get('delivery/location/delete/{id}', [DeliveryLocationController::class, 'delete'])->name('delivery.delete');
+
+    //Setting
+    Route::get('setting',[SettingController::class, 'index'])->name('setting');
+    Route::post('setting/logo-favicon/update', [SettingController::class, 'logoFavicon'])->name('logoFavicon');
 });
 
 });

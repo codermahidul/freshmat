@@ -156,6 +156,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('setting') }}" class="nav-link {{ Route::currentRouteNamed('setting') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Settings
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
               {{-- <i class="nav-icon far fa-image"></i> --}}

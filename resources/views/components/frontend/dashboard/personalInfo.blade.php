@@ -10,21 +10,21 @@
                 <div class="col-xl-4 col-sm-6 wow fadeInUp">
                     <div class="profile_overview_item">
                         <span><i class="fas fa-shopping-basket"></i></span>
-                        <h3>106</h3>
+                        <h3>{{ $activeOrder }}</h3>
                         <p>Order Active</p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 wow fadeInUp">
                     <div class="profile_overview_item">
                         <span><i class="fas fa-box-check"></i></span>
-                        <h3>256</h3>
+                        <h3>{{ $completedOrder }}</h3>
                         <p>Order Completed</p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 wow fadeInUp">
                     <div class="profile_overview_item">
                         <span><i class="fas fa-clipboard-list-check"></i></span>
-                        <h3>395</h3>
+                        <h3>{{ $totalOrder }}</h3>
                         <p>Total Order </p>
                     </div>
                 </div>
@@ -35,10 +35,10 @@
                 <ul>
                     <li><span>Name:</span> {{ Auth::user()->name }}</li>
                     <li><span>Email:</span> {{ Auth::user()->email }}</li>
-                    <li><span>Phone:</span> (123) - 222 -1452</li>
-                    <li><span>City:</span> Washington Dc</li>
-                    <li><span>Country:</span> USA</li>
-                    <li><span>Address:</span> 441, 4th street, Washington DC, USA</li>
+                    <li><span>Phone:</span> {{ Auth::user()->userProfile->phone }}</li>
+                    <li><span>City:</span> {{ Auth::user()->userProfile->city }}</li>
+                    {{-- <li><span>Country:</span> USA</li> --}}
+                    <li><span>Address:</span> {{ Auth::user()->userProfile->address }}</li>
                 </ul>
             </div>
 

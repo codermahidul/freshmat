@@ -67,19 +67,8 @@
                                 <input type="hidden" id="slider_range" class="flat-slider" />
                             </div>
                         </div>
-                        <div class="shop_sidebar_category shop_sidebar_item">
-                            <h3>Categories</h3>
-                            <ul>
-                                <li><a href="shop.html">Vegetable <span>(08)</span></a></li>
-                                <li><a href="shop.html">Nuts & Dried Foods <span>(05)</span></a></li>
-                                <li><a href="shop.html">Milk & Dairy <span>(02)</span></a></li>
-                                <li><a href="shop.html">Halal Lamb & Goat <span>(19)</span></a></li>
-                                <li><a href="shop.html">Halal Deli <span>(25)</span></a></li>
-                                <li><a href="shop.html">Goat meat <span>(32)</span></a></li>
-                                <li><a href="shop.html">Fresh Halal Beef <span>(44)</span></a></li>
-                                <li><a href="shop.html">Fresh & Fruits <span>(16)</span></a></li>
-                            </ul>
-                        </div>
+                        {{-- sidebar categories --}}
+                        @include('components.frontend.global.sidebarcategories')
                         <div class="shop_sidebar_product">
                             <h3>Featured Products</h3>
                             <ul>
@@ -246,8 +235,8 @@
             </div>
         </div>
     </div>
-    <input type="hidden" name="productId" value="{{ $product->id }}">
-</form>
+        <input type="hidden" name="productId" value="{{ $product->id }}">
+    </form>
     @endforeach
     <!--=========================
         SHOP PAGE END

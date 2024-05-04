@@ -186,8 +186,10 @@
             </div>
         </div>
     </section>
-
+    
     @foreach ($latestProduct as $product)
+    <form action="{{ route('addToCart') }}" method="post">
+        @csrf
     <div class="cart_popup_modal">
         <div class="modal fade" id="cart_popup_modal{{ $product->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-hidden="true">
@@ -216,18 +218,32 @@
                                     <div class="details_quentity_area">
                                         <p><span>Qti</span> (in {{ $product->unitType }}) :</p>
                                         <div class="button_area">
-                                            <button>-</button>
-                                            <input type="text" placeholder="01">
-                                            <button>+</button>
+                                            <button onclick="decrement()" class="disabled">-</button>
+                                            <input type="text" value="1" id="quantity" name="quantity">
+                                            <button id="increment" class="disabled" onclick="increment()">+</button>
+                                            {{-- <script>
+                                                var quantityInput = document.getElementById('quantity');
+                                                function decrement() {
+                                                    var value = parseInt(quantityInput.value);
+                                                    if (value > 1) {
+                                                        quantityInput.value = value - 1;
+                                                    }
+                                                }
+                                        
+                                                function increment() {
+                                                    var value = parseInt(quantityInput.value);
+                                                    quantityInput.value = value + 1;
+                                                }
+                                            </script> --}}
                                         </div>
-                                        <h3>= $10.50</h3>
+                                        <h3>= ${{ $product->selePrice }}</h3>
                                     </div>
                                     <div class="details_cart_btn">
-                                        <a class="common_btn" href="#"><i class="far fa-shopping-basket"></i>
+                                        <button type="submit" class="common_btn"><i class="far fa-shopping-basket"></i>
                                             Add To
                                             Cart
-                                            <span></span></a>
-                                        <a class="love" href="#"><i class="far fa-heart"></i></a>
+                                            <span></span></button>
+                                        <a class="love" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
                                     </div>
                                     <p class="category"><span>Category:</span>{{ $product->productcategories->name }}</p>
                                     <ul class="tags">
@@ -249,6 +265,8 @@
             </div>
         </div>
     </div>
+        <input type="hidden" name="productId" value="{{ $product->id }}">
+    </form>
     @endforeach
     <!--=========================
         FRESH PRODUCTS END

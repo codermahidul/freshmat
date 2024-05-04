@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Coupon;
+use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Wishlist;
@@ -65,11 +66,21 @@ class FrontendController extends Controller
 
     //Protected Route
     public function dashboard(){
-        return view('frontend.pages.dashboard.dashboard');
+        $activeOrder = Invoice::where('userId',Auth::id())->where('status','active')->count();
+        $completedOrder = Invoice::where('userId',Auth::id())->where('status','completed')->count();
+        $totalOrder = Invoice::where('userId',Auth::id())->count();
+        return view('frontend.pages.dashboard.dashboard',compact(
+            'activeOrder',
+            'completedOrder',
+            'totalOrder',
+        ));
     } 
 
     public function order(){
-        return view('frontend.pages.dashboard.order');
+        $orders = Invoice::where('userId',Auth::id())->latest()->get();
+        return view('frontend.pages.dashboard.order',compact(
+            'orders',
+        ));
     }
 
     public function review(){
@@ -99,20 +110,15 @@ class FrontendController extends Controller
     }
 
 
-    public function removeCartItem($id){
-        Cart::where('id',$id)->delete();
-        return back();
-    }
-
-
     public function passwordChange(){
         return view('frontend.pages.dashboard.passwordChange');
     }
 
     public function index(){
         $productCategories = ProductCategory::where('status','active')->latest()->get();
-        $topCategories = ProductCategory::latest()->take(4)->get();
+        $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->get();
+        // $categories = ProductCategory::where('status','active')->latest()->get();
 
         return view('welcome',compact([
             'productCategories',

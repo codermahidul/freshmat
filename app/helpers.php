@@ -1,6 +1,8 @@
 <?php
 
- use Illuminate\Support\Facades\Session;
+use App\Models\Product;
+use App\Models\ProductCategory;
+use Illuminate\Support\Facades\Session;
 
 if (!function_exists('wishlistTotalItem')) {
     function wishlistTotalItem($userId){
@@ -36,4 +38,20 @@ function discount(){
     }else{
         return 0;
     }
+}
+
+
+function productCategories(){
+    return ProductCategory::where('status','active')->latest()->get();
+}
+
+
+function productCategoryProductCounter(){
+    $categories = ProductCategory::where('status','active')->latest()->get();
+        foreach ($categories as $category) {
+            $category->productCount = Product::where('categoryId', $category->id)
+            ->where('status', 'active')
+            ->count();
+        };
+        return $categories;
 }
