@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\FAQSController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
@@ -121,8 +122,12 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('delivery/location/update/{id}', [DeliveryLocationController::class, 'update'])->name('delivery.update');
     Route::get('delivery/location/delete/{id}', [DeliveryLocationController::class, 'delete'])->name('delivery.delete');
 
+    //Add Banner
+    Route::get('add/banner/', [BannerController::class, 'homeOneBanner'])->name('homeonebanner');
+    Route::post('home/one/banner/update', [BannerController::class, 'homeOneBannerUpdate'])->name('hobnupdate');
+
     //Setting
-    Route::get('setting',[SettingController::class, 'index'])->name('setting');
+    Route::get('setting', [SettingController::class, 'index'])->name('setting');
     Route::post('setting/logo-favicon/update', [SettingController::class, 'logoFavicon'])->name('logoFavicon');
 });
 

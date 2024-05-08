@@ -120,6 +120,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="{{route('homeonebanner')}}" class="nav-link {{ (Route::currentRouteNamed('homeonebanner')) ? 'active' : '' }}">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Banners
+              </p>
+            </a>
+          </li>
           <li class="nav-item {{ Route::currentRouteNamed('faqs','faqs.add') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
               <i class="nav-icon fas fa-file-alt"></i>
