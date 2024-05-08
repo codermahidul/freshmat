@@ -94,45 +94,19 @@
                 <div class="col-lg-9">
                     <div class="banner_content">
                         <div class="row banner_slider">
+                            @foreach ($sliders as $slider)
                             <div class="col-xl-12">
-                                <div class="single_slider" style="background: url({{asset('assets')}}/images/slider_3.jpg);">
+                                <div class="single_slider" style="background: url({{ asset($slider->backgroundImg) }});">
                                     <div class="single_slider_text wow fadeInDown">
-                                        <h3>Organic 100% Genuine Product</h3>
-                                        <h1>Tasty & <span>Healthy</span> Organic Food</h1>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not random text classical
-                                            Latin
-                                            literature.</p>
-                                        <a class="common_btn" href="shop_details.html">shop now <i
+                                        <h3>{{ $slider->shortTitle }}</h3>
+                                        <h1>{{ $slider->offerText }}</h1>
+                                        <p>{{ $slider->description }}</p>
+                                        <a class="common_btn" href="{{ $slider->link }}">shop now <i
                                                 class="fas fa-long-arrow-right"></i> <span></span></a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-12">
-                                <div class="single_slider" style="background: url({{asset('assets')}}/images/slider_1.jpg);">
-                                    <div class="single_slider_text wow fadeInLeft">
-                                        <h3>Up to 50% OFF</h3>
-                                        <h1>We Offer <span>Premium</span> & Organic Food</h1>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not random text classical
-                                            Latin
-                                            literature.</p>
-                                        <a class="common_btn" href="shop_details.html">shop now <i
-                                                class="fas fa-long-arrow-right"></i> <span></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-12">
-                                <div class="single_slider" style="background: url({{asset('assets')}}/images/slider_2.jpg);">
-                                    <div class="single_slider_text wow fadeInLeft">
-                                        <h3>Organic 100% Genuine Product</h3>
-                                        <h1> Our <span>Garden's</span> Most Favorite Food</h1>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not random text classical
-                                            Latin
-                                            literature.</p>
-                                        <a class="common_btn" href="shop_details.html">shop now <i
-                                                class="fas fa-long-arrow-right"></i> <span></span></a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

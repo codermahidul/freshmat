@@ -7,6 +7,7 @@ use App\Models\Coupon;
 use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Slider;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -118,12 +119,14 @@ class FrontendController extends Controller
         $productCategories = ProductCategory::where('status','active')->latest()->get();
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->get();
+        $sliders = Slider::where('status','active')->latest()->get();
         // $categories = ProductCategory::where('status','active')->latest()->get();
 
         return view('welcome',compact([
             'productCategories',
             'topCategories',
             'latestProduct',
+            'sliders',
         ]));
     }
 

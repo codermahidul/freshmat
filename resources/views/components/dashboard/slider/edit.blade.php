@@ -2,43 +2,47 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h3 class="card-title">Add New Slider</h3>
+          <h3 class="card-title">Edit Slider</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-          <form action="{{ route('sliderInsert') }}" method="post" enctype="multipart/form-data">
+          <form action="{{ route('slider.update',$slider->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="shortTitle">Short Title</label>
-                <input type="text" name="shortTitle" placeholder="Short Title" class="form-control">
+                <input type="text" name="shortTitle" placeholder="Short Title" class="form-control  @error('shorTitle') 'is-invalid' @enderror" value="{{ $slider->shortTitle }}">
                 @error('shortTitle')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="offerText">Offer Text</label>
-                <input type="text" name="offerText" placeholder="Offer Text" class="form-control">
+                <input type="text" name="offerText" placeholder="Offer Text" class="form-control @error('offerText') 'is-invalid' @enderror" value="{{ $slider->offerText }}" >
                 @error('offerText')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" name="description" placeholder="Description" class="form-control">
+                <input type="text" name="description" placeholder="Description" class="form-control @error('description') 'is-invalid' @enderror" value="{{ $slider->description }}">
                 @error('description')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="link">Link</label>
-                <input type="text" name="link" placeholder="Link" class="form-control">
+                <input type="text" name="link" placeholder="Link" class="form-control @error('link') 'is-invalid' @enderror" value="{{ $slider->link }}">
                 @error('link')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            <div>
+                <h6 class="text-bold">Old Slider Image</h6>
+                <img src="{{ asset($slider->backgroundImg) }}" alt="">
+            </div>
             <div class="form-group">
                 <label for="backgroundImg">Slider Image</label>
-                <input type="file" name="backgroundImg" id="backgroundImg" class="form-control">
+                <input type="file" name="backgroundImg" id="backgroundImg" class="form-control @error('backgroundImg') 'is-invalid' @enderror">
                 @error('backgroundImg')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -46,60 +50,17 @@
             <div class="form-group">
                 <label for="Status">Status</label>
                 <select name="status" class="form-control">
-                    <option value="active" selected>Active</option>
-                    <option value="deactive">Deactive</option>
+                    <option value="active" {{ ($slider->status == 'active') ? 'selected' : '' }}>Active</option>
+                    <option value="deactive" {{ ($slider->status == 'deactive') ? 'selected' : '' }}>Deactive</option>
                 </select>
             </div>
-            <button class="btn btn-primary">Add Slider</button>
+            <button class="btn btn-primary">Update Slider</button>
           </form>
         </div>
     
       </div>
 
       </div>
-    </div>
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header d-flex justify-content-between align-items-center">
-              <h3 class="card-title">Slider Item</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th style="width: 10px">#</th>
-                    <th>Short Title</th>
-                    <th>Offer Text</th>
-                    <th>Description</th>
-                    <th>Link</th>
-                    <th class="text-center">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @forelse ($sliders as $slider)
-                    <tr>
-                        <td> {{$loop->index +1}} </td>
-                        <td> {{$slider->shortTitle}} </td>
-                        <td> {{$slider->offerText}} </a></td>
-                        <td> {{$slider->description}} </a></td>
-                        <td> {{$slider->link}} </a></td>
-                        <td class="text-center">
-                            <a href="{{route('slider.edit',$slider->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                            <a href="{{route('slider.delete',$slider->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                        </td>
-                      </tr>
-                      @empty 
-                      <tr align="center">
-                        <td colspan="10" class="py-5">No Slider Item! Add New</td>
-                      </tr>
-                      @endforelse
-                </tbody>
-              </table>
-            </div>
-          </div>
-                  <!-- Pagination -->
-        {{ $sliders->links('pagination.dashboardPagination') }}
     </div>
   </div>
 

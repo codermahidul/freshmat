@@ -2,7 +2,7 @@
 @section('title','Freshmat')
 @section('content')
 
-@include('components.frontend.home.banner')
+@include('components.frontend.home.slider')
 @include('components.frontend.home.categories')
 @include('components.frontend.home.advertisement')
 @include('components.frontend.home.productfilter')

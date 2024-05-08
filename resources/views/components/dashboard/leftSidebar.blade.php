@@ -129,7 +129,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('slider') }}" class="nav-link {{ (Route::currentRouteNamed('slider')) ? 'active' : '' }}">
+            <a href="{{ route('slider') }}" class="nav-link {{ (Route::currentRouteNamed('slider','slider.edit')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-sliders-h"></i>
               <p>
                 Slider

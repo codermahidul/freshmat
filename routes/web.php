@@ -132,6 +132,9 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Slider
     Route::get('slider', [SliderController::class, 'index'])->name('slider');
     Route::post('slider/insert', [SliderController::class, 'insert'])->name('sliderInsert');
+    Route::get('slider/edit/{id}', [SliderController::class, 'edit'])->name('slider.edit');
+    Route::post('slider/update/{id}', [SliderController::class, 'update'])->name('slider.update');
+    Route::get('slider/delete/{id}', [SliderController::class, 'delete'])->name('slider.delete');
 
     //Setting
     Route::get('setting', [SettingController::class, 'index'])->name('setting');
