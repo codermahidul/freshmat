@@ -21,6 +21,7 @@ class BannerController extends Controller
     }
 
 
+    //Home One Banner One
     public function homeOneBannerUpdate(Request $request){
         $request->validate([
             'shortTitle' => 'required|string',
@@ -56,6 +57,79 @@ class BannerController extends Controller
 
     }
 
+    //Home One Banner Two
+    public function homeOneBannerTwoUpdate(Request $request){
+        $request->validate([
+            'shortTitle2' => 'required|string',
+            'offerText2' => 'required|string',
+            'link2' => 'required|url:http,https',
+            'backgroundImg2' => 'image:jpg,jpeg,png',
+        ]);
+
+        $save_url = Banner::where('id',2)->first()->backgroundImg;
+
+        if ($request->file('backgroundImg2')) {
+            unlink(base_path('public/'.$save_url));
+                //Feature Image
+                $manager = new ImageManager(new Driver());
+                $backgroundImg = $request->file('backgroundImg2');
+                $name = 'home-one-banner-two'.'.'.$backgroundImg->getClientOriginalExtension();
+                $img = $manager->read($backgroundImg);
+                $img = $img->resize(645,300);
+                $img->toJpeg(90)->save(base_path('public/uploads/banners/'.$name));
+                $save_url = 'uploads/banners/'.$name;
+        }
+
+
+        Banner::where('id',2)->update([
+            'shortTitle' => $request->input('shortTitle2'),
+            'offerText' => $request->input('offerText2'),
+            'link' => $request->input('link2'),
+            'backgroundImg' => $save_url,
+        ]);
+
+        return back()->with('success', 'Home One Right Banner Update Successfully!');
+
+
+    }
+
+
+        //Home One Banner Two
+        public function homeOneBannerSpecialUpdate(Request $request){
+            $request->validate([
+                'shortTitles' => 'required|string',
+                'offerTexts' => 'required|string',
+                'links' => 'required|url:http,https',
+                'backgroundImgs' => 'image:jpg,jpeg,png',
+            ]);
+    
+            $save_url = Banner::where('id',3)->first()->backgroundImg;
+    
+            if ($request->file('backgroundImgs')) {
+                unlink(base_path('public/'.$save_url));
+                    //Feature Image
+                    $manager = new ImageManager(new Driver());
+                    $backgroundImg = $request->file('backgroundImgs');
+                    $name = 'home-one-special_pro_banner_img'.'.'.$backgroundImg->getClientOriginalExtension();
+                    $img = $manager->read($backgroundImg);
+                    $img = $img->resize(420,540);
+                    $img->toJpeg(90)->save(base_path('public/uploads/banners/'.$name));
+                    $save_url = 'uploads/banners/'.$name;
+            }
+    
+    
+            Banner::where('id',3)->update([
+                'shortTitle' => $request->input('shortTitles'),
+                'offerText' => $request->input('offerTexts'),
+                'link' => $request->input('links'),
+                'description' => $request->input('descriptions'),
+                'backgroundImg' => $save_url,
+            ]);
+    
+            return back()->with('success', 'Home One Special Banner Update Successfully!');
+    
+    
+        }
 
 
 

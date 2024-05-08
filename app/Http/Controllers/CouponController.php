@@ -194,7 +194,8 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        return Auth::user()->id;
+        $bannerOne =  banner(3);
+        return $bannerOne->shortTitle;
 
     }
 

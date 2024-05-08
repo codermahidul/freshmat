@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Banner;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Session;
@@ -54,4 +55,10 @@ function productCategoryProductCounter(){
             ->count();
         };
         return $categories;
+}
+
+//Home One Banner One
+
+function banner($id){
+    return Banner::where('id',$id)->get();
 }

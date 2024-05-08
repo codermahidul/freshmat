@@ -12,6 +12,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -125,6 +126,12 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Add Banner
     Route::get('add/banner/', [BannerController::class, 'homeOneBanner'])->name('homeonebanner');
     Route::post('home/one/banner/update', [BannerController::class, 'homeOneBannerUpdate'])->name('hobnupdate');
+    Route::post('home/one/banner-two/update', [BannerController::class, 'homeOneBannerTwoUpdate'])->name('hobtupdate');
+    Route::post('home/one/banner-special/update', [BannerController::class, 'homeOneBannerSpecialUpdate'])->name('hobspecialupdate');
+
+    //Slider
+    Route::get('slider', [SliderController::class, 'index'])->name('slider');
+    Route::post('slider/insert', [SliderController::class, 'insert'])->name('sliderInsert');
 
     //Setting
     Route::get('setting', [SettingController::class, 'index'])->name('setting');

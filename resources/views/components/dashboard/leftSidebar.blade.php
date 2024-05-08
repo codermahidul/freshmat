@@ -122,9 +122,17 @@
           </li>
           <li class="nav-item">
             <a href="{{route('homeonebanner')}}" class="nav-link {{ (Route::currentRouteNamed('homeonebanner')) ? 'active' : '' }}">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon fas fa-ad"></i>
               <p>
                 Banners
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('slider') }}" class="nav-link {{ (Route::currentRouteNamed('slider')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-sliders-h"></i>
+              <p>
+                Slider
               </p>
             </a>
           </li>

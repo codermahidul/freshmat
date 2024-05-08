@@ -1,3 +1,4 @@
+{{-- Home One Banner One --}}
 <div class="card">
   <div class="card-header">
     <h5>Home Page One (Left Banner)</h5>
@@ -45,6 +46,8 @@
     </div>
   </div>
 </div>
+
+{{-- Home One Banner Two --}}
 <div class="card">
   <div class="card-header">
     <h5>Home Page One (Right Banner)</h5>
@@ -52,26 +55,39 @@
   <div class="card-body">
     <div class="row">
       <div class="col-md-12">
-        <form action="" method="post">
+        <form action="{{ route('hobtupdate') }}" method="post" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
-            <label for="description">Description</label>
-            <input type="text" class="form-control" placeholder="Short Description" name="shortTitle">
-            @error('shortTitle')
-                <span class="text-danger">{{ $message }}</span>
+            <label for="shorTitle">Short Title</label>
+            <input type="text" class="form-control" placeholder="Short Description" value="{{ $homeOneBannerTwo->shortTitle }}" name="shortTitle2">
+            @error('shortTitle2')
+            <span class="text-danger">{{ $message }}</span>
             @enderror
           </div>          
           <div class="form-group">
-            <label for="title">Offer Title</label>
-            <input type="text" class="form-control" placeholder="Offer Title">
+            <label for="offerText">Offer Title</label>
+            <input type="text" class="form-control" placeholder="Offer Title" value="{{ $homeOneBannerTwo->offerText }}" name="offerText2">
+            @error('offerText2')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
           </div>
           <div class="form-group">
             <label for="link">Button Link</label>
-            <input type="text" class="form-control" placeholder="Button Link">
+            <input type="text" class="form-control" placeholder="Button Link" value="{{ $homeOneBannerTwo->link }}" name="link2">
+            @error('link2')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
           </div>
-          <div class="form-group">
+          <div>
+            <h4 class="d-block">Previous Background Image</h4>
+            <img src="{{ asset($homeOneBannerTwo->backgroundImg) }}" alt="" class="img-fluid">
+          </div>
+          <div class="form-group mt-2">
             <label for="banner">Background Image</label>
-            <input type="file" name="banner" class="form-control">
+            <input type="file" class="form-control" name="backgroundImg2">
+            @error('backgroundImg2')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
           </div>
           <button class="btn btn-primary">Update Banner</button>
         </form>
@@ -80,29 +96,54 @@
   </div>
 </div>
 
+{{-- Home One Banner Special --}}
 <div class="card">
   <div class="card-header">
-    <h5>Home Page One (Special Product Left)</h5>
+    <h5>Home Page One (Special)</h5>
   </div>
   <div class="card-body">
     <div class="row">
       <div class="col-md-12">
-        <form action="" method="post">
+        <form action="{{ route('hobspecialupdate') }}" method="post" enctype="multipart/form-data">
+          @csrf
           <div class="form-group">
-            <label for="description">Description</label>
-            <input type="text" class="form-control" placeholder="Short Description">
+            <label for="shorTitle">Short Title</label>
+            <input type="text" class="form-control" placeholder="Short Description" value="{{ $homeOneBannerSpecial->shortTitle }}" name="shortTitles">
+            @error('shortTitles')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
           </div>          
           <div class="form-group">
-            <label for="title">Offer Title</label>
-            <input type="text" class="form-control" placeholder="Offer Title">
+            <label for="offerText">Offer Title</label>
+            <input type="text" class="form-control" placeholder="Offer Title" value="{{ $homeOneBannerSpecial->offerText }}" name="offerTexts">
+            @error('offerTexts')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" placeholder="Description" value="{{ $homeOneBannerSpecial->description }}" name="descriptions">
+            @error('descriptions')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
           </div>
           <div class="form-group">
             <label for="link">Button Link</label>
-            <input type="text" class="form-control" placeholder="Button Link">
+            <input type="text" class="form-control" placeholder="Button Link" value="{{ $homeOneBannerSpecial->link }}" name="links">
+            @error('links')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
           </div>
-          <div class="form-group">
+          <div>
+            <h4 class="d-block">Previous Background Image</h4>
+            <img src="{{ asset($homeOneBannerSpecial->backgroundImg) }}" alt="" class="img-fluid">
+          </div>
+          <div class="form-group mt-2">
             <label for="banner">Background Image</label>
-            <input type="file" name="banner" class="form-control">
+            <input type="file" class="form-control" name="backgroundImgs">
+            @error('backgroundImgs')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
           </div>
           <button class="btn btn-primary">Update Banner</button>
         </form>
@@ -110,7 +151,6 @@
     </div>
   </div>
 </div>
-
 
 @if (session('success'))
           <script>
