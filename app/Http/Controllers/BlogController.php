@@ -284,6 +284,15 @@ class BlogController extends Controller
         return view('frontend.pages.blogdetails',compact('blogDetails','comments','recentPosts'));
     }
 
+    //Category wise blog post
+
+    function categoryWiseBlog($slug){
+        $id = BlogCategory::where('slug',$slug)->first()->id;
+        $blogs= BlogPost::where('status','publish')->where('categoryId',$id)->with('blogcategory')->with('user')->latest()->paginate(12);
+        $categroyName = BlogCategory::where('slug',$slug)->first()->name;
+        return view('frontend.pages.categorywiseblog',compact('blogs','categroyName'));
+    }
+
 
 
 

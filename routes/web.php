@@ -40,6 +40,7 @@ Route::get('/product/cart/',[CartController::class, 'cart'])->name('cart');
 //Blog
 Route::get('blog',[BlogController::class, 'showblogpost'])->name('frontendblog');
 Route::get('blog/{slug}',[BlogController::class, 'blogDetails'])->name('blogDetails');
+Route::get('blog/category/{slug}',[BlogController::class, 'categoryWiseBlog'])->name('categoryWiseBlog');
 //Coupon
 Route::post('/product/coupon/claim',[CouponController::class, 'couponClaim'])->name('couponClaim');
 Route::get('/checkroute',[CouponController::class, 'checkroute'])->name('checkroute');
