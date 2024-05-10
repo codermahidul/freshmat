@@ -120,6 +120,7 @@ class FrontendController extends Controller
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->get();
         $sliders = Slider::where('status','active')->latest()->get();
+        
         // $categories = ProductCategory::where('status','active')->latest()->get();
 
         return view('welcome',compact([

@@ -408,7 +408,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="blogs.html">blog</a></li>
+                        <li><a href="{{ route('frontendblog') }}">blog</a></li>
                         <li class="relative_li"><a href="#">pages <i class="fas fa-chevron-down"></i></a>
                             <ul class="menu_droapdown">
                                 <li><a href="about_us.html">about us</a></li>

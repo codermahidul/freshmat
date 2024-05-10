@@ -22,11 +22,11 @@ class BlogPost extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'userId');
     }
 
     public function blogcategory(){
-        return $this->belongsTo(BlogCategory::class);
+        return $this->belongsTo(BlogCategory::class,'categoryId');
     }
 
     public function comments(){

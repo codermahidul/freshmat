@@ -37,6 +37,9 @@ Route::get('/shop/product/{slug}', [FrontendController::class, 'productDetails']
 //Cart
 Route::post('/product/cart/add/',[CartController::class, 'addToCart'])->name('addToCart');
 Route::get('/product/cart/',[CartController::class, 'cart'])->name('cart');
+//Blog
+Route::get('blog',[BlogController::class, 'showblogpost'])->name('frontendblog');
+Route::get('blog/{slug}',[BlogController::class, 'blogDetails'])->name('blogDetails');
 //Coupon
 Route::post('/product/coupon/claim',[CouponController::class, 'couponClaim'])->name('couponClaim');
 Route::get('/checkroute',[CouponController::class, 'checkroute'])->name('checkroute');

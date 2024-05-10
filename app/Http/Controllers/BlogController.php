@@ -263,4 +263,30 @@ class BlogController extends Controller
         return back()->with('success', 'Replied Successully');
     }
 
+
+
+    //Blog frontend
+
+    function showblogpost (){
+       $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->paginate(12);
+        foreach ($blogs as $blog) {
+            $blog->commentsCount = Comment::where('postId',$blog->id)->where('status','approve')->count();
+        }
+        return view('frontend.pages.blog',compact('blogs'));
+    }
+
+    //Blog Details
+
+    function blogDetails($slug){
+        $blogDetails = BlogPost::where('slug',$slug)->with('blogcategory')->with('user')->first();
+        $comments = Comment::where('status','approve')->where('postId',$blogDetails->id)->with('user.userProfile')->latest()->paginate(10);
+        $recentPosts = BlogPost::latest()->where('id', '!=', $blogDetails->id)->take(3)->get();
+        return view('frontend.pages.blogdetails',compact('blogDetails','comments','recentPosts'));
+    }
+
+
+
+
 }
+
+

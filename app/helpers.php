@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Banner;
+use App\Models\BlogCategory;
+use App\Models\BlogPost;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Session;
@@ -55,6 +57,14 @@ function productCategoryProductCounter(){
             ->count();
         };
         return $categories;
+}
+
+function blogCategoryPostCounter(){
+    $blogCategorieswithpostCount = BlogCategory::latest()->get();
+    foreach ($blogCategorieswithpostCount as $blogCategory) {
+        $blogCategory->postCount = BlogPost::where('status','publish')->where('categoryId',$blogCategory->id)->count();
+    }
+    return $blogCategorieswithpostCount;
 }
 
 //Home One Banner One
