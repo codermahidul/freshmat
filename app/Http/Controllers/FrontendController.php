@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Coupon;
 use App\Models\Invoice;
+use App\Models\InvoicesProducts;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Slider;
+use App\Models\User;
+use App\Models\UserProfile;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -77,11 +80,44 @@ class FrontendController extends Controller
         ));
     } 
 
+    public function editProfile(){
+        return view('frontend.pages.dashboard.editProfile');
+    }
+
+    public function profileUpdate(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
+        User::where('id',Auth::id())->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+        ]);
+        UserProfile::where('userId',Auth::id())->update([
+            'phone' => $request->input('phone'),
+            'city' => $request->input('city'),
+            'address' => $request->input('address'),
+        ]);
+
+        return back()->with('success', 'Your Profile Update Successfully');
+    }
+
     public function order(){
         $orders = Invoice::where('userId',Auth::id())->latest()->get();
         return view('frontend.pages.dashboard.order',compact(
             'orders',
         ));
+    }
+
+    public function orderInvoice($id){
+        $invoice = Invoice::where('id',$id)->first();
+        $products = InvoicesProducts::where('invoiceId',$id)->get();
+        foreach ($products as $product) {
+            $product->name = Product::where('id',$product->productId)->first()->title;
+            $product->price = Product::where('id',$product->productId)->first()->selePrice;
+        }
+        return view('frontend.pages.dashboard.invoice',compact('invoice','products'));
     }
 
     public function review(){

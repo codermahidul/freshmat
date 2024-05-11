@@ -3,6 +3,7 @@
 use App\Models\Banner;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
+use App\Models\HomeVideoGallery;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Session;
@@ -71,4 +72,11 @@ function blogCategoryPostCounter(){
 
 function banner($id){
     return Banner::where('id',$id)->get();
+}
+
+
+//Home One Video Gallery
+
+function hovg(){
+    return HomeVideoGallery::where('id',1)->first();
 }

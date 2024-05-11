@@ -9,6 +9,8 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeVideoGalleryController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
@@ -47,7 +49,10 @@ Route::get('/checkroute',[CouponController::class, 'checkroute'])->name('checkro
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('userDashboard');
+    Route::get('/edit/profile', [FrontendController::class, 'editProfile'])->name('editProfile');
+    Route::post('/edit/profile/update', [FrontendController::class, 'profileUpdate'])->name('profileUpdate');
     Route::get('/dashboard/order', [FrontendController::class, 'order'])->name('userOrder');
+    Route::get('/dashboard/order/invoice/{id}', [FrontendController::class, 'orderInvoice'])->name('orderInvoice');
     Route::get('/dashboard/review', [FrontendController::class, 'review'])->name('userReview');
     Route::get('/dashboard/wishlist', [FrontendController::class, 'wishlist'])->name('userWishlist');
     Route::get('/dashboard/password-change', [FrontendController::class, 'passwordChange'])->name('userPasswordChange');
@@ -59,6 +64,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/product/cart/checkout/',[CheckoutController::class, 'checkout'])->name('checkout');
     //Payment
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
+    //Comment
+    Route::post('blog/comment/{slug}', [BlogController::class, 'insertComment'])->name('insertComment');
     
 
 });
@@ -143,6 +150,18 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Setting
     Route::get('setting', [SettingController::class, 'index'])->name('setting');
     Route::post('setting/logo-favicon/update', [SettingController::class, 'logoFavicon'])->name('logoFavicon');
+    
+    //Home One Video Gallery
+    Route::get('video/gallery', [HomeVideoGalleryController::class, 'index'])->name('homeOneVideoGallery');
+    Route::post('hovgUpdate', [HomeVideoGalleryController::class, 'hovgUpdate'])->name('hovgUpdate');
+
+    //Partners
+    Route::get('partner', [PartnerController::class, 'index'])->name('partner');
+    Route::post('partner/insert', [PartnerController::class, 'insert'])->name('partnerInsert');
+
 });
+
+
+
 
 });

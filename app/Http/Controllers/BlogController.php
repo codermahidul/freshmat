@@ -281,7 +281,8 @@ class BlogController extends Controller
         $blogDetails = BlogPost::where('slug',$slug)->with('blogcategory')->with('user')->first();
         $comments = Comment::where('status','approve')->where('postId',$blogDetails->id)->with('user.userProfile')->latest()->paginate(10);
         $recentPosts = BlogPost::latest()->where('id', '!=', $blogDetails->id)->take(3)->get();
-        return view('frontend.pages.blogdetails',compact('blogDetails','comments','recentPosts'));
+        $slug =$slug;
+        return view('frontend.pages.blogdetails',compact('blogDetails','comments','recentPosts','slug'));
     }
 
     //Category wise blog post
@@ -293,6 +294,26 @@ class BlogController extends Controller
         return view('frontend.pages.categorywiseblog',compact('blogs','categroyName'));
     }
 
+
+    //Insert Comment from user
+
+    function insertComment(Request $request, $slug){
+        $request->validate([
+            'content' => 'required',
+        ]);
+
+        $postId = BlogPost::where('slug',$slug)->first()->id;
+        
+        Comment::insert([
+            'userId' => Auth::user()->id,
+            'postId' => $postId,
+            'content' => $request->input('content'),
+            'status' => 'pending',
+        ]);
+
+        return back()->with('success','Your comment is successful');
+
+    }
 
 
 

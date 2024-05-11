@@ -31,7 +31,7 @@
             </div>
 
             <div class="dashboard_profile_info_list mt_25 wow fadeInUp">
-                <h2>Personal Information <a href="dashboard_info_edit.html">Edit</a></h2>
+                <h2>Personal Information <a href="{{ route('editProfile') }}">Edit</a></h2>
                 <ul>
                     <li><span>Name:</span> {{ Auth::user()->name }}</li>
                     <li><span>Email:</span> {{ Auth::user()->email }}</li>

@@ -136,6 +136,22 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('homeOneVideoGallery') }}" class="nav-link {{ (Route::currentRouteNamed('homeOneVideoGallery')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-sliders-h"></i>
+              <p>
+                Video Gallery
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('partner') }}" class="nav-link {{ (Route::currentRouteNamed('partner')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-sliders-h"></i>
+              <p>
+                Pertner
+              </p>
+            </a>
+          </li>
           <li class="nav-item {{ Route::currentRouteNamed('faqs','faqs.add') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
               <i class="nav-icon fas fa-file-alt"></i>

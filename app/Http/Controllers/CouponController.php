@@ -194,8 +194,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        $bannerOne =  banner(3);
-        return $bannerOne->shortTitle;
+        return hovg();
 
     }
 

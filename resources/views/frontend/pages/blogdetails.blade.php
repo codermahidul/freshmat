@@ -118,9 +118,10 @@
                         </div>
                         <div class="det_comment_input">
                             <h3>Leave A Comments</h3>
-                            <form>
+                            <form method="POST" action="{{ route('insertComment',$slug) }}">
+                                @csrf
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    {{-- <div class="col-xl-6">
                                         <div class="review_input_box">
                                             <input type="text" placeholder="Name">
                                         </div>
@@ -129,11 +130,18 @@
                                         <div class="review_input_box">
                                             <input type="email" placeholder="Email">
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-xl-12">
                                         <div class="review_input_box">
-                                            <textarea rows="5" placeholder="Write Comment...."></textarea>
+                                            <textarea class="is-invalid" rows="5" placeholder="Write Comment...." name="content">{{ old('content') }}</textarea>
+                                            @error('content')
+                                             <span class="text-danger d-block">{{ $message }}</span>
+                                            @enderror
+                                            @if (session('success'))
+                                                <span class="text-success">{{ session('success') }}</span>
+                                            @endif
                                         </div>
+
                                         <button type="submit" class="common_btn">Submit Comment
                                             <span></span></button>
                                     </div>
