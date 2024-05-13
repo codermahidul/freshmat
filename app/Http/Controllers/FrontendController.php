@@ -168,6 +168,19 @@ class FrontendController extends Controller
     }
 
 
+    public function contact(){
+        return view('frontend.pages.contact');
+    }
+
+    public function aboutUs(){
+        return view('frontend.pages.aboutus');
+    }
+
+    public function faqsf(){
+        return view('frontend.pages.faqs');
+    }
+
+
 
 
 }

@@ -194,7 +194,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        return hovg();
+        return globalBlog();
 
     }
 

@@ -3,6 +3,7 @@
 use App\Models\Banner;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
+use App\Models\Comment;
 use App\Models\HomeVideoGallery;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -80,3 +81,13 @@ function banner($id){
 function hovg(){
     return HomeVideoGallery::where('id',1)->first();
 }
+
+//Global blogpost
+
+function globalBlog(){
+    $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->take(3)->get();
+     foreach ($blogs as $blog) {
+         $blog->commentsCount = Comment::where('postId',$blog->id)->where('status','approve')->count();
+     }
+     return $blogs;
+ }

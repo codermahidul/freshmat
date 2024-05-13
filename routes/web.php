@@ -36,6 +36,10 @@ Route::get('/register', [FrontendController::class, 'register'])->name('userRegi
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
 Route::get('/shop/category/{slug}', [FrontendController::class, 'categoryWiseProduct'])->name('categoryWiseProduct');
 Route::get('/shop/product/{slug}', [FrontendController::class, 'productDetails'])->name('productDetails');
+//pages
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('aboutUs');
+Route::get('/faqsf', [FrontendController::class, 'faqsf'])->name('faqsf');
 //Cart
 Route::post('/product/cart/add/',[CartController::class, 'addToCart'])->name('addToCart');
 Route::get('/product/cart/',[CartController::class, 'cart'])->name('cart');

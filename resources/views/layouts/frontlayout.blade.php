@@ -411,7 +411,7 @@
                         <li><a href="{{ route('frontendblog') }}">blog</a></li>
                         <li class="relative_li"><a href="#">pages <i class="fas fa-chevron-down"></i></a>
                             <ul class="menu_droapdown">
-                                <li><a href="about_us.html">about us</a></li>
+                                <li><a href="{{ route('aboutUs') }}">about us</a></li>
                                 <li><a href="blogs_details.html">blog details</a></li>
                                 <li><a href="shop_details.html">shop details</a></li>
                                 <li><a href="cart_view.html">cart view</a></li>
@@ -422,7 +422,7 @@
                                 <li><a href="team.html">Our team</a></li>
                                 <li><a href="team_details.html">team details</a></li>
                                 <li><a href="error.html">error/404</a></li>
-                                <li><a href="faq.html">faq's</a></li>
+                                <li><a href="{{ route('faqsf') }}">faq's</a></li>
                                 <li><a href="gallery.html">gallery</a></li>
                                 <li><a href="{{ route('userLogin') }}">sign in</a></li>
                                 <li><a href="{{ route('userRegister') }}">sign up</a></li>
@@ -432,7 +432,7 @@
                                 <li><a href="flash_sell.html">flash sell</a></li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">contact</a></li>
+                        <li><a href="{{ route('contact') }}">contact</a></li>
                     </ul>
                     <ul class="menu_icon">
                         <li><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
