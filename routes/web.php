@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\FAQSController;
 use App\Http\Controllers\BlogController;
@@ -167,6 +168,12 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('partner/delete/{id}', [PartnerController::class, 'delete'])->name('partner.delete');
 
 });
+
+
+//App Links
+
+    Route::get('app',[AppController::class, 'index'])->name('appLinks');
+    Route::post('app/update',[AppController::class, 'update'])->name('appLinksUpdate');
 
 
 

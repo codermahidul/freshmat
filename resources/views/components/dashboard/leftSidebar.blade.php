@@ -152,6 +152,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('appLinks') }}" class="nav-link {{ (Route::currentRouteNamed('appLinks')) ? 'active' : '' }}">
+              <i class="nav-icon fab fa-app-store-ios"></i>
+              <p>
+                App Download
+              </p>
+            </a>
+          </li>
           <li class="nav-item {{ Route::currentRouteNamed('faqs','faqs.add') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
               <i class="nav-icon fas fa-file-alt"></i>
