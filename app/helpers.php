@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\App;
 use App\Models\Banner;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
@@ -96,4 +97,8 @@ function globalBlog(){
 
  function partners(){
     return Partner::where('status','active')->latest()->get();
+ }
+
+ function appSection(){
+    return App::find(1);
  }
