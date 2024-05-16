@@ -16,41 +16,16 @@
                     <div class="col-12">
                         <div class="marquee_animi">
                             <ul>
+                                @forelse (partners() as $partner)
                                 <li>
                                     <a href="#">
-                                        <img src="{{asset('assets')}}/images/brand_item_1.png" alt="brand" class="img-fluid w-100">
+                                        <img src="{{ asset($partner->logo) }}" alt="brand" class="img-fluid w-100">
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{asset('assets')}}/images/brand_item_2.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{asset('assets')}}/images/brand_item_3.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{asset('assets')}}/images/brand_item_4.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{asset('assets')}}/images/brand_item_5.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{asset('assets')}}/images/brand_item_6.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{asset('assets')}}/images/brand_item_4.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
+                                @empty
+                                    No Partners
+                                @endforelse
+
                             </ul>
                         </div>
                     </div>

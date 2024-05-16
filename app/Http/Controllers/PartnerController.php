@@ -42,4 +42,56 @@ class PartnerController extends Controller
     return back()->with('success', 'Partner Added Successfully!');
 
     }
+
+        //Partner edit
+        public function edit($id){
+            $partner = Partner::where('id',$id)->first();
+            return view('dashboard.partner.edit',compact('partner'));
+        }
+
+
+     //Partner update
+    public function update(Request $request, $id){
+        $request->validate([
+            'status' => 'required|string',
+            'logo' => 'image:jpg,jpeg,png',
+        ]);
+
+        $logo = Partner::where('id',$id)->first()->logo;
+
+        if ($request->file('logo')) {
+            unlink(base_path('public/'.$logo));
+
+            $manager = new ImageManager(new Driver());
+            $logo = $request->file('logo');
+            $name = Str::uuid()->toString().'.'.$logo->getClientOriginalExtension();
+            $img = $manager->read($logo);
+            $img = $img->resize(100,100);
+            $img->toJpeg(100)->save(base_path('public/uploads/partner/'.$name));
+            $logo = 'uploads/partner/'.$name;
+        }
+
+        Partner::where('id',$id)->update([
+            'status' => $request->input('status'),
+             'logo' => $logo,
+             ]);
+
+
+        return back()->with('success','Partner Update Successfully!');
+
+    }
+
+
+
+    //Partner delete
+    public function delete($id){
+        $partner = Partner::where('id',$id)->first();
+        unlink(base_path('public/'.$partner->logo));
+        $partner->delete();
+        return back()->with('success','Parner Deleted Successfully');
+    }
+
+
+
+
 }

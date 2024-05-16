@@ -162,6 +162,9 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Partners
     Route::get('partner', [PartnerController::class, 'index'])->name('partner');
     Route::post('partner/insert', [PartnerController::class, 'insert'])->name('partnerInsert');
+    Route::get('partner/edit/{id}', [PartnerController::class, 'edit'])->name('partner.edit');
+    Route::post('slider/update/{id}', [PartnerController::class, 'update'])->name('partner.update');
+    Route::get('partner/delete/{id}', [PartnerController::class, 'delete'])->name('partner.delete');
 
 });
 

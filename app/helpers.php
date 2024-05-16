@@ -5,6 +5,7 @@ use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\Comment;
 use App\Models\HomeVideoGallery;
+use App\Models\Partner;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Session;
@@ -90,4 +91,9 @@ function globalBlog(){
          $blog->commentsCount = Comment::where('postId',$blog->id)->where('status','approve')->count();
      }
      return $blogs;
+ }
+
+
+ function partners(){
+    return Partner::where('status','active')->latest()->get();
  }

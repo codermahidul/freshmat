@@ -49,8 +49,8 @@
                             <img src="{{ asset($partner->logo) }}" alt="">
                         </td>
                         <td class="text-center">
-                            <a href="{{route('slider.edit',$partner->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                            <a href="{{route('slider.delete',$partner->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                            <a href="{{route('partner.edit',$partner->id)}}" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="{{route('partner.delete',$partner->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                         </td>
                       </tr>
                       @empty 

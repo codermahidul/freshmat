@@ -138,7 +138,7 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('homeOneVideoGallery') }}" class="nav-link {{ (Route::currentRouteNamed('homeOneVideoGallery')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-sliders-h"></i>
+              <i class="nav-icon fas fa-photo-video"></i>
               <p>
                 Video Gallery
               </p>
@@ -146,7 +146,7 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('partner') }}" class="nav-link {{ (Route::currentRouteNamed('partner')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-sliders-h"></i>
+              <i class="nav-icon fas fa-hands-helping"></i>
               <p>
                 Pertner
               </p>
@@ -161,6 +161,18 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('faqs')}}" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Contact Us</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('faqs')}}" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>About Us</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="{{route('faqs')}}" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
