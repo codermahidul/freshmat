@@ -102,3 +102,7 @@ function globalBlog(){
  function appSection(){
     return App::find(1);
  }
+
+ function productSlug($id){
+    return Product::find($id)->slug;
+ }

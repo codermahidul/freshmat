@@ -67,6 +67,6 @@ class PaymentController extends Controller
         Mail::to($request->user())->send(new InvoiceEmail($data));
 
         Session::forget('cart');
-        return back()->with('success','Your Payment Successfull');
+        return redirect(route('orderInvoice',$invoiceId));
     }
 }

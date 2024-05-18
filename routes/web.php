@@ -19,16 +19,6 @@ use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 //User Routes
 Route::get('/', [FrontendController::class, 'index'])->name('index');
@@ -44,6 +34,7 @@ Route::get('/faqsf', [FrontendController::class, 'faqsf'])->name('faqsf');
 //Cart
 Route::post('/product/cart/add/',[CartController::class, 'addToCart'])->name('addToCart');
 Route::get('/product/cart/',[CartController::class, 'cart'])->name('cart');
+Route::get('/product/cart/remove/{id}',[CartController::class, 'removeCartItem'])->name('removeCartItem');
 //Blog
 Route::get('blog',[BlogController::class, 'showblogpost'])->name('frontendblog');
 Route::get('blog/{slug}',[BlogController::class, 'blogDetails'])->name('blogDetails');
@@ -64,7 +55,6 @@ Route::middleware(['auth'])->group(function(){
     //Wishlists
     Route::get('/product/wishlist/add/{id}',[FrontendController::class, 'addToWishlists'])->name('adToWishlist');
     //Cart
-    Route::get('/product/cart/remove/{id}',[FrontendController::class, 'removeCartItem'])->name('removeCartItem');
     //Checkout
     Route::get('/product/cart/checkout/',[CheckoutController::class, 'checkout'])->name('checkout');
     //Payment
@@ -167,15 +157,11 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('slider/update/{id}', [PartnerController::class, 'update'])->name('partner.update');
     Route::get('partner/delete/{id}', [PartnerController::class, 'delete'])->name('partner.delete');
 
-});
-
-
-//App Links
-
+    //App Links
     Route::get('app',[AppController::class, 'index'])->name('appLinks');
     Route::post('app/update',[AppController::class, 'update'])->name('appLinksUpdate');
 
-
+});
 
 
 });

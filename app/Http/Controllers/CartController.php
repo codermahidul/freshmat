@@ -52,10 +52,26 @@ if ($existingItemIndex !== -1) {
 
 
      public function cart(){
-        //$cartItems = Session::get('cart');
         return view('frontend.pages.cart');
     }
 
+
+    public function removeCartItem($id){
+        $sessionArray = Session::get('cart');
+
+        $filteredArray = array_filter($sessionArray, function ($item) use ($id) {
+            return $item['productId'] !== $id;
+        });
+
+        if (empty($filteredArray)) {
+            Session::forget('cart');
+        }else{
+            Session::put('cart', $filteredArray);
+        }
+
+
+        return back()->with('success','Item Removed!');
+    }
 
 
 

@@ -460,10 +460,10 @@
                         <li>
                             <div class="cart_img">
                                 <img src="{{ asset($cart['thumbnail']) }}" alt="product" class="img-fluid w-100">
-                                <a class="wsis__del_icon" href="#"><i class="fas fa-minus-circle"></i></a>
+                                <a class="wsis__del_icon" href="{{ route('removeCartItem',$cart['productId']) }}"><i class="fas fa-minus-circle"></i></a>
                             </div>
                             <div class="cart_text">
-                                <a class="cart_title" href="#">{{$cart['title']}}</a>
+                                <a class="cart_title" href="{{ route('productDetails',productSlug($cart['productId']))}}"> {{$cart['title']}} </a>
                                 <p>${{ $cart['price'] }} x {{ $cart['quantity'] }}</p>
                             </div>
                         </li>
@@ -474,7 +474,11 @@
                 </ul>
                 <h5>sub total <span>${{ subTotal() }}</span></h5>
                 <div class="minicart_btn_area">
-                    <a class="common_btn" href="{{ route('cart') }}">view cart<span></span></a>
+                    @if (Session::has('cart'))
+                        <a class="common_btn" href="{{ route('cart') }}">view cart<span></span></a>
+                    @else
+                        <a class="common_btn" href="{{ route('shop') }}">Visit Shop<span></span></a>
+                    @endif
                 </div>
             </div>
         </div>
