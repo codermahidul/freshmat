@@ -6,8 +6,8 @@
             <div class="row wow fadeInUp">
                 <div class="col-xl-5 m-auto">
                     <div class="section_heading mb_50">
-                        <h4>Testimonials</h4>
-                        <h2>What Our Customer Say</h2>
+                        <h4>{{ sectionTitle(4)->subheading }}</h4>
+                        <h2>{{ sectionTitle(4)->heading }}</h2>
                     </div>
                 </div>
             </div>

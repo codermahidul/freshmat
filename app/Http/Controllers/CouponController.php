@@ -194,7 +194,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        return appSection();
+        return sectionTitle(1);
 
     }
 

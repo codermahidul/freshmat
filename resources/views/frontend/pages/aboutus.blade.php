@@ -83,8 +83,8 @@
             <div class="row">
                 <div class="col-xl-5 m-auto">
                     <div class="section_heading mb_25 wow fadeInUp">
-                        <h4>Our Features</h4>
-                        <h2>Why Choose Us</h2>
+                        <h4>{{ sectionTitle(6)->subheading }}</h4>
+                        <h2>{{ sectionTitle(6)->heading }}</h2>
                     </div>
                 </div>
             </div>
@@ -134,8 +134,8 @@
             <div class="row">
                 <div class="col-xl-5 m-auto">
                     <div class="section_heading mb_25 wow fadeInUp">
-                        <h4>How We Works</h4>
-                        <h2>Our Working Process</h2>
+                        <h4>{{ sectionTitle(7)->subheading }}</h4>
+                        <h2>{{ sectionTitle(7)->heading }}</h2>
                     </div>
                 </div>
             </div>

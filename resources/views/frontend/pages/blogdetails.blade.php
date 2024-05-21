@@ -54,7 +54,8 @@
                         <div class="blog_det_text">
                             <h2>{{ $blogDetails->title }}</h2>
                             <p>
-                                {{ $blogDetails->description }}
+                                {!! $blogDetails->description !!}
+                                {{-- {{ $blogDetails->description }} --}}
                             </p>
                         </div>
                         <div class="blog_tags_and_share d-flex flex-wrap">

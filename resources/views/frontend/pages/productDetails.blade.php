@@ -368,7 +368,7 @@
                                         <a class="common_btn" href="#"><i class="far fa-shopping-basket"></i> Add To
                                             Cart
                                             <span></span></a>
-                                        <a class="love" href="#"><i class="far fa-heart"></i></a>
+                                        <a class="love" href="{{ route('adToWishlist',$singleProduct->id) }}"><i class="far fa-heart"></i></a>
                                     </div>
                                     <p class="category"><span>Category:</span> {{ $singleProduct->productcategories->name }}</p>
                                     <ul class="tags">

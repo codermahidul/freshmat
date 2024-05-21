@@ -160,6 +160,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('sectionTitle') }}" class="nav-link {{ (Route::currentRouteNamed('sectionTitle')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-puzzle-piece"></i>
+              <p>
+                Section Title
+              </p>
+            </a>
+          </li>
           <li class="nav-item {{ Route::currentRouteNamed('faqs','faqs.add') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
               <i class="nav-icon fas fa-file-alt"></i>

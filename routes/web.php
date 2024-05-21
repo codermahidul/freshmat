@@ -14,6 +14,7 @@ use App\Http\Controllers\HomeVideoGalleryController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SectionTitleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Auth;
@@ -160,6 +161,10 @@ Route::group(['middleware' => ['auth','role']], function(){
     //App Links
     Route::get('app',[AppController::class, 'index'])->name('appLinks');
     Route::post('app/update',[AppController::class, 'update'])->name('appLinksUpdate');
+
+    //Section Title
+    Route::get('section/title',[SectionTitleController::class,'index'] )->name('sectionTitle');
+    Route::post('section/title/update/{id}',[SectionTitleController::class,'update'] )->name('sectionTitleUpdate');
 
 });
 

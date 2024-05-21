@@ -9,6 +9,7 @@ use App\Models\HomeVideoGallery;
 use App\Models\Partner;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\SectionTitle;
 use Illuminate\Support\Facades\Session;
 
 if (!function_exists('wishlistTotalItem')) {
@@ -105,4 +106,9 @@ function globalBlog(){
 
  function productSlug($id){
     return Product::find($id)->slug;
+ }
+
+
+ function sectionTitle($id){
+    return SectionTitle::find($id);
  }
