@@ -17,6 +17,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionTitleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -39,9 +40,9 @@ Route::post('/product/cart/add/',[CartController::class, 'addToCart'])->name('ad
 Route::get('/product/cart/',[CartController::class, 'cart'])->name('cart');
 Route::get('/product/cart/remove/{id}',[CartController::class, 'removeCartItem'])->name('removeCartItem');
 //Blog
-Route::get('blog',[BlogController::class, 'showblogpost'])->name('frontendblog');
-Route::get('blog/{slug}',[BlogController::class, 'blogDetails'])->name('blogDetails');
-Route::get('blog/category/{slug}',[BlogController::class, 'categoryWiseBlog'])->name('categoryWiseBlog');
+Route::get('/blog',[BlogController::class, 'showblogpost'])->name('frontendblog');
+Route::get('/blog/{slug}',[BlogController::class, 'blogDetails'])->name('blogDetails');
+Route::get('/blog/category/{slug}',[BlogController::class, 'categoryWiseBlog'])->name('categoryWiseBlog');
 //Coupon
 Route::post('/product/coupon/claim',[CouponController::class, 'couponClaim'])->name('couponClaim');
 Route::get('/checkroute',[CouponController::class, 'checkroute'])->name('checkroute');
@@ -63,7 +64,7 @@ Route::middleware(['auth'])->group(function(){
     //Payment
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
     //Comment
-    Route::post('blog/comment/{slug}', [BlogController::class, 'insertComment'])->name('insertComment');
+    Route::post('/blog/comment/{slug}', [BlogController::class, 'insertComment'])->name('insertComment');
     
 
 });
@@ -109,63 +110,70 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/product/category/update/{id}', [ProductController::class, 'update'])->name('productcategoryupdate');
     Route::get('/product/category/delete/{id}', [ProductController::class, 'delete'])->name('productcategorydelete');
     //Products
-    Route::get('product/', [ProductController::class, 'productindex'])->name('products');
-    Route::get('product/add', [ProductController::class, 'productadd'])->name('productadd');
-    Route::post('product/insert', [ProductController::class, 'productinsert'])->name('productinsert');
-    Route::get('product/edit/{id}', [ProductController::class, 'productedit'])->name('productedit');
-    Route::post('product/update/{id}', [ProductController::class, 'productupdate'])->name('productupdate');
-    Route::get('product/delete/{id}', [ProductController::class, 'productdelete'])->name('productdelete');
+    Route::get('/product', [ProductController::class, 'productindex'])->name('products');
+    Route::get('/product/add', [ProductController::class, 'productadd'])->name('productadd');
+    Route::post('/product/insert', [ProductController::class, 'productinsert'])->name('productinsert');
+    Route::get('/product/edit/{id}', [ProductController::class, 'productedit'])->name('productedit');
+    Route::post('/product/update/{id}', [ProductController::class, 'productupdate'])->name('productupdate');
+    Route::get('/product/delete/{id}', [ProductController::class, 'productdelete'])->name('productdelete');
 
     //Coupon
-    Route::get('coupon/', [CouponController::class, 'index'])->name('coupon');
-    Route::get('coupon/add', [CouponController::class, 'show'])->name('couponadd');
-    Route::post('coupon/insert', [CouponController::class, 'insert'])->name('couponinsert');
-    Route::get('coupon/edit/{id}', [CouponController::class, 'edit'])->name('couponedit');
-    Route::post('coupon/update/{id}', [CouponController::class, 'update'])->name('couponupdate');
+    Route::get('/coupon', [CouponController::class, 'index'])->name('coupon');
+    Route::get('/coupon/add', [CouponController::class, 'show'])->name('couponadd');
+    Route::post('/coupon/insert', [CouponController::class, 'insert'])->name('couponinsert');
+    Route::get('/coupon/edit/{id}', [CouponController::class, 'edit'])->name('couponedit');
+    Route::post('/coupon/update/{id}', [CouponController::class, 'update'])->name('couponupdate');
 
     //Delivery Location
-    Route::get('delivery/location/', [DeliveryLocationController::class, 'index'])->name('delivery.location');
-    Route::get('delivery/location/add', [DeliveryLocationController::class, 'show'])->name('delivery.add');
-    Route::post('delivery/location/insert', [DeliveryLocationController::class, 'insert'])->name('delivery.insert');
-    Route::get('delivery/location/edit/{id}', [DeliveryLocationController::class, 'edit'])->name('delivery.edit');
-    Route::post('delivery/location/update/{id}', [DeliveryLocationController::class, 'update'])->name('delivery.update');
-    Route::get('delivery/location/delete/{id}', [DeliveryLocationController::class, 'delete'])->name('delivery.delete');
+    Route::get('/delivery/location', [DeliveryLocationController::class, 'index'])->name('delivery.location');
+    Route::get('/delivery/location/add', [DeliveryLocationController::class, 'show'])->name('delivery.add');
+    Route::post('/delivery/location/insert', [DeliveryLocationController::class, 'insert'])->name('delivery.insert');
+    Route::get('/delivery/location/edit/{id}', [DeliveryLocationController::class, 'edit'])->name('delivery.edit');
+    Route::post('/delivery/location/update/{id}', [DeliveryLocationController::class, 'update'])->name('delivery.update');
+    Route::get('/delivery/location/delete/{id}', [DeliveryLocationController::class, 'delete'])->name('delivery.delete');
 
     //Add Banner
-    Route::get('add/banner/', [BannerController::class, 'homeOneBanner'])->name('homeonebanner');
-    Route::post('home/one/banner/update', [BannerController::class, 'homeOneBannerUpdate'])->name('hobnupdate');
-    Route::post('home/one/banner-two/update', [BannerController::class, 'homeOneBannerTwoUpdate'])->name('hobtupdate');
-    Route::post('home/one/banner-special/update', [BannerController::class, 'homeOneBannerSpecialUpdate'])->name('hobspecialupdate');
+    Route::get('/add/banner', [BannerController::class, 'homeOneBanner'])->name('homeonebanner');
+    Route::post('/home/one/banner/update', [BannerController::class, 'homeOneBannerUpdate'])->name('hobnupdate');
+    Route::post('/home/one/banner-two/update', [BannerController::class, 'homeOneBannerTwoUpdate'])->name('hobtupdate');
+    Route::post('/home/one/banner-special/update', [BannerController::class, 'homeOneBannerSpecialUpdate'])->name('hobspecialupdate');
 
     //Slider
-    Route::get('slider', [SliderController::class, 'index'])->name('slider');
-    Route::post('slider/insert', [SliderController::class, 'insert'])->name('sliderInsert');
-    Route::get('slider/edit/{id}', [SliderController::class, 'edit'])->name('slider.edit');
-    Route::post('slider/update/{id}', [SliderController::class, 'update'])->name('slider.update');
-    Route::get('slider/delete/{id}', [SliderController::class, 'delete'])->name('slider.delete');
+    Route::get('/slider', [SliderController::class, 'index'])->name('slider');
+    Route::post('/slider/insert', [SliderController::class, 'insert'])->name('sliderInsert');
+    Route::get('/slider/edit/{id}', [SliderController::class, 'edit'])->name('slider.edit');
+    Route::post('/slider/update/{id}', [SliderController::class, 'update'])->name('slider.update');
+    Route::get('/slider/delete/{id}', [SliderController::class, 'delete'])->name('slider.delete');
+
+    //Testimonial
+    Route::get('/testimonial',[TestimonialController::class, 'index'])->name('testimonial');
+    Route::post('/testimonial/insert',[TestimonialController::class, 'insert'])->name('testimonial.insert');
+    Route::get('/testimonial/edit/{id}',[TestimonialController::class, 'edit'])->name('testimonial.edit');
+    Route::post('/testimonial/update/{id}',[TestimonialController::class, 'update'])->name('testimonial.update');
+    Route::get('/testimonial/delete/{id}',[TestimonialController::class, 'delete'])->name('testimonial.delete');
 
     //Setting
-    Route::get('setting', [SettingController::class, 'index'])->name('setting');
-    Route::post('setting/logo-favicon/update', [SettingController::class, 'logoFavicon'])->name('logoFavicon');
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting');
+    Route::post('/setting/logo-favicon/update', [SettingController::class, 'logoFavicon'])->name('logoFavicon');
     
     //Home One Video Gallery
-    Route::get('video/gallery', [HomeVideoGalleryController::class, 'index'])->name('homeOneVideoGallery');
-    Route::post('hovgUpdate', [HomeVideoGalleryController::class, 'hovgUpdate'])->name('hovgUpdate');
+    Route::get('/video/gallery', [HomeVideoGalleryController::class, 'index'])->name('homeOneVideoGallery');
+    Route::post('/hovgUpdate', [HomeVideoGalleryController::class, 'hovgUpdate'])->name('hovgUpdate');
 
     //Partners
-    Route::get('partner', [PartnerController::class, 'index'])->name('partner');
-    Route::post('partner/insert', [PartnerController::class, 'insert'])->name('partnerInsert');
-    Route::get('partner/edit/{id}', [PartnerController::class, 'edit'])->name('partner.edit');
-    Route::post('slider/update/{id}', [PartnerController::class, 'update'])->name('partner.update');
-    Route::get('partner/delete/{id}', [PartnerController::class, 'delete'])->name('partner.delete');
+    Route::get('/partner', [PartnerController::class, 'index'])->name('partner');
+    Route::post('/partner/insert', [PartnerController::class, 'insert'])->name('partnerInsert');
+    Route::get('/partner/edit/{id}', [PartnerController::class, 'edit'])->name('partner.edit');
+    Route::post('/slider/update/{id}', [PartnerController::class, 'update'])->name('partner.update');
+    Route::get('/partner/delete/{id}', [PartnerController::class, 'delete'])->name('partner.delete');
 
     //App Links
-    Route::get('app',[AppController::class, 'index'])->name('appLinks');
-    Route::post('app/update',[AppController::class, 'update'])->name('appLinksUpdate');
+    Route::get('/app',[AppController::class, 'index'])->name('appLinks');
+    Route::post('/app/update',[AppController::class, 'update'])->name('appLinksUpdate');
 
     //Section Title
-    Route::get('section/title',[SectionTitleController::class,'index'] )->name('sectionTitle');
-    Route::post('section/title/update/{id}',[SectionTitleController::class,'update'] )->name('sectionTitleUpdate');
+    Route::get('/section/title',[SectionTitleController::class,'index'] )->name('sectionTitle');
+    Route::post('/section/title/update/{id}',[SectionTitleController::class,'update'] )->name('sectionTitleUpdate');
 
 });
 

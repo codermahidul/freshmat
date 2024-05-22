@@ -137,6 +137,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('testimonial') }}" class="nav-link {{ (Route::currentRouteNamed('testimonial')) ? 'active' : '' }}">
+              <i class="nav-icon far fa-comment-dots"></i>
+              <p>
+                Testimonial
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('homeOneVideoGallery') }}" class="nav-link {{ (Route::currentRouteNamed('homeOneVideoGallery')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-photo-video"></i>
               <p>
