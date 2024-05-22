@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
-use App\Models\Coupon;
 use App\Models\Invoice;
 use App\Models\InvoicesProducts;
 use App\Models\Product;
@@ -14,26 +12,9 @@ use App\Models\UserProfile;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Date;
 
 class FrontendController extends Controller
 {
-
-    //User Login
-    public function login(){
-        if (Auth::check()) {
-         return redirect(route('index'));
-        }
-        return view('frontend.pages.auth.login');
-    }
-    //User Register
-    public function register(){
-        if (Auth::check()) {
-            return redirect(route('index'));
-           }
-        return view('frontend.pages.auth.register');
-    }
-
     //Shop
     public function shop(){
         $products = Product::where('status','active')->latest()->paginate(9);
@@ -178,6 +159,11 @@ class FrontendController extends Controller
 
     public function faqsf(){
         return view('frontend.pages.faqs');
+    }
+
+    //Forgot Password
+    public function forgotPassword(){
+        return view('frontend.pages.auth.forgot');
     }
 
 

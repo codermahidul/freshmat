@@ -22,9 +22,11 @@ use Illuminate\Support\Facades\Route;
 
 
 //User Routes
+Auth::routes();
 Route::get('/', [FrontendController::class, 'index'])->name('index');
-Route::get('/login', [FrontendController::class, 'login'])->name('userLogin');
-Route::get('/register', [FrontendController::class, 'register'])->name('userRegister');
+//Route::get('forgot/password', [FrontendController::class, 'forgotPassword'])->name('forgotPassword');
+//Route::get('/login', [FrontendController::class, 'login'])->name('userLogin');
+//Route::get('/register', [FrontendController::class, 'register'])->name('userRegister');
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
 Route::get('/shop/category/{slug}', [FrontendController::class, 'categoryWiseProduct'])->name('categoryWiseProduct');
 Route::get('/shop/product/{slug}', [FrontendController::class, 'productDetails'])->name('productDetails');
@@ -68,7 +70,6 @@ Route::middleware(['auth'])->group(function(){
 
 //Admin Routes
 Route::prefix('admin')->group(function(){
-Auth::routes();
     //Admin Routes
 Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');

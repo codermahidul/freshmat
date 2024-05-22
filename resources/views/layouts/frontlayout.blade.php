@@ -424,8 +424,8 @@
                                 <li><a href="error.html">error/404</a></li>
                                 <li><a href="{{ route('faqsf') }}">faq's</a></li>
                                 <li><a href="gallery.html">gallery</a></li>
-                                <li><a href="{{ route('userLogin') }}">sign in</a></li>
-                                <li><a href="{{ route('userRegister') }}">sign up</a></li>
+                                <li><a href="{{ route('login') }}">sign in</a></li>
+                                <li><a href="{{ route('register') }}">sign up</a></li>
                                 <li><a href="forgot_password.html">forgot password</a></li>
                                 <li><a href="privacy_policy.html">privacy policy</a></li>
                                 <li><a href="terms_condition.html">terms & condition</a></li>

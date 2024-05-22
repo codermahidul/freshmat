@@ -37,7 +37,7 @@
                 <div class="col-xl-9 col-lg-8 wow fadeInRight">
                     <div class="dashboard_content">
                         <h2 class="dashboard_title">Change Password</h2>
-                        <form class="dashboard_change_password">
+                        <form class="dashboard_change_password" action="" method="POST">
                             <div class="row">
                                 <div class="col-xl-6">
                                     <input type="password" placeholder="Current Password">
