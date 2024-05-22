@@ -194,7 +194,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        return sectionTitle(1);
+        return faqs('odd');
 
     }
 

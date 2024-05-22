@@ -35,147 +35,44 @@
             <div class="accordion" id="accordionPanelsStayOpenExample">
                 <div class="row">
                     <div class="col-lg-6 wow fadeInLeft">
+                        @forelse (faqs('odd') as $item)
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    What is Newsfe ?
+                                    data-bs-target="#id{{ $item->id }}" aria-expanded="true" aria-controls="collapseOne">
+                                    {{ $item->question }}
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show"
+                            <div id="id{{ $item->id }}" class="accordion-collapse collapse {{ ($loop->index == 0) ? 'show' : '' }}"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <p>We use as filler text for layouts, non-readability is of great before import
-                                        ancebut
-                                        because those who do not know how to pursue pleasure rationally encounter
-                                        is more beautiful consequences.</p>
+                                    <p>{{ $item->answer }}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Who does the technology work ?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>We use as filler text for layouts, non-readability is of great before import
-                                        ancebut
-                                        because those who do not know how to pursue pleasure rationally encounter
-                                        is more beautiful consequences.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Who is teamhave for ?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>We use as filler text for layouts, non-readability is of great before import
-                                        ancebut
-                                        because those who do not know how to pursue pleasure rationally encounter
-                                        is more beautiful consequences.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree01" aria-expanded="false"
-                                    aria-controls="collapseThree01">
-                                    Who often will I get Teamhice Mails ?
-                                </button>
-                            </h2>
-                            <div id="collapseThree01" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>We use as filler text for layouts, non-readability is of great before import
-                                        ancebut
-                                        because those who do not know how to pursue pleasure rationally encounter
-                                        is more beautiful consequences.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                            No Faqs found
+                        @endforelse
                     </div>
                     <div class="col-lg-6 wow fadeInRight">
+                        @forelse (faqs('even') as $item)
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne01" aria-expanded="true" aria-controls="collapseOne01">
-                                    Who often will I get Teamhice Mails ?
+                                    data-bs-target="#id{{ $item->id }}" aria-expanded="true" aria-controls="collapseOne">
+                                    {{ $item->question }}
                                 </button>
                             </h2>
-                            <div id="collapseOne01" class="accordion-collapse collapse show"
+                            <div id="id{{ $item->id }}" class="accordion-collapse collapse {{ ($loop->index == 0) ? 'show' : '' }}"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <p>We use as filler text for layouts, non-readability is of great before import
-                                        ancebut
-                                        because those who do not know how to pursue pleasure rationally encounter
-                                        is more beautiful consequences.</p>
+                                    <p>{{ $item->answer }}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo01" aria-expanded="false" aria-controls="collapseTwo01">
-                                    Who does the technology work ?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo01" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>We use as filler text for layouts, non-readability is of great before import
-                                        ancebut
-                                        because those who do not know how to pursue pleasure rationally encounter
-                                        is more beautiful consequences.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree02" aria-expanded="false"
-                                    aria-controls="collapseThree02">
-                                    Who is teamhave for ?
-                                </button>
-                            </h2>
-                            <div id="collapseThree02" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>We use as filler text for layouts, non-readability is of great before import
-                                        ancebut
-                                        because those who do not know how to pursue pleasure rationally encounter
-                                        is more beautiful consequences.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree03" aria-expanded="false"
-                                    aria-controls="collapseThree03">
-                                    Who often will I get Teamhice Mails ?
-                                </button>
-                            </h2>
-                            <div id="collapseThree03" class="accordion-collapse collapse"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>We use as filler text for layouts, non-readability is of great before import
-                                        ancebut
-                                        because those who do not know how to pursue pleasure rationally encounter
-                                        is more beautiful consequences.</p>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                            No Faqs found
+                        @endforelse
                     </div>
                 </div>
             </div>

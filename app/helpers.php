@@ -5,6 +5,7 @@ use App\Models\Banner;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\Comment;
+use App\Models\FAQS;
 use App\Models\HomeVideoGallery;
 use App\Models\Partner;
 use App\Models\Product;
@@ -111,4 +112,15 @@ function globalBlog(){
 
  function sectionTitle($id){
     return SectionTitle::find($id);
+ }
+
+ function faqs($query){
+    $oddOrEven = '';
+    if ($query == 'odd') {
+        $oddOrEven = 1;
+    }else {
+        $oddOrEven = 0;
+    }
+
+    return FAQS::where('status','active')->whereRaw('id % 2 = ?',[$oddOrEven])->get();
  }
