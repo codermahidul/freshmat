@@ -36,39 +36,36 @@
                 <div class="col-xl-5 col-md-8 col-lg-6 wow fadeInLeft">
                     <div class="about_img">
                         <div class="img">
-                            <img src="{{ asset('assets') }}/images/about_img.jpg" alt="about" class="img-fluid w-100">
+                            <img src="{{ asset($contents->image) }}" alt="about" class="img-fluid w-100">
                         </div>
-                        <p>“There are many variations its of passages of Lorem Ipsum nsi available, but the majority
-                            they suffered” <span>Robart Day</span></p>
+                        <p>{{ $contents->quote }}</p>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 wow fadeInRight">
                     <div class="about_text">
                         <div class="section_heading heading_left mb_20">
-                            <h4>About Us</h4>
-                            <h2>Welcome To Organic Agriculture Grocery Shop</h2>
+                            <h4>{{ $contents->shortTitle }}</h4>
+                            <h2>{{ $contents->title }}</h2>
                         </div>
                         <!-- <h5>We connect buyers and sellers of natural, organic products who are so beguiled demoralized
                             charms of pleasure.</h5> -->
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                            suffered alteration in some form, by injected humour, or mori words which slightly
-                            believable.</p>
+                        <p>{{ $contents->description }}</p>
                         <ul>
                             <li>
                                 <span>01</span>
-                                <h4> Organic products who are so</h4>
+                                <h4> {{ $contents->listItemOne }}</h4>
                             </li>
                             <li>
                                 <span>02</span>
-                                <h4>Healthy food everyday</h4>
+                                <h4>{{ $contents->listItemTwo }}</h4>
                             </li>
                             <li>
                                 <span>03</span>
-                                <h4>Local growth of fresh food</h4>
+                                <h4>{{ $contents->listItemThree }}</h4>
                             </li>
                             <li>
                                 <span>04</span>
-                                <h4>Demoralized charms of pleasure</h4>
+                                <h4>{{ $contents->listItemFour }}</h4>
                             </li>
                         </ul>
                     </div>
@@ -93,36 +90,33 @@
                     <div class="why_choose_item">
                         <h2>
                             <span>
-                                <img src="{{ asset('assets') }}/images/why_choose_icon_1.png" alt="why choose" class="img-fluid w-100">
+                                <img src="{{ asset($contents->f1icon) }}" alt="why choose" class="img-fluid w-100">
                             </span>
-                            All Kind Brand
+                            {{ $contents->f1title }}
                         </h2>
-                        <p>There are many variations of passages of any Lorem Ipsum available, but the majority have
-                            suffered alteration in some form, by injected humour, or mori words....</p>
+                        <p>{{ $contents->f1description }}</p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 col-lg-4 wow fadeInUp">
                     <div class="why_choose_item">
                         <h2>
                             <span>
-                                <img src="{{ asset('assets') }}/images/why_choose_icon_2.png" alt="why choose" class="img-fluid w-100">
+                                <img src="{{ asset($contents->f2icon) }}" alt="why choose" class="img-fluid w-100">
                             </span>
-                            Pesticide Free Goods
+                            {{ $contents->f2title }}
                         </h2>
-                        <p>There are many variations of passages of any Lorem Ipsum available, but the majority have
-                            suffered alteration in some form, by injected humour, or mori words....</p>
+                        <p>{{ $contents->f2description }}</p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 col-lg-4 wow fadeInUp">
                     <div class="why_choose_item">
                         <h2>
                             <span>
-                                <img src="{{ asset('assets') }}/images/why_choose_icon_3.png" alt="why choose" class="img-fluid w-100">
+                                <img src="{{ asset($contents->f3icon) }}" alt="why choose" class="img-fluid w-100">
                             </span>
-                            Curated Products
+                            {{ $contents->f3title }}
                         </h2>
-                        <p>There are many variations of passages of any Lorem Ipsum available, but the majority have
-                            suffered alteration in some form, by injected humour, or mori words....</p>
+                        <p>{{ $contents->f3description }}</p>
                     </div>
                 </div>
             </div>
@@ -143,29 +137,29 @@
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
                     <div class="work_process_item">
                         <span class="number">01</span>
-                        <h3>Choose The Item</h3>
-                        <p>There are many variations of Lorem Ipsum available but the ma have suffered.</p>
+                        <h3>{{ $contents->w1title }}</h3>
+                        <p>{{ $contents->w1description }}</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
                     <div class="work_process_item">
                         <span class="number number_2">02</span>
-                        <h3>Add to Cart</h3>
-                        <p>There are many variations of Lorem Ipsum available but the ma have suffered.</p>
+                        <h3>{{ $contents->w2title }}</h3>
+                        <p>{{ $contents->w2description }}</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
                     <div class="work_process_item">
                         <span class="number number_3">03</span>
-                        <h3>Payment Your Bill</h3>
-                        <p>There are many variations of Lorem Ipsum available but the ma have suffered.</p>
+                        <h3>{{ $contents->w3title }}</h3>
+                        <p>{{ $contents->w3description }}</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
                     <div class="work_process_item">
                         <span class="number number_4">04</span>
-                        <h3>Received Your Item</h3>
-                        <p>There are many variations of Lorem Ipsum available but the ma have suffered.</p>
+                        <h3>{{ $contents->w4title }}</h3>
+                        <p>{{ $contents->w4description }}</p>
                     </div>
                 </div>
             </div>
@@ -180,31 +174,31 @@
                         <ul>
                             <li>
                                 <div class="icon">
-                                    <img src="{{ asset('assets') }}/images/counter_icon_1.png" alt="counter" class="img-fluid w-100">
+                                    <img src="{{ $contents->c1icon }}" alt="counter" class="img-fluid w-100">
                                 </div>
-                                <h2><span class="counter">950</span>+</h2>
-                                <p>Happy customers</p>
+                                <h2><span class="counter">{{ $contents->c1number }}</span>+</h2>
+                                <p>{{ $contents->c1text }}</p>
                             </li>
                             <li>
                                 <div class="icon">
-                                    <img src="{{ asset('assets') }}/images/counter_icon_2.png" alt="counter" class="img-fluid w-100">
+                                    <img src="{{ $contents->c2icon }}" alt="counter" class="img-fluid w-100">
                                 </div>
-                                <h2><span class="counter">350</span>+</h2>
-                                <p>Expert farmers</p>
+                                <h2><span class="counter">{{ $contents->c2number }}</span>+</h2>
+                                <p>{{ $contents->c2text }}</p>
                             </li>
                             <li>
                                 <div class="icon">
-                                    <img src="{{ asset('assets') }}/images/counter_icon_3.png" alt="counter" class="img-fluid w-100">
+                                    <img src="{{ $contents->c3icon }}" alt="counter" class="img-fluid w-100">
                                 </div>
-                                <h2><span class="counter">35</span>+</h2>
-                                <p>Award Wining</p>
+                                <h2><span class="counter">{{ $contents->c3number }}</span>+</h2>
+                                <p>{{ $contents->c3text }}</p>
                             </li>
                             <li>
                                 <div class="icon">
-                                    <img src="{{ asset('assets') }}/images/counter_icon_4.png" alt="counter" class="img-fluid w-100">
+                                    <img src="{{ $contents->c4icon }}" alt="counter" class="img-fluid w-100">
                                 </div>
-                                <h2><span class="counter">4.9</span></h2>
-                                <p>Avarage Rating</p>
+                                <h2><span class="counter">{{ $contents->c4number }}</span></h2>
+                                <p>{{ $contents->c4text }}</p>
                             </li>
                         </ul>
                     </div>

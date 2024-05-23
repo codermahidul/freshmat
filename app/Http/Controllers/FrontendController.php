@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutUs;
 use App\Models\Invoice;
 use App\Models\InvoicesProducts;
 use App\Models\Product;
@@ -154,7 +155,8 @@ class FrontendController extends Controller
     }
 
     public function aboutUs(){
-        return view('frontend.pages.aboutus');
+        $contents = AboutUs::find(1);
+        return view('frontend.pages.aboutus',compact('contents'));
     }
 
     public function faqsf(){

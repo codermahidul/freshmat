@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
          //UserSeeder::class,
          //BlogCategorySeeder::class,
          //AppSeeder::class,
-         //SectionTitleSeeder::class
+         //SectionTitleSeeder::class,
+         //AboutPageSeeder::class,
     ]);
 
     // Product::factory(10)->has(

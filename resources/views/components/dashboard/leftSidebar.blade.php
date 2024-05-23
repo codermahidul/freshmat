@@ -192,7 +192,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('faqs')}}" class="nav-link {{ Route::currentRouteNamed('') ? 'active' : '' }}">
+                <a href="{{route('aboutUsPage')}}" class="nav-link {{ Route::currentRouteNamed('aboutUsPage') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>About Us</p>
                 </a>

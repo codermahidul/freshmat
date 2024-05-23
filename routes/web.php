@@ -11,6 +11,7 @@ use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeVideoGalleryController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
@@ -175,6 +176,9 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Section Title
     Route::get('/section/title',[SectionTitleController::class,'index'] )->name('sectionTitle');
     Route::post('/section/title/update/{id}',[SectionTitleController::class,'update'] )->name('sectionTitleUpdate');
+
+    //Page Content
+    Route::get('/about-us',[PagesController::class, 'aboutUs'])->name('aboutUsPage');
 
 });
 
