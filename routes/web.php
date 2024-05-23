@@ -179,6 +179,7 @@ Route::group(['middleware' => ['auth','role']], function(){
 
     //Page Content
     Route::get('/about-us',[PagesController::class, 'aboutUs'])->name('aboutUsPage');
+    Route::post('/about-us/update',[PagesController::class, 'aboutUsUpdate'])->name('aboutUsUpdate');
 
 });
 
