@@ -155,6 +155,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Setting
     Route::get('/setting', [SettingController::class, 'index'])->name('setting');
     Route::post('/setting/logo-favicon/update', [SettingController::class, 'logoFavicon'])->name('logoFavicon');
+    Route::post('/setting/general/update', [SettingController::class, 'general'])->name('general');
     
     //Home One Video Gallery
     Route::get('/video/gallery', [HomeVideoGalleryController::class, 'index'])->name('homeOneVideoGallery');

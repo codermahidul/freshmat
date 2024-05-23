@@ -27,8 +27,8 @@ class SettingController extends Controller
             $logo = $request->file('logo');
             $name = 'logo'.'.'.$logo->getClientOriginalExtension();
             $img = $manager->read($logo);
-            $img = $img->resize(1740,54);
-            $img->toJpeg(100)->save(base_path('public/uploads/assets/'.$name));
+            $img = $img->resize(160,50);
+            $img->save(base_path('public/uploads/assets/'.$name));
             $save_url = 'uploads/assets/'.$name;
             Setting::where('id',1)->update([
                 'logo' => $save_url,
@@ -41,8 +41,8 @@ class SettingController extends Controller
             $logo = $request->file('footerlogo');
             $name = 'footer-logo'.'.'.$logo->getClientOriginalExtension();
             $img = $manager->read($logo);
-            $img = $img->resize(174,54);
-            $img->toJpeg(100)->save(base_path('public/uploads/assets/'.$name));
+            $img = $img->resize(160,50);
+            $img->save(base_path('public/uploads/assets/'.$name));
             $save_url = 'uploads/assets/'.$name;
             Setting::where('id',1)->update([
                 'footerLogo' => $save_url,
@@ -56,7 +56,7 @@ class SettingController extends Controller
             $name = 'favicon'.'.'.$favicon->getClientOriginalExtension();
             $img = $manager->read($favicon);
             $img = $img->resize(70,70);
-            $img->toJpeg(100)->save(base_path('public/uploads/assets/'.$name));
+            $img->save(base_path('public/uploads/assets/'.$name));
             $save_url = 'uploads/assets/'.$name;
             Setting::where('id',1)->update([
                 'favicon' => $save_url,
@@ -65,4 +65,17 @@ class SettingController extends Controller
 
         return back()->with('success', 'Update Successfully!');
     }
+
+    //General Settings
+
+    public function general(Request $request){
+        Setting::where('id',1)->update([
+            'topbar' => $request->input('topbar'),
+        ]);
+
+        return back()->with('success', 'General Settings Update Successfully!');
+    }
+
+
+
 }

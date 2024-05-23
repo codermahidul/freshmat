@@ -141,7 +141,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
     <title>@yield('title')</title>
-    <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{ asset(setting('favicon')) }}">
     <link rel="stylesheet" href="{{asset('assets')}}/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/css/slick.css">
@@ -164,6 +164,7 @@
     <!--=========================
         TOPBAR START
     ==========================-->
+    @if (setting('topbar') == 'show')
     <section class="topbar">
         <div class="container">
             <div class="row">
@@ -192,6 +193,7 @@
             </div>
         </div>
     </section>
+    @endif
     <!--=========================
         TOPBAR END
     ==========================-->
@@ -206,7 +208,7 @@
                 <div class="col-lg-3">
                     <div class="header_logo_area">
                         <a href="{{ route('index') }}" class="header_logo">
-                            <img src="{{asset('assets')}}/images/logo.png" alt="Freshmat" class="img-fluid w-100">
+                            <img src="{{ asset(setting('logo')) }}" alt="Freshmat" class="img-fluid w-100">
                         </a>
                         <div class="mobile_menu_icon d-block d-lg-none" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
@@ -780,7 +782,7 @@
                     <div class="col-lg-3 col-md-8">
                         <div class="footer_logo_area">
                             <a class="footer_logo" href="index.html">
-                                <img src="{{asset('assets')}}/images/footer_logo.png" alt="Freshmat" class="img-fluid w-100">
+                                <img src="{{ asset(setting('footerLogo')) }}" alt="Freshmat" class="img-fluid w-100">
                             </a>
                             <p>Lorem ipsum dolor sit amet, cons ectetur adipiscing elit sed.</p>
                             <span>Hello to : <a href="mailto:support@mail.com">support@mail.com</a></span>

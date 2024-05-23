@@ -12,7 +12,7 @@
         <div class="col-7 col-sm-9">
           <div class="tab-content" id="vert-tabs-tabContent">
             <div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
-               General
+              @include('components.dashboard.settings.general')
             </div>
             <div class="tab-pane fade" id="vert-tabs-profile" role="tabpanel" aria-labelledby="vert-tabs-profile-tab">
                 @include('components.dashboard.settings.logoFavicon')

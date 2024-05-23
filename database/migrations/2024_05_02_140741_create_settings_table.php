@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('logo')->nullable();
-            $table->string('footerLogo')->nullable();
-            $table->string('favicon')->nullable();
-            $table->enum('theme',['allTheme','themeOne','themeTwo','themeThree'])->default('themeOne');
+            $table->string('logo')->default('default/logo.png');
+            $table->string('footerLogo')->default('default/footer-logo.png');
+            $table->string('favicon')->default('favicon.png');
+            $table->enum('topbar',['show','hide'])->default('show');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

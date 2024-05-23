@@ -11,6 +11,8 @@ use App\Models\Partner;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\SectionTitle;
+use App\Models\Setting;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\Session;
 
 if (!function_exists('wishlistTotalItem')) {
@@ -123,4 +125,13 @@ function globalBlog(){
     }
 
     return FAQS::where('status','active')->whereRaw('id % 2 = ?',[$oddOrEven])->get();
+ }
+
+
+ function testimonial(){
+    return Testimonial::where('status','active')->latest()->get();
+ }
+
+ function setting($query){
+    return Setting::find(1)->$query;
  }

@@ -10,7 +10,7 @@
               <div class="card-body">
                     <div class="mb-3">
                         <p>Existing Logo</p>
-                        <img src="{{ asset('assets/images/logo.png') }}" class="rounded d-block" alt="...">
+                        <img src="{{ asset(setting('logo')) }}" class="rounded d-block" alt="...">
                     </div>
                         <div class="form-group">
                           <label for="exampleInputFile"> {{ __('New Logo') }} </label>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="mb-3">
                             <p>Existing Footer Logo</p>
-                            <img src="{{ asset('assets/images/footer_logo.png') }}" class="rounded d-block" alt="...">
+                            <img src="{{ asset(setting('footerLogo')) }}" class="rounded d-block" alt="...">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile"> {{ __('New Footer Logo') }} </label>
@@ -46,7 +46,7 @@
                           </div>
                           <div class="mb-3">
                             <p>Existing Favicon</p>
-                            <img src="{{ asset('assets/images/favicon.png') }}" class="rounded d-block" alt="...">
+                            <img src="{{ asset(setting('favicon')) }}" class="rounded d-block" alt="...">
                         </div>
                           <div class="form-group">
                             <label for="exampleInputFile"> {{ __('Favicon') }} </label>

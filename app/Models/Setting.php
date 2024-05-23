@@ -13,6 +13,6 @@ class Setting extends Model
         'logo',
         'footerLogo',
         'favicon',
-        'theme',
+        'topbar',
     ];
 }
