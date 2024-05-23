@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
          //AppSeeder::class,
          //SectionTitleSeeder::class,
          //AboutPageSeeder::class,
+         //ContactPageSeeder::class,
     ]);
 
     // Product::factory(10)->has(

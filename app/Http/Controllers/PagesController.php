@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\ContactPage;
 use Illuminate\Http\Request;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
-use Illuminate\Support\Str;
+
 
 class PagesController extends Controller
 {
@@ -226,6 +227,140 @@ class PagesController extends Controller
         return back()->with('success','Page Update Successfull!');
     }
 
+    //Contact Us Page
+    public function contactUsPage(){
+        $contents = ContactPage::find(1);
+        return view('dashboard.pages.contact.index',compact('contents'));
+    }
+
+
+    public function contactUsUpdate(Request $request){
+        $request->validate([
+            'b1icon' => 'image:jpg,jpeg,png',
+            'b2icon' => 'image:jpg,jpeg,png',
+            'b3icon' => 'image:jpg,jpeg,png',
+            'b4icon' => 'image:jpg,jpeg,png',
+            'b1title' => 'required',
+            'b2title' => 'required',
+            'b3title' => 'required',
+            'b4title' => 'required',
+            'b1text' => 'required',
+            'b2textOne' => 'required',
+            'b2textTwo' => 'required',
+            'b3textOne' => 'required',
+            'b3textTwo' => 'required',
+            'b4textOne' => 'required',
+            'b4textTwo' => 'required',
+            'b4textUrlOne' => 'required',
+            'b4textUrlTwo' => 'required',
+            'image' => 'image:jpg,jpeg,png',
+            'googleMap' => 'required',
+        ]);
+
+
+        //Image Process
+        $b1icon = ContactPage::find(1)->b1icon;
+
+        if ($request->file('b1icon')) {
+            unlink(base_path('public/'.$b1icon));
+
+            $manager = new ImageManager(new Driver());
+            $image = $request->file('b1icon');
+            $name = 'contact_icon_1'.'.'.$image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img = $img->resize(90,90);
+            $img->save(base_path('public/default/contact/'.$name));
+            $b1icon = 'default/contact/'.$name;
+        }
+
+
+        //Image Process
+        $b2icon = ContactPage::find(1)->b2icon;
+
+        if ($request->file('b2icon')) {
+            unlink(base_path('public/'.$b2icon));
+
+            $manager = new ImageManager(new Driver());
+            $image = $request->file('b2icon');
+            $name = 'contact_icon_2'.'.'.$image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img = $img->resize(90,90);
+            $img->save(base_path('public/default/contact/'.$name));
+            $b2icon = 'default/contact/'.$name;
+        }        
+        
+        //Image Process
+        $b3icon = ContactPage::find(1)->b3icon;
+
+        if ($request->file('b3icon')) {
+            unlink(base_path('public/'.$b3icon));
+
+            $manager = new ImageManager(new Driver());
+            $image = $request->file('b3icon');
+            $name = 'contact_icon_3'.'.'.$image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img = $img->resize(90,90);
+            $img->save(base_path('public/default/contact/'.$name));
+            $b3icon = 'default/contact/'.$name;
+        }  
+
+        //Image Process
+        $b4icon = ContactPage::find(1)->b4icon;
+
+        if ($request->file('b4icon')) {
+            unlink(base_path('public/'.$b4icon));
+
+            $manager = new ImageManager(new Driver());
+            $image = $request->file('b4icon');
+            $name = 'contact_icon_4'.'.'.$image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img = $img->resize(90,90);
+            $img->save(base_path('public/default/contact/'.$name));
+            $b4icon = 'default/contact/'.$name;
+        }
+
+        //Image Process
+        $image = ContactPage::find(1)->image;
+
+        if ($request->file('image')) {
+            unlink(base_path('public/'.$image));
+
+            $manager = new ImageManager(new Driver());
+            $image = $request->file('image');
+            $name = 'contact_icon_4'.'.'.$image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img = $img->resize(420,500);
+            $img->save(base_path('public/default/contact/'.$name));
+            $image = 'default/contact/'.$name;
+        }
+
+
+        ContactPage::where('id',1)->update([
+            'b1icon' => $b1icon,
+            'b2icon' => $b2icon,
+            'b3icon' => $b3icon,
+            'b4icon' => $b4icon,
+            'b1title' => $request->input('b1title'),
+            'b2title' => $request->input('b2title'),
+            'b3title' => $request->input('b3title'),
+            'b4title' => $request->input('b4title'),
+            'b1text' => $request->input('b1text'),
+            'b2textOne' => $request->input('b2textOne'),
+            'b2textTwo' => $request->input('b2textTwo'),
+            'b3textOne' => $request->input('b3textOne'), 
+            'b3textTwo' => $request->input('b3textTwo'),
+            'b4textOne' => $request->input('b4textOne'),
+            'b4textTwo' => $request->input('b4textTwo'),
+            'b4textUrlOne' => $request->input('b4textUrlOne'),
+            'b4textUrlTwo' => $request->input('b4textUrlTwo'),
+            'image' => $image,
+            'googleMap' => $request->input('googleMap'),
+        ]);
+
+        return back()->with('success', 'Contact Page Update Successfull!');
+
+
+    }
 
 
 

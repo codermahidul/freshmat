@@ -180,6 +180,8 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Page Content
     Route::get('/about-us',[PagesController::class, 'aboutUs'])->name('aboutUsPage');
     Route::post('/about-us/update',[PagesController::class, 'aboutUsUpdate'])->name('aboutUsUpdate');
+    Route::get('/contact-us',[PagesController::class, 'contactUsPage'])->name('contactUsPage');
+    Route::post('/contact-us/update',[PagesController::class, 'contactUsUpdate'])->name('contactUsUpdate');
 
 });
 

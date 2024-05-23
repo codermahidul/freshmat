@@ -176,8 +176,8 @@
               </p>
             </a>
           </li>
-          <li class="nav-item {{ Route::currentRouteNamed('faqs','faqs.add') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
+          <li class="nav-item {{ Route::currentRouteNamed('faqs','faqs.add','aboutUsPage','contactUsPage') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add','aboutUsPage','contactUsPage') ? 'active' : '' }}">
               <i class="nav-icon fas fa-file-alt"></i>
               <p>
                 Pages
@@ -186,7 +186,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('faqs')}}" class="nav-link {{ Route::currentRouteNamed('') ? 'active' : '' }}">
+                <a href="{{route('contactUsPage')}}" class="nav-link {{ Route::currentRouteNamed('contactUsPage') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Contact Us</p>
                 </a>

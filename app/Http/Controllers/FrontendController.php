@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\ContactPage;
 use App\Models\Invoice;
 use App\Models\InvoicesProducts;
 use App\Models\Product;
@@ -151,7 +152,8 @@ class FrontendController extends Controller
 
 
     public function contact(){
-        return view('frontend.pages.contact');
+        $contents = ContactPage::find(1);
+        return view('frontend.pages.contact',compact('contents'));
     }
 
     public function aboutUs(){
