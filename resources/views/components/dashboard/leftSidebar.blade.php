@@ -207,10 +207,10 @@
           </li>
           <li class="nav-header">EXAMPLES</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="{{ route('inbox') }}" class="nav-link {{ Route::currentRouteNamed('inbox') ? 'active' : '' }}">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Calendar
+                Message
                 <span class="badge badge-info right">2</span>
               </p>
             </a>

@@ -11,6 +11,7 @@ use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeVideoGalleryController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PaymentController;
@@ -182,6 +183,9 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/about-us/update',[PagesController::class, 'aboutUsUpdate'])->name('aboutUsUpdate');
     Route::get('/contact-us',[PagesController::class, 'contactUsPage'])->name('contactUsPage');
     Route::post('/contact-us/update',[PagesController::class, 'contactUsUpdate'])->name('contactUsUpdate');
+
+    //Message
+    Route::get('/message', [MessageController::class, 'index'])->name('inbox');
 
 });
 
