@@ -26,9 +26,9 @@ class DatabaseSeeder extends Seeder
          //ContactPageSeeder::class,
     ]);
 
-    // Product::factory(10)->has(
-    //      ProductGallery::factory(3)
-    //  ,'productgallery')->create();
+    //  Product::factory(10)->has(
+    //       ProductGallery::factory(3)
+    //   ,'productgallery')->create();
 
     }
 }
