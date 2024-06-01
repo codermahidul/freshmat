@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
          //BlogCategorySeeder::class,
          //AppSeeder::class,
          //SectionTitleSeeder::class,
+         //AdvertisementSeeder::class,
          //AboutPageSeeder::class,
          //ContactPageSeeder::class,
     ]);

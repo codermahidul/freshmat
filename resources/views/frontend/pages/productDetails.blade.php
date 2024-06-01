@@ -96,16 +96,18 @@
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 d-none d-xl-block wow fadeInRight">
+                    @foreach (banner(4) as $item)                       
                     <div class="shop_details_banner">
-                        <img src="{{ asset('assets') }}/images/details_banner_img.png" alt="banner" class="img-fluid w-100">
+                        <img src="{{ asset($item->backgroundImg) }}" alt="banner" class="img-fluid w-100">
                         <div class="text">
-                            <h4>Daily Offer</h4>
-                            <h3>Fresh Organic Food Up To 65% Off</h3>
-                            <a class="common_btn" href="shop_details.html">shop now <i
+                            <h4>{{ $item->shortTitle }}</h4>
+                            <h3>{{ $item->offerText }}</h3>
+                            <a class="common_btn" href="{{ $item->link }}">shop now <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
             <div class="row mt_120 xs_mt_80 wow fadeInUp">

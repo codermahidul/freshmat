@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('logo')->default('default/logo.png');
             $table->string('footerLogo')->default('default/footer-logo.png');
-            $table->string('favicon')->default('favicon.png');
+            $table->string('favicon')->default('default/favicon.png');
             $table->enum('topbar',['show','hide'])->default('show');
             //Social Login
             $table->enum('flstatus',['enable','disable'])->default('disable');

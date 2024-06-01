@@ -13,10 +13,12 @@ class BannerController extends Controller
         $homeOneBannerOne = Banner::where('id',1)->first();
         $homeOneBannerTwo = Banner::where('id',2)->first();
         $homeOneBannerSpecial = Banner::where('id',3)->first();
+        $productDetailsBanner = Banner::where('id',4)->first();
         return view('dashboard.banner.home-one-banner',compact(
             'homeOneBannerOne',
             'homeOneBannerTwo',
             'homeOneBannerSpecial',
+            'productDetailsBanner',
         ));
     }
 
@@ -130,6 +132,44 @@ class BannerController extends Controller
     
     
         }
+
+
+
+            //Home One Banner One
+    public function productDetailsBanner(Request $request){
+        $request->validate([
+            'shortTitlep' => 'required|string',
+            'offerTextp' => 'required|string',
+            'linkp' => 'required|url:http,https',
+            'backgroundImgp' => 'image:jpg,jpeg,png',
+        ]);
+
+        $save_url = Banner::where('id',4)->first()->backgroundImg;
+
+        if ($request->file('backgroundImgp')) {
+            unlink(base_path('public/'.$save_url));
+                //Feature Image
+                $manager = new ImageManager(new Driver());
+                $backgroundImg = $request->file('backgroundImgp');
+                $name = 'product-details-banner'.'.'.$backgroundImg->getClientOriginalExtension();
+                $img = $manager->read($backgroundImg);
+                $img = $img->resize(420,520);
+                $img->toJpeg(90)->save(base_path('public/uploads/banners/'.$name));
+                $save_url = 'uploads/banners/'.$name;
+        }
+
+
+        Banner::where('id',4)->update([
+            'shortTitle' => $request->input('shortTitlep'),
+            'offerText' => $request->input('offerTextp'),
+            'link' => $request->input('linkp'),
+            'backgroundImg' => $save_url,
+        ]);
+
+        return back()->with('success', 'Product Details Page Banner Update Successfully!');
+
+
+    }
 
 
 

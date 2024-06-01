@@ -139,6 +139,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/home/one/banner/update', [BannerController::class, 'homeOneBannerUpdate'])->name('hobnupdate');
     Route::post('/home/one/banner-two/update', [BannerController::class, 'homeOneBannerTwoUpdate'])->name('hobtupdate');
     Route::post('/home/one/banner-special/update', [BannerController::class, 'homeOneBannerSpecialUpdate'])->name('hobspecialupdate');
+    Route::post('/product-details-banner/update', [BannerController::class, 'productDetailsBanner'])->name('pdpbupdate');
 
     //Slider
     Route::get('/slider', [SliderController::class, 'index'])->name('slider');
