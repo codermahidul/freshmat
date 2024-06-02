@@ -211,7 +211,7 @@
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Message
-                <span class="badge badge-info right">2</span>
+                <span class="badge badge-info right">{{ unreadMessage() }}</span>
               </p>
             </a>
           </li>

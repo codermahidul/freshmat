@@ -58,6 +58,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard/review', [FrontendController::class, 'review'])->name('userReview');
     Route::get('/dashboard/wishlist', [FrontendController::class, 'wishlist'])->name('userWishlist');
     Route::get('/dashboard/password-change', [FrontendController::class, 'passwordChange'])->name('userPasswordChange');
+    Route::post('/dashboard/password-update', [FrontendController::class, 'passwordUpdate'])->name('userPasswordUpdate');
     //Wishlists
     Route::get('/product/wishlist/add/{id}',[FrontendController::class, 'addToWishlists'])->name('adToWishlist');
     //Cart
@@ -187,6 +188,10 @@ Route::group(['middleware' => ['auth','role']], function(){
 
     //Message
     Route::get('/message', [MessageController::class, 'index'])->name('inbox');
+    Route::post('/send-message', [MessageController::class, 'sendMessage'])->name('sendMessage');
+    Route::get('/message/delete/{id}', [MessageController::class, 'messageDelete'])->name('messageDelete');
+    Route::get('/message/view/{id}', [MessageController::class, 'messageView'])->name('messageView');
+    Route::post('/contact/message/setting/update', [SettingController::class, 'contactMessageSetingUpdate'])->name('contactMessageSetingUpdate');
 
 });
 

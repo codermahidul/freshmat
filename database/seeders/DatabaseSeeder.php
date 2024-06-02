@@ -19,12 +19,14 @@ class DatabaseSeeder extends Seeder
       
     $this->call([
          //UserSeeder::class,
+         //SettingSeeder::class,
          //BlogCategorySeeder::class,
          //AppSeeder::class,
          //SectionTitleSeeder::class,
          //AdvertisementSeeder::class,
          //AboutPageSeeder::class,
          //ContactPageSeeder::class,
+         //HomeOneVideoGallerySeeder::class,
     ]);
 
     //  Product::factory(10)->has(

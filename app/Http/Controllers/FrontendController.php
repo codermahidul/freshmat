@@ -14,6 +14,8 @@ use App\Models\UserProfile;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 class FrontendController extends Controller
 {
@@ -132,6 +134,26 @@ class FrontendController extends Controller
 
     public function passwordChange(){
         return view('frontend.pages.dashboard.passwordChange');
+    }
+
+    public function passwordUpdate(Request $request){
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => ['required', 'confirmed', Password::defaults()],
+        ]);
+
+        $user = Auth::user();
+
+        if (!Hash::check($request->current_password,$user->password)) {
+            return back()->withErrors(['current_password' => 'The current password does not match our records.']);
+        }
+
+        User::find($user->id)->update([
+            'password' => Hash::make($request->input('new_password')),
+        ]);
+
+        return back()->with('success', 'Password changed successfully.');
+
     }
 
     public function index(){

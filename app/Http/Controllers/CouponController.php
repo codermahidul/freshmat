@@ -194,9 +194,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        return setting('footerLogo');
-        return setting('logo');
-        return setting('topbar');
+        return unreadMessage();
 
     }
 

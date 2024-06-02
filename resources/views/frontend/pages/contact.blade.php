@@ -81,25 +81,46 @@
                 <div class="col-lg-8 wow fadeInRight">
                     <div class="contact_form">
                         <h3>Contact for Services</h3>
+                        <form action="{{ route('sendMessage') }}" method="post">
+                            @csrf
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" placeholder="Your Name">
+                                <input type="text" placeholder="Your Name" name="name">
+                                @error('name')
+                                    <span class="text-danger d-block">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-6">
-                                <input type="email" placeholder="Email Address">
+                                <input type="email" placeholder="Email Address" name="email">
+                                @error('email')
+                                    <span class="text-danger d-block">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-6">
-                                <input type="text" placeholder="Phone Number">
+                                <input type="text" placeholder="Phone Number" name="phone">
+                                @error('phone')
+                                    <span class="text-danger d-block">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-6">
-                                <input type="text" placeholder="Subject">
+                                <input type="text" placeholder="Subject" name="subject">
+                                @error('subject')
+                                    <span class="text-danger d-block">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-xl-12">
-                                <textarea rows="6" placeholder="Write Message"></textarea>
+                                <textarea rows="6" placeholder="Write Message" name="message"></textarea>
+                                @error('message')
+                                    <span class="text-danger d-block">{{ $message }}</span>
+                                @enderror
                                 <button type="submit" class="common_btn">Send A
                                     Message<span></span></button>
                             </div>
+                            @session('success')
+                                <span class="text-success d-block">{{ session('success') }}</span>
+                            @endsession
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>

@@ -36,23 +36,36 @@
                 @include('components.frontend.dashboard.menu')
                 <div class="col-xl-9 col-lg-8 wow fadeInRight">
                     <div class="dashboard_content">
-                        <h2 class="dashboard_title">Change Password</h2>
-                        <form class="dashboard_change_password" action="" method="POST">
-                            <div class="row">
-                                <div class="col-xl-6">
-                                    <input type="password" placeholder="Current Password">
-                                </div>
-                                <div class="col-xl-6">
-                                    <input type="password" placeholder="New Password">
-                                </div>
-                                <div class="col-xl-12">
-                                    <input type="password" placeholder="Conform Password">
-                                    <button type="submit" class="common_btn">Submit <span></span></button>
+                            <h2 class="dashboard_title">Change Password</h2>
+                            <form class="dashboard_change_password" action="{{ route('userPasswordUpdate') }}" method="POST">
+                               @csrf
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <input type="password" placeholder="Current Password" name="current_password" value="{{ old('current_password') }}">
+                                        @error('current_password')
+                                            <span class="text-danger d-block">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <input type="password" placeholder="New Password" name="new_password" value="{{ old('new_password') }}">
+                                        @error('new_password')
+                                            <span class="text-danger d-block">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <input type="password" placeholder="Conform Password" name="new_password_confirmation" value="{{ old('new_password_confirmation') }}">
+                                        @error('new_password_confirmation')
+                                            <span class="text-danger d-block">{{ $message }}</span>
+                                        @enderror
+                                        <button type="submit" class="common_btn">Submit <span></span></button>
+                                    </div>
+                                    @if (session('success'))
+                                        <span class="text-success d-block">{{ session('success') }}</span>
+                                    @endif
                                 </div>
                             </div>
-                        </form>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </section>

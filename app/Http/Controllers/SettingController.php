@@ -77,5 +77,23 @@ class SettingController extends Controller
     }
 
 
+    //Contact Message Setting Update
+
+    public function contactMessageSetingUpdate(Request $request){
+        $request->validate([
+            'email' => 'nullable|email',
+            'dbsave' => 'required'
+        ]);
+
+        Setting::where('id',1)->update([
+            'messageReceiveEmail' => $request->input('email'),
+            'messageSaveOnDB' => $request->input('dbsave'),
+        ]);
+
+        return back()->with('success', 'Setting Change Successfully!');
+
+
+    }
+
 
 }

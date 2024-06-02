@@ -7,6 +7,7 @@ use App\Models\BlogPost;
 use App\Models\Comment;
 use App\Models\FAQS;
 use App\Models\HomeVideoGallery;
+use App\Models\Message;
 use App\Models\Partner;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -134,4 +135,10 @@ function globalBlog(){
 
  function setting($query){
     return Setting::find(1)->$query;
+ }
+
+ //unread message count
+
+ function unreadMessage(){
+    return Message::where('status','unread')->count();
  }

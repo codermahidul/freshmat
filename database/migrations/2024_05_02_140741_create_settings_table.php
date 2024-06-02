@@ -36,6 +36,9 @@ return new class extends Migration
             $table->enum('glrecaptchaStatus',['enable','disable'])->default('disable');
             $table->string('captchaSiteKey')->nullable();
             $table->string('captchaSecretKey')->nullable();
+            //Contact Message
+            $table->string('messageReceiveEmail')->nullable();
+            $table->enum('messageSaveOnDB',['yess','no'])->default('yess');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
