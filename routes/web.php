@@ -160,6 +160,10 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/setting', [SettingController::class, 'index'])->name('setting');
     Route::post('/setting/logo-favicon/update', [SettingController::class, 'logoFavicon'])->name('logoFavicon');
     Route::post('/setting/general/update', [SettingController::class, 'general'])->name('general');
+    Route::post('/setting/google/analytic/update', [SettingController::class, 'googleAnalytic'])->name('googleAnalytic');
+    Route::post('/setting/google/recaptcha/update', [SettingController::class, 'googleRecaptcha'])->name('googleRecaptcha');
+    Route::post('/setting/social/login/update', [SettingController::class, 'socialLogin'])->name('socialLogin');
+    Route::post('/setting/facebook/pixel/update', [SettingController::class, 'facebookPixel'])->name('facebookPixel');
     
     //Home One Video Gallery
     Route::get('/video/gallery', [HomeVideoGalleryController::class, 'index'])->name('homeOneVideoGallery');

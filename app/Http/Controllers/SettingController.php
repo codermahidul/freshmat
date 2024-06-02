@@ -89,10 +89,52 @@ class SettingController extends Controller
             'messageReceiveEmail' => $request->input('email'),
             'messageSaveOnDB' => $request->input('dbsave'),
         ]);
-
         return back()->with('success', 'Setting Change Successfully!');
+    }
 
 
+    public function googleAnalytic(Request $request){
+        Setting::find(1)->update([
+            'glanalyticStatus' => $request->input('glanalyticStatus'),
+            'analiticTrackingId' => $request->input('analiticTrackingId'),
+        ]);
+        return back()->with('success','Google Analytic Setting Update');
+    }
+
+
+    public function googleRecaptcha(Request $request){
+        Setting::find(1)->update([
+            'glrecaptchaStatus' => $request->input('glrecaptchaStatus'),
+            'captchaSiteKey' => $request->input('captchaSiteKey'),
+            'captchaSecretKey' => $request->input('captchaSecretKey'),
+        ]);
+
+        return back()->with('success','Google Recptcha Setting Update');
+    }
+
+    public function socialLogin(Request $request){
+        Setting::find(1)->update([
+            'flstatus' => $request->input('flstatus'),
+            'fbAppId' => $request->input('fbAppId'),
+            'fbSecretKey' => $request->input('fbSecretKey'),
+            'fbRedirectUrl' => $request->input('fbRedirectUrl'),            
+            'glstatus' => $request->input('glstatus'),
+            'glClientId' => $request->input('glClientId'),
+            'glSecretKey' => $request->input('glSecretKey'),
+            'glRedirectUrl' => $request->input('glRedirectUrl'),
+        ]);
+
+        return back()->with('success','Social Login Setting Update');
+    }
+
+
+    public function facebookPixel(Request $request){
+        Setting::find(1)->update([
+            'fbPixelStatus' => $request->input('fbPixelStatus'),
+            'fbAppIdPixel' => $request->input('fbAppIdPixel'),
+        ]);
+
+        return back()->with('success','Facebook Pixel Setting Update');
     }
 
 
