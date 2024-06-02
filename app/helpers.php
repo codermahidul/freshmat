@@ -5,6 +5,7 @@ use App\Models\Banner;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\Comment;
+use App\Models\EmailConfiguration;
 use App\Models\FAQS;
 use App\Models\HomeVideoGallery;
 use App\Models\Message;
@@ -141,4 +142,10 @@ function globalBlog(){
 
  function unreadMessage(){
     return Message::where('status','unread')->count();
+ }
+
+ //Email Configuration
+
+ function emailConfig($query){
+    return EmailConfiguration::find(1)->$query;
  }

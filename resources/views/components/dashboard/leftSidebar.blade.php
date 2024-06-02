@@ -205,7 +205,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-header">EXAMPLES</li>
+          <li class="nav-header">SETTINGS</li>
           <li class="nav-item">
             <a href="{{ route('inbox') }}" class="nav-link {{ Route::currentRouteNamed('inbox') ? 'active' : '' }}">
               <i class="nav-icon far fa-calendar-alt"></i>
@@ -215,13 +215,28 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+          <li class="nav-item {{ Route::currentRouteNamed('emailConfig') ? 'menu-open' : '' }}">
+            <a href="" class="nav-link {{ Route::currentRouteNamed('emailConfig') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-file-alt"></i>
               <p>
-                Gallery
+                Email Configuration
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('emailConfig') }}" class="nav-link {{ Route::currentRouteNamed('emailConfig') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Setting</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link {{ Route::currentRouteNamed('') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Email Template</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="{{ route('setting') }}" class="nav-link {{ Route::currentRouteNamed('setting') ? 'active' : '' }}">

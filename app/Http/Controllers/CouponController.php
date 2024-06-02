@@ -194,7 +194,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        return unreadMessage();
+        return emailConfig('mailPort');
 
     }
 

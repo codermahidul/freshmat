@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DeliveryLocationController;
+use App\Http\Controllers\EmailConfigurationController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeVideoGalleryController;
@@ -196,6 +197,13 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/message/delete/{id}', [MessageController::class, 'messageDelete'])->name('messageDelete');
     Route::get('/message/view/{id}', [MessageController::class, 'messageView'])->name('messageView');
     Route::post('/contact/message/setting/update', [SettingController::class, 'contactMessageSetingUpdate'])->name('contactMessageSetingUpdate');
+
+    //Email Configuration
+    Route::get('/email/configuration', [EmailConfigurationController::class, 'index'])->name('emailConfig');
+    Route::post('/email/configuration/update', [EmailConfigurationController::class, 'update'])->name('emailConfigUpdate');
+
+
+
 
 });
 

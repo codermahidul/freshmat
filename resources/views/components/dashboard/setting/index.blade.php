@@ -8,8 +8,8 @@
             <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Logo and Favicon</a>
             <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Google Analytic</a>
             <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Google Recaptcha</a>            
-            
-            <a class="nav-link" id="vert-tabs-facebook-pixel-tab" data-toggle="pill" href="#vert-tabs-facebook-pixel" role="tab" aria-controls="vert-tabs-facebook-pixel" aria-selected="false">Facebook Pixel</a>            
+            <a class="nav-link" id="vert-tabs-facebook-pixel-tab" data-toggle="pill" href="#vert-tabs-facebook-pixel" role="tab" aria-controls="vert-tabs-facebook-pixel" aria-selected="false">Facebook Pixel</a>   
+            <a class="nav-link" id="vert-tabs-database-tab" data-toggle="pill" href="#vert-tabs-database" role="tab" aria-controls="vert-tabs-database" aria-selected="false">Database</a>          
           </div>
         </div>
         <div class="col-7 col-sm-9">
@@ -31,6 +31,9 @@
             </div>
             <div class="tab-pane fade" id="vert-tabs-facebook-pixel" role="tabpanel" aria-labelledby="vert-tabs-facebook-pixel-tab">
               @include('components.dashboard.settings.facebookPixel')
+            </div>
+            <div class="tab-pane fade" id="vert-tabs-database" role="tabpanel" aria-labelledby="vert-tabs-database-tab">
+              @include('components.dashboard.settings.database')
             </div>
           </div>
         </div>
