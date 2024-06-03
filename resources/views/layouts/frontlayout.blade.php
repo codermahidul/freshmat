@@ -210,7 +210,7 @@
                         <li class="relative_li">
                             <a class="{{ Route::currentRouteNamed('index','indexTwo','indexThree') ? 'active' : '' }}" href="{{ route('index') }}" href="{{ route('index') }}">home <i class="fas fa-chevron-down"></i></a>
                             <ul class="menu_droapdown">
-                                <li><a class="{{ Route::currentRouteNamed('index') ? 'active' : '' }}" href="{{ route('index') }}">Home style 01</a></li>
+                                <li><a class="{{ Route::currentRouteNamed('indexOne') ? 'active' : '' }}" href="{{ route('indexOne') }}">Home style 01</a></li>
                                 <li><a class="{{ Route::currentRouteNamed('indexTwo') ? 'active' : '' }}" href="{{ route('indexTwo') }}">Home style 02</a></li>
                                 <li><a class="{{ Route::currentRouteNamed('indexThree') ? 'active' : '' }}" href="{{ route('indexThree') }}">Home style 03</a></li>
                             </ul>

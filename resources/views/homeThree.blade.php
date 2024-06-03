@@ -11,39 +11,20 @@
                 <div class="col-xl-8">
                     <div class="banner_content">
                         <div class="row banner_slider">
+                            @forelse ($sliders as $slider)   
                             <div class="col-xl-12">
-                                <div class="single_slider" style="background: url({{ asset('assets') }}/images/slider_3.jpg);">
+                                <div class="single_slider" style="background: url({{ asset($slider->backgroundImg) }});">
                                     <div class="single_slider_text">
-                                        <h3>Organic 100% Genuine Product</h3>
-                                        <h1>Tasty & <span>Healthy</span> Organic Food</h1>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not random text classical Latin
-                                            literature.</p>
-                                        <a class="common_btn" href="shop_details.html">shop now <span></span></a>
+                                        <h3>{{ $slider->shortTitle }}</h3>
+                                        <h1>{{ $slider->offerText }}</h1>
+                                        <p>{{ $slider->description }}</p>
+                                        <a class="common_btn" href="{{ $slider->link }}">shop now <span></span></a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-12">
-                                <div class="single_slider" style="background: url({{ asset('assets') }}/images/slider_2.jpg);">
-                                    <div class="single_slider_text">
-                                        <h3>Up to 50% OFF</h3>
-                                        <h1>We Offer <span>Premium</span> & Organic Food</h1>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not random text classical Latin
-                                            literature.</p>
-                                        <a class="common_btn" href="shop_details.html">shop now <span></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-12">
-                                <div class="single_slider" style="background: url({{ asset('assets') }}/images/slider_1.jpg);">
-                                    <div class="single_slider_text">
-                                        <h3>Organic 100% Genuine Product</h3>
-                                        <h1> Our <span>Garden's</span> Most Favorite Food</h1>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not random text classical Latin
-                                            literature.</p>
-                                        <a class="common_btn" href="shop_details.html">shop now <span></span></a>
-                                    </div>
-                                </div>
-                            </div>
+                            @empty
+                                No Slider Item found!
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -91,70 +72,18 @@
             </div>
             <div class="slider_padding">
                 <div class="row category_slider_2">
+                    @forelse ($productCategories as $productCategory)
                     <div class="col-xl-2">
-                        <a href="shop.html" class="category_item">
+                        <a href="{{ route('categoryWiseProduct',$productCategory->slug) }}" class="category_item">
                             <div class="icon">
-                                <img src="{{ asset('assets') }}/images/category_img_1.jpg" alt="category" class="img-fluid w-100">
+                                <img src="{{ asset($productCategory->icon) }}" alt="category" class="img-fluid w-100">
                             </div>
-                            <h4>Blueberry</h4>
+                            <h4>{{ $productCategory->name }}</h4>
                         </a>
                     </div>
-                    <div class="col-xl-2">
-                        <a href="shop.html" class="category_item">
-                            <div class="icon">
-                                <img src="{{ asset('assets') }}/images/category_img_2.jpg" alt="category" class="img-fluid w-100">
-                            </div>
-                            <h4>Strawberry</h4>
-                        </a>
-                    </div>
-                    <div class="col-xl-2">
-                        <a href="shop.html" class="category_item">
-                            <div class="icon">
-                                <img src="{{ asset('assets') }}/images/category_img_3.jpg" alt="category" class="img-fluid w-100">
-                            </div>
-                            <h4>Cabbage</h4>
-                        </a>
-                    </div>
-                    <div class="col-xl-2">
-                        <a href="shop.html" class="category_item">
-                            <div class="icon">
-                                <img src="{{ asset('assets') }}/images/category_img_4.jpg" alt="category" class="img-fluid w-100">
-                            </div>
-                            <h4>Eggplant</h4>
-                        </a>
-                    </div>
-                    <div class="col-xl-2">
-                        <a href="shop.html" class="category_item">
-                            <div class="icon">
-                                <img src="{{ asset('assets') }}/images/category_img_5.jpg" alt="category" class="img-fluid w-100">
-                            </div>
-                            <h4>Orange</h4>
-                        </a>
-                    </div>
-                    <div class="col-xl-2">
-                        <a href="shop.html" class="category_item">
-                            <div class="icon">
-                                <img src="{{ asset('assets') }}/images/category_img_6.jpg" alt="category" class="img-fluid w-100">
-                            </div>
-                            <h4>Apple</h4>
-                        </a>
-                    </div>
-                    <div class="col-xl-2">
-                        <a href="shop.html" class="category_item">
-                            <div class="icon">
-                                <img src="{{ asset('assets') }}/images/category_img_3.jpg" alt="category" class="img-fluid w-100">
-                            </div>
-                            <h4>Cabbage</h4>
-                        </a>
-                    </div>
-                    <div class="col-xl-2">
-                        <a href="shop.html" class="category_item">
-                            <div class="icon">
-                                <img src="{{ asset('assets') }}/images/category_img_5.jpg" alt="category" class="img-fluid w-100">
-                            </div>
-                            <h4>Orange</h4>
-                        </a>
-                    </div>
+                    @empty
+                        No category found!
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -769,77 +698,7 @@
     <!--=========================
         BLOG 3 START
     ==========================-->
-    <section class="blog_3 blog_2 pt_115 xs_pt_75">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 m-auto">
-                    <div class="section_heading mb_15">
-                        <h2>Latest News & Articles</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog_item">
-                        <a href="blogs_details.html" class="blog_img">
-                            <img src="{{ asset('assets') }}/images/blog_2_img_1.jpg" alt="blog" class="img-fluid w-100">
-                        </a>
-                        <div class="blog_text">
-                            <ul class="top">
-                                <li><i class="far fa-tag"></i> Drink</li>
-                                <li><i class="far fa-user-circle"></i> Admin</li>
-                                <li><i class="far fa-calendar-alt"></i> 22 Sep 2023</li>
-                            </ul>
-                            <a class="title" href="blogs_details.html">Freshly Served Exploring the World of Fresh</a>
-                            <p>It is a long established fact that a reader will be distrac
-                                ted by the readable content...</p>
-                            <a class="read_btn_3" href="blogs_details.html">Read More <i
-                                    class="fas fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog_item">
-                        <a href="blogs_details.html" class="blog_img">
-                            <img src="{{ asset('assets') }}/images/blog_2_img_2.jpg" alt="blog" class="img-fluid w-100">
-                        </a>
-                        <div class="blog_text">
-                            <ul class="top">
-                                <li><i class="far fa-tag"></i> Fish</li>
-                                <li><i class="far fa-user-circle"></i> Admin</li>
-                                <li><i class="far fa-calendar-alt"></i> 22 Sep 2023</li>
-                            </ul>
-                            <a class="title" href="blogs_details.html">The Fresh Connection Exploring the Link
-                                Between</a>
-                            <p>It is a long established fact that a reader will be distrac
-                                ted by the readable content...</p>
-                            <a class="read_btn_3" href="blogs_details.html">Read More <i
-                                    class="fas fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog_item">
-                        <a href="blogs_details.html" class="blog_img">
-                            <img src="{{ asset('assets') }}/images/blog_2_img_3.jpg" alt="blog" class="img-fluid w-100">
-                        </a>
-                        <div class="blog_text">
-                            <ul class="top">
-                                <li><i class="far fa-tag"></i> Meat</li>
-                                <li><i class="far fa-user-circle"></i> Admin</li>
-                                <li><i class="far fa-calendar-alt"></i> 22 Sep 2023</li>
-                            </ul>
-                            <a class="title" href="blogs_details.html">Common Engine Oil Problems and Solutions</a>
-                            <p>It is a long established fact that a reader will be distrac
-                                ted by the readable content...</p>
-                            <a class="read_btn_3" href="blogs_details.html">Read More <i
-                                    class="fas fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('components.frontend.global.blog')
     <!--=========================
         BLOG 3 END
     ==========================-->
@@ -848,62 +707,7 @@
     <!--=========================
         BRAND 3 START
     ==========================-->
-    <section class="brand_3 brand_2 mt_115 xs_mt_75">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 m-auto">
-                    <div class="section_heading mb_50">
-                        <h2>Our Freshmat Farm Partners</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="brand_item_area">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="marquee_animi">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_7.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_8.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_9.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_10.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_11.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_12.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_9.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('components.frontend.global.brand')
     <!--=========================
         BRAND 3 END
     ==========================-->

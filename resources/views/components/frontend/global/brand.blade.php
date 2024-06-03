@@ -1,7 +1,7 @@
     <!--=========================
         BRAND START
     ==========================-->
-    <section class="brand mt_115 xs_mt_75">
+    <section class="brand mt_115 xs_mt_75 {{ (setting('theme') == 'two') ? 'brand_2' : '' }} {{ (setting('theme') == 'three') ? 'brand_3' : '' }}">
         <div class="container">
             <div class="row wow fadeInUp">
                 <div class="col-xl-5 m-auto">

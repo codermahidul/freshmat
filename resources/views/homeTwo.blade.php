@@ -863,74 +863,7 @@
     <!--=========================
         BLOG 2 START
     ==========================-->
-    <section class="blog_2 pt_110 xs_pt_70">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 m-auto">
-                    <div class="section_heading mb_15 wow fadeInUp">
-                        <h4>Our Blog Post</h4>
-                        <h2>Latest News & Articles</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 wow fadeInUp">
-                    <div class="blog_item">
-                        <div class="blog_img">
-                            <img src="{{ asset('assets') }}/images/blog_2_img_1.jpg" alt="blog" class="img-fluid w-100">
-                        </div>
-                        <div class="blog_text">
-                            <ul class="top">
-                                <li><i class="far fa-tag"></i> Drink</li>
-                                <li><i class="far fa-user-circle"></i> Admin</li>
-                            </ul>
-                            <a class="title" href="#">Freshly Served Exploring the World of Fresh</a>
-                            <ul class="bottom">
-                                <li><a href="blogs_details.html">read more <i class="fas fa-long-arrow-right"></i></a>
-                                <li><span><i class="far fa-comment-dots"></i> 15 Comments</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp">
-                    <div class="blog_item">
-                        <div class="blog_img">
-                            <img src="{{ asset('assets') }}/images/blog_2_img_2.jpg" alt="blog" class="img-fluid w-100">
-                        </div>
-                        <div class="blog_text">
-                            <ul class="top">
-                                <li><i class="far fa-tag"></i> Fish</li>
-                                <li><i class="far fa-user-circle"></i> Admin</li>
-                            </ul>
-                            <a class="title" href="#">The Fresh Connection Exploring the Link Between</a>
-                            <ul class="bottom">
-                                <li><a href="blogs_details.html">read more <i class="fas fa-long-arrow-right"></i></a>
-                                <li><span><i class="far fa-comment-dots"></i> 42 Comments</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp">
-                    <div class="blog_item">
-                        <div class="blog_img">
-                            <img src="{{ asset('assets') }}/images/blog_2_img_3.jpg" alt="blog" class="img-fluid w-100">
-                        </div>
-                        <div class="blog_text">
-                            <ul class="top">
-                                <li><i class="far fa-tag"></i> Meat</li>
-                                <li><i class="far fa-user-circle"></i> Admin</li>
-                            </ul>
-                            <a class="title" href="#">Common Engine Oil Problems and Solutions</a>
-                            <ul class="bottom">
-                                <li><a href="blogs_details.html">read more <i class="fas fa-long-arrow-right"></i></a>
-                                <li><span><i class="far fa-comment-dots"></i> 36 Comments</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('components.frontend.global.blog')
     <!--=========================
         BLOG 2 END
     ==========================-->
@@ -939,63 +872,7 @@
     <!--=========================
         BRAND 2 START
     ==========================-->
-    <section class="brand_2 mt_115 xs_mt_75">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 m-auto wow fadeInUp">
-                    <div class="section_heading mb_45">
-                        <h4>Our Partners</h4>
-                        <h2>Our Organic Farm Partners</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="brand_item_area wow fadeInUp">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="marquee_animi">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_1.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_2.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_3.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_4.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_5.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_6.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="{{ asset('assets') }}/images/brand_item_4.png" alt="brand" class="img-fluid w-100">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('components.frontend.global.brand')
     <!--=========================
         BRAND 2 END
     ==========================-->

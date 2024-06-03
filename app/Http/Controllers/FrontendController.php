@@ -179,16 +179,40 @@ class FrontendController extends Controller
         }elseif(setting('theme') == 'two'){
             return view('homeTwo');
         }elseif(setting('theme') == 'three'){
-            return view('homeThree');
+            $productCategories = ProductCategory::where('status','active')->latest()->get();
+            $sliders = Slider::where('status','active')->latest()->get();
+            return view('homeThree',compact([
+                'productCategories',
+                'sliders',
+            ]));
         }
     }
 
+    public function indexOne(){
+        $productCategories = ProductCategory::where('status','active')->latest()->get();
+        $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
+        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->get();
+        $sliders = Slider::where('status','active')->latest()->get();
+
+        return view('welcome',compact([
+            'productCategories',
+            'topCategories',
+            'latestProduct',
+            'sliders',
+        ]));
+    }    
+    
     public function indexTwo(){
         return view('homeTwo');
     }    
     
     public function indexThree(){
-        return view('homeThree');
+        $productCategories = ProductCategory::where('status','active')->latest()->get();
+        $sliders = Slider::where('status','active')->latest()->get();
+        return view('homeThree',compact([
+            'productCategories',
+            'sliders',
+        ]));
     }
 
     public function contact(){

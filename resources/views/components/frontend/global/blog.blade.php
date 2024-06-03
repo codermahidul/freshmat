@@ -1,7 +1,7 @@
     <!--=========================
         BLOG START
     ==========================-->
-    <section class="blog pt_115 xs_pt_75">
+    <section class="blog {{ (setting('theme') == 'two') ? 'blog_2' : '' }} {{ (setting('theme') == 'three') ? 'blog_3' : '' }} pt_115 xs_pt_75">
         <div class="container">
             <div class="row wow fadeInUp">
                 <div class="col-xl-5 m-auto">
