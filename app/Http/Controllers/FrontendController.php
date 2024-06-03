@@ -161,17 +161,35 @@ class FrontendController extends Controller
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->get();
         $sliders = Slider::where('status','active')->latest()->get();
-        
-        // $categories = ProductCategory::where('status','active')->latest()->get();
 
-        return view('welcome',compact([
-            'productCategories',
-            'topCategories',
-            'latestProduct',
-            'sliders',
-        ]));
+        if (setting('theme') == 'all') {
+            return view('welcome',compact([
+                'productCategories',
+                'topCategories',
+                'latestProduct',
+                'sliders',
+            ]));
+        }elseif (setting('theme') == 'one') {
+            return view('welcome',compact([
+                'productCategories',
+                'topCategories',
+                'latestProduct',
+                'sliders',
+            ]));
+        }elseif(setting('theme') == 'two'){
+            return view('homeTwo');
+        }elseif(setting('theme') == 'three'){
+            return view('homeThree');
+        }
     }
 
+    public function indexTwo(){
+        return view('homeTwo');
+    }    
+    
+    public function indexThree(){
+        return view('homeThree');
+    }
 
     public function contact(){
         $contents = ContactPage::find(1);

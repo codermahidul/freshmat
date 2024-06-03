@@ -24,13 +24,13 @@
     <link rel="stylesheet" href="{{asset('assets')}}/css/responsive.css">
 </head>
 
-<body>
+<body class="{{ (setting('theme') == 'two') ? 'home_2' : '' }} {{ (setting('theme') == 'three') ? 'home_3' : '' }}">
 
     <!--=========================
         TOPBAR START
     ==========================-->
     @if (setting('topbar') == 'show')
-    <section class="topbar">
+    <section class="topbar {{ (setting('theme') == 'two') ? 'topbar_2' : '' }} {{ (setting('theme') == 'three') ? 'topbar_3' : '' }}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-9 d-none d-md-block">
@@ -49,10 +49,9 @@
                 </div>
                 <div class="col-lg-4 col-md-3">
                     <ul class="topbar_icon d-flex flex-wrap">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                        @foreach (socialLinks() as $item)
+                            <li><a href="{{ $item->url }}"><i class="{{ $item->icon }}"></i></a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -67,7 +66,7 @@
     <!--=========================
         HEADER START
     ==========================-->
-    <header>
+    <header class="{{ (setting('theme') == 'two') ? 'header_2' : '' }}">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-3">
@@ -103,11 +102,11 @@
         HEADER END
     ==========================-->
 
-
+    
     <!--=========================
         MENU START
     ==========================-->
-    <nav class="main_menu d-none d-lg-block">
+    <nav class="main_menu  {{ (setting('theme') == 'two') ? 'main_menu_2' : '' }} {{ (setting('theme') == 'three') ? 'main_menu_3' : '' }} d-none d-lg-block">
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-3">
@@ -209,11 +208,11 @@
                 <div class="col-xl-9 col-lg-9">
                     <ul class="menu_item">
                         <li class="relative_li">
-                            <a class="active" href="#">home <i class="fas fa-chevron-down"></i></a>
+                            <a class="{{ Route::currentRouteNamed('index','indexTwo','indexThree') ? 'active' : '' }}" href="{{ route('index') }}" href="{{ route('index') }}">home <i class="fas fa-chevron-down"></i></a>
                             <ul class="menu_droapdown">
-                                <li><a class="active" href="index.html">Home style 01</a></li>
-                                <li><a href="index_2.html">Home style 02</a></li>
-                                <li><a href="index_3.html">Home style 03</a></li>
+                                <li><a class="{{ Route::currentRouteNamed('index') ? 'active' : '' }}" href="{{ route('index') }}">Home style 01</a></li>
+                                <li><a class="{{ Route::currentRouteNamed('indexTwo') ? 'active' : '' }}" href="{{ route('indexTwo') }}">Home style 02</a></li>
+                                <li><a class="{{ Route::currentRouteNamed('indexThree') ? 'active' : '' }}" href="{{ route('indexThree') }}">Home style 03</a></li>
                             </ul>
                         </li>
                         <li>
@@ -275,10 +274,10 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="{{ route('frontendblog') }}">blog</a></li>
-                        <li class="relative_li"><a href="#">pages <i class="fas fa-chevron-down"></i></a>
+                        <li><a class="{{ Route::currentRouteNamed('frontendblog') ? 'active' : '' }}" href="{{ route('frontendblog') }}">blog</a></li>
+                        <li class="relative_li"><a class="{{ Route::currentRouteNamed('aboutUs') ? 'active' : '' }}" href="#">pages <i class="fas fa-chevron-down"></i></a>
                             <ul class="menu_droapdown">
-                                <li><a href="{{ route('aboutUs') }}">about us</a></li>
+                                <li><a class="{{ Route::currentRouteNamed('aboutUs') ? 'active' : '' }}" href="{{ route('aboutUs') }}">about us</a></li>
                                 <li><a href="blogs_details.html">blog details</a></li>
                                 <li><a href="shop_details.html">shop details</a></li>
                                 <li><a href="cart_view.html">cart view</a></li>
@@ -590,9 +589,9 @@
     @yield('content')
 
       <!--=========================
-        FOOTER START
+        FOOTER START 
     ==========================-->
-    <footer class="mt_200 xs_mt_160">
+    <footer class="mt_200 xs_mt_160 {{ (setting('theme') == 'two') ? 'footer_2' : '' }} {{ (setting('theme') == 'three') ? 'footer_3' : '' }}">
         <div class="footer_overlay">
             <div class="container">
                 <div class="footer_info" style="background: url({{asset('assets')}}/images/footer_info_bg.jpg);">

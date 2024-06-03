@@ -107,8 +107,8 @@
                                     <a class="btn-sm btn btn-primary" target="_blank" href="{{ $item->url }}"><i class="fas fa-eye"></i></a>
                                 </td>
                                 <td class="text-center">
-                                    <a href="" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                    {{-- <a href="" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a> --}}
+                                    <a href="{{ route('socialLinkDelete',$item->id) }}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                             @empty

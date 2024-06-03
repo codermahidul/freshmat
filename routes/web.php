@@ -30,6 +30,9 @@ use Illuminate\Support\Facades\Route;
 //User Routes
 Auth::routes();
 Route::get('/', [FrontendController::class, 'index'])->name('index');
+Route::get('/home-one', [FrontendController::class, 'indexOne'])->name('indexOne');
+Route::get('/home-two', [FrontendController::class, 'indexTwo'])->name('indexTwo');
+Route::get('/home-three', [FrontendController::class, 'indexThree'])->name('indexThree');
 //Route::get('forgot/password', [FrontendController::class, 'forgotPassword'])->name('forgotPassword');
 //Route::get('/login', [FrontendController::class, 'login'])->name('userLogin');
 //Route::get('/register', [FrontendController::class, 'register'])->name('userRegister');
@@ -210,6 +213,7 @@ Route::group(['middleware' => ['auth','role']], function(){
 
     //Social Links
     Route::post('/social-links/insert',[SocialLinksController::class, 'insert'])->name('socialLinkInsert');
+    Route::get('/social-links/delete/{id}',[SocialLinksController::class, 'delete'])->name('socialLinkDelete');
 
 
 

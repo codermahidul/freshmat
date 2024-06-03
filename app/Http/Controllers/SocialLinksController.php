@@ -23,4 +23,9 @@ class SocialLinksController extends Controller
             return back()->with('success','Your Social link added successfully!');
         }
     }
+
+    public function delete($id){
+        SocialLinks::find($id)->delete();
+        return back()->with('success','Social Link Deleted Successfull!');
+    }
 }
