@@ -14,6 +14,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\SectionTitle;
 use App\Models\Setting;
+use App\Models\SocialLinks;
 use App\Models\Testimonial;
 use App\Models\Topbar;
 use Illuminate\Support\Facades\Session;
@@ -162,4 +163,8 @@ function globalBlog(){
 
  function topbarContent($query){
     return Topbar::find(1)->$query;
+ }
+
+ function socialLinks(){
+    return SocialLinks::all();
  }

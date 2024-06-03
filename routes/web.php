@@ -20,6 +20,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionTitleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\SocialLinksController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ThemeOptionController;
 use Illuminate\Support\Facades\Auth;
@@ -206,6 +207,9 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Theme Option
     Route::get('/theme-option/topbar',[ThemeOptionController::class, 'topbar'])->name('topbar');
     Route::post('/theme-option/topbar/update',[ThemeOptionController::class, 'topbarUpdate'])->name('topbarUpdate');
+
+    //Social Links
+    Route::post('/social-links/insert',[SocialLinksController::class, 'insert'])->name('socialLinkInsert');
 
 
 
