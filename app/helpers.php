@@ -15,6 +15,7 @@ use App\Models\ProductCategory;
 use App\Models\SectionTitle;
 use App\Models\Setting;
 use App\Models\Testimonial;
+use App\Models\Topbar;
 use Illuminate\Support\Facades\Session;
 
 if (!function_exists('wishlistTotalItem')) {
@@ -148,4 +149,17 @@ function globalBlog(){
 
  function emailConfig($query){
     return EmailConfiguration::find(1)->$query;
+ }
+
+ function mailServer(){
+    config(['mail.mailers.smtp.host' => emailConfig('mailHost')]);
+    config(['mail.mailers.smtp.port' => emailConfig('mailPort')]);
+    config(['mail.mailers.smtp.encryption' => emailConfig('mailEncryption')]);
+    config(['mail.mailers.smtp.username' => emailConfig('smtpUserName')]);
+    config(['mail.mailers.smtp.password' => emailConfig('smtpPassword')]);
+    config(['mail.from.address' => emailConfig('email')]);
+ }
+
+ function topbarContent($query){
+    return Topbar::find(1)->$query;
  }

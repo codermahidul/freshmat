@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
          //AboutPageSeeder::class,
          //ContactPageSeeder::class,
          //HomeOneVideoGallerySeeder::class,
+         //TopbarSeeder::class,
     ]);
 
     //  Product::factory(10)->has(
@@ -34,4 +35,5 @@ class DatabaseSeeder extends Seeder
     //   ,'productgallery')->create();
 
     }
+
 }

@@ -64,6 +64,7 @@ class PaymentController extends Controller
         $data['invoice'] = Invoice::where('id',$invoiceId)->first();
         $data['invoiceProduct'] = InvoicesProducts::where('invoiceId',$invoiceId)->get();
         $data['name'] = $request->user()->name;
+        mailServer();
         Mail::to($request->user())->send(new InvoiceEmail($data));
 
         Session::forget('cart');

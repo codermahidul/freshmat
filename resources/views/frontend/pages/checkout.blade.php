@@ -56,30 +56,10 @@
                                     <input type="text" placeholder="Phone" value="{{ Auth::user()->userProfile->phone }}" name="phone">
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-6">
-                                <div class="checkout_input_box">
-                                    <label>Company Name</label>
-                                    <input type="text" placeholder="Company Name" value="">
-                                </div>
-                            </div> --}}
-                            {{-- <div class="col-lg-6">
-                                <div class="checkout_input_box">
-                                    <label>Country *</label>
-                                    <select class="select_2" name="state">
-                                        <option value="AL">Country</option>
-                                        <option value="">Japan</option>
-                                        <option value="">Korea</option>
-                                        <option value="">Singapore</option>
-                                        <option value="">Thailand</option>
-                                        <option value="">Kanada</option>
-                                    </select>
-
-                                </div>
-                            </div> --}}
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Delivary Area *</label>
-                                    <select class="select_2" name="charge" id="delivaryArea" onchange="charge()">
+                                    <select class="select_2" name="charge" id="delivaryArea" onchange="onChange()">
                                         <option value="0">Area</option>
                                         @foreach ($cities as $city)    
                                         <option value="{{ $city->charge }}">{{ $city->address }}</option>
@@ -88,18 +68,6 @@
 
                                 </div>
                             </div>
-                            {{-- <div class="col-lg-6">
-                                <div class="checkout_input_box">
-                                    <label>State *</label>
-                                    <input type="text" placeholder="State *" value="">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="checkout_input_box">
-                                    <label>Zip *</label>
-                                    <input type="text" placeholder="Zip *" value="">
-                                </div>
-                            </div> --}}
                             <div class="col-xl-12">
                                 <div class="checkout_input_box">
                                     <label>City *</label>
@@ -140,15 +108,12 @@
         </div>
     </section>
     <script>
-        function charge(){
-            alert(1)
+        function onChange(){
             var selectElement = document.getElementById("delivaryArea");
             var selectedOption = selectElement.options[selectElement.selectedIndex];
-            // Get the value of the selected option
             var selectedValue = selectedOption.value;
-            document.getElementById("charge").innerText = "+$"+selectedValue;
+            document.getElementById("charge").innerText = "+$" + selectedValue;
         }
-
         function submit(){
            document.getElementById("paymentForm").submit();
         }

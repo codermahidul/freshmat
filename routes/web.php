@@ -21,6 +21,7 @@ use App\Http\Controllers\SectionTitleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ThemeOptionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -202,6 +203,9 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/email/configuration', [EmailConfigurationController::class, 'index'])->name('emailConfig');
     Route::post('/email/configuration/update', [EmailConfigurationController::class, 'update'])->name('emailConfigUpdate');
 
+    //Theme Option
+    Route::get('/theme-option/topbar',[ThemeOptionController::class, 'topbar'])->name('topbar');
+    Route::post('/theme-option/topbar/update',[ThemeOptionController::class, 'topbarUpdate'])->name('topbarUpdate');
 
 
 

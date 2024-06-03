@@ -238,6 +238,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item {{ Route::currentRouteNamed('topbar') ? 'menu-open' : '' }}">
+            <a href="" class="nav-link {{ Route::currentRouteNamed('topbar') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-warehouse"></i>
+              <p>
+                Theme Option
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('topbar') }}" class="nav-link {{ Route::currentRouteNamed('topbar') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Topbar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link {{ Route::currentRouteNamed('') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Menu</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="{{ route('setting') }}" class="nav-link {{ Route::currentRouteNamed('setting') ? 'active' : '' }}">
               <i class="nav-icon fas fa-cog"></i>

@@ -150,4 +150,4 @@
               title: "{{ session('error') }}",
             })
           </script>
-        @endif
+@endif
