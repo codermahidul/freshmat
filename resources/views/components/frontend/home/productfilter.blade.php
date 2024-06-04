@@ -18,10 +18,6 @@
                         @foreach ($topCategories as $topcategory)     
                         <button data-filter=".{{ $topcategory->slug.$topcategory->id }}">{{ $topcategory->name }}</button>
                         @endforeach
-                        {{-- <button data-filter=".fruits">Fruits</button>
-                        <button data-filter=".nuts">Nuts</button>
-                        <button data-filter=".drinks">Drinks</button>
-                        <button data-filter=".root">Root</button> --}}
                     </div>
                 </div>
             </div>

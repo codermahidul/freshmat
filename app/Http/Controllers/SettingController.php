@@ -70,6 +70,7 @@ class SettingController extends Controller
 
     public function general(Request $request){
         Setting::where('id',1)->update([
+            'theme' => $request->input('theme'),
             'topbar' => $request->input('topbar'),
         ]);
 
