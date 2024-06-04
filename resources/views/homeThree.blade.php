@@ -553,69 +553,29 @@
                         <h2>Our Sweeet Client Say</h2>
                     </div>
                     <div class="row testi_3_slider">
+                        @forelse (testimonial() as $testimonial)
                         <div class="col-12">
                             <div class="testimonial_3_item">
                                 <div class="img">
-                                    <img src="{{ asset('assets') }}/images/testimonial_3_img_1.jpg" alt="testimonial" class="img-fluid w-100">
+                                    <img src="{{ asset($testimonial->photo) }}" alt="testimonial" class="img-fluid w-100">
                                 </div>
                                 <div class="text">
                                     <p class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
+                                        @php
+                                        for ($i=0; $i < $testimonial->rating ; $i++) { 
+                                          echo'<i class="fas fa-star"></i>';
+                                        }
+                                        @endphp
                                     </p>
-                                    <p class="review_text">Lorem ipsum dolor sit amet, consectetur adi
-                                        piscing elit,sed do eiusmod incididunt ut lab
-                                        ore et dolore magna.</p>
-                                    <h3>Fleece Marig</h3>
-                                    <p class="designation">Customer</p>
+                                    <p class="review_text">{{ $testimonial->quote }}</p>
+                                    <h3>{{ $testimonial->name }}</h3>
+                                    <p class="designation">{{ $testimonial->designation }}</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="testimonial_3_item">
-                                <div class="img">
-                                    <img src="{{ asset('assets') }}/images/testimonial_3_img_2.jpg" alt="testimonial" class="img-fluid w-100">
-                                </div>
-                                <div class="text">
-                                    <p class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </p>
-                                    <p class="review_text">Lorem ipsum dolor sit amet, consectetur adi
-                                        piscing elit,sed do eiusmod incididunt ut lab
-                                        ore et dolore magna.</p>
-                                    <h3>Bartholomew</h3>
-                                    <p class="designation">Designer</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="testimonial_3_item">
-                                <div class="img">
-                                    <img src="{{ asset('assets') }}/images/testimonial_3_img_3.jpg" alt="testimonial" class="img-fluid w-100">
-                                </div>
-                                <div class="text">
-                                    <p class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </p>
-                                    <p class="review_text">Lorem ipsum dolor sit amet, consectetur adi
-                                        piscing elit,sed do eiusmod incididunt ut lab
-                                        ore et dolore magna.</p>
-                                    <h3>Hasin Sikdar</h3>
-                                    <p class="designation">Developer</p>
-                                </div>
-                            </div>
-                        </div>
+                        </div>    
+                        @empty
+                            No testimonial found!
+                        @endforelse
                     </div>
                 </div>
             </div>

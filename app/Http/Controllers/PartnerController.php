@@ -30,7 +30,7 @@ class PartnerController extends Controller
         $name = Str::uuid().'.'.$image->getClientOriginalExtension();
         $img = $manager->read($image);
         $img = $img->resize(100,100);// Size 830x480
-        $img->toJpeg(90)->save(base_path('public/uploads/partner/'.$name));
+        $img->save(base_path('public/uploads/partner/'.$name));
         $logoUrl = 'uploads/partner/'.$name;
     }
 

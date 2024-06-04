@@ -732,69 +732,29 @@
                 </div>
                 <div class="col-xl-8 col-lg-7 wow fadeInUp">
                     <div class="row testi_slider_2">
+                        @forelse (testimonial() as $testimonial)
                         <div class="col-xl-6">
                             <div class="testimonial_item_2">
                                 <div class="img">
-                                    <img src="{{ asset('assets') }}/images/testimonial_img_1.jpg" alt="testimonial" class="img-fluid w-100">
+                                    <img src="{{ asset($testimonial->photo) }}" alt="testimonial" class="img-fluid w-100">
                                 </div>
-                                <p class="review_text">Contrary to popular belief, Lorem Ipsum is not
-                                    random text. It has roots in a piece of classic
-                                    literature from 45 BC, making</p>
+                                <p class="review_text">{{ $testimonial->quote }}</p>
                                 <div class="text">
-                                    <h3>Bartholomew</h3>
-                                    <p>Customer</p>
+                                    <h3>{{ $testimonial->name }}</h3>
+                                    <p>{{ $testimonial->designation }}</p>
                                 </div>
                                 <p class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                    @php
+                                    for ($i=0; $i < $testimonial->rating ; $i++) { 
+                                        echo '<i class="fas fa-star"></i>';
+                                    }
+                                    @endphp
                                 </p>
                             </div>
                         </div>
-                        <div class="col-xl-6">
-                            <div class="testimonial_item_2">
-                                <div class="img">
-                                    <img src="{{ asset('assets') }}/images/testimonial_img_2.jpg" alt="testimonial" class="img-fluid w-100">
-                                </div>
-                                <p class="review_text">Contrary to popular belief, Lorem Ipsum is not
-                                    random text. It has roots in a piece of classic
-                                    literature from 45 BC, making</p>
-                                <div class="text">
-                                    <h3>Sophie Dennison</h3>
-                                    <p>Graphic Designer</p>
-                                </div>
-                                <p class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="testimonial_item_2">
-                                <div class="img">
-                                    <img src="{{ asset('assets') }}/images/testimonial_img_3.jpg" alt="testimonial" class="img-fluid w-100">
-                                </div>
-                                <p class="review_text">Contrary to popular belief, Lorem Ipsum is not
-                                    random text. It has roots in a piece of classic
-                                    literature from 45 BC, making</p>
-                                <div class="text">
-                                    <h3>Israt Jahan</h3>
-                                    <p>Developer</p>
-                                </div>
-                                <p class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </p>
-                            </div>
-                        </div>
+                        @empty
+                            No testimonial found!
+                        @endforelse
                     </div>
                 </div>
             </div>
