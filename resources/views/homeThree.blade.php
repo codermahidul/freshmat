@@ -433,18 +433,17 @@
         COUNTDOWN 3 START
     ==========================-->
     <section class="countdown_3 countdown mt_115 xs_mt_75 pt_115 xs_pt_75 pb_115 xs_pb_75"
-        style="background: url({{ asset('assets') }}/images/countdown_bg_2.jpg);">
+        style="background: url({{ asset(deals(3)->backgroundImg) }});">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-5 col-md-9 col-lg-7 col-xl-6">
                     <div class="countdown_text">
                         <div class="section_heading heading_left">
-                            <h2>Deals Of The Weeks</h2>
+                            <h2>{{ deals(3)->offerText }}</h2>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod incididunt ut labore
-                            et dolore magna aliqua quis ipsum</p>
-                        <div class="simply-countdown simply-countdown-one"></div>
-                        <a class="common_btn" href="shop_details.html">shop now <span></span></a>
+                        <p>{{ deals(3)->description }}</p>
+                        <div class="simply-countdown simply-countdown-three"></div>
+                        <a class="common_btn" href="{{ deals(3)->link }}">shop now <span></span></a>
                     </div>
                 </div>
             </div>

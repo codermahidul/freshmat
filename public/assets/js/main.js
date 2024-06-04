@@ -130,9 +130,29 @@ $(function () {
 
     //=======Simply Countdown======   
     var d = new Date(),
-        countUpDate = new Date();
-    d.setDate(d.getDate() + 365);
+    countUpDate = new Date();
+    d.setDate(d.getDate() + 10);
     simplyCountdown('.simply-countdown-one', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        enableUtc: true
+    });    
+    
+    var d = new Date(),
+    countUpDate = new Date();
+    d.setDate(d.getDate() + 10);
+    simplyCountdown('.simply-countdown-two', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        enableUtc: true
+    });  
+
+    var d = new Date(),
+    countUpDate = new Date();
+    d.setDate(d.getDate() + 10);
+    simplyCountdown('.simply-countdown-three', {
         year: d.getFullYear(),
         month: d.getMonth() + 1,
         day: d.getDate(),

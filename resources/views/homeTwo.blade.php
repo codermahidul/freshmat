@@ -423,20 +423,19 @@
                     <div class="col-xl-5 col-lg-6 wow fadeInLeft">
                         <div class="countdown_text">
                             <div class="section_heading heading_left">
-                                <h4>Monthly Offers</h4>
-                                <h2>Our Specials Products deal of the day</h2>
+                                <h4>{{ deals(2)->shortTitle }}</h4>
+                                <h2>{{ deals(2)->offerText }}</h2>
                             </div>
-                            <p>There are many variations of passages of Lorem Ipsum
-                                butmajority have suffered.</p>
-                            <div class="simply-countdown simply-countdown-one"></div>
-                            <a class="common_btn" href="flash_sell.html">shop now <i
+                            <p>{{ deals(2)->description }}</p>
+                            <div class="simply-countdown simply-countdown-two"></div>
+                            <a class="common_btn" href="{{ deals(2)->link }}">shop now <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 wow fadeInRight">
                         <div class="countdown_img">
-                            <img src="{{ asset('assets') }}/images/countdown_2_img.jpg" alt="coint" class="img-fluid w-100">
+                            <img src="{{ asset(deals(2)->backgroundImg) }}" alt="coint" class="img-fluid w-100">
                         </div>
                     </div>
                 </div>

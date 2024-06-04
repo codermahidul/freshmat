@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\DealsController;
 use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\EmailConfigurationController;
 use App\Http\Controllers\FrontendController;
@@ -226,6 +227,14 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Social Links
     Route::post('/social-links/insert',[SocialLinksController::class, 'insert'])->name('socialLinkInsert');
     Route::get('/social-links/delete/{id}',[SocialLinksController::class, 'delete'])->name('socialLinkDelete');
+
+    //Deals
+    Route::get('/home-one/deals',[DealsController::class, 'homeOneDeals'])->name('homeOneDeals');
+    Route::post('/home-one/deals/update',[DealsController::class, 'homeOneDealsUpdate'])->name('homeOneDealsUpdate');
+    Route::get('/home-two/deals',[DealsController::class, 'homeTwoDeals'])->name('homeTwoDeals');
+    Route::post('/home-two/deals/update',[DealsController::class, 'homeTwoDealsUpdate'])->name('homeTwoDealsUpdate');
+    Route::get('/home-three/deals',[DealsController::class, 'homeThreeDeals'])->name('homeThreeDeals');
+    Route::post('/home-three/deals/update',[DealsController::class, 'homeThreeDealsUpdate'])->name('homeThreeDealsUpdate');
 
 
 

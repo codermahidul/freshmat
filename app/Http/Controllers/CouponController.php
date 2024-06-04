@@ -194,7 +194,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        return topbarContent('phone');
+        return counter(2);
 
     }
 

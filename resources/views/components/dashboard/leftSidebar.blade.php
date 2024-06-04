@@ -155,6 +155,35 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item {{ Route::currentRouteNamed('homeOneDeals','homeTwoDeals','homeThreeDeals') ? 'menu-open':''}}">
+            <a href="#" class="nav-link {{ Route::currentRouteNamed('homeOneDeals','homeTwoDeals','homeThreeDeals') ? 'active':''}}">
+              <i class="nav-icon fas fa-comment-dollar"></i>
+              <p>
+                Deals
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('homeOneDeals') }}" class="nav-link {{Route::currentRouteNamed('homeOneDeals') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Home One</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('homeTwoDeals') }}" class="nav-link {{ Route::currentRouteNamed('homeTwoDeals') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Home Two</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('homeThreeDeals') }}" class="nav-link {{ Route::currentRouteNamed('homeThreeDeals') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Home Three</p>
+                </a>
+              </li>              
+            </ul>
+          </li>
           <li class="nav-item">
             <a href="{{ route('slider') }}" class="nav-link {{ (Route::currentRouteNamed('slider','slider.edit')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-sliders-h"></i>

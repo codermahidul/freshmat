@@ -786,7 +786,11 @@
     <script src="{{asset('assets')}}/js/wow.min.js"></script>
     <!--script js-->
     <script src="{{asset('assets')}}/js/main.js"></script>
-
+    <script>
+        // var deals1 = {{ counter(1) }};
+        // var deals2 = {{ counter(2) }};
+        // var deals2 = {{ counter(3) }};
+    </script>
 </body>
 
 </html>

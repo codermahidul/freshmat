@@ -5,6 +5,7 @@ use App\Models\Banner;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\Comment;
+use App\Models\Deals;
 use App\Models\EmailConfiguration;
 use App\Models\FAQS;
 use App\Models\HomeVideoGallery;
@@ -83,6 +84,13 @@ function blogCategoryPostCounter(){
 
 function banner($id){
     return Banner::where('id',$id)->first();
+}
+
+
+//all page deals
+
+function deals($id){
+    return Deals::where('id',$id)->first();
 }
 
 
@@ -167,4 +175,16 @@ function globalBlog(){
 
  function socialLinks(){
     return SocialLinks::all();
+ }
+
+
+ function counter($query){
+    
+    $providedDate = new DateTime(deals($query)->date);
+    $currentDate = new DateTime();
+    $difference = $currentDate->diff($providedDate);
+    $daysDifference = $difference->days;
+
+    return $daysDifference;
+    
  }
