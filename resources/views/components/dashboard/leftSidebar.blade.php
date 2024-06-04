@@ -120,13 +120,40 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="{{route('homeonebanner')}}" class="nav-link {{ (Route::currentRouteNamed('homeonebanner')) ? 'active' : '' }}">
+          <li class="nav-item {{ Route::currentRouteNamed('homeonebanner','pdpagebannerIndex','hometwobanner') ? 'menu-open':''}}">
+            <a href="#" class="nav-link {{ Route::currentRouteNamed('homeonebanner','pdpagebannerIndex','hometwobanner') ? 'active':''}}">
               <i class="nav-icon fas fa-ad"></i>
               <p>
                 Banners
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('homeonebanner') }}" class="nav-link {{Route::currentRouteNamed('homeonebanner') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Home One</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('hometwobanner') }}" class="nav-link {{ Route::currentRouteNamed('hometwobanner') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Home Two</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link {{ Route::currentRouteNamed('') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Home Three</p>
+                </a>
+              </li>              
+              <li class="nav-item">
+                <a href="{{ route('pdpagebannerIndex') }}" class="nav-link {{ Route::currentRouteNamed('pdpagebannerIndex') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Product Details</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="{{ route('slider') }}" class="nav-link {{ (Route::currentRouteNamed('slider','slider.edit')) ? 'active' : '' }}">

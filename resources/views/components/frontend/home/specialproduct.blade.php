@@ -12,21 +12,19 @@
                 </div>
             </div>
             <div class="row">
-                @foreach (banner(3) as $homeOneSpecialBanner)
                 <div class="col-xxl-4 col-lg-3 col-xl-3">
                     <div class="special_product_banner wow fadeInLeft">
-                        <img src="{{ asset($homeOneSpecialBanner->backgroundImg) }}" alt="special product" class="img-fluid w-100">
+                        <img src="{{ asset(banner(3)->backgroundImg) }}" alt="special product" class="img-fluid w-100">
                         <div class="text">
-                            <h5>{{ $homeOneSpecialBanner->shortTitle }}</h5>
-                            <h3>{{ $homeOneSpecialBanner->offerText }}</h3>
-                            <p>{{ $homeOneSpecialBanner->description }}</p>
-                            <a class="common_btn black_btn" href="{{ $homeOneSpecialBanner->link }}">shop now <i
+                            <h5>{{ banner(3)->shortTitle }}</h5>
+                            <h3>{{ banner(3)->offerText }}</h3>
+                            <p>{{ banner(3)->description }}</p>
+                            <a class="common_btn black_btn" href="{{ banner(3)->link }}">shop now <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
                     </div>
                 </div>
-                @endforeach
                 <div class="col-xxl-8 col-lg-9 col-xl-9">
                     <div class="row">
                         <div class="col-md-6">

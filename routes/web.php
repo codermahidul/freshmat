@@ -141,11 +141,23 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/delivery/location/update/{id}', [DeliveryLocationController::class, 'update'])->name('delivery.update');
     Route::get('/delivery/location/delete/{id}', [DeliveryLocationController::class, 'delete'])->name('delivery.delete');
 
-    //Add Banner
+    //Home One Banner
     Route::get('/add/banner', [BannerController::class, 'homeOneBanner'])->name('homeonebanner');
     Route::post('/home/one/banner/update', [BannerController::class, 'homeOneBannerUpdate'])->name('hobnupdate');
     Route::post('/home/one/banner-two/update', [BannerController::class, 'homeOneBannerTwoUpdate'])->name('hobtupdate');
     Route::post('/home/one/banner-special/update', [BannerController::class, 'homeOneBannerSpecialUpdate'])->name('hobspecialupdate');
+
+    //Home Two Banner
+    Route::get('/add/banner/two', [BannerController::class, 'homeTwoBanner'])->name('hometwobanner');
+    Route::post('/update/banner/two', [BannerController::class, 'htboUpdate'])->name('htboUpdate');
+    Route::post('/update/banner/three', [BannerController::class, 'htbtUpdate'])->name('htbtUpdate');
+    Route::post('/update/banner/four', [BannerController::class, 'htbthUpdate'])->name('htbthUpdate');
+    Route::post('/update/banner/special', [BannerController::class, 'htbsUpdate'])->name('htbsUpdate');
+    Route::post('/update/banner/barnd/special', [BannerController::class, 'htbbsUpdate'])->name('htbbsUpdate');
+    Route::post('/update/banner/main', [BannerController::class, 'htbmainUpdate'])->name('htbmainUpdate');
+
+    //Product Details Page
+    Route::get('/product-details/banner',[BannerController::class, 'pdpagebannerIndex'])->name('pdpagebannerIndex');
     Route::post('/product-details-banner/update', [BannerController::class, 'productDetailsBanner'])->name('pdpbupdate');
 
     //Slider

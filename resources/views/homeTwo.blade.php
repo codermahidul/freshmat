@@ -5,16 +5,15 @@
     <!--=========================
         BANNER 2 START
     ==========================-->
-    <section class="banner_2" style="background: url({{ asset('assets') }}/images/home_2_banner_bg.jpg);">
+    <section class="banner_2" style="background: url({{ asset(banner(9)->backgroundImg) }});">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-6 col-md-9 col-lg-8 wow fadeInLeft">
                     <div class="banner_2_text single_slider_text">
-                        <h3>Select Only Grocery Products</h3>
-                        <h1>Get 30% Discount Of Your First Shopping</h1>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text
-                            piece of classical Latin literature.</p>
-                        <a class="common_btn" href="shop_details.html">shop now <i class="fas fa-long-arrow-right"></i>
+                        <h3>{{ banner(9)->shortTitle }}</h3>
+                        <h1>{{ banner(9)->offerText }}</h1>
+                        <p>{{ banner(9)->description }}</p>
+                        <a class="common_btn" href="{{ banner(9)->link }}">shop now <i class="fas fa-long-arrow-right"></i>
                             <span></span></a>
                     </div>
                 </div>
@@ -81,12 +80,12 @@
             <div class="row">
                 <div class="col-lg-4 wow fadeInLeft">
                     <div class="special_product_banner">
-                        <img src="{{ asset('assets') }}/images/special_pro_banner_img_2.jpg" alt="special product" class="img-fluid w-100">
+                        <img src="{{ asset(banner(5)->backgroundImg) }}" alt="special product" class="img-fluid w-100">
                         <div class="text">
-                            <h5>Up to 20% all Products</h5>
-                            <h3>Everyday Fresh & Clean With Our Products</h3>
-                            <p>Don’t miss avail the saving opportunity.</p>
-                            <a class="common_btn" href="shop_details.html">shop now <i
+                            <h5>{{ banner(5)->shortTitle }}</h5>
+                            <h3>{{ banner(5)->offerText }}</h3>
+                            <p>{{ banner(5)->description }}</p>
+                            <a class="common_btn" href="{{ banner(5)->link }}">shop now <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
@@ -95,24 +94,24 @@
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="col-xl-12 wow fadeInUp">
-                            <div class="add_banner_item" style="background: url({{ asset('assets') }}/images/banner_bg_5.jpg);">
+                            <div class="add_banner_item" style="background: url({{ asset(banner(6)->backgroundImg) }}">
                                 <div class="add_banner_item_text">
-                                    <h4>Up To 50% Off</h4>
-                                    <h2>Organic Food Collection</h2>
-                                    <p>Don’t miss avail the saving opportunity</p>
-                                    <a class="common_btn" href="shop_details.html">shop now <i
+                                    <h4>{{ banner(6)->shortTitle }}</h4>
+                                    <h2>{{ banner(6)->offerText }}</h2>
+                                    <p>{{ banner(6)->description }}</p>
+                                    <a class="common_btn" href="{{ banner(6)->link }}">shop now <i
                                             class="fas fa-long-arrow-right"></i>
                                         <span></span></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-12 wow fadeInUp">
-                            <div class="add_banner_item" style="background: url({{ asset('assets') }}/images/banner_bg_6.jpg);">
+                            <div class="add_banner_item" style="background: url({{ asset(banner(7)->backgroundImg) }})">
                                 <div class="add_banner_item_text">
-                                    <h4>Organic Food</h4>
-                                    <h2>Best For Your Family</h2>
-                                    <p>Limited Time Offer</p>
-                                    <a class="common_btn" href="shop_details.html">shop now <i
+                                    <h4>{{ banner(7)->shortTitle }}</h4>
+                                    <h2>{{ banner(7)->offerText }}</h2>
+                                    <p>{{ banner(7)->description }}</p>
+                                    <a class="common_btn" href="{{ banner(7)->link }}">shop now <i
                                             class="fas fa-long-arrow-right"></i>
                                         <span></span></a>
                                 </div>
@@ -465,11 +464,11 @@
             <div class="row">
                 <div class="col-xl-3 col-md-6 col-lg-4 wow fadeInLeft">
                     <div class="special_product_banner">
-                        <img src="{{ asset('assets') }}/images/special_pro_banner_img_3.jpg" alt="special product" class="img-fluid w-100">
+                        <img src="{{ asset(banner(8)->backgroundImg) }}" alt="special product" class="img-fluid w-100">
                         <div class="text">
-                            <h5>Organic Food</h5>
-                            <h3>Fresh Foods Up To 45% Off</h3>
-                            <a class="common_btn" href="shop_details.html">shop now <i
+                            <h5>{{ banner(8)->shortTitle }}</h5>
+                            <h3>{{ banner(8)->offerText }}</h3>
+                            <a class="common_btn" href="{{ banner(8)->link }}">shop now <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
@@ -636,11 +635,11 @@
                 </div>
                 <div class="col-xl-4 col-lg-6 wow fadeInUp">
                     <div class="special_product_banner">
-                        <img src="{{ asset('assets') }}/images/special_pro_banner_img_4.jpg" alt="special product" class="img-fluid w-100">
+                        <img src="{{ asset(banner(10)->backgroundImg) }}" alt="special product" class="img-fluid w-100">
                         <div class="text">
-                            <h3>Fresh Fruits Healthy Juice</h3>
-                            <p>Get 50% Off on Selected Organic Items</p>
-                            <a class="common_btn" href="shop_details.html">shop now <i
+                            <h3>{{ banner(10)->offerText }}</h3>
+                            <p>{{ banner(10)->description }}</p>
+                            <a class="common_btn" href="{{ banner(10)->link }}">shop now <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>

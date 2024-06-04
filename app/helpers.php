@@ -82,7 +82,7 @@ function blogCategoryPostCounter(){
 //Home One Banner One
 
 function banner($id){
-    return Banner::where('id',$id)->get();
+    return Banner::where('id',$id)->first();
 }
 
 

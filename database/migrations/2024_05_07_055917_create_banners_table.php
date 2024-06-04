@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('shortTitle');
+            $table->string('shortTitle')->nullable();
             $table->text('offerText');
             $table->text('description')->nullable();
             $table->string('link');
