@@ -241,8 +241,12 @@ class FrontendController extends Controller
     }
 
     public function aboutUs(){
+        $viewName = 'welcome';
         $contents = AboutUs::find(1);
-        return view('frontend.pages.aboutus',compact('contents'));
+        return view('frontend.pages.aboutus',compact([
+            'contents',
+            'viewName',
+        ]));
     }
 
     public function faqsf(){
