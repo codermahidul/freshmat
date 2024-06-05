@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
          //TopbarSeeder::class,
          //DealsSeeder::class,
          //FooterTopSeeder::class,
+         //FooterSeeder::class,
     ]);
 
     //  Product::factory(10)->has(

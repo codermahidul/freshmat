@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use App\Models\App;
 use App\Models\Banner;
 use App\Models\BlogCategory;
@@ -8,6 +10,7 @@ use App\Models\Comment;
 use App\Models\Deals;
 use App\Models\EmailConfiguration;
 use App\Models\FAQS;
+use App\Models\Footer;
 use App\Models\FooterTop;
 use App\Models\HomeVideoGallery;
 use App\Models\Message;
@@ -193,4 +196,17 @@ function globalBlog(){
 
  function footerTop($id){
     return FooterTop::where('id',$id)->first();
+ }
+
+
+ function footer(){
+    return Footer::find(1)->first();
+ }
+
+
+ function copyright(){
+    $appName = '<a href="/">'.env('APP_NAME').'</a>';
+    $currentYear = Carbon::now()->year;
+    $withYear = Str::replace('{year}',$currentYear,footer()->copyrightText);
+    return Str::replace('{mySite}',$appName,$withYear);
  }

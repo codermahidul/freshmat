@@ -10,6 +10,7 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DealsController;
 use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\EmailConfigurationController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\FooterTopController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
@@ -240,6 +241,10 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Footer Top
     Route::get('/footer-top', [FooterTopController::class, 'index'])->name('footerTop');
     Route::post('/footer-top/update', [FooterTopController::class, 'footerTopUdate'])->name('footerTopUdate');
+
+    //Footer
+    Route::get('/footer',[FooterController::class, 'index'])->name('footer');
+    Route::post('/footer/update',[FooterController::class, 'footerUpdate'])->name('footerUpdate');
 
 
 

@@ -194,7 +194,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        return footerTop(3)->heading;
+        return copyright();
 
     }
 
