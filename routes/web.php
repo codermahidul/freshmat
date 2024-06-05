@@ -10,6 +10,7 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DealsController;
 use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\EmailConfigurationController;
+use App\Http\Controllers\FooterTopController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeVideoGalleryController;
@@ -235,6 +236,10 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/home-two/deals/update',[DealsController::class, 'homeTwoDealsUpdate'])->name('homeTwoDealsUpdate');
     Route::get('/home-three/deals',[DealsController::class, 'homeThreeDeals'])->name('homeThreeDeals');
     Route::post('/home-three/deals/update',[DealsController::class, 'homeThreeDealsUpdate'])->name('homeThreeDealsUpdate');
+
+    //Footer Top
+    Route::get('/footer-top', [FooterTopController::class, 'index'])->name('footerTop');
+    Route::post('/footer-top/update', [FooterTopController::class, 'footerTopUdate'])->name('footerTopUdate');
 
 
 

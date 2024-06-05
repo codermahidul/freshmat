@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Deals;
 use App\Models\EmailConfiguration;
 use App\Models\FAQS;
+use App\Models\FooterTop;
 use App\Models\HomeVideoGallery;
 use App\Models\Message;
 use App\Models\Partner;
@@ -187,4 +188,9 @@ function globalBlog(){
 
     return $daysDifference;
     
+ }
+
+
+ function footerTop($id){
+    return FooterTop::where('id',$id)->first();
  }

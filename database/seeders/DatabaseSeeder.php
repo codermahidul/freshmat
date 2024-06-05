@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
          //HomeOneVideoGallerySeeder::class,
          //TopbarSeeder::class,
          //DealsSeeder::class,
+         //FooterTopSeeder::class,
     ]);
 
     //  Product::factory(10)->has(

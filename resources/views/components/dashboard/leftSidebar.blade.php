@@ -294,8 +294,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item {{ Route::currentRouteNamed('topbar') ? 'menu-open' : '' }}">
-            <a href="" class="nav-link {{ Route::currentRouteNamed('topbar') ? 'active' : '' }}">
+          <li class="nav-item {{ Route::currentRouteNamed('topbar','footerTop') ? 'menu-open' : '' }}">
+            <a href="" class="nav-link {{ Route::currentRouteNamed('topbar','footerTop') ? 'active' : '' }}">
               <i class="nav-icon fas fa-warehouse"></i>
               <p>
                 Theme Option
@@ -307,6 +307,12 @@
                 <a href="{{ route('topbar') }}" class="nav-link {{ Route::currentRouteNamed('topbar') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Topbar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('footerTop') }}" class="nav-link {{ Route::currentRouteNamed('footerTop') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Footer Top</p>
                 </a>
               </li>
               <li class="nav-item">

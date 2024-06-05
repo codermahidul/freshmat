@@ -599,44 +599,44 @@
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer_info_item">
                                 <div class="icon">
-                                    <img src="{{asset('assets')}}/images/footer_info_icon_1.png" alt="Icon" class="img-fluid w-100">
+                                    <img src="{{ asset(footerTop(1)->icon) }}" alt="Icon" class="img-fluid w-100">
                                 </div>
                                 <div class="text">
-                                    <h3>Free Shipping</h3>
-                                    <p>Worldwide</p>
+                                    <h3>{{ footerTop(1)->heading }}</h3>
+                                    <p>{{ footerTop(1)->subheading }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer_info_item">
                                 <div class="icon">
-                                    <img src="{{asset('assets')}}/images/footer_info_icon_2.png" alt="Icon" class="img-fluid w-100">
+                                    <img src="{{ asset(footerTop(2)->icon) }}" alt="Icon" class="img-fluid w-100">
                                 </div>
                                 <div class="text">
-                                    <h3>Helpline</h3>
-                                    <p>+1256 25632 565</p>
+                                    <h3>{{ footerTop(2)->heading }}</h3>
+                                    <p>{{ footerTop(2)->subheading }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer_info_item">
                                 <div class="icon">
-                                    <img src="{{asset('assets')}}/images/footer_info_icon_3.png" alt="Icon" class="img-fluid w-100">
+                                    <img src="{{ asset(footerTop(3)->icon) }}" alt="Icon" class="img-fluid w-100">
                                 </div>
                                 <div class="text">
-                                    <h3>24/7 Support</h3>
-                                    <p>Free For Customers</p>
+                                    <h3>{{ footerTop(3)->heading }}</h3>
+                                    <p>{{ footerTop(3)->subheading }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer_info_item">
                                 <div class="icon">
-                                    <img src="{{asset('assets')}}/images/footer_info_icon_4.png" alt="Icon" class="img-fluid w-100">
+                                    <img src="{{ asset(footerTop(4)->icon) }}" alt="Icon" class="img-fluid w-100">
                                 </div>
                                 <div class="text">
-                                    <h3>Returns</h3>
-                                    <p>30 Days Free Exchanges</p>
+                                    <h3>{{ footerTop(4)->heading }}</h3>
+                                    <p>{{ footerTop(4)->subheading }}</p>
                                 </div>
                             </div>
                         </div>
@@ -645,7 +645,7 @@
                 <div class="row justify-content-between">
                     <div class="col-lg-3 col-md-8">
                         <div class="footer_logo_area">
-                            <a class="footer_logo" href="index.html">
+                            <a class="footer_logo" href="{{ route('index') }}">
                                 <img src="{{ asset(setting('footerLogo')) }}" alt="Freshmat" class="img-fluid w-100">
                             </a>
                             <p>Lorem ipsum dolor sit amet, cons ectetur adipiscing elit sed.</p>
