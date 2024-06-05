@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
 use App\Models\ContactPage;
+use App\Models\InstagramPost;
 use App\Models\Invoice;
 use App\Models\InvoicesProducts;
 use App\Models\Product;
@@ -181,9 +182,11 @@ class FrontendController extends Controller
                 'welcome',
             ]));
         }elseif(setting('theme') == 'two'){
+            $instagramPost = InstagramPost::latest()->get();
             $viewName = 'homeTwo';
             return view('homeTwo',compact([
-                'viewName'
+                'viewName',
+                'instagramPost',
             ]));
         }elseif(setting('theme') == 'three'){
             $viewName = 'homeThree';
@@ -214,8 +217,10 @@ class FrontendController extends Controller
     
     public function indexTwo(){
         $viewName = 'homeTwo';
+        $instagramPost = InstagramPost::latest()->get();
         return view('homeTwo',compact([
-            'viewName'
+            'viewName',
+            'instagramPost'
         ]));
     }    
     

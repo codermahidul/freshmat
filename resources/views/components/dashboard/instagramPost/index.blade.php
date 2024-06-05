@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Add New Image</h2>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('instagramPostInsert') }}" method="post" enctype="multipart/form-data">
+                    @csrf 
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" name="image" id="image" class="form-control">
+                        @error('image')
+                            <span class="text-danger">
+                                {{ $message }}
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="link">Link</label>
+                        <input type="text" name="link" id="link" class="form-control" placeholder="Link">
+                        @error('link')
+                            <span class="text-danger d-block">
+                                {{ $message }}
+                            </span>
+                        @enderror
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add New</button>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Instagram Post Image List</h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th style="width: 4%">#</th>
+                        <th style="width: 30%">Image</th>
+                        <th>Link</th>
+                        <th class="text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($instagramPosts as $post)
+                        <tr>
+                            <td>{{ ++$loop->index }}</td>
+                            <td>
+                                <img src="{{ asset($post->image) }}" class="img-fluid w-50">
+                            </td>
+                            <td>
+                               @if ($post->link == null)
+                                    NO LINK
+                                
+                                @else 
+                                <a class="btn btn-secondary btn-sm" href="$post->link"><i class="fas fa-link"></i></a>
+                               @endif
+                            </td>
+                            <td class="text-center">
+                                <a href="{{ route('instagramPostDelete',$post->id) }}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                            </td>
+                          </tr>
+                        @empty
+                            No post image found!
+                        @endforelse
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (session('success'))
+<script>
+
+  const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-right',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast',
+      },
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+    })
+
+    Toast.fire({
+      icon: 'success',
+      title: "{{ session('success') }}",
+    })
+  </script>
+@endif

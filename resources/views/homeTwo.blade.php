@@ -767,48 +767,18 @@
     ==============================-->
     <section class="instagram_photo">
         <div class="row insta_slider">
+            @forelse ($instagramPost as $post)
             <div class="col-xl-2 wow fadeInUp">
                 <div class="instagram_photo_item">
-                    <img src="{{ asset('assets') }}/images/instagram_img_1.jpg" alt="instagram" class="img-fluid w-100">
-                    <a href="#"> <i class="fab fa-instagram"></i> </a>
+                    <img src="{{ asset($post->image) }}" alt="instagram" class="img-fluid w-100">
+                    @if (!$post->link == null)
+                    <a target="_blank" href="{{ $post->link }}"> <i class="fab fa-instagram"></i> </a>
+                    @endif
                 </div>
             </div>
-            <div class="col-xl-2 wow fadeInUp">
-                <div class="instagram_photo_item">
-                    <img src="{{ asset('assets') }}/images/instagram_img_2.jpg" alt="instagram" class="img-fluid w-100">
-                    <a href="#"> <i class="fab fa-instagram"></i> </a>
-                </div>
-            </div>
-            <div class="col-xl-2 wow fadeInUp">
-                <div class="instagram_photo_item">
-                    <img src="{{ asset('assets') }}/images/instagram_img_3.jpg" alt="instagram" class="img-fluid w-100">
-                    <a href="#"> <i class="fab fa-instagram"></i> </a>
-                </div>
-            </div>
-            <div class="col-xl-2 wow fadeInUp">
-                <div class="instagram_photo_item">
-                    <img src="{{ asset('assets') }}/images/instagram_img_4.jpg" alt="instagram" class="img-fluid w-100">
-                    <a href="#"> <i class="fab fa-instagram"></i> </a>
-                </div>
-            </div>
-            <div class="col-xl-2 wow fadeInUp">
-                <div class="instagram_photo_item">
-                    <img src="{{ asset('assets') }}/images/instagram_img_5.jpg" alt="instagram" class="img-fluid w-100">
-                    <a href="#"> <i class="fab fa-instagram"></i> </a>
-                </div>
-            </div>
-            <div class="col-xl-2 wow fadeInUp">
-                <div class="instagram_photo_item">
-                    <img src="{{ asset('assets') }}/images/instagram_img_6.jpg" alt="instagram" class="img-fluid w-100">
-                    <a href="#"> <i class="fab fa-instagram"></i> </a>
-                </div>
-            </div>
-            <div class="col-xl-2 wow fadeInUp">
-                <div class="instagram_photo_item">
-                    <img src="{{ asset('assets') }}/images/instagram_img_4.jpg" alt="instagram" class="img-fluid w-100">
-                    <a href="#"> <i class="fab fa-instagram"></i> </a>
-                </div>
-            </div>
+            @empty
+                No post found!
+            @endforelse
         </div>
     </section>
     <!--=============================

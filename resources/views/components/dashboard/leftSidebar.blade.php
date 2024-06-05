@@ -231,6 +231,14 @@
                 Section Title
               </p>
             </a>
+          </li>          
+          <li class="nav-item">
+            <a href="{{ route('instagramPost') }}" class="nav-link {{ (Route::currentRouteNamed('instagramPost')) ? 'active' : '' }}">
+              <i class="nav-icon fab fa-instagram"></i>
+              <p>
+                Instagram Post <span class="badge badge-info right">Home 2</span>
+              </p>
+            </a>
           </li>
           <li class="nav-item {{ Route::currentRouteNamed('faqs','faqs.add','aboutUsPage','contactUsPage') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add','aboutUsPage','contactUsPage') ? 'active' : '' }}">

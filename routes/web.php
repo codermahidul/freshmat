@@ -15,6 +15,7 @@ use App\Http\Controllers\FooterTopController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeVideoGalleryController;
+use App\Http\Controllers\InstagramPostController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PartnerController;
@@ -248,6 +249,11 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Footer
     Route::get('/footer',[FooterController::class, 'index'])->name('footer');
     Route::post('/footer/update',[FooterController::class, 'footerUpdate'])->name('footerUpdate');
+
+    //Home Three Instagram post
+    Route::get('/instagram-post',[InstagramPostController::class, 'index'])->name('instagramPost');
+    Route::post('/instagram-post/insert',[InstagramPostController::class, 'insert'])->name('instagramPostInsert');
+    Route::get('/instagram-post/delete/{id}',[InstagramPostController::class, 'delete'])->name('instagramPostDelete');
 
 
 
