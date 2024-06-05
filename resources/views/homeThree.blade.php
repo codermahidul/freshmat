@@ -31,20 +31,20 @@
                 <div class="col-xl-4">
                     <div class="row">
                         <div class="col-xl-12 col-md-6">
-                            <div class="banne_3_add_item" style="background: url({{ asset('assets') }}/images/banner_3_add_bg_1.jpg);">
+                            <div class="banne_3_add_item" style="background: url({{ asset(banner(11)->backgroundImg) }})">
                                 <div class="text">
-                                    <h4>Summer Offer</h4>
-                                    <h2>Healthy Organic Food</h2>
-                                    <a class="common_btn" href="shop_details.html">shop now <span></span></a>
+                                    <h4>{{ banner(11)->shortTitle }}</h4>
+                                    <h2>{{ banner(11)->offerText }}</h2>
+                                    <a class="common_btn" href="{{ banner(11)->link }}">shop now <span></span></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-12 col-md-6">
-                            <div class="banne_3_add_item" style="background: url({{ asset('assets') }}/images/banner_3_add_bg_2.jpg);">
+                            <div class="banne_3_add_item" style="background: url({{ asset(banner(12)->backgroundImg) }})">
                                 <div class="text">
-                                    <h4>Special Offer</h4>
-                                    <h2>Fresh Organic Food</h2>
-                                    <a class="common_btn" href="shop_details.html">shop now <span></span></a>
+                                    <h4>{{ banner(12)->shortTitle }}</h4>
+                                    <h2>{{ banner(12)->offerText }}</h2>
+                                    <a class="common_btn" href="{{ banner(12)->link }}">shop now <span></span></a>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col-xl-5">
                     <div class="section_heading heading_left mb_20">
-                        <h2>What Do You Looking For</h2>
+                        <h2>{{ sectionTitle(14)->heading }}</h2>
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
             <div class="row">
                 <div class="col-xl-5 m-auto">
                     <div class="section_heading mb_50">
-                        <h2>Our Popular Products</h2>
+                        <h2>{{ sectionTitle(18)->heading }}</h2>
                     </div>
                 </div>
             </div>
@@ -549,7 +549,7 @@
                 </div>
                 <div class="col-xl-7 col-md-7">
                     <div class="section_heading heading_left mb_50">
-                        <h2>Our Sweeet Client Say</h2>
+                        <h2>{{ sectionTitle(15)->heading }}</h2>
                     </div>
                     <div class="row testi_3_slider">
                         @forelse (testimonial() as $testimonial)
@@ -623,26 +623,25 @@
                     <div class="col-xxl-5 col-lg-6">
                         <div class="download_text">
                             <div class="section_heading heading_left">
-                                <h4>Download This App</h4>
-                                <h2>Simple Way to Order Your Food Faster</h2>
+                                <h4>{{ appSection()->shortTitle }}</h4>
+                                <h2>{{ appSection()->offerText }}</h2>
                             </div>
-                            <P>It is a long established fact that a reader will be distracted by the readable content of
-                                a page when.</P>
+                            <P>{{ appSection()->description }}</P>
                             <ul>
                                 <li>
-                                    <a class="common_btn" href="#"><i class="fab fa-apple" aria-hidden="true"></i> Apple
+                                    <a class="common_btn" href="{{ appSection()->appleLink }}"><i class="fab fa-apple" aria-hidden="true"></i> Apple
                                         Store
                                         <span style="top: 198.062px; left: 161px;"></span></a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fab fa-google-play"></i>Play Store</a>
+                                    <a href="{{ appSection()->playLink }}"><i class="fab fa-google-play"></i>Play Store</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-5">
                         <div class="download_2_img">
-                            <img src="{{ asset('assets') }}/images/download_img_2.png" alt="download" class="img-fluid w-100">
+                            <img src="{{ asset(appSection()->image2) }}" alt="download" class="img-fluid w-100">
                         </div>
                     </div>
                 </div>

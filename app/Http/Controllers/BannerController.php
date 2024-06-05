@@ -455,5 +455,88 @@ class BannerController extends Controller
         return back()->with('success', 'Home two Barnd Product banner update successfull');
     }
 
+    public function homeThreeBanner(){
+        $homeThreeRightTopBanner = Banner::where('id',11)->first();
+        $homeThreeRightBottomBanner = Banner::where('id',12)->first();
+        return view('dashboard.banner.home-three-banner',compact([
+            'homeThreeRightTopBanner',
+            'homeThreeRightBottomBanner',
+        ]));
+    }
+
+
+    public function hthboupdate(Request $request){
+        $request->validate([
+            'shortTitle' => 'required|string',
+            'offerText' => 'required|string',
+            'link' => 'required|url:http,https',
+            'backgroundImg' => 'image:jpg,jpeg,png',
+        ]);
+
+        $save_url = Banner::where('id',11)->first()->backgroundImg;
+
+        if ($request->file('backgroundImg')) {
+            unlink(base_path('public/'.$save_url));
+                //Feature Image
+                $manager = new ImageManager(new Driver());
+                $backgroundImg = $request->file('backgroundImg');
+                $name = 'home_three_banner_one'.'.'.$backgroundImg->getClientOriginalExtension();
+                $img = $manager->read($backgroundImg);
+                $img = $img->resize(420,250);
+                $img->save(base_path('public/uploads/banners/'.$name));
+                $save_url = 'uploads/banners/'.$name;
+        }
+
+
+        Banner::where('id',11)->update([
+            'shortTitle' => $request->input('shortTitle'),
+            'offerText' => $request->input('offerText'),
+            'link' => $request->input('link'),
+            'backgroundImg' => $save_url,
+        ]);
+
+        return back()->with('success', 'Home three right top banner update successfull');
+    }
+
+
+    public function hthbtupdate(Request $request){
+        $request->validate([
+            'shortTitle1' => 'required|string',
+            'offerText1' => 'required|string',
+            'link1' => 'required|url:http,https',
+            'backgroundImg1' => 'image:jpg,jpeg,png',
+        ],[
+            'shortTitle1.required' => 'The short title field is required.',
+            'offerText1.required' => 'The offer text field is required.',
+            'link1.required' => 'The link field is required.',
+            'link1.url' => 'The link field must be a valid URL.',
+            'backgroundImg1.image' => 'The background img field must be an image.',
+        ]);
+
+        $save_url = Banner::where('id',12)->first()->backgroundImg;
+
+        if ($request->file('backgroundImg1')) {
+            unlink(base_path('public/'.$save_url));
+                //Feature Image
+                $manager = new ImageManager(new Driver());
+                $backgroundImg = $request->file('backgroundImg1');
+                $name = 'home_three_banner_two'.'.'.$backgroundImg->getClientOriginalExtension();
+                $img = $manager->read($backgroundImg);
+                $img = $img->resize(420,250);
+                $img->save(base_path('public/uploads/banners/'.$name));
+                $save_url = 'uploads/banners/'.$name;
+        }
+
+
+        Banner::where('id',12)->update([
+            'shortTitle' => $request->input('shortTitle1'),
+            'offerText' => $request->input('offerText1'),
+            'link' => $request->input('link1'),
+            'backgroundImg' => $save_url,
+        ]);
+
+        return back()->with('success', 'Home three right bottom banner update successfull');
+    }
+
     //End
 }

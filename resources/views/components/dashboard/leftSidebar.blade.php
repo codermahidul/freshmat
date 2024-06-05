@@ -120,8 +120,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item {{ Route::currentRouteNamed('homeonebanner','pdpagebannerIndex','hometwobanner') ? 'menu-open':''}}">
-            <a href="#" class="nav-link {{ Route::currentRouteNamed('homeonebanner','pdpagebannerIndex','hometwobanner') ? 'active':''}}">
+          <li class="nav-item {{ Route::currentRouteNamed('homeonebanner','pdpagebannerIndex','hometwobanner','homeThreeBanner') ? 'menu-open':''}}">
+            <a href="#" class="nav-link {{ Route::currentRouteNamed('homeonebanner','pdpagebannerIndex','hometwobanner','homeThreeBanner') ? 'active':''}}">
               <i class="nav-icon fas fa-ad"></i>
               <p>
                 Banners
@@ -142,7 +142,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link {{ Route::currentRouteNamed('') ? 'active' : '' }}">
+                <a href="{{ route('homeThreeBanner') }}" class="nav-link {{ Route::currentRouteNamed('homeThreeBanner') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home Three</p>
                 </a>

@@ -41,12 +41,24 @@
                 @enderror
             </div>
             <div class="thumbnail">
-                <img src="{{ asset(appSection()->image) }}" alt="">
+                <label for="homeOneAppImage">Home One App Section Image</label>
+                <img src="{{ asset(appSection()->image) }}" class="d-block">
             </div>
             <div class="form-group">
-                <label for="image">Left Side Image</label>
+                <label for="image">Home One App Image</label>
                 <input type="file" class="form-control"  name="image">
                 @error('image')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="thumbnail">
+                <label for="homeThreeAppImage">Home Three App Section Image</label>
+                <img src="{{ asset(appSection()->image2) }}" class="d-block">
+            </div>
+            <div class="form-group mt-4">
+                <label for="image2">Home Three App Image</label>
+                <input type="file" class="form-control"  name="image2">
+                @error('image2')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

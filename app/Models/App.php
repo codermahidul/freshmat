@@ -10,6 +10,7 @@ class App extends Model
     use HasFactory;
     protected $fillable = [
         'image',
+        'image2',
         'shortTitle',
         'offerText',
         'description',

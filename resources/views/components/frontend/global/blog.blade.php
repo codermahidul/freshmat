@@ -6,8 +6,16 @@
             <div class="row wow fadeInUp">
                 <div class="col-xl-5 m-auto">
                     <div class="section_heading mb_15">
-                        <h4>{{ sectionTitle(5)->subheading }}</h4>
-                        <h2>{{ sectionTitle(5)->heading }}</h2>
+                        <h4>
+                            {{ ($viewName == 'welcome') ? sectionTitle(5)->subheading : ''  }}
+                            {{ ($viewName == 'homeTwo') ? sectionTitle(12)->subheading : ''  }}
+                            {{ ($viewName == 'homeThree') ? '' : ''  }}
+                        </h4>
+                        <h2>
+                            {{ ($viewName == 'welcome') ? sectionTitle(5)->heading : ''  }}
+                            {{ ($viewName == 'homeTwo') ? sectionTitle(12)->heading : ''  }}
+                            {{ ($viewName == 'homeThree') ? sectionTitle(16)->heading : ''  }}
+                        </h2>
                     </div>
                 </div>
             </div>

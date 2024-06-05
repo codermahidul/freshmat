@@ -158,6 +158,9 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/update/banner/special', [BannerController::class, 'htbsUpdate'])->name('htbsUpdate');
     Route::post('/update/banner/barnd/special', [BannerController::class, 'htbbsUpdate'])->name('htbbsUpdate');
     Route::post('/update/banner/main', [BannerController::class, 'htbmainUpdate'])->name('htbmainUpdate');
+    Route::get('/add/banner/three', [BannerController::class, 'homeThreeBanner'])->name('homeThreeBanner');
+    Route::post('/update/banner-one/home-three', [BannerController::class, 'hthboupdate'])->name('hthboupdate');
+    Route::post('/update/banner-two/home-three', [BannerController::class, 'hthbtupdate'])->name('hthbtupdate');
 
     //Product Details Page
     Route::get('/product-details/banner',[BannerController::class, 'pdpagebannerIndex'])->name('pdpagebannerIndex');

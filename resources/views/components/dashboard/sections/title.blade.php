@@ -4,9 +4,9 @@
         <div class="col-5 col-sm-3">
           <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
             <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Home Page (One)</a>
+            <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Home Page (Two)</a>
+            <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Home Page (Three)</a>
             <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">About Us</a>
-            <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Theme Color</a>
-            <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Cookie Constent</a>
           </div>
         </div>
         <div class="col-7 col-sm-9">
@@ -191,10 +191,256 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="vert-tabs-messages" role="tabpanel" aria-labelledby="vert-tabs-messages-tab">
-                Theme Color
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Our Product Section</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('sectionTitleUpdate',8) }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="subHeading">Sub Heading</label>
+                                <input type="text" class="form-control" placeholder="Sub Heading" value="{{ sectionTitle(8)->subheading }}" name="subheading">
+                                @error('subheading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="subHeading">Heading</label>
+                                <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(8)->heading }}" name="heading">
+                                @error('heading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Best Seller Product Section</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('sectionTitleUpdate',9) }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="subHeading">Sub Heading</label>
+                                <input type="text" class="form-control" placeholder="Sub Heading" value="{{ sectionTitle(9)->subheading }}" name="subheading">
+                                @error('subheading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="subHeading">Heading</label>
+                                <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(9)->heading }}" name="heading">
+                                @error('heading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Special Product Section</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('sectionTitleUpdate',10) }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="subHeading">Sub Heading</label>
+                                <input type="text" class="form-control" placeholder="Sub Heading" value="{{ sectionTitle(10)->subheading }}" name="subheading">
+                                @error('subheading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="subHeading">Heading</label>
+                                <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(10)->heading }}" name="heading">
+                                @error('heading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Testimonial</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('sectionTitleUpdate',11) }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="subHeading">Sub Heading</label>
+                                <input type="text" class="form-control" placeholder="Sub Heading" value="{{ sectionTitle(11)->subheading }}" name="subheading">
+                                @error('subheading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="subHeading">Heading</label>
+                                <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(11)->heading }}" name="heading">
+                                @error('heading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>                            
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" class="form-control" rows="3">{{ sectionTitle(11)->description }}</textarea>
+                                @error('description')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Blog</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('sectionTitleUpdate',12) }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="subHeading">Sub Heading</label>
+                                <input type="text" class="form-control" placeholder="Sub Heading" value="{{ sectionTitle(12)->subheading }}" name="subheading">
+                                @error('subheading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="subHeading">Heading</label>
+                                <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(12)->heading }}" name="heading">
+                                @error('heading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Partner</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('sectionTitleUpdate',13) }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="subHeading">Sub Heading</label>
+                                <input type="text" class="form-control" placeholder="Sub Heading" value="{{ sectionTitle(13)->subheading }}" name="subheading">
+                                @error('subheading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="subHeading">Heading</label>
+                                <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(13)->heading }}" name="heading">
+                                @error('heading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane fade" id="vert-tabs-settings" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
-                Cookie Constent
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Category</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('sectionTitleUpdate',14) }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="subHeading">Heading</label>
+                                <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(14)->heading }}" name="heading">
+                                @error('heading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Product filter</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('sectionTitleUpdate',18) }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="subHeading">Heading</label>
+                                <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(18)->heading }}" name="heading">
+                                @error('heading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Testimonial</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('sectionTitleUpdate',15) }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="subHeading">Heading</label>
+                                <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(15)->heading }}" name="heading">
+                                @error('heading')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Blog</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="{{ route('sectionTitleUpdate',16) }}" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="subHeading">Heading</label>
+                                    <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(16)->heading }}" name="heading">
+                                    @error('heading')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Product filter</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="{{ route('sectionTitleUpdate',17) }}" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="subHeading">Heading</label>
+                                    <input type="text" class="form-control" placeholder="Heading" value="{{ sectionTitle(17)->heading }}" name="heading">
+                                    @error('heading')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
           </div>
         </div>

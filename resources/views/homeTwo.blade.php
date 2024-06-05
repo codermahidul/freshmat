@@ -135,8 +135,8 @@
             <div class="row">
                 <div class="col-xl-5 m-auto wow fadeInUp">
                     <div class="section_heading mb_20">
-                        <h4>Checkout New Products</h4>
-                        <h2>Today’s new hotest products available now</h2>
+                        <h4>{{ sectionTitle(8)->subheading }}</h4>
+                        <h2>{{ sectionTitle(8)->heading }}</h2>
                     </div>
                 </div>
             </div>
@@ -455,8 +455,8 @@
             <div class="row">
                 <div class="col-xl-5">
                     <div class="section_heading heading_left mb_25 wow fadeInLeft">
-                        <h4>Best Sells Products</h4>
-                        <h2>Organic Bestseller Product</h2>
+                        <h4>{{ sectionTitle(9)->subheading }}</h4>
+                        <h2>{{ sectionTitle(9)->heading }}</h2>
                     </div>
                 </div>
             </div>
@@ -565,8 +565,8 @@
             <div class="row">
                 <div class="col-xl-5 m-auto">
                     <div class="section_heading mb_25 wow fadeInUp">
-                        <h4>Special Products</h4>
-                        <h2>Our Spatial Brand Products</h2>
+                        <h4>{{ sectionTitle(10)->subheading }}</h4>
+                        <h2>{{ sectionTitle(10)->heading }}</h2>
                     </div>
                 </div>
             </div>
@@ -721,12 +721,10 @@
                 <div class="col-xl-4 col-lg-5 wow fadeInLeft">
                     <div class="testimonial_2_text">
                         <div class="section_heading heading_left mb_25">
-                            <h4>Our Testimonials</h4>
-                            <h2>What Our Customer Talking About Us</h2>
+                            <h4>{{ sectionTitle(11)->subheading }}</h4>
+                            <h2>{{ sectionTitle(11)->heading }}</h2>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, elit sed, ading do
-                            eiusmod tempor incididunt labore et dolore elit,
-                            sed do eiusmod.</p>
+                        <p>{{ sectionTitle(11)->description }}</p>
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-7 wow fadeInUp">

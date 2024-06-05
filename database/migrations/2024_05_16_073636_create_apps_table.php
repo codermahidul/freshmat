@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('apps', function (Blueprint $table) {
             $table->id();
             $table->string('image');
+            $table->string('image2')->nullable();
             $table->string('shortTitle');
             $table->string('offerText');
             $table->text('description');

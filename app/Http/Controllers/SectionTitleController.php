@@ -22,6 +22,7 @@ class SectionTitleController extends Controller
         SectionTitle::where('id',$id)->update([
             'subheading' => $request->input('subheading'),
             'heading' => $request->input('heading'),
+            'description' => $request->input('description'),
         ]);
 
         return back()->with('success', 'Section Update Successfull');

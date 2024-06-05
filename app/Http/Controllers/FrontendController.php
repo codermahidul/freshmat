@@ -163,27 +163,36 @@ class FrontendController extends Controller
         $sliders = Slider::where('status','active')->latest()->get();
 
         if (setting('theme') == 'all') {
+            $viewName = 'welcome';
             return view('welcome',compact([
                 'productCategories',
                 'topCategories',
                 'latestProduct',
                 'sliders',
+                'viewName',
             ]));
         }elseif (setting('theme') == 'one') {
+            $viewName = 'welcome';
             return view('welcome',compact([
                 'productCategories',
                 'topCategories',
                 'latestProduct',
                 'sliders',
+                'welcome',
             ]));
         }elseif(setting('theme') == 'two'){
-            return view('homeTwo');
+            $viewName = 'homeTwo';
+            return view('homeTwo',compact([
+                'viewName'
+            ]));
         }elseif(setting('theme') == 'three'){
+            $viewName = 'homeThree';
             $productCategories = ProductCategory::where('status','active')->latest()->get();
             $sliders = Slider::where('status','active')->latest()->get();
             return view('homeThree',compact([
                 'productCategories',
                 'sliders',
+                'viewName',
             ]));
         }
     }
@@ -193,25 +202,31 @@ class FrontendController extends Controller
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->get();
         $sliders = Slider::where('status','active')->latest()->get();
-
+        $viewName = 'welcome';
         return view('welcome',compact([
             'productCategories',
             'topCategories',
             'latestProduct',
             'sliders',
+            'viewName',
         ]));
     }    
     
     public function indexTwo(){
-        return view('homeTwo');
+        $viewName = 'homeTwo';
+        return view('homeTwo',compact([
+            'viewName'
+        ]));
     }    
     
     public function indexThree(){
         $productCategories = ProductCategory::where('status','active')->latest()->get();
         $sliders = Slider::where('status','active')->latest()->get();
+        $viewName = 'homeThree';
         return view('homeThree',compact([
             'productCategories',
             'sliders',
+            'viewName',
         ]));
     }
 
