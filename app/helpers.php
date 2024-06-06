@@ -15,6 +15,7 @@ use App\Models\FooterTop;
 use App\Models\HomeVideoGallery;
 use App\Models\Message;
 use App\Models\Partner;
+use App\Models\Policy;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\SectionTitle;
@@ -209,4 +210,8 @@ function globalBlog(){
     $currentYear = Carbon::now()->year;
     $withYear = Str::replace('{year}',$currentYear,footer()->copyrightText);
     return Str::replace('{mySite}',$appName,$withYear);
+ }
+
+ function htPolicy($id){
+    return Policy::where('id',$id)->first();
  }

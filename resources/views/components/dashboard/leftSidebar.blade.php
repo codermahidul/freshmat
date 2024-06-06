@@ -239,6 +239,22 @@
                 Instagram Post <span class="badge badge-info right">Home 2</span>
               </p>
             </a>
+          </li>          
+          <li class="nav-item">
+            <a href="{{ route('htpolicy') }}" class="nav-link {{ (Route::currentRouteNamed('htpolicy')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-exchange-alt"></i>
+              <p>
+                Policy Section <span class="badge badge-info right">Home 2</span>
+              </p>
+            </a>
+          </li>          
+          <li class="nav-item">
+            <a href="{{ route('h3bvideo') }}" class="nav-link {{ (Route::currentRouteNamed('h3bvideo')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-video"></i>
+              <p>
+                Video Section <span class="badge badge-info right">Home 3</span>
+              </p>
+            </a>
           </li>
           <li class="nav-item {{ Route::currentRouteNamed('faqs','faqs.add','aboutUsPage','contactUsPage') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add','aboutUsPage','contactUsPage') ? 'active' : '' }}">

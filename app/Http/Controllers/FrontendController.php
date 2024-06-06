@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
 use App\Models\ContactPage;
+use App\Models\H3Video;
 use App\Models\InstagramPost;
 use App\Models\Invoice;
 use App\Models\InvoicesProducts;
@@ -192,10 +193,12 @@ class FrontendController extends Controller
             $viewName = 'homeThree';
             $productCategories = ProductCategory::where('status','active')->latest()->get();
             $sliders = Slider::where('status','active')->latest()->get();
+            $backgroundVideo = H3Video::find(1)->first();
             return view('homeThree',compact([
                 'productCategories',
                 'sliders',
                 'viewName',
+                'backgroundVideo',
             ]));
         }
     }
@@ -228,10 +231,12 @@ class FrontendController extends Controller
         $productCategories = ProductCategory::where('status','active')->latest()->get();
         $sliders = Slider::where('status','active')->latest()->get();
         $viewName = 'homeThree';
+        $backgroundVideo = H3Video::find(1)->first();
         return view('homeThree',compact([
             'productCategories',
             'sliders',
             'viewName',
+            'backgroundVideo',
         ]));
     }
 

@@ -31,6 +31,8 @@ class DatabaseSeeder extends Seeder
          //DealsSeeder::class,
          //FooterTopSeeder::class,
          //FooterSeeder::class,
+         //HomeTwoPolicySeeder::class,
+         //H3VideoSeeder::class,
     ]);
 
     //  Product::factory(10)->has(

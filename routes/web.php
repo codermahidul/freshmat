@@ -13,6 +13,7 @@ use App\Http\Controllers\EmailConfigurationController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\FooterTopController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\H3VideoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeVideoGalleryController;
 use App\Http\Controllers\InstagramPostController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionTitleController;
 use App\Http\Controllers\SettingController;
@@ -255,6 +257,13 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/instagram-post/insert',[InstagramPostController::class, 'insert'])->name('instagramPostInsert');
     Route::get('/instagram-post/delete/{id}',[InstagramPostController::class, 'delete'])->name('instagramPostDelete');
 
+    //Home Two Retrun policy
+    Route::get('/home-tow/policy-section', [PolicyController::class, 'index'])->name('htpolicy');
+    Route::post('/home-tow/policy-section/update', [PolicyController::class, 'update'])->name('htpolicyUpdate');
+
+    //Home Three Video Section
+    Route::get('/home-three/background-video',[H3VideoController::class, 'index'])->name('h3bvideo');
+    Route::post('/home-three/background-video/update',[H3VideoController::class, 'update'])->name('h3bvideoUpdate');
 
 
 });

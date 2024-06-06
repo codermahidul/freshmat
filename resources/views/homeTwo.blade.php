@@ -36,29 +36,29 @@
                         <ul>
                             <li>
                                 <div class="icon">
-                                    <img src="{{ asset('assets') }}/images/support_icon_1.jpg" alt="support" class="img-fluid w-100">
+                                    <img src="{{ asset(htPolicy(1)->icon) }}" alt="support" class="img-fluid w-100">
                                 </div>
                                 <div class="text">
-                                    <h3>Return Policy</h3>
-                                    <p>Money back guarantee</p>
+                                    <h3>{{ htPolicy(1)->heading }}</h3>
+                                    <p>{{ htPolicy(1)->subheading }}</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="icon">
-                                    <img src="{{ asset('assets') }}/images/support_icon_2.jpg" alt="support" class="img-fluid w-100">
+                                    <img src="{{ asset(htPolicy(2)->icon) }}" alt="support" class="img-fluid w-100">
                                 </div>
                                 <div class="text">
-                                    <h3>Free shipping</h3>
-                                    <p>On all orders over $60.00</p>
+                                    <h3>{{ htPolicy(2)->heading }}</h3>
+                                    <p>{{ htPolicy(2)->subheading }}</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="icon">
-                                    <img src="{{ asset('assets') }}/images/support_icon_3.jpg" alt="support" class="img-fluid w-100">
+                                    <img src="{{ asset(htPolicy(3)->icon) }}" alt="support" class="img-fluid w-100">
                                 </div>
                                 <div class="text">
-                                    <h3>Store locator</h3>
-                                    <p>Find your nearest store</p>
+                                    <h3>{{ htPolicy(3)->heading }}</h3>
+                                    <p>{{ htPolicy(3)->subheading }}</p>
                                 </div>
                             </li>
                         </ul>

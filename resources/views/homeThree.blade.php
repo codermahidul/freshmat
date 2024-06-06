@@ -588,19 +588,18 @@
     <!--=========================
         VIDEO START
     ==========================-->
-    <section class="video pt_115 xs_pt_75 pb_115 xs_pb_75" style="background: url({{ asset('assets') }}/images/video_bg.jpg);">
+    <section class="video pt_115 xs_pt_75 pb_115 xs_pb_75" style="background: url({{ asset($backgroundVideo->backgroundImg) }}">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-10">
                     <div class="video_content">
                         <div class="text">
-                            <h3>50% Off In This Week</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                incididunt ut labore et dolore magna aliqua.</p>
-                            <a class="common_btn" href="shop_details.html">shop now</a>
+                            <h3>{{ $backgroundVideo->heading }}</h3>
+                            <p>{{ $backgroundVideo->description }}</p>
+                            <a class="common_btn" href="{{ $backgroundVideo->link }}">shop now</a>
                         </div>
                         <a class="venobox play_btn" data-autoplay="true" data-vbtype="video"
-                            href="https://youtu.be/nqye02H_H6I?si=Yq79QYJhfIT_wkC_">
+                            href="{{ $backgroundVideo->video }}">
                             <i class=" fas fa-play"></i>
                         </a>
                     </div>
