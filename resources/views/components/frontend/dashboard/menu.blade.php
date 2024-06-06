@@ -2,12 +2,12 @@
     <div class="dashboard_sidebar">
         <div class="dashboard_sidebar_user">
             <div class="img">
-                <img src="{{ asset('assets') }}/images/dashboard_user_img.png" alt="dashboard" class="img-fluid w-100">
+                <img src="{{ asset(Auth::user()->userProfile->photo) }}" alt="avatar" class="img-fluid w-100">
                 <label for="profile_photo"><i class="far fa-camera"></i></label>
                 <input type="file" id="profile_photo" hidden>
             </div>
             <h3>{{ Auth::user()->name }}</h3>
-            <p>Paris, France</p>
+            <p>{{ Auth::user()->city }}</p>
         </div>
         <div class="dashboard_sidebar_menu">
             <ul>

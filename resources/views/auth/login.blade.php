@@ -146,14 +146,17 @@
                         <p class="dont_account">Don’t have an account? <a href="{{ route('register') }}">Sign Up</a></p>
                         <p class="or">or</p>
                         <ul>
+                            @if (setting('glstatus') == 'enable')   
                             <li>
-                                <a href="#">
+                                <a href="{{ route('google.redirect') }}">
                                     <span>
                                         <img src="{{ asset('assets') }}/images/google_logo.png" alt="google" class="img-fluid w-100">
                                     </span>
                                     Google
                                 </a>
                             </li>
+                            @endif
+                            @if (setting('flstatus') == 'enable')
                             <li>
                                 <a href="#">
                                     <span>
@@ -162,6 +165,7 @@
                                     Facebook
                                 </a>
                             </li>
+                            @endif
                             <li>
                                 <a href="#">
                                     <span>

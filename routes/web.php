@@ -13,6 +13,7 @@ use App\Http\Controllers\EmailConfigurationController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\FooterTopController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\H3VideoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeVideoGalleryController;
@@ -39,6 +40,9 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/home-one', [FrontendController::class, 'indexOne'])->name('indexOne');
 Route::get('/home-two', [FrontendController::class, 'indexTwo'])->name('indexTwo');
 Route::get('/home-three', [FrontendController::class, 'indexThree'])->name('indexThree');
+//Social Login
+Route::get('/google/redirect',[GoogleLoginController::class,'redirectToGoogle'])->name('google.redirect');
+Route::get('/google/callback',[GoogleLoginController::class,'handleGoogleCallback'])->name('google.callback');
 //Route::get('forgot/password', [FrontendController::class, 'forgotPassword'])->name('forgotPassword');
 //Route::get('/login', [FrontendController::class, 'login'])->name('userLogin');
 //Route::get('/register', [FrontendController::class, 'register'])->name('userRegister');

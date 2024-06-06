@@ -174,6 +174,14 @@ function globalBlog(){
     config(['mail.from.address' => emailConfig('email')]);
  }
 
+
+ function googleLogin(){
+    config(['services.google.client_id' => setting('glClientId')]);
+    config(['services.google.client_secret' => setting('glSecretKey')]);
+    config(['services.google.redirect' => setting('glRedirectUrl')]);
+ }
+
+
  function topbarContent($query){
     return Topbar::find(1)->$query;
  }
