@@ -10,6 +10,7 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DealsController;
 use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\EmailConfigurationController;
+use App\Http\Controllers\FacebookLoginController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\FooterTopController;
 use App\Http\Controllers\FrontendController;
@@ -43,6 +44,9 @@ Route::get('/home-three', [FrontendController::class, 'indexThree'])->name('inde
 //Social Login
 Route::get('/google/redirect',[GoogleLoginController::class,'redirectToGoogle'])->name('google.redirect');
 Route::get('/google/callback',[GoogleLoginController::class,'handleGoogleCallback'])->name('google.callback');
+
+Route::get('/facebook/redirect',[FacebookLoginController::class,'redirectToFacebook'])->name('facebook.redirect');
+Route::get('/facebook/callback',[FacebookLoginController::class,'handleFacebookCallback'])->name('facebook.callback');
 //Route::get('forgot/password', [FrontendController::class, 'forgotPassword'])->name('forgotPassword');
 //Route::get('/login', [FrontendController::class, 'login'])->name('userLogin');
 //Route::get('/register', [FrontendController::class, 'register'])->name('userRegister');

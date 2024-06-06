@@ -158,7 +158,7 @@
                             @endif
                             @if (setting('flstatus') == 'enable')
                             <li>
-                                <a href="#">
+                                <a href="{{ route('facebook.redirect') }}">
                                     <span>
                                         <img src="{{ asset('assets') }}/images/fb_logo.png" alt="google" class="img-fluid w-100">
                                     </span>

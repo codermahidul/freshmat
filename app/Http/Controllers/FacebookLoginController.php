@@ -9,31 +9,30 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
-class GoogleLoginController extends Controller
+class FacebookLoginController extends Controller
 {
-    public function redirectToGoogle(){
-        googleLogin();
-        return Socialite::driver('google')->redirect();
+    public function redirectToFacebook(){
+        return Socialite::driver('facebook')->redirect();
     }
 
-    public function handleGoogleCallback(){
-        googleLogin();
-        $googleUser = Socialite::driver('google')->user();
-        $user = User::where('email',$googleUser->email)->first();
+    public function handleFacebookCallback(){
+        $facebookUser = Socialite::driver('facebook')->user();
+        $user = User::where('email',$facebookUser->email)->first();
         if (!$user) {
             $user = User::create([
-                'name' => $googleUser->name,
-                'email' => $googleUser->email,
+                'name' => $facebookUser->name,
+                'email' => $facebookUser->email,
                 'password' => Hash::make(rand(100000,999999)),
             ]);
 
             UserProfile::insert([
                 'userId' => $user->id,
-                'photo' => $googleUser->avatar,
+                'photo' => $facebookUser->avatar,
             ]);
         }
 
         Auth::login($user);
         return redirect(RouteServiceProvider::HOME);
     }
+    
 }
