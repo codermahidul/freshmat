@@ -166,14 +166,6 @@
                                 </a>
                             </li>
                             @endif
-                            <li>
-                                <a href="#">
-                                    <span>
-                                        <img src="{{ asset('assets') }}/images/twitter_logo.png" alt="google" class="img-fluid w-100">
-                                    </span>
-                                    Twitter
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>

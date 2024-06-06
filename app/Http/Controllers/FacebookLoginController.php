@@ -12,10 +12,12 @@ use Laravel\Socialite\Facades\Socialite;
 class FacebookLoginController extends Controller
 {
     public function redirectToFacebook(){
+        facebookLogin();
         return Socialite::driver('facebook')->redirect();
     }
 
     public function handleFacebookCallback(){
+        facebookLogin();
         $facebookUser = Socialite::driver('facebook')->user();
         $user = User::where('email',$facebookUser->email)->first();
         if (!$user) {

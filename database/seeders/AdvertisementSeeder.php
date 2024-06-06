@@ -102,6 +102,28 @@ class AdvertisementSeeder extends Seeder
             'offerText' => 'Fresh Organic Food',
             'link' => '#',
             'backgroundImg' => 'uploads/banners/home_three_banner_two.jpg',
+        ]);        
+        
+        DB::table('banners')->insert([
+            'offerText' => 'Up to 50% off on Special Item',
+            'description' => 'Shop our selection of organic fresh vegetables in a discounted price. 50% off',
+            'link' => '#',
+            'backgroundImg' => 'uploads/banners/home_three_discount_one.jpg',
+        ]);  
+        
+        
+        DB::table('banners')->insert([
+            'offerText' => 'Get 10% off on Fruits Item',
+            'description' => 'Shop our selection of organic fresh vegetables in a discounted price. 10% off',
+            'link' => '#',
+            'backgroundImg' => 'uploads/banners/home_three_discount_two.jpg',
+        ]);  
+
+        DB::table('banners')->insert([
+            'offerText' => 'Get 75% Organic Vegetable',
+            'description' => 'Shop our selection of organic fresh vegetables in a discounted price. 75% off',
+            'link' => '#',
+            'backgroundImg' => 'uploads/banners/home_three_discount_three.jpg',
         ]);
 
 

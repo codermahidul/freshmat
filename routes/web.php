@@ -169,9 +169,13 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/update/banner/special', [BannerController::class, 'htbsUpdate'])->name('htbsUpdate');
     Route::post('/update/banner/barnd/special', [BannerController::class, 'htbbsUpdate'])->name('htbbsUpdate');
     Route::post('/update/banner/main', [BannerController::class, 'htbmainUpdate'])->name('htbmainUpdate');
+    //Home Three
     Route::get('/add/banner/three', [BannerController::class, 'homeThreeBanner'])->name('homeThreeBanner');
     Route::post('/update/banner-one/home-three', [BannerController::class, 'hthboupdate'])->name('hthboupdate');
     Route::post('/update/banner-two/home-three', [BannerController::class, 'hthbtupdate'])->name('hthbtupdate');
+    Route::post('/update/banner-left/home-three', [BannerController::class, 'hthblupdate'])->name('hthblupdate');
+    Route::post('/update/banner-middle/home-three', [BannerController::class, 'hthbmupdate'])->name('hthbmupdate');
+    Route::post('/update/banner-right/home-three', [BannerController::class, 'hthbrupdate'])->name('hthbrupdate');
 
     //Product Details Page
     Route::get('/product-details/banner',[BannerController::class, 'pdpagebannerIndex'])->name('pdpagebannerIndex');
@@ -272,6 +276,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Home Three Video Section
     Route::get('/home-three/background-video',[H3VideoController::class, 'index'])->name('h3bvideo');
     Route::post('/home-three/background-video/update',[H3VideoController::class, 'update'])->name('h3bvideoUpdate');
+
 
 
 });

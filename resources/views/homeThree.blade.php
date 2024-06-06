@@ -100,35 +100,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-4 col-md-6">
-                    <div class="add_banner_item" style="background: url({{ asset('assets') }}/images/banner_bg_7.jpg);">
+                    <div class="add_banner_item" style="background: url({{ asset(banner(13)->backgroundImg) }})">
                         <div class="add_banner_item_text">
-                            <h2>Up to 50% off on Special Item</h2>
-                            <p>Shop our selection of organic fresh
-                                vegetables in a discounted price.
-                                50% off</p>
-                            <a class="common_btn" href="shop_details.html">shop now <span></span></a>
+                            <h2>{{ banner(13)->offerText }}</h2>
+                            <p>{{ banner(13)->description }}</p>
+                            <a class="common_btn" href="{{ banner(13)->link }}">shop now <span></span></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
-                    <div class="add_banner_item" style="background: url({{ asset('assets') }}/images/banner_bg_8.jpg);">
+                    <div class="add_banner_item" style="background: url({{ asset(banner(14)->backgroundImg) }})">
                         <div class="add_banner_item_text">
-                            <h2>Get 10% off on Fruits Item</h2>
-                            <p>Shop our selection of organic fresh
-                                vegetables in a discounted price.
-                                10% off</p>
-                            <a class="common_btn" href="shop_details.html">shop now <span></span></a>
+                            <h2>{{ banner(14)->offerText }}</h2>
+                            <p>{{ banner(14)->description }}</p>
+                            <a class="common_btn" href="{{ banner(14)->link }}">shop now <span></span></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
-                    <div class="add_banner_item" style="background: url({{ asset('assets') }}/images/banner_bg_9.jpg);">
+                    <div class="add_banner_item" style="background: url({{ asset(banner(15)->backgroundImg) }})">
                         <div class="add_banner_item_text">
-                            <h2>Get 75% Organic Vegetable</h2>
-                            <p>Shop our selection of organic fresh
-                                vegetables in a discounted price.
-                                75% off</p>
-                            <a class="common_btn" href="shop_details.html">shop now <span></span></a>
+                            <h2>{{ banner(15)->offerText }}</h2>
+                            <p>{{ banner(15)->description }}</p>
+                            <a class="common_btn" href="{{ banner(14)->link }}">shop now <span></span></a>
                         </div>
                     </div>
                 </div>

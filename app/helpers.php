@@ -181,6 +181,12 @@ function globalBlog(){
     config(['services.google.redirect' => setting('glRedirectUrl')]);
  }
 
+ function facebookLogin(){
+    config(['services.facebook.client_id' => setting('fbAppId')]);
+    config(['services.facebook.client_secret' => setting('fbSecretKey')]);
+    config(['services.facebook.redirect' => setting('fbRedirectUrl')]);
+ }
+
 
  function topbarContent($query){
     return Topbar::find(1)->$query;
