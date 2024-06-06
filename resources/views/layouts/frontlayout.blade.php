@@ -128,77 +128,6 @@
                                 </span>
                                 {{ $category->name }}
                             </a>
-                            <ul class="menu_cat_droapdown">
-                                <li><a href="#">caulifollowers <i class="fas fa-angle-right"></i></a>
-                                    <ul class="sub_category">
-                                        <li><a href="#">celery</a></li>
-                                        <li><a href="#">broccolis</a></li>
-                                        <li><a href="#">apples</a> </li>
-                                        <li><a href="#">bananas</a></li>
-                                        <li><a href="#">graps</a></li>
-                                        <li><a href="#">tomatos</a></li>
-                                        <li><a href="#">berries</a></li>
-                                        <li><a href="#">cherries</a></li>
-                                        <li><a href="#">caulifollowers </a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">apples <i class="fas fa-angle-right"></i></a>
-                                    <ul class="sub_category">
-                                        <li><a href="#">celery</a></li>
-                                        <li><a href="#">broccolis</a></li>
-                                        <li><a href="#">apples</a> </li>
-                                        <li><a href="#">bananas</a></li>
-                                        <li><a href="#">graps</a></li>
-                                        <li><a href="#">tomatos</a></li>
-                                        <li><a href="#">berries</a></li>
-                                        <li><a href="#">cherries</a></li>
-                                        <li><a href="#">caulifollowers </a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">bananas</a></li>
-                                <li><a href="#">broccolis <i class="fas fa-angle-right"></i></a>
-                                    <ul class="sub_category">
-                                        <li><a href="#">celery</a></li>
-                                        <li><a href="#">broccolis</a></li>
-                                        <li><a href="#">apples</a> </li>
-                                        <li><a href="#">bananas</a></li>
-                                        <li><a href="#">graps</a></li>
-                                        <li><a href="#">tomatos</a></li>
-                                        <li><a href="#">berries</a></li>
-                                        <li><a href="#">cherries</a></li>
-                                        <li><a href="#">caulifollowers </a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">graps</a></li>
-                                <li><a href="#">tomatos</a></li>
-                                <li><a href="#">cherries <i class="fas fa-angle-right"></i></a>
-                                    <ul class="sub_category">
-                                        <li><a href="#">celery</a></li>
-                                        <li><a href="#">broccolis</a></li>
-                                        <li><a href="#">apples</a> </li>
-                                        <li><a href="#">bananas</a></li>
-                                        <li><a href="#">graps</a></li>
-                                        <li><a href="#">tomatos</a></li>
-                                        <li><a href="#">berries</a></li>
-                                        <li><a href="#">cherries</a></li>
-                                        <li><a href="#">caulifollowers </a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">celery <i class="fas fa-angle-right"></i></a>
-                                    <ul class="sub_category">
-                                        <li><a href="#">celery</a></li>
-                                        <li><a href="#">broccolis</a></li>
-                                        <li><a href="#">apples</a> </li>
-                                        <li><a href="#">bananas</a></li>
-                                        <li><a href="#">graps</a></li>
-                                        <li><a href="#">tomatos</a></li>
-                                        <li><a href="#">berries</a></li>
-                                        <li><a href="#">cherries</a></li>
-                                        <li><a href="#">caulifollowers </a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">berries</a></li>
-                            </ul>
                         </li>
                         @empty
                             No Product Found!
@@ -208,97 +137,21 @@
                 <div class="col-xl-9 col-lg-9">
                     <ul class="menu_item">
                         <li class="relative_li">
-                            <a class="{{ Route::currentRouteNamed('index','indexTwo','indexThree') ? 'active' : '' }}" href="{{ route('index') }}" href="{{ route('index') }}">home <i class="fas fa-chevron-down"></i></a>
+                            <a class="{{ Route::currentRouteNamed('index','indexTwo','indexThree') ? 'active' : '' }}" href="{{ route('index') }}" href="{{ route('index') }}">home <i class="@if(setting('theme') == 'all') fas fa-chevron-down @endif"></i></a>
+                            @if (setting('theme') == 'all')
                             <ul class="menu_droapdown">
                                 <li><a class="{{ Route::currentRouteNamed('indexOne') ? 'active' : '' }}" href="{{ route('indexOne') }}">Home style 01</a></li>
                                 <li><a class="{{ Route::currentRouteNamed('indexTwo') ? 'active' : '' }}" href="{{ route('indexTwo') }}">Home style 02</a></li>
                                 <li><a class="{{ Route::currentRouteNamed('indexThree') ? 'active' : '' }}" href="{{ route('indexThree') }}">Home style 03</a></li>
                             </ul>
+                            @endif
                         </li>
                         <li>
-                            <a href="{{ route('shop') }}">shop <i class="fas fa-chevron-down"></i></a>
-                            <div class="mega_menu">
-                                <div class="row">
-                                    <div class="col-xl-3 col-lg-4">
-                                        <div class="mega_menu_colum">
-                                            <h4>Fresh & Organic</h4>
-                                            <ul class="wsis__mega_menu_item">
-                                                <li><a href="#">Bakery & Biscuites</a></li>
-                                                <li><a href="#">Fresh & Organic</a></li>
-                                                <li><a href="#">Coffee & Drinks</a></li>
-                                                <li><a href="#">Breakfast</a></li>
-                                                <li><a href="#">Jam & Jelly</a></li>
-                                                <li><a href="#">Fresh & Organic</a> </li>
-                                                <li><a href="#">berries</a></li>
-                                                <li><a href="#">cherries</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4">
-                                        <div class="mega_menu_colum">
-                                            <h4>Bakery & Biscuites</h4>
-                                            <ul class="wsis__mega_menu_item">
-                                                <li><a href="#">Coffee & Drinks</a></li>
-                                                <li><a href="#">Bakery & Biscuites</a></li>
-                                                <li><a href="#">Fresh & Organic</a></li>
-                                                <li><a href="#">berries</a></li>
-                                                <li><a href="#">Breakfast</a></li>
-                                                <li><a href="#">Fresh & Organic</a> </li>
-                                                <li><a href="#">Jam & Jelly</a></li>
-                                                <li><a href="#">cherries</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-4">
-                                        <div class="mega_menu_colum">
-                                            <h4>Coffee & Drinks</h4>
-                                            <ul class="wsis__mega_menu_item">
-                                                <li><a href="#">Bakery & Biscuites</a></li>
-                                                <li><a href="#">Fresh & Organic</a></li>
-                                                <li><a href="#">Coffee & Drinks</a></li>
-                                                <li><a href="#">Breakfast</a></li>
-                                                <li><a href="#">Jam & Jelly</a></li>
-                                                <li><a href="#">Fresh & Organic</a> </li>
-                                                <li><a href="#">berries</a></li>
-                                                <li><a href="#">cherries</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 d-lg-none d-xl-block">
-                                        <div class="mega_menu_colum menu_banner">
-                                            <a href="#">
-                                                <img src="{{ asset('assets') }}/images/menu_img.jpg" alt="images" class="img-fluid w-100">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="{{ Route::currentRouteNamed('shop') ? 'active' : '' }}" href="{{ route('shop') }}">shop </a>
                         </li>
                         <li><a class="{{ Route::currentRouteNamed('frontendblog') ? 'active' : '' }}" href="{{ route('frontendblog') }}">blog</a></li>
-                        <li class="relative_li"><a class="{{ Route::currentRouteNamed('aboutUs') ? 'active' : '' }}" href="#">pages <i class="fas fa-chevron-down"></i></a>
-                            <ul class="menu_droapdown">
-                                <li><a class="{{ Route::currentRouteNamed('aboutUs') ? 'active' : '' }}" href="{{ route('aboutUs') }}">about us</a></li>
-                                <li><a href="blogs_details.html">blog details</a></li>
-                                <li><a href="shop_details.html">shop details</a></li>
-                                <li><a href="cart_view.html">cart view</a></li>
-                                <li><a href="checkout.html">checkout</a></li>
-                                <li><a href="payment.html">Payment</a></li>
-                                <li><a href="dashboard.html">dashboard</a></li>
-                                <li><a href="order_tracking.html">order tracking</a></li>
-                                <li><a href="team.html">Our team</a></li>
-                                <li><a href="team_details.html">team details</a></li>
-                                <li><a href="error.html">error/404</a></li>
-                                <li><a href="{{ route('faqsf') }}">faq's</a></li>
-                                <li><a href="gallery.html">gallery</a></li>
-                                <li><a href="{{ route('login') }}">sign in</a></li>
-                                <li><a href="{{ route('register') }}">sign up</a></li>
-                                <li><a href="forgot_password.html">forgot password</a></li>
-                                <li><a href="privacy_policy.html">privacy policy</a></li>
-                                <li><a href="terms_condition.html">terms & condition</a></li>
-                                <li><a href="flash_sell.html">flash sell</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{{ route('contact') }}">contact</a></li>
+                        <li><a class="{{ Route::currentRouteNamed('aboutUs') ? 'active' : '' }}" href="{{ route('contact') }}">About Us</a></li>
+                        <li><a class="{{ Route::currentRouteNamed('contact') ? 'active' : '' }}" href="{{ route('contact') }}">contact</a></li>
                     </ul>
                     <ul class="menu_icon">
                         <li><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"

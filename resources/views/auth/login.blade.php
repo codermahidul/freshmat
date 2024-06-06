@@ -131,6 +131,10 @@
                             @error('password')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
+
+                             <!-- Google Recaptcha -->
+                            <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
+                            
                             <div class="forgot">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
