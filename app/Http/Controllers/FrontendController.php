@@ -16,14 +16,47 @@ use App\Models\UserProfile;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
 class FrontendController extends Controller
 {
     //Shop
-    public function shop(){
-        $products = Product::where('status','active')->latest()->paginate(9);
+    public function shop(Request $request){
+
+        $query = Product::where('status','active');
+
+        if ($request->has('search')) {
+            $query->where('title','like','%'.$request->input('search').'%');
+        }
+
+        if ($request->has('sort')) {
+            switch ($request->sort) {
+                case 'lh':
+                    $query->orderBy('selePrice','asc');
+                    break;
+
+                case 'hl' : 
+                    $query->orderBy('selePrice','desc');
+                    break;
+
+                case 'bs' : 
+                    $query->withCount(['invoiceProducts as sales_count' => function($query){
+                        $query->select(DB::raw('SUM(quantity)'));
+                    }])->orderBy('sales_count','desc');
+                    break;
+                
+                default:
+                    $query->latest();
+                    break;
+            }
+        }else{
+            $query->latest();
+        }
+
+
+        $products = $query->paginate(9);
         return view('frontend.pages.shop',compact([
             'products',
         ]));

@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 wow fadeInUp">
                         <div class="shop_header_search">
-                            <form action="{{ route('search') }}" method="GET">
+                            <form action="{{ route('shop') }}" method="GET">
                                 <input type="text" placeholder="Search..." name="search">
                                 <button><i class="far fa-search"></i></button>
                             </form>
@@ -46,13 +46,15 @@
                             <p>Showing 1–6 of 10 results</p>
                             <div class="filter">
                                 <p>Sort by:</p>
-                                <select class="select_js">
+                                <form action="{{ route('shop') }}" method="GET">
+                                <select class="select_js" onchange="this.form.submit()" name="sort">
                                     <option value=""> Default Sorting</option>
-                                    <option value="">low to high</option>
-                                    <option value="">high to low</option>
-                                    <option value="">Best rating</option>
-                                    <option value="">best sell</option>
+                                    <option value="lh">low to high</option>
+                                    <option value="hl">high to low</option>
+                                    {{-- <option value="br">Best rating</option> --}}
+                                    <option value="bs">best sell</option>
                                 </select>
+                            </form>
                             </div>
                         </div>
                     </div>

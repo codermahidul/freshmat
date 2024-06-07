@@ -35,9 +35,9 @@ class DatabaseSeeder extends Seeder
          //H3VideoSeeder::class,
     ]);
 
-     Product::factory(10)->has(
-          ProductGallery::factory(3)
-      ,'productgallery')->create();
+    //  Product::factory(10)->has(
+    //       ProductGallery::factory(3)
+    //   ,'productgallery')->create();
 
     }
 

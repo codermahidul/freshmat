@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block">
-                    <form action="{{ route('search') }}" method="GET">
+                    <form action="{{ route('shop') }}" method="GET">
                         @csrf
                         <input type="text" placeholder="Search your product..." name="search" value="{{ old('search') }}">
                         <button type="submit"><i class="far fa-search"></i></button>

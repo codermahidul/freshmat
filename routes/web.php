@@ -42,8 +42,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/home-one', [FrontendController::class, 'indexOne'])->name('indexOne');
 Route::get('/home-two', [FrontendController::class, 'indexTwo'])->name('indexTwo');
 Route::get('/home-three', [FrontendController::class, 'indexThree'])->name('indexThree');
-//Search
-Route::get('/search',[SearchController::class, 'search'])->name('search');
+
 //Social Login
 Route::get('/google/redirect',[GoogleLoginController::class,'redirectToGoogle'])->name('google.redirect');
 Route::get('/google/callback',[GoogleLoginController::class,'handleGoogleCallback'])->name('google.callback');
