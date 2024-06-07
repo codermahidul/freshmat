@@ -163,6 +163,7 @@ class FrontendController extends Controller
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->get();
         $sliders = Slider::where('status','active')->latest()->get();
+        $viewName = 'welcome';
 
         if (setting('theme') == 'all') {
             $viewName = 'welcome';
@@ -180,7 +181,7 @@ class FrontendController extends Controller
                 'topCategories',
                 'latestProduct',
                 'sliders',
-                'welcome',
+                'viewName',
             ]));
         }elseif(setting('theme') == 'two'){
             $instagramPost = InstagramPost::latest()->get();

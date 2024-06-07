@@ -131,7 +131,7 @@ $(function () {
     //=======Simply Countdown======   
     var d = new Date(),
     countUpDate = new Date();
-    d.setDate(d.getDate() + 10);
+    d.setDate(d.getDate() + deals1);
     simplyCountdown('.simply-countdown-one', {
         year: d.getFullYear(),
         month: d.getMonth() + 1,
@@ -141,7 +141,7 @@ $(function () {
     
     var d = new Date(),
     countUpDate = new Date();
-    d.setDate(d.getDate() + 10);
+    d.setDate(d.getDate() + deals2);
     simplyCountdown('.simply-countdown-two', {
         year: d.getFullYear(),
         month: d.getMonth() + 1,
@@ -151,7 +151,7 @@ $(function () {
 
     var d = new Date(),
     countUpDate = new Date();
-    d.setDate(d.getDate() + 10);
+    d.setDate(d.getDate() + deals3);
     simplyCountdown('.simply-countdown-three', {
         year: d.getFullYear(),
         month: d.getMonth() + 1,

@@ -18,7 +18,7 @@ class DealsController extends Controller
             'shortTitle' => 'required',
             'offerText' => 'required',
             'description' => 'required',
-            'date' => 'required|date',
+            'date' => 'required|date|after:today',
             'link' => 'required|url',
             'backgroundImg' => 'image:jpg,jpeg,png',
         ]);
@@ -61,7 +61,7 @@ class DealsController extends Controller
             'shortTitle' => 'required',
             'offerText' => 'required',
             'description' => 'required',
-            'date' => 'required|date',
+            'date' => 'required|date|after:today',
             'link' => 'required|url',
             'backgroundImg' => 'image:jpg,jpeg,png',
         ]);
@@ -103,7 +103,7 @@ class DealsController extends Controller
         $request->validate([
             'offerText' => 'required',
             'description' => 'required',
-            'date' => 'required|date',
+            'date' => 'required|date|after:today',
             'link' => 'required|url',
             'backgroundImg' => 'image:jpg,jpeg,png',
         ]);
