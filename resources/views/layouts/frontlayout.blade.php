@@ -81,8 +81,9 @@
                     </div>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block">
-                    <form action="#">
-                        <input type="text" placeholder="Search your product...">
+                    <form action="{{ route('search') }}" method="GET">
+                        @csrf
+                        <input type="text" placeholder="Search your product..." name="search" value="{{ old('search') }}">
                         <button type="submit"><i class="far fa-search"></i></button>
                     </form>
                 </div>
@@ -224,7 +225,7 @@
                 </ul>
 
                 <form class="mobile_menu_search">
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search" name="">
                     <button type="submit"><i class="far fa-search"></i></button>
                 </form>
 

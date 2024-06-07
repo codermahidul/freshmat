@@ -35,8 +35,8 @@
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 wow fadeInUp">
                         <div class="shop_header_search">
-                            <form>
-                                <input type="text" placeholder="Search...">
+                            <form action="{{ route('search') }}" method="GET">
+                                <input type="text" placeholder="Search..." name="search">
                                 <button><i class="far fa-search"></i></button>
                             </form>
                         </div>
