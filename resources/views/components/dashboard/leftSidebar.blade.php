@@ -2,7 +2,7 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
-      <img src="{{asset('backend/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      {{-- <img src="{{asset('backend/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
       <span class="brand-text font-weight-light">Freshmat Dashboard</span>
     </a>
 
@@ -129,24 +129,33 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+              @if (setting('theme') == 'all' || setting('theme') == 'one')
               <li class="nav-item">
                 <a href="{{ route('homeonebanner') }}" class="nav-link {{Route::currentRouteNamed('homeonebanner') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home One</p>
                 </a>
               </li>
+              @endif              
+              
+              @if (setting('theme') == 'all' || setting('theme') == 'two')
               <li class="nav-item">
                 <a href="{{ route('hometwobanner') }}" class="nav-link {{ Route::currentRouteNamed('hometwobanner') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home Two</p>
                 </a>
               </li>
+              @endif  
+
+              @if (setting('theme') == 'all' || setting('theme') == 'three')
               <li class="nav-item">
                 <a href="{{ route('homeThreeBanner') }}" class="nav-link {{ Route::currentRouteNamed('homeThreeBanner') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home Three</p>
                 </a>
-              </li>              
+              </li> 
+              @endif
+             
               <li class="nav-item">
                 <a href="{{ route('pdpagebannerIndex') }}" class="nav-link {{ Route::currentRouteNamed('pdpagebannerIndex') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
@@ -164,33 +173,34 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+              @if (setting('theme') == 'all' || setting('theme') == 'one')
               <li class="nav-item">
                 <a href="{{ route('homeOneDeals') }}" class="nav-link {{Route::currentRouteNamed('homeOneDeals') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home One</p>
                 </a>
               </li>
+              @endif              
+              
+              @if (setting('theme') == 'all' || setting('theme') == 'two')
               <li class="nav-item">
                 <a href="{{ route('homeTwoDeals') }}" class="nav-link {{ Route::currentRouteNamed('homeTwoDeals') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home Two</p>
                 </a>
               </li>
+              @endif 
+
+              @if (setting('theme') == 'all' || setting('theme') == 'three')
               <li class="nav-item">
                 <a href="{{ route('homeThreeDeals') }}" class="nav-link {{ Route::currentRouteNamed('homeThreeDeals') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home Three</p>
                 </a>
-              </li>              
+              </li>  
+              @endif
+            
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('slider') }}" class="nav-link {{ (Route::currentRouteNamed('slider','slider.edit')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-sliders-h"></i>
-              <p>
-                Slider
-              </p>
-            </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('testimonial') }}" class="nav-link {{ (Route::currentRouteNamed('testimonial')) ? 'active' : '' }}">
@@ -200,30 +210,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ route('homeOneVideoGallery') }}" class="nav-link {{ (Route::currentRouteNamed('homeOneVideoGallery')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-photo-video"></i>
-              <p>
-                Video Gallery
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('partner') }}" class="nav-link {{ (Route::currentRouteNamed('partner')) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-hands-helping"></i>
-              <p>
-                Pertner
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('appLinks') }}" class="nav-link {{ (Route::currentRouteNamed('appLinks')) ? 'active' : '' }}">
-              <i class="nav-icon fab fa-app-store-ios"></i>
-              <p>
-                App Download
-              </p>
-            </a>
-          </li>
+
           <li class="nav-item">
             <a href="{{ route('sectionTitle') }}" class="nav-link {{ (Route::currentRouteNamed('sectionTitle')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-puzzle-piece"></i>
@@ -231,7 +218,28 @@
                 Section Title
               </p>
             </a>
-          </li>          
+          </li> 
+          @if (setting('theme') == 'all' || setting('theme') == 'one' || setting('theme') == 'three')
+          <li class="nav-item">
+            <a href="{{ route('slider') }}" class="nav-link {{ (Route::currentRouteNamed('slider','slider.edit')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-sliders-h"></i>
+              <p>
+                Slider <span class="badge badge-info right">Home 1 & 3</span>
+              </p>
+            </a>
+          </li>
+          @endif
+          @if (setting('theme') == 'all' || setting('theme') == 'one')
+          <li class="nav-item">
+            <a href="{{ route('homeOneVideoGallery') }}" class="nav-link {{ (Route::currentRouteNamed('homeOneVideoGallery')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-photo-video"></i>
+              <p>
+                Video Gallery <span class="badge badge-info right">Home 1</span>
+              </p>
+            </a>
+          </li>            
+          @endif
+          @if (setting('theme') == 'all' || setting('theme') == 'two')
           <li class="nav-item">
             <a href="{{ route('instagramPost') }}" class="nav-link {{ (Route::currentRouteNamed('instagramPost')) ? 'active' : '' }}">
               <i class="nav-icon fab fa-instagram"></i>
@@ -248,6 +256,8 @@
               </p>
             </a>
           </li>         
+          @endif
+          @if (setting('theme') == 'all' || setting('theme') == 'three')
           <li class="nav-item">
             <a href="{{ route('h3bvideo') }}" class="nav-link {{ (Route::currentRouteNamed('h3bvideo')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-video"></i>
@@ -255,7 +265,26 @@
                 Video Section <span class="badge badge-info right">Home 3</span>
               </p>
             </a>
+          </li>   
+          @endif
+          <li class="nav-item">
+            <a href="{{ route('partner') }}" class="nav-link {{ (Route::currentRouteNamed('partner')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-hands-helping"></i>
+              <p>
+                Pertner
+              </p>
+            </a>
           </li>
+          @if (setting('theme') == 'all' || setting('theme') == 'one' || setting('theme') == 'three')           
+          <li class="nav-item">
+            <a href="{{ route('appLinks') }}" class="nav-link {{ (Route::currentRouteNamed('appLinks')) ? 'active' : '' }}">
+              <i class="nav-icon fab fa-app-store-ios"></i>
+              <p>
+                App Download
+              </p>
+            </a>
+          </li>
+          @endif
           <li class="nav-item {{ Route::currentRouteNamed('faqs','faqs.add','aboutUsPage','contactUsPage') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add','aboutUsPage','contactUsPage') ? 'active' : '' }}">
               <i class="nav-icon fas fa-file-alt"></i>

@@ -40,6 +40,7 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            @if (setting('theme') == 'all' || setting('theme') == 'one')
             <div class="thumbnail">
                 <label for="homeOneAppImage">Home One App Section Image</label>
                 <img src="{{ asset(appSection()->image) }}" class="d-block">
@@ -51,6 +52,8 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            @endif
+            @if (setting('theme') == 'all' || setting('theme') == 'three')
             <div class="thumbnail">
                 <label for="homeThreeAppImage">Home Three App Section Image</label>
                 <img src="{{ asset(appSection()->image2) }}" class="d-block">
@@ -62,6 +65,7 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            @endif
             <button class="btn btn-primary">Update Section</button>
         </form>
     </div>

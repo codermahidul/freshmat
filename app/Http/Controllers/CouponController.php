@@ -194,7 +194,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        return counter(3);
+        return setting('theme');
 
     }
 
