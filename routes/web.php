@@ -20,6 +20,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeVideoGalleryController;
 use App\Http\Controllers\InstagramPostController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PaymentController;
@@ -49,9 +50,7 @@ Route::get('/google/callback',[GoogleLoginController::class,'handleGoogleCallbac
 
 Route::get('/facebook/redirect',[FacebookLoginController::class,'redirectToFacebook'])->name('facebook.redirect');
 Route::get('/facebook/callback',[FacebookLoginController::class,'handleFacebookCallback'])->name('facebook.callback');
-//Route::get('forgot/password', [FrontendController::class, 'forgotPassword'])->name('forgotPassword');
-//Route::get('/login', [FrontendController::class, 'login'])->name('userLogin');
-//Route::get('/register', [FrontendController::class, 'register'])->name('userRegister');
+
 Route::get('/shop', [FrontendController::class, 'shop'])->name('shop');
 Route::get('/shop/category/{slug}', [FrontendController::class, 'categoryWiseProduct'])->name('categoryWiseProduct');
 Route::get('/shop/product/{slug}', [FrontendController::class, 'productDetails'])->name('productDetails');
@@ -148,6 +147,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/coupon/insert', [CouponController::class, 'insert'])->name('couponinsert');
     Route::get('/coupon/edit/{id}', [CouponController::class, 'edit'])->name('couponedit');
     Route::post('/coupon/update/{id}', [CouponController::class, 'update'])->name('couponupdate');
+    Route::get('/coupon/delete/{id}', [CouponController::class, 'delete'])->name('coupondelete');
 
     //Delivery Location
     Route::get('/delivery/location', [DeliveryLocationController::class, 'index'])->name('delivery.location');
@@ -278,6 +278,9 @@ Route::group(['middleware' => ['auth','role']], function(){
     //Home Three Video Section
     Route::get('/home-three/background-video',[H3VideoController::class, 'index'])->name('h3bvideo');
     Route::post('/home-three/background-video/update',[H3VideoController::class, 'update'])->name('h3bvideoUpdate');
+
+    //Order Manage
+    Route::get('/order', [OrderController::class, 'index'])->name('order');
 
 
 

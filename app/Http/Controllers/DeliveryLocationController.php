@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class DeliveryLocationController extends Controller
 {
     public function index(){
-        $deliveryLocations = DeliveryLocation::latest()->paginate(25);
+        $deliveryLocations = DeliveryLocation::latest()->get();
         return view('dashboard.deliveryLocation.index',compact('deliveryLocations'));
     }
 

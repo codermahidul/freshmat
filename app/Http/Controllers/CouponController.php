@@ -80,6 +80,13 @@ class CouponController extends Controller
     }
 
 
+    public function delete($id){
+        $coupon = Coupon::findOrFail($id);
+        $coupon->delete();
+        return back()->with('success','Coupon Delete Successfully!');
+    }
+
+
     //Frontedn coupon claimed
     public function couponClaim(Request $request){
         $request->validate([

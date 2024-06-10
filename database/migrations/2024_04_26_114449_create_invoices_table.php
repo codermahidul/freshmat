@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('discount')->nullable();
             $table->string('deliveryCharge')->nullable();
             $table->string('total');
-            $table->enum('status',['active','completed','cancel']);
+            $table->enum('status',['new','delevery-in-process','complete','cancel'])->default('new');
             $table->text('note')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

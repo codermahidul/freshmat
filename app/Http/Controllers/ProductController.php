@@ -14,7 +14,7 @@ class ProductController extends Controller
 {
     //Product Category
     public function index(){
-        $productcategory = ProductCategory::latest()->paginate(10);
+        $productcategory = ProductCategory::latest()->get();
         return view('dashboard.product.category.index', compact('productcategory'));
     }
 
@@ -121,7 +121,7 @@ class ProductController extends Controller
         // ->latest()->get();
 
         $products = Product::with('productcategories','productgallery')
-        ->latest()->paginate(10);
+        ->latest()->get();
 
         return view('dashboard.product.index',compact('products'));
     }

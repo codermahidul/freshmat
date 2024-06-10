@@ -8,27 +8,6 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset(Auth::user()->userProfile->photo) }}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a  class="d-block">{{Auth::user()->name}}</a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -85,6 +64,7 @@
               </li>
             </ul>
           </li>
+          
           <li class="nav-item {{ Route::currentRouteNamed('category.edit','blog','blog.add','category','category.add','category.insert','comments') ? 'menu-open':''}}">
             <a href="#" class="nav-link {{ Route::currentRouteNamed('blog','blog.add','category','category.add','category.insert','comments') ? 'active':''}}">
               <i class="nav-icon fas fa-pen-alt"></i>
@@ -203,6 +183,14 @@
             </ul>
           </li>
           <li class="nav-item">
+            <a href="{{ route('order') }}" class="nav-link {{ (Route::currentRouteNamed('order')) ? 'active' : '' }}">
+              <i class="nav-icon far fa-comment-dots"></i>
+              <p>
+                Order
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('testimonial') }}" class="nav-link {{ (Route::currentRouteNamed('testimonial')) ? 'active' : '' }}">
               <i class="nav-icon far fa-comment-dots"></i>
               <p>
@@ -210,7 +198,6 @@
               </p>
             </a>
           </li>
-
           <li class="nav-item">
             <a href="{{ route('sectionTitle') }}" class="nav-link {{ (Route::currentRouteNamed('sectionTitle')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-puzzle-piece"></i>

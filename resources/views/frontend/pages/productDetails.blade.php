@@ -66,18 +66,25 @@
                             <h3>Description</h3>
                             <p>{{ $productInfo->shortDescription }}</p>
                         </div>
+                        <form action="{{ route('addToCart') }}" method="post" id="addToCart">
+                            @csrf
                         <div class="details_quentity_area">
                             <p><span>Qti</span> (in {{ $productInfo->unitType }}) :</p>
                             <div class="button_area">
                                 <button>-</button>
-                                <input type="text" placeholder="01">
+                                <input type="text" placeholder="01" name="quantity" value="1">
                                 <button>+</button>
                             </div>
                             <h3>= $10.50</h3>
                         </div>
                         <div class="details_cart_btn">
-                            <a class="common_btn" href="#"><i class="far fa-shopping-basket"></i> Add To Cart
-                                <span></span></a>
+                            
+                                
+                                <input type="hidden" name="productId" value="{{ $productInfo->id }}">
+                            
+                            <button class="common_btn" href=""><i class="far fa-shopping-basket"></i> Add To Cart
+                                <span></span></button>
+                            </form>
                             <a class="love" href="#"><i class="far fa-heart"></i></a>
                         </div>
                         <p class="category"><span>Category:</span> {{ $productInfo->productcategories->name }}</p>

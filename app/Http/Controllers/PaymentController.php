@@ -40,7 +40,7 @@ class PaymentController extends Controller
             'deliveryCharge' => $request->input('charge'),
             'total' => (subTotal()-discount())+$request->input('charge'),
             'note' => $request->input('note'),
-            'status' => 'active',
+            'status' => 'new',
         ]);
 
         $cartItems = Session::get('cart');
