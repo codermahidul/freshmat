@@ -13,6 +13,7 @@ use App\Models\FAQS;
 use App\Models\Footer;
 use App\Models\FooterTop;
 use App\Models\HomeVideoGallery;
+use App\Models\Invoice;
 use App\Models\Message;
 use App\Models\Partner;
 use App\Models\Policy;
@@ -229,3 +230,7 @@ function globalBlog(){
  function htPolicy($id){
     return Policy::where('id',$id)->first();
  }
+
+ function lastInvoiceId(){
+    return Invoice::latest('id')->first()->id+1;
+ };

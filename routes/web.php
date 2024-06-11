@@ -281,7 +281,12 @@ Route::group(['middleware' => ['auth','role']], function(){
 
     //Order Manage
     Route::get('/order', [OrderController::class, 'index'])->name('order');
-
+    Route::get('/order/new', [OrderController::class, 'newOrder'])->name('newOrder');
+    Route::get('/order/delivery/process', [OrderController::class, 'deliveryInProcess'])->name('deliveryInProcess');
+    Route::get('/order/complate', [OrderController::class, 'complateOrder'])->name('complateOrder');
+    Route::get('/order/cancel', [OrderController::class, 'cancelOrder'])->name('cancelOrder');
+    Route::get('/order/invoice/{id}', [OrderController::class, 'orderInvoice'])->name('orderInvoice');
+    Route::post('/order/status/{id}', [OrderController::class, 'orderStatus'])->name('orderStatus');
 
 
 });

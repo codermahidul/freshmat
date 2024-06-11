@@ -8,7 +8,42 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     public function index(){
-        $orders = Invoice::with('user')->latest()->paginate(20);
+        $orders = Invoice::with('user')->with('invoiceProducts')->latest()->get();
         return view('dashboard.order.index',compact('orders'));
+    }    
+    
+    public function newOrder(){
+        $orders = Invoice::where('status','new')->with('user')->with('invoiceProducts')->latest()->get();
+        return view('dashboard.order.new',compact('orders'));
+    }    
+
+
+    public function deliveryInProcess(){
+        $orders = Invoice::where('status','delevery-in-process')->with('user')->with('invoiceProducts')->latest()->get();
+        return view('dashboard.order.delivery-in-process',compact('orders'));
+    }
+
+    public function complateOrder(){
+        $orders = Invoice::where('status','complete')->with('user')->with('invoiceProducts')->latest()->get();
+        return view('dashboard.order.complete',compact('orders'));
+    }
+
+    public function cancelOrder(){
+        $orders = Invoice::where('status','cancel')->with('user')->with('invoiceProducts')->latest()->get();
+        return view('dashboard.order.cancel',compact('orders'));
+    }
+
+
+    public function orderStatus(Request $request, $id){
+        Invoice::where('id',$id)->update([
+            'payment' => $request->input('payment'),
+            'status' => $request->input('status'),
+        ]);
+        return back()->with('success','Order Status Update');
+    }
+
+    public function orderInvoice($id){
+        $invoice = Invoice::where('id',$id)->with('user','invoiceProducts')->first();
+        return view('dashboard.order.invoice',compact('invoice'));
     }
 }

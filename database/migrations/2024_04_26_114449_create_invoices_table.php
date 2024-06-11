@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('deliveryCharge')->nullable();
             $table->string('total');
             $table->enum('status',['new','delevery-in-process','complete','cancel'])->default('new');
+            $table->enum('payment',['pending','success'])->default('pending');
             $table->text('note')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

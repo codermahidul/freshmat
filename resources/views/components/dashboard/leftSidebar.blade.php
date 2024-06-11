@@ -22,6 +22,47 @@
               </p>
             </a>
           </li>
+          <li class="nav-item {{ (Route::currentRouteNamed('order','newOrder','deliveryInProcess','complateOrder','cancelOrder')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (Route::currentRouteNamed('order','newOrder','deliveryInProcess','complateOrder','cancelOrder')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-cart-plus"></i>
+              <p>
+                Orders
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('order') }}" class="nav-link {{ (Route::currentRouteNamed('order')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Orders</p>
+                </a>
+              </li>              
+              <li class="nav-item">
+                <a href="{{ route('newOrder') }}" class="nav-link {{ (Route::currentRouteNamed('newOrder')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>New Orders</p>
+                </a>
+              </li>              
+              <li class="nav-item">
+                <a href="{{ route('deliveryInProcess') }}" class="nav-link {{ (Route::currentRouteNamed('deliveryInProcess')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Processing Orders</p>
+                </a>
+              </li>              
+              <li class="nav-item">
+                <a href="{{ route('complateOrder') }}" class="nav-link {{ (Route::currentRouteNamed('complateOrder')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Complete Orders</p>
+                </a>
+              </li>              
+              <li class="nav-item">
+                <a href="{{ route('cancelOrder') }}" class="nav-link {{ (Route::currentRouteNamed('cancelOrder')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Canceled Orders</p>
+                </a>
+              </li>
+            </ul>
+          </li>
 
           <li class="nav-item {{ (Route::currentRouteNamed('productadd','productedit','products','productCategory','productCategoryAdd','coupon','couponadd','delivery.location','delivery.edit','delivery.add','productcategoryedit')) ? 'menu-open' : '' }}">
             <a href="#" class="nav-link {{ (Route::currentRouteNamed('productadd','products','productCategory','productCategoryAdd','coupon','couponadd','delivery.location')) ? 'active' : '' }}">
@@ -181,14 +222,6 @@
               @endif
             
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('order') }}" class="nav-link {{ (Route::currentRouteNamed('order')) ? 'active' : '' }}">
-              <i class="nav-icon far fa-comment-dots"></i>
-              <p>
-                Order
-              </p>
-            </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('testimonial') }}" class="nav-link {{ (Route::currentRouteNamed('testimonial')) ? 'active' : '' }}">

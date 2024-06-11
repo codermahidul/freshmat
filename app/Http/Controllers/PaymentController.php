@@ -34,7 +34,7 @@ class PaymentController extends Controller
 
         $invoiceId = DB::table('invoices')->insertGetId([
             'userId' => Auth::id(),
-            'invoiceNumber' => Str::uuid(),
+            'invoiceNumber' => 1000+lastInvoiceId(),
             'subTotal' => subTotal(),
             'discount' => discount(),
             'deliveryCharge' => $request->input('charge'),

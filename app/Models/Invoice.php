@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     use HasFactory;
-    protected $fillable = ['status'];
+    protected $fillable = ['status','payment'];
 
     public function invoiceProducts(){
-        return $this->hasMany(InvoicesProducts::class);
+        return $this->hasMany(InvoicesProducts::class,'invoiceId');
     }
 
     public function user(){

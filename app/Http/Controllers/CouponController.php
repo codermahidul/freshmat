@@ -201,7 +201,7 @@ class CouponController extends Controller
 
     public function checkroute(){
         
-        return setting('theme');
+        return 1000+lastInvoiceId();
 
     }
 
