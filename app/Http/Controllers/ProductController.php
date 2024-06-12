@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InvoicesProducts;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductGallery;
@@ -54,8 +55,8 @@ class ProductController extends Controller
             'status' => $request->input('status'),
             'icon' => $save_url,
         ]);
-
-        return back()->with('success','Product Category Added Succesfully!');
+        toast('Product Category Added Succesfully!','success')->width('350');
+        return back();
 
     }
 
@@ -99,26 +100,30 @@ class ProductController extends Controller
             'status' => $request->input('status'),
             'icon' => $save_url,
         ]);
-
-        return back()->with('success', 'Product Category Updated Successfully!');
+        toast('Product Category Updated Successfully!','success')->width('350');
+        return back();
 
     }
 
 
     public function delete($id){
+        try {
+            $have = Product::where('categoryId',$id)->count();
+            if (!$have == 0) {
+                return response()->json(['status' => 'have', 'message' => 'You can\'t delete this category.']);
+            }
         $product = ProductCategory::where('id',$id)->first();
         $save_url = $product->icon;
         unlink(base_path('public/'.$save_url));
         $product->delete();
-        return back()->with('success','Product Category Deleted Successfully!');
+        return response()->json(['status' => 'success', 'message' => 'Product Category Deleted Successfull.']);
+        } catch (\Throwable $th) {
+        return response()->json(['status' => 'error', 'message' => 'Something went worng!']);
+        }
     }
 
     //Product
     public function productindex(){
-        // return $products = Product::join('product_galleries', 'products.id', '=', 'product_galleries.productId')
-        // ->join('product_categories','products.categoryId', '=', 'product_categories.id')
-        // ->select('products.*','product_categories.name as category','product_galleries.photo as gallery')
-        // ->latest()->get();
 
         $products = Product::with('productcategories','productgallery')
         ->latest()->get();
@@ -199,8 +204,8 @@ class ProductController extends Controller
             }
 
         }
-
-        return back()->with('success','Product Added Successfully!');
+        toast('Product Added Successfully!','success')->width('350');
+        return back();
 
     }
 
@@ -245,8 +250,6 @@ class ProductController extends Controller
             $thumbnailUrl = 'uploads/products/feature/'.$name;
         }
 
-
-
         $product = Product::where('id',$id)->update([
             'title' => $request->input('title'),
             'slug' => $slug,
@@ -281,29 +284,41 @@ class ProductController extends Controller
             }
 
         }
-
-        return back()->with('success','Product Update Successfully!');
+        toast('Product Update Successfully!','success')->width('350');
+        return back();
 
     }
 
 
     public function productdelete($id){
-        $thumbnailUrl = Product::where('id',$id)->first()->thumbnail;
-        unlink(base_path('public/'.$thumbnailUrl));
 
-       $imageGallery = ProductGallery::where('productId',$id)->get();
+        $have = InvoicesProducts::where('productId',$id)->count();
 
-        if (count($imageGallery) > 0 ) {
-            foreach ($imageGallery as $image) {
-                $imgUrl = $image->photo;
-                unlink(base_path('public/'.$imgUrl));
-                $image->delete();
+        try {
+            if (!$have == 0) {
+                toast('You can\'t delete this product!','warning')->width('350');
+            }else{
+                $thumbnailUrl = Product::where('id',$id)->first()->thumbnail;
+                unlink(base_path('public/'.$thumbnailUrl));
+        
+               $imageGallery = ProductGallery::where('productId',$id)->get();
+        
+                if (count($imageGallery) > 0 ) {
+                    foreach ($imageGallery as $image) {
+                        $imgUrl = $image->photo;
+                        unlink(base_path('public/'.$imgUrl));
+                        $image->delete();
+                    }
+                }
+        
+                Product::where('id',$id)->first()->delete();
+                return back()->with(['status' => 'success', 'message' => 'Product Delete Successfull.']);
             }
+        } catch (\Throwable $th) {
+            return back()->with(['status' => 'error', 'message' => 'Somethig went wrong!']);
         }
 
-        Product::where('id',$id)->first()->delete();
-
-        return back()->with('success', 'Product Deleted Successfully!');
+        return back();
 
     }
 

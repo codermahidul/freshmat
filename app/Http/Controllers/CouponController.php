@@ -41,8 +41,8 @@ class CouponController extends Controller
             'expireDate' => $request->input('expireDate'),
             'status' => $request->input('status'),
         ]);
-
-        return back()->with('success','Copun Added Successfully!');
+        toast('Copun Added Successfully!','success')->width('350');
+        return back();
 
     }
 
@@ -75,8 +75,8 @@ class CouponController extends Controller
             'expireDate' => $request->input('expireDate'),
             'status' => $request->input('status'),
         ]);
-        
-        return back()->with('success','Coupon Update Successfully!');
+        toast('Coupon Update Successfully!','success')->width('350');
+        return back();
     }
 
 

@@ -28,7 +28,8 @@ class DeliveryLocationController extends Controller
             'charge' => $request->input('charge'),
             'status' => $request->input('status'),
         ]);
-        return back()->with('success','Delivery Location Added Successfully!');
+        toast('Delivery Location Added Successfully!','success')->width('350');
+        return back();
     }
 
 
@@ -49,7 +50,8 @@ class DeliveryLocationController extends Controller
             'charge' => $request->input('charge'),
             'status' => $request->input('status'),
         ]);
-        return back()->with('success','Delivery Location Update Successfully!');
+        toast('Delivery Location Update Successfully!','success')->width('350');
+        return back();
     }
 
     public function delete( $id){
