@@ -26,6 +26,7 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SectionTitleController;
 use App\Http\Controllers\SettingController;
@@ -287,6 +288,11 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/order/cancel', [OrderController::class, 'cancelOrder'])->name('cancelOrder');
     Route::get('/order/invoice/{id}', [OrderController::class, 'orderInvoice'])->name('orderInvoice');
     Route::post('/order/status/{id}', [OrderController::class, 'orderStatus'])->name('orderStatus');
+
+    //Profile
+    Route::get('/admin/profile', [ProfileController::class, 'index'])->name('adminProfile');
+    Route::post('/admin/pfofile/update', [ProfileController::class, 'profileUpdate'])->name('profileUpdate');
+    Route::post('/admin/password/update', [ProfileController::class, 'passwordUpdate'])->name('passwordUpdate');
 
 
 });

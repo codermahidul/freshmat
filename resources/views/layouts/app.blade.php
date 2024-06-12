@@ -100,7 +100,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link"  href="#">
+        <a class="nav-link"  href="{{ route('adminProfile') }}">
           <i class="fas fa-user"></i>
         </a>
       </li>
