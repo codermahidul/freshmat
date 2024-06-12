@@ -39,8 +39,24 @@
                             <td>{{ $order->discount }}</td>
                             <td>{{ $order->total-$order->discount }}</td>
                             <td>{{ $order->total }}</td>
-                            <td>{{ $order->status }}</td>
-                            <td>{{ $order->payment }}</td>
+                            <td>
+                              @if ($order->status == 'complete' )
+                              <span class="badge badge-success">Complete</span>
+                              @elseif($order->status == 'cancel')
+                              <span class="badge badge-danger">Cancel</span>                                 
+                              @elseif($order->status == 'new')
+                              <span class="badge badge-primary">New</span>
+                              @elseif($order->status == 'delevery-in-process')
+                              <span class="badge badge-warning">Delevery Processing</span>
+                              @endif
+                          </td>
+                          <td>
+                              @if ($order->payment == 'success')
+                              <span class="badge badge-success">Success</span>
+                              @else
+                              <span class="badge badge-warning">Pending</span>
+                              @endif
+                          </td>
                             <td>{{ $order->created_at->format('d-M-Y') }}</td>
                             <td>
                                 <a class="btn btn-primary btn-sm" href="#">
