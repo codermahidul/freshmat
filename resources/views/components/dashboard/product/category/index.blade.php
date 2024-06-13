@@ -70,14 +70,14 @@
                             method: 'GET',
                             url: url,
                             success: function(data) {
-                              console.log(data.status)
                                 if (data.status == 'success') {
                                     Swal.fire({
                                         title: "Deleted!",
                                         text: data.message,
                                         icon: "success"
+                                    }).then(() => {
+                                        window.location.reload();
                                     })
-                                    window.location.reload();
                                 } else if(data.status == 'have'){
                                   Swal.fire({
                                         title: "Warning!",

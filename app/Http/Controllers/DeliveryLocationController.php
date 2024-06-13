@@ -55,8 +55,12 @@ class DeliveryLocationController extends Controller
     }
 
     public function delete( $id){
-        DeliveryLocation::where('id',$id)->delete();
-        return back()->with('success','Delivery Location Deleted Successfully!');
+        try {
+            DeliveryLocation::where('id',$id)->delete();
+        return response()->json(['status' => 'success', 'message' => 'Delivery Location Deleted Successfully.']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => 'Somthing went wrong!']);
+        }
     }
 
 

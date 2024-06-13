@@ -292,11 +292,10 @@ class ProductController extends Controller
 
     public function productdelete($id){
 
-        $have = InvoicesProducts::where('productId',$id)->count();
-
         try {
+            $have = InvoicesProducts::where('productId',$id)->count();
             if (!$have == 0) {
-                toast('You can\'t delete this product!','warning')->width('350');
+                return response()->json(['status' => 'have', 'message' => 'You can\'t delete this product.']);
             }else{
                 $thumbnailUrl = Product::where('id',$id)->first()->thumbnail;
                 unlink(base_path('public/'.$thumbnailUrl));
@@ -312,14 +311,11 @@ class ProductController extends Controller
                 }
         
                 Product::where('id',$id)->first()->delete();
-                return back()->with(['status' => 'success', 'message' => 'Product Delete Successfull.']);
+                return response()->json(['status' => 'success', 'message' => 'Product Delete Successfull.']);
             }
         } catch (\Throwable $th) {
-            return back()->with(['status' => 'error', 'message' => 'Somethig went wrong!']);
+            return response()->json(['status' => 'error', 'message' => 'Somethig went wrong!']);
         }
-
-        return back();
-
     }
 
 
