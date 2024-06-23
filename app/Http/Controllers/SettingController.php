@@ -63,7 +63,8 @@ class SettingController extends Controller
             ]);
         }
 
-        return back()->with('success', 'Update Successfully!');
+        toast('Update Successfully!','success');
+        return back();
     }
 
     //General Settings
@@ -74,7 +75,8 @@ class SettingController extends Controller
             'topbar' => $request->input('topbar'),
         ]);
 
-        return back()->with('success', 'General Settings Update Successfully!');
+        toast('General Settings Update Successfully!','success');
+        return back();
     }
 
 
@@ -90,7 +92,8 @@ class SettingController extends Controller
             'messageReceiveEmail' => $request->input('email'),
             'messageSaveOnDB' => $request->input('dbsave'),
         ]);
-        return back()->with('success', 'Setting Change Successfully!');
+        toast('Setting Change Successfully!','success');
+        return back();
     }
 
 
@@ -99,7 +102,8 @@ class SettingController extends Controller
             'glanalyticStatus' => $request->input('glanalyticStatus'),
             'analiticTrackingId' => $request->input('analiticTrackingId'),
         ]);
-        return back()->with('success','Google Analytic Setting Update');
+        toast('Google Analytic Setting Update!','success');
+        return back();
     }
 
 
@@ -110,7 +114,8 @@ class SettingController extends Controller
             'captchaSecretKey' => $request->input('captchaSecretKey'),
         ]);
 
-        return back()->with('success','Google Recptcha Setting Update');
+        toast('Google Recptcha Setting Update!','success');
+        return back();
     }
 
     public function socialLogin(Request $request){
@@ -125,7 +130,8 @@ class SettingController extends Controller
             'glRedirectUrl' => $request->input('glRedirectUrl'),
         ]);
 
-        return back()->with('success','Social Login Setting Update');
+        toast('Social Login Setting Update@','success');
+        return back();
     }
 
 
@@ -135,7 +141,8 @@ class SettingController extends Controller
             'fbAppIdPixel' => $request->input('fbAppIdPixel'),
         ]);
 
-        return back()->with('success','Facebook Pixel Setting Update');
+        toast('Facebook Pixel Setting Update!','success');
+        return back();
     }
 
 

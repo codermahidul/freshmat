@@ -43,7 +43,8 @@ class SliderController extends Controller
             'backgroundImg' => $sliderBg,
         ]);
 
-        return back()->with('success','Slider Item Added Successfully!');
+        toast('Slider Item Added Successfully!','success');
+        return back();
     }
 
     //slider edit
@@ -84,8 +85,8 @@ class SliderController extends Controller
              'backgroundImg' => $sliderBg,
              ]);
 
-
-        return back()->with('success','Silder Item Update Successfully!');
+        toast('Silder Item Update Successfully!','success');
+        return back();
 
     }
 
@@ -94,7 +95,8 @@ class SliderController extends Controller
         $slider = Slider::where('id',$id)->first();
         unlink(base_path('public/'.$slider->backgroundImg));
         $slider->delete();
-        return back()->with('success','Slider Item Deleted Successfully');
+        toast('Slider Item Deleted Successfully!','success');
+        return back();
     }
 
 

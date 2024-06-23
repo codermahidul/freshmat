@@ -48,7 +48,8 @@ class MessageController extends Controller
         //Send Email
         Mail::to($adminEmail)->send(new ContactMail($validated ));
 
-        return back()->with('success','Your message has been sent successfully!');
+        toast('Your message has been sent successfully!','success');
+        return back();
 
     }
 
@@ -56,7 +57,8 @@ class MessageController extends Controller
 
     public function messageDelete($id){
         Message::find($id)->delete();
-        return redirect(route('inbox'))->with('success','Message Deleted Successfully!');
+        toast('Message Deleted Successfully!','success');
+        return redirect(route('inbox'));
     }
 
     //Single message view

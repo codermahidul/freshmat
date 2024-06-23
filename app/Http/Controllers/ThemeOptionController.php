@@ -24,6 +24,7 @@ class ThemeOptionController extends Controller
             'location' => $request->input('location'),
         ]);
 
-        return back()->with('success', 'Topbar Content Update Successfully!');
+        toast('Topbar Content Update Successfully!','success');
+        return back();
     }
 }

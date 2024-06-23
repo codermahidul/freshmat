@@ -48,7 +48,8 @@ class DealsController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success','Deals Update Successfull');
+        toast('Deals Update Successfull!','success');
+        return back();
 
     }
     
@@ -91,7 +92,8 @@ class DealsController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success','Deals Update Successfull');
+        toast('Deals Update Successfull!','success');
+        return back();
 
     }
     
@@ -132,7 +134,8 @@ class DealsController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success','Deals Update Successfull');
+        toast('Deals Update Successfull!','success');
+        return back();
 
     }
 

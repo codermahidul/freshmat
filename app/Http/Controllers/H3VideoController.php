@@ -46,7 +46,8 @@ class H3VideoController extends Controller
             'backgroundImg' => $bgimage,
         ]);
 
-        return back()->with('success','Home 3 Video Section Content Update Successfull');
+        toast('Home 3 Video Section Content Update Successfull!','success');
+        return back();
 
     }
 

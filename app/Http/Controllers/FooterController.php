@@ -43,7 +43,8 @@ class FooterController extends Controller
             'paymentGetwayImage' => $paymentGetwayImage,
         ]);
 
-        return back()->with('success','Footer content update successfully!');
+        toast('Footer content update successfully!','success');
+        return back();
 
 
     }

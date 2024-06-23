@@ -14,18 +14,21 @@ class SocialLinksController extends Controller
         ]);
 
         if (SocialLinks::all()->count() >= 5) {
-            return back()->with('error','You can add max 5 social links');
+            toast('You can add max 5 social links','warning');
+            return back();
         }else{
             SocialLinks::insert([
                 'icon' => $request->input('icon'),
                 'url' => $request->input('link'),
             ]);
-            return back()->with('success','Your Social link added successfully!');
+            toast('Your Social link added successfully!','success');
+            return back();
         }
     }
 
     public function delete($id){
         SocialLinks::find($id)->delete();
-        return back()->with('success','Social Link Deleted Successfull!');
+        toast('Social Link Deleted Successfull!','success');
+        return back();
     }
 }

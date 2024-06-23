@@ -39,7 +39,8 @@ class OrderController extends Controller
             'payment' => $request->input('payment'),
             'status' => $request->input('status'),
         ]);
-        return back()->with('success','Order Status Update');
+        toast('Order Status Update!','success');
+        return back();
     }
 
     public function orderInvoice($id){

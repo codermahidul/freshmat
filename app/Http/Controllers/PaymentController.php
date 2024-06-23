@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Mail\InvoiceEmail;
 use App\Models\Coupon;
-use Illuminate\Support\Str;
 use App\Models\Invoice;
 use App\Models\InvoicesProducts;
 use App\Models\UserProfile;

@@ -128,7 +128,8 @@ class FooterTopController extends Controller
             'subheading' => $request->input('subheading4'),
         ]);
 
-        return back()->with('success','Footer top content update successfully!');
+        toast('Footer top content update successfully!','success');
+        return back();
 
 
     }

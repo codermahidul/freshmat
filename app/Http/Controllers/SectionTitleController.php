@@ -25,7 +25,8 @@ class SectionTitleController extends Controller
             'description' => $request->input('description'),
         ]);
 
-        return back()->with('success', 'Section Update Successfull');
+        toast('Section Update Successfull!','success');
+        return back();
     }
 
 

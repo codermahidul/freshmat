@@ -93,8 +93,8 @@ class PolicyController extends Controller
             'subheading' => $request->input('subheading3'),
         ]);
 
-
-        return back()->with('success','Policy Section Updated Successfull');
+        toast('Policy Section Updated Successfull!','success');
+        return back();
 
 
     }

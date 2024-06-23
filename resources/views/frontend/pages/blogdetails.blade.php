@@ -138,9 +138,6 @@
                                             @error('content')
                                              <span class="text-danger d-block">{{ $message }}</span>
                                             @enderror
-                                            @if (session('success'))
-                                                <span class="text-success">{{ session('success') }}</span>
-                                            @endif
                                         </div>
 
                                         <button type="submit" class="common_btn">Submit Comment

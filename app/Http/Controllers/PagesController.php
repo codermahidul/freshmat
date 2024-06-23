@@ -224,7 +224,8 @@ class PagesController extends Controller
             'c4icon' => $c4icon,
         ]);
         
-        return back()->with('success','Page Update Successfull!');
+        toast('Page Update Successfull!','success');
+        return back();
     }
 
     //Contact Us Page
@@ -357,7 +358,8 @@ class PagesController extends Controller
             'googleMap' => $request->input('googleMap'),
         ]);
 
-        return back()->with('success', 'Contact Page Update Successfull!');
+        toast('Contact Page Update Successfull!','success');
+        return back();
 
 
     }

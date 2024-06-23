@@ -52,7 +52,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home One Left Banner Update Successfully!');
+        toast('Home One Left Banner Update Successfully!','success');
+        return back();
 
 
     }
@@ -94,7 +95,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home One Right Banner Update Successfully!');
+        toast('Home One Right Banner Update Successfully!','success');
+        return back();
 
 
     }
@@ -138,7 +140,8 @@ class BannerController extends Controller
                 'backgroundImg' => $save_url,
             ]);
     
-            return back()->with('success', 'Home One Special Banner Update Successfully!');
+            toast('Home One Special Banner Update Successfully!','success');
+            return back();
     
     
         }
@@ -188,7 +191,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Product Details Page Banner Update Successfully!');
+        toast('Product Details Page Banner Update Successfully!','success');
+        return back();
 
     }
 
@@ -250,7 +254,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home two main banner update successfull');
+        toast('Home two main banner update successfull!','success');
+        return back();
     }
 
 
@@ -291,7 +296,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home two left banner update successfull');
+        toast('Home two left banner update successfull!','success');
+        return back();
     }
 
 
@@ -332,7 +338,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home two right top banner update successfull');
+        toast('Home two right top banner update successfull!','success');
+        return back();
     } 
 
 
@@ -373,7 +380,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home two right bottom banner update successfull');
+        toast('Home two right bottom banner update successfull!','success');
+        return back();
     } 
 
 
@@ -414,7 +422,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home two special product banner update successfull');
+        toast('Home two special product banner update successfull!','success');
+        return back();
     } 
 
 
@@ -452,7 +461,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home two Barnd Product banner update successfull');
+        toast('Home two Barnd Product banner update successfull!','success');
+        return back();
     }
 
     public function homeThreeBanner(){
@@ -501,7 +511,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home three right top banner update successfull');
+        toast('Home three right top banner update successfull!','success');
+        return back();
     }
 
 
@@ -541,7 +552,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home three right bottom banner update successfull');
+        toast('Home three right bottom banner update successfull!','success');
+        return back();
     }
 
     //Left banner
@@ -581,7 +593,8 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        return back()->with('success', 'Home three left banner update successfull');
+        toast('Home three left banner update successfull!','success');
+        return back();
     }
 
         //Left middle
@@ -621,7 +634,8 @@ class BannerController extends Controller
                 'backgroundImg' => $save_url,
             ]);
     
-            return back()->with('success', 'Home three middle banner update successfull');
+            toast('Home three middle banner update successfull!','success');
+            return back();
         }
 
 
@@ -662,7 +676,8 @@ class BannerController extends Controller
                 'backgroundImg' => $save_url,
             ]);
     
-            return back()->with('success', 'Home three right banner update successfull');
+            toast('Home three right banner update successfull!','success');
+            return back();
         }
 
     //End  

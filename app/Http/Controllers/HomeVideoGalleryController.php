@@ -108,7 +108,8 @@ class HomeVideoGalleryController extends Controller
         'video4' => $request->input('video4'),
     ]);
 
-    return back()->with('success', 'Home One Video Gallery Section Update Successully');
+    toast('Home One Video Gallery Section Update Successully!','success');
+    return back();
 
 
   }

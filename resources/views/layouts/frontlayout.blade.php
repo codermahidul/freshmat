@@ -635,6 +635,7 @@
     <script src="{{asset('assets')}}/js/wow.min.js"></script>
     <!--script js-->
     <script src="{{asset('assets')}}/js/main.js"></script>
+    @include('sweetalert::alert')
     <script>
          var deals1 = {{ counter(1) }};
          var deals2 = {{ counter(2) }};

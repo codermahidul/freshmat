@@ -67,7 +67,8 @@ class AppController extends Controller
         'image2' => $image2,
          ]);
 
-        return back()->with('success', 'App Section Content Update Successfully!');
+         toast('App Section Content Update Successfully!', 'success')->width('350');
+        return back();
 
 
     }
