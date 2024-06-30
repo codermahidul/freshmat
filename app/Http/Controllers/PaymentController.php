@@ -24,7 +24,7 @@ class PaymentController extends Controller
             'phone' => 'required',
             'address' => 'required',
         ]);
-        
+
         UserProfile::where('userId', Auth::id())->update([
             'phone' => $request->input('phone'),
             'city' => $request->input('city'),
@@ -53,7 +53,7 @@ class PaymentController extends Controller
                 ]);
             }
         }
-        
+
         if (Session::has('coupon')) {
             $couponName = Session::get('coupon')['couponName'];
             Coupon::where('name',$couponName)->decrement('limit');

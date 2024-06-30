@@ -37,16 +37,16 @@ class FrontendController extends Controller
                     $query->orderBy('selePrice','asc');
                     break;
 
-                case 'hl' : 
+                case 'hl' :
                     $query->orderBy('selePrice','desc');
                     break;
 
-                case 'bs' : 
+                case 'bs' :
                     $query->withCount(['invoiceProducts as sales_count' => function($query){
                         $query->select(DB::raw('SUM(quantity)'));
                     }])->orderBy('sales_count','desc');
                     break;
-                
+
                 default:
                     $query->latest();
                     break;
@@ -98,7 +98,7 @@ class FrontendController extends Controller
             'completedOrder',
             'totalOrder',
         ));
-    } 
+    }
 
     public function editProfile(){
         return view('frontend.pages.dashboard.editProfile');
@@ -163,7 +163,7 @@ class FrontendController extends Controller
        }
 
        return back();
-       
+
     }
 
 
@@ -250,8 +250,8 @@ class FrontendController extends Controller
             'sliders',
             'viewName',
         ]));
-    }    
-    
+    }
+
     public function indexTwo(){
         $viewName = 'homeTwo';
         $instagramPost = InstagramPost::latest()->get();
@@ -259,8 +259,8 @@ class FrontendController extends Controller
             'viewName',
             'instagramPost'
         ]));
-    }    
-    
+    }
+
     public function indexThree(){
         $productCategories = ProductCategory::where('status','active')->latest()->get();
         $sliders = Slider::where('status','active')->latest()->get();

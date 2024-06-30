@@ -90,7 +90,7 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
     //Comment
     Route::post('/blog/comment/{slug}', [BlogController::class, 'insertComment'])->name('insertComment');
-    
+
 
 });
 
@@ -206,7 +206,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/setting/google/recaptcha/update', [SettingController::class, 'googleRecaptcha'])->name('googleRecaptcha');
     Route::post('/setting/social/login/update', [SettingController::class, 'socialLogin'])->name('socialLogin');
     Route::post('/setting/facebook/pixel/update', [SettingController::class, 'facebookPixel'])->name('facebookPixel');
-    
+
     //Home One Video Gallery
     Route::get('/video/gallery', [HomeVideoGalleryController::class, 'index'])->name('homeOneVideoGallery');
     Route::post('/hovgUpdate', [HomeVideoGalleryController::class, 'hovgUpdate'])->name('hovgUpdate');
@@ -286,7 +286,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/order/delivery/process', [OrderController::class, 'deliveryInProcess'])->name('deliveryInProcess');
     Route::get('/order/complate', [OrderController::class, 'complateOrder'])->name('complateOrder');
     Route::get('/order/cancel', [OrderController::class, 'cancelOrder'])->name('cancelOrder');
-    Route::get('/order/invoice/{id}', [OrderController::class, 'orderInvoice'])->name('orderInvoice');
+    // Route::get('/order/invoice/{id}', [OrderController::class, 'orderInvoice'])->name('orderInvoice');
     Route::post('/order/status/{id}', [OrderController::class, 'orderStatus'])->name('orderStatus');
 
     //Profile

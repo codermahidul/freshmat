@@ -40,7 +40,7 @@
                                 <ul class='exzoom_img_ul'>
                                     <li><img class="zoom ing-fluid w-100" src="{{ asset($productInfo->thumbnail) }}" alt="product">
                                     </li>
-                                    @foreach ($productInfo->productgallery as $gallery)      
+                                    @foreach ($productInfo->productgallery as $gallery)
                                     <li><img class="zoom ing-fluid w-100" src="{{ asset($gallery->photo) }}" alt="product">
                                     </li>
                                     @endforeach
@@ -78,10 +78,10 @@
                             <h3>= $10.50</h3>
                         </div>
                         <div class="details_cart_btn">
-                            
-                                
+
+
                                 <input type="hidden" name="productId" value="{{ $productInfo->id }}">
-                            
+
                             <button class="common_btn" href=""><i class="far fa-shopping-basket"></i> Add To Cart
                                 <span></span></button>
                             </form>
@@ -96,13 +96,13 @@
                         <ul class="share">
                             <li>Share with friends:</li>
                             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="https://twitter.com/share?text={{ $productInfo->title }}&url={{ route('productDetails', $productInfo->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
                             <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             <li><a href="#"><i class="fab fa-behance"></i></a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-6 d-none d-xl-block wow fadeInRight">                  
+                <div class="col-xl-4 col-md-6 d-none d-xl-block wow fadeInRight">
                     <div class="shop_details_banner">
                         <img src="{{ asset(banner(4)->backgroundImg) }}" alt="banner" class="img-fluid w-100">
                         <div class="text">

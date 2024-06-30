@@ -45,7 +45,7 @@ function cartTotal(){
 function subTotal(){
     if (Session::has('cart')) {
         $subtotal = 0;
-        foreach (Session::get('cart') as $cart) {        
+        foreach (Session::get('cart') as $cart) {
             $subtotal += $cart['price']*$cart['quantity'];
         }
         return $subtotal;
@@ -199,14 +199,14 @@ function globalBlog(){
 
 
  function counter($query){
-    
+
     $providedDate = new DateTime(deals($query)->date);
     $currentDate = new DateTime();
     $difference = $currentDate->diff($providedDate);
     $daysDifference = $difference->days;
 
     return $daysDifference;
-    
+
  }
 
 
@@ -232,5 +232,7 @@ function globalBlog(){
  }
 
  function lastInvoiceId(){
-    return Invoice::latest('id')->first()->id+1;
+    $latestInvoice = Invoice::latest('id')->first();
+    $newId = $latestInvoice ? $latestInvoice->id + 1 : 1;
+    return $newId;
  };
