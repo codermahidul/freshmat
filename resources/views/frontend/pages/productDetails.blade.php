@@ -94,10 +94,9 @@
                         </ul>
                         <ul class="share">
                             <li>Share with friends:</li>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $productInfo->slug) }}&t={{ $productInfo->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="https://twitter.com/share?text={{ $productInfo->title }}&url={{ route('productDetails', $productInfo->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                            <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $productInfo->slug) }}&title={{ $productInfo->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -262,6 +261,7 @@
     <!--=========================
         SHOP DETAILS END
     ==========================-->
+
 
 
     <!--=========================
