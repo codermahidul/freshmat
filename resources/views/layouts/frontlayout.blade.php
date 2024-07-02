@@ -91,8 +91,8 @@
                     <div class="header_support">
                         <span class="icon"><i class="fal fa-headset"></i></span>
                         <h3>
-                            55 0562-256
-                            <span>24/7 Support Center</span>
+                            {{ topbarContent('supportNumber') }}
+                            <span>{{ topbarContent('supportText') }}</span>
                         </h3>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
         HEADER END
     ==========================-->
 
-    
+
     <!--=========================
         MENU START
     ==========================-->
@@ -443,7 +443,7 @@
     @yield('content')
 
       <!--=========================
-        FOOTER START 
+        FOOTER START
     ==========================-->
     <footer class="mt_200 xs_mt_160 {{ (setting('theme') == 'two') ? 'footer_2' : '' }} {{ (setting('theme') == 'three') ? 'footer_3' : '' }}">
         <div class="footer_overlay">
@@ -506,7 +506,7 @@
                             <span>Hello to : <a href="mailto:{{ footer()->email }}">{{ footer()->email }}</a></span>
                             <ul>
                                 <li><span>Follow :</span></li>
-                                @foreach (socialLinks() as $link)     
+                                @foreach (socialLinks() as $link)
                                     <li><a href="{{ $link->url }}"><i class="{{ $link->icon }}"></i></a></li>
                                 @endforeach
                             </ul>

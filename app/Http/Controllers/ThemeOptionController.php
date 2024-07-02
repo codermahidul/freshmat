@@ -16,15 +16,19 @@ class ThemeOptionController extends Controller
             'phone' => 'required',
             'email' => 'required',
             'location' => 'required',
+            'supportNumber' => 'required',
+            'supportText' => 'required',
         ]);
 
         Topbar::find(1)->update([
             'phone' => $request->input('phone'),
             'email' => $request->input('email'),
             'location' => $request->input('location'),
+            'supportNumber' => $request->input('supportNumber'),
+            'supportText' => $request->input('supportText'),
         ]);
 
-        toast('Topbar Content Update Successfully!','success');
+        toast('Topbar Content Update Successfully!','success')->width('350');
         return back();
     }
 }

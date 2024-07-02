@@ -35,6 +35,24 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="location">Support Number</label>
+                                <input type="text" name="supportNumber" id="supportNumber" class="form-control" placeholder="Location" value="{{ topbarContent('supportNumber') }}">
+                                @error('supportNumber')
+                                    <span class="text-danger d-block">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="location">Support Text</label>
+                                <input type="text" name="supportText" id="supportText" class="form-control" placeholder="Location" value="{{ topbarContent('supportText') }}">
+                                @error('supportText')
+                                    <span class="text-danger d-block">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>

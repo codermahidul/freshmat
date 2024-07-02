@@ -17,6 +17,8 @@ class TopbarSeeder extends Seeder
             'phone' => '+1 (700) 230-0035',
             'email' => 'company@gmail.com',
             'location' => 'New York, United States',
+            'supportNumber' => '55 0562-256',
+            'supportText' => '24/7 Support Center',
         ]);
     }
 }

@@ -90,7 +90,6 @@
                         <p class="category"><span>Category:</span> {{ $productInfo->productcategories->name }}</p>
                         <p class="sku"><span>SKU:</span> {{ $productInfo->sku }}</p>
                         <ul class="tags">
-                            <li>Tags:</li>
                             <li><a href="#">{{ $productInfo->tags }} </a></li>
                         </ul>
                         <ul class="share">
@@ -123,9 +122,6 @@
                                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
                                     aria-selected="true">Description</button>
-                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
-                                    aria-selected="false"> Information</button>
                                 <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
                                     aria-selected="false">Reviews</button>
@@ -136,34 +132,6 @@
                                 aria-labelledby="nav-home-tab" tabindex="0">
                                 <div class="shop_det_description">
                                     {{ strip_tags($productInfo->description) }}
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                aria-labelledby="nav-profile-tab" tabindex="0">
-                                <div class="shop_det_additional_info">
-                                    <h3>Additional Information</h3>
-                                    <div class="table-responsive">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Weight</td>
-                                                    <td>2 kg</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Dimensions</td>
-                                                    <td>10 × 6 × 3 cm</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Width</td>
-                                                    <td>7.5” - 8.75”</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Hight</td>
-                                                    <td>5.5” - 6.75”</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel"
@@ -379,7 +347,6 @@
                                     </div>
                                     <p class="category"><span>Category:</span> {{ $singleProduct->productcategories->name }}</p>
                                     <ul class="tags">
-                                        <li>Tags:</li>
                                         <li><a href="#">{{ $singleProduct->tags }} </a></li>
                                     </ul>
                                     <ul class="share">
