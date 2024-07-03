@@ -68,8 +68,6 @@
             <div class="dashboard_invoice_footer">
                 <h4>Notes</h4>
                 <p>{{ $invoice->note }}</p>
-                <a class="common_btn" href="#"><i class="far fa-print"></i> Print
-                    PDF<span></span></a>
             </div>
         </div>
     </div>
