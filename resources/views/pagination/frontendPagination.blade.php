@@ -1,7 +1,7 @@
 @if ($paginator->hasPages())
 <div class="row">
   <div class="pagination mt_25 wow fadeInUp">
-      <ul class="pagination justify-content-center">
+      <ul class="pagination {{ (Route::currentRouteNamed('shop')) ? 'justify-content-center' : 'justify-content-end' }}">
         @if ($paginator->onFirstPage())
         <li class="page-item">
           <a class="page-link disabled" href="javascript:void(0)" aria-label="Previous">
@@ -15,16 +15,16 @@
           </a>
         </li>
         @endif
-        @foreach ($elements as $element)   
-          @if (is_string($element))  
+        @foreach ($elements as $element)
+          @if (is_string($element))
           <li class="page-item"><a class="page-link disabled" href="javascript:void(0)">{{ $element }}</a></li>
           @endif
           @if (is_array($element))
           @foreach ($element as $page => $url)
           @if ($page == $paginator->currentPage())
-                  <li class="page-item"><a class="page-link active" href="javascript:void(0)">{{ $page }}</a></li>  
+                  <li class="page-item"><a class="page-link active" href="javascript:void(0)">{{ $page }}</a></li>
                   @else
-                  <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>       
+                  <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
                   @endif
               @endforeach
           @endif

@@ -138,14 +138,15 @@
                                 <div class="shop_det_review_area">
                                     <div class="row">
                                         <div class="col-lg-8">
-                                            <h2>(15) Reviews</h2>
+                                            <h2>({{ count($reviews) }}) Reviews</h2>
+                                            @forelse ($reviews as $review)
                                             <div class="single_review">
                                                 <div class="img">
-                                                    <img src="images/testimonial_img_1.jpg" alt="Reviewer"
+                                                    <img src="{{ asset($review->user->userProfile->photo) }}" alt="Reviewer"
                                                         class="img-fluid w-100">
                                                 </div>
                                                 <div class="text">
-                                                    <h4>Hasnat Abdullah <span>May 8, 2023</span></h4>
+                                                    <h4>{{ $review->user->name }} <span>{{ $review->created_at }}</span></h4>
                                                     <span class="rating">
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
@@ -153,74 +154,20 @@
                                                         <i class="fas fa-star"></i>
                                                         <i class="far fa-star"></i>
                                                     </span>
-                                                    <p>Lorem ipsum is simply free text used by copytyping refreshing.
-                                                        Neque
-                                                        porro est is a rem ipsum qu
-                                                        ia qued inventore veritatis et quasi architecto beatae</p>
+                                                    <p>{{ $review->review }}</p>
                                                 </div>
                                             </div>
-                                            <div class="single_review">
-                                                <div class="img">
-                                                    <img src="images/testimonial_img_2.jpg" alt="Reviewer"
-                                                        class="img-fluid w-100">
-                                                </div>
-                                                <div class="text">
-                                                    <h4>Sinthis Mou <span>May 8, 2023</span></h4>
-                                                    <span class="rating">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                    </span>
-                                                    <p>Lorem ipsum is simply free text used by copytyping refreshing.
-                                                        Neque
-                                                        porro est is a rem ipsum qu
-                                                        ia qued inventore veritatis et quasi architecto beatae</p>
-                                                </div>
-                                            </div>
-                                            <div class="single_review">
-                                                <div class="img">
-                                                    <img src="images/testimonial_img_3.jpg" alt="Reviewer"
-                                                        class="img-fluid w-100">
-                                                </div>
-                                                <div class="text">
-                                                    <h4>Samira Khanom <span>May 8, 2023</span></h4>
-                                                    <span class="rating">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                        <i class="far fa-star"></i>
-                                                    </span>
-                                                    <p>Lorem ipsum is simply free text used by copytyping refreshing.
-                                                        Neque
-                                                        porro est is a rem ipsum qu
-                                                        ia qued inventore veritatis et quasi architecto beatae</p>
-                                                </div>
-                                            </div>
-                                            <div class="pagination mt_25">
-                                                <ul class="pagination justify-content-end">
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Previous">
-                                                            <i class="far fa-angle-double-left"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item"><a class="page-link active" href="#">2</a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Next">
-                                                            <i class="far fa-angle-double-right"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            @empty
+                                                No review!
+                                            @endforelse
+                                            {{-- Paginate --}}
+                                            {{ $reviews->links('pagination.frontendPagination') }}
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="review_input_area">
                                                 <h2>Write A Review</h2>
+                                                <form action="{{ route('review',$productInfo->id) }}" method="POST">
+                                                    @csrf
                                                 <p>
                                                     Select Your Rating :
                                                     <span>
@@ -230,19 +177,22 @@
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                     </span>
+                                                    <input type="hidden" name="rating" value="5">
                                                 </p>
-                                                <form>
-                                                    <div class="review_input_box">
+                                                    {{-- <div class="review_input_box">
                                                         <label>Name *</label>
-                                                        <input type="text" placeholder="Name">
+                                                        <input type="text" placeholder="Name" n>
                                                     </div>
                                                     <div class="review_input_box">
                                                         <label>Email *</label>
                                                         <input type="email" placeholder="Email">
-                                                    </div>
+                                                    </div> --}}
                                                     <div class="review_input_box">
                                                         <label>Write Review *</label>
-                                                        <textarea rows="5" placeholder="Write your review"></textarea>
+                                                        <textarea rows="5" placeholder="Write your review" name="review"></textarea>
+                                                        @error('review')
+                                                            <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
                                                     </div>
                                                     <button type="submit" class="common_btn">Submit Review
                                                         <span></span></button>

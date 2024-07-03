@@ -35,6 +35,7 @@ use App\Http\Controllers\SocialLinksController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ThemeOptionController;
 use App\Http\Controllers\AdminloginController;
+use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -94,6 +95,8 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
     //Comment
     Route::post('/blog/comment/{slug}', [BlogController::class, 'insertComment'])->name('insertComment');
+    //Review
+    Route::post('/reviews/insert/{id}', [ReviewsController::class, 'insert'])->name('review');
 
 
 });

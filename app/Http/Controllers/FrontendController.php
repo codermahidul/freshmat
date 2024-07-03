@@ -12,6 +12,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Slider;
 use App\Models\User;
+use App\Models\Reviews;
 use App\Models\UserProfile;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
@@ -80,11 +81,15 @@ class FrontendController extends Controller
 
         $categoryId = $productInfo->productcategories->id;
 
+        $reviews = Reviews::where('productId', $currentProductId)
+        ->with('user')->latest()->paginate(3);
+
         $relatedProducts = Product::where('categoryId',$categoryId)->where('id','!=',$currentProductId)->latest()->take(10)->get();
 
         return view('frontend.pages.productDetails',compact([
             'productInfo',
             'relatedProducts',
+            'reviews',
         ]));
     }
 
