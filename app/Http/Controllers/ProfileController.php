@@ -25,7 +25,7 @@ class ProfileController extends Controller
             'password_confirmation' => 'required',
         ]);
 
-        
+
         if (!Hash::check($request->input('current_password'),Auth::user()->password)) {
             throw ValidationException::withMessages(['current_password' => 'Current password not match with our recod.']);
         }
@@ -37,7 +37,7 @@ class ProfileController extends Controller
         return back()->with('success','Password Update Successfull');
     }
 
-   
+
     public function profileUpdate(Request $request){
         $request->validate([
             'photo' => 'image:png,jpeg,jpg',
@@ -48,7 +48,7 @@ class ProfileController extends Controller
 
         $photo = Auth::user()->userProfile->photo;
         if ($request->file('photo')) {
-            if (!$photo == 'default/user-default-avator.jpg') {
+            if ($photo !== 'default/user-default-avator.jpg') {
                 unlink(base_path('public/'.$photo));
             }
 

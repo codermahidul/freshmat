@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
+use Illuminate\Support\Str;
 
 class FrontendController extends Controller
 {
@@ -137,13 +138,13 @@ class FrontendController extends Controller
 
         $avatar = Auth::user()->userProfile->photo;
         if ($request->file('avatar')) {
-            if ($avatar != 'default/user-default-avator.jpg') {
+            if ($avatar !== 'default/user-default-avator.jpg') {
                 unlink(base_path('public/'.$avatar));
             }
             //Thumbnail Process
             $manager = new ImageManager(new Driver());
             $image = $request->file('avatar');
-            $name = 'avatar'.Auth::user()->id.'.'.$image->getClientOriginalExtension();
+            $name = Str::slug(Auth::user()->name).'-'.Auth::user()->id.'.'.$image->getClientOriginalExtension();
             $img = $manager->read($image);
             $img = $img->resize(100,100);
             $img->toJpeg(90)->save(base_path('public/uploads/avator/'.$name));
