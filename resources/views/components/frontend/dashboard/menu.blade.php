@@ -4,7 +4,10 @@
             <div class="img">
                 <img src="{{ asset(Auth::user()->userProfile->photo) }}" alt="avatar" class="img-fluid w-100">
                 <label for="profile_photo"><i class="far fa-camera"></i></label>
-                <input type="file" id="profile_photo" hidden>
+                <form id="avatorForm" action="{{ route('profileImageUpdate') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" id="profile_photo" hidden name="avatar">
+                </form>
             </div>
             <h3>{{ Auth::user()->name }}</h3>
             <p>{{ Auth::user()->city }}</p>
@@ -28,3 +31,16 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            $('#profile_photo').on('change', function(){
+                $('#avatorForm').submit();
+            })
+
+
+            // End
+        })
+    </script>
+@endpush

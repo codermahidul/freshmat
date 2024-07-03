@@ -8,6 +8,7 @@ use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\Comment;
 use App\Models\Deals;
+use App\Models\Invoices;
 use App\Models\EmailConfiguration;
 use App\Models\FAQS;
 use App\Models\Footer;
@@ -247,4 +248,28 @@ function globalBlog(){
         }
        }
        return 1;
+ }
+
+
+ function data($query){
+    if ($query == 'newOrder') {
+        return Invoice::where('status', 'new')->count();
+    }elseif ($query == 'complateOrder') {
+        return Invoice::where('status', 'complete')->count();
+    }elseif($query == 'orderInProcessing'){
+        return Invoice::where('status', 'delevery-in-process')->count();
+    }elseif($query == 'orderCancel'){
+        return Invoice::where('status', 'cancel')->count();
+    }elseif($query == 'orderToday'){
+        return Invoice::whereDate('created_at', Carbon::today())->count();
+    }elseif($query == 'orderThisWeek'){
+        return Invoice::whereBetween('created_at', [Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->count();
+    }elseif($query == 'orderThisMonth'){
+        return Invoice::whereMonth('created_at', Carbon::now()->month)
+        ->whereYear('created_at', Carbon::now()->year)
+        ->count();
+    }elseif($query == 'orderThisYear'){
+        return Invoice::whereYear('created_at', Carbon::now()->year)
+        ->count();
+    }
  }

@@ -205,7 +205,7 @@ class CouponController extends Controller
 
     public function checkroute(){
 
-        return cartQti(1);
+        return data('orderToday');
 
     }
 

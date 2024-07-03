@@ -71,9 +71,9 @@
                         <div class="details_quentity_area">
                             <p><span>Qti</span> (in {{ $productInfo->unitType }}) :</p>
                             <div class="button_area">
-                                <button>-</button>
+                                <button type="button">-</button>
                                 <input type="text" placeholder="01" name="quantity" value="{{ cartQti($productInfo->id) }}">
-                                <button>+</button>
+                                <button type="button">+</button>
                             </div>
                             <h3>= ${{ $productInfo->selePrice * cartQti($productInfo->id) }}</h3>
                         </div>
@@ -146,7 +146,7 @@
                                                         class="img-fluid w-100">
                                                 </div>
                                                 <div class="text">
-                                                    <h4>{{ $review->user->name }} <span>{{ $review->created_at }}</span></h4>
+                                                    <h4>{{ $review->user->name }} <span>{{ $review->created_at->format('d-M-Y') }}</span></h4>
                                                     <span class="rating">
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>

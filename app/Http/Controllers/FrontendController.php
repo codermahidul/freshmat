@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 
 class FrontendController extends Controller
 {
@@ -82,7 +84,7 @@ class FrontendController extends Controller
         $categoryId = $productInfo->productcategories->id;
 
         $reviews = Reviews::where('productId', $currentProductId)
-        ->with('user')->latest()->paginate(3);
+        ->with('user')->latest()->paginate(10);
 
         $relatedProducts = Product::where('categoryId',$categoryId)->where('id','!=',$currentProductId)->latest()->take(10)->get();
 
@@ -126,6 +128,33 @@ class FrontendController extends Controller
         ]);
 
         return back()->with('success', 'Your Profile Update Successfully');
+    }
+
+    public function profileImageUpdate(Request $request){
+        $request->validate([
+            'avatar' => 'required|image:jpeg,jpg,png',
+        ]);
+
+        $avatar = Auth::user()->userProfile->photo;
+        if ($request->file('avatar')) {
+            if ($avatar != 'default/user-default-avator.jpg') {
+                unlink(base_path('public/'.$avatar));
+            }
+            //Thumbnail Process
+            $manager = new ImageManager(new Driver());
+            $image = $request->file('avatar');
+            $name = 'avatar'.Auth::user()->id.'.'.$image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img = $img->resize(100,100);
+            $img->toJpeg(90)->save(base_path('public/uploads/avator/'.$name));
+            $avatar = 'uploads/avator/'.$name;
+        }
+
+        UserProfile::where('userId',Auth::id())->update([
+            'photo' => $avatar,
+        ]);
+        toast('Profile image update successfull!', 'success')->width('350');
+        return back();
     }
 
     public function order(){
@@ -208,7 +237,7 @@ class FrontendController extends Controller
     public function index(){
         $productCategories = ProductCategory::where('status','active')->latest()->get();
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
-        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(12)->get();
+        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(8)->get();
         $sliders = Slider::where('status','active')->latest()->get();
         $viewName = 'welcome';
 
@@ -254,7 +283,7 @@ class FrontendController extends Controller
     public function indexOne(){
         $productCategories = ProductCategory::where('status','active')->latest()->get();
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
-        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(12)->get();
+        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(8)->get();
         $sliders = Slider::where('status','active')->latest()->get();
         $viewName = 'welcome';
         return view('welcome',compact([

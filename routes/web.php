@@ -80,6 +80,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('userDashboard');
     Route::get('/edit/profile', [FrontendController::class, 'editProfile'])->name('editProfile');
     Route::post('/edit/profile/update', [FrontendController::class, 'profileUpdate'])->name('profileUpdate');
+    Route::post('/edit/profile/image/update', [FrontendController::class, 'profileImageUpdate'])->name('profileImageUpdate');
     Route::get('/dashboard/order', [FrontendController::class, 'order'])->name('userOrder');
     Route::get('/dashboard/order/invoice/{id}', [FrontendController::class, 'orderInvoice'])->name('orderInvoice');
     Route::get('/dashboard/review', [FrontendController::class, 'review'])->name('userReview');
