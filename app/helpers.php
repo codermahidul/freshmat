@@ -236,3 +236,15 @@ function globalBlog(){
     $newId = $latestInvoice ? $latestInvoice->id + 1 : 1;
     return $newId;
  };
+
+ function cartQti($id){
+       $cart = Session::get('cart');
+       if ($cart) {
+        foreach ($cart as $item) {
+            if($item['productId'] == $id){
+                return $item['quantity'];
+            }
+        }
+       }
+       return 1;
+ }

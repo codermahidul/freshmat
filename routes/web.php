@@ -34,6 +34,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SocialLinksController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ThemeOptionController;
+use App\Http\Controllers\AdminloginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,9 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/home-one', [FrontendController::class, 'indexOne'])->name('indexOne');
 Route::get('/home-two', [FrontendController::class, 'indexTwo'])->name('indexTwo');
 Route::get('/home-three', [FrontendController::class, 'indexThree'])->name('indexThree');
+
+//Admin Login Page
+Route::get('/admin/login', [AdminloginController::class, 'login'])->name('admin.login');
 
 //Social Login
 Route::get('/google/redirect',[GoogleLoginController::class,'redirectToGoogle'])->name('google.redirect');

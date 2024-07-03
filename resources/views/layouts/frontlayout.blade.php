@@ -72,7 +72,7 @@
                 <div class="col-lg-3">
                     <div class="header_logo_area">
                         <a href="{{ route('index') }}" class="header_logo">
-                            <img src="{{ asset(setting('logo')) }}" alt="Freshmat" class="img-fluid w-100">
+                            <img src="{{ asset(setting('logo')) }}" alt="" class="img-fluid w-100">
                         </a>
                         <div class="mobile_menu_icon d-block d-lg-none" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">

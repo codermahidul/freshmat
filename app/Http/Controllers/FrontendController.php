@@ -153,6 +153,7 @@ class FrontendController extends Controller
 
     public function addToWishlists($id){
        $wishlistsCheck = Wishlist::where('userId',Auth::id())->where('productId',$id)->get();
+       $delete = false;
        if ($wishlistsCheck->isEmpty()) {
         Wishlist::insert([
             'userId' => Auth::id(),
@@ -160,6 +161,14 @@ class FrontendController extends Controller
         ]);
        } else {
         Wishlist::where('userId',Auth::id())->where('productId',$id)->delete();
+        $delete = true;
+       }
+
+       if ($delete == true) {
+        toast('Wislist item removed!', 'success')->width('350');
+    }else{
+           toast('Wislist item added!', 'success')->width('350');
+
        }
 
        return back();
@@ -194,7 +203,7 @@ class FrontendController extends Controller
     public function index(){
         $productCategories = ProductCategory::where('status','active')->latest()->get();
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
-        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->get();
+        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(12)->get();
         $sliders = Slider::where('status','active')->latest()->get();
         $viewName = 'welcome';
 
@@ -240,7 +249,7 @@ class FrontendController extends Controller
     public function indexOne(){
         $productCategories = ProductCategory::where('status','active')->latest()->get();
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
-        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->get();
+        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(12)->get();
         $sliders = Slider::where('status','active')->latest()->get();
         $viewName = 'welcome';
         return view('welcome',compact([

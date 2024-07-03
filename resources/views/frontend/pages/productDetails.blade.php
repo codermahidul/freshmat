@@ -72,10 +72,10 @@
                             <p><span>Qti</span> (in {{ $productInfo->unitType }}) :</p>
                             <div class="button_area">
                                 <button>-</button>
-                                <input type="text" placeholder="01" name="quantity" value="1">
+                                <input type="text" placeholder="01" name="quantity" value="{{ cartQti($productInfo->id) }}">
                                 <button>+</button>
                             </div>
-                            <h3>= $10.50</h3>
+                            <h3>= ${{ $productInfo->selePrice * cartQti($productInfo->id) }}</h3>
                         </div>
                         <div class="details_cart_btn">
 
@@ -85,7 +85,7 @@
                             <button class="common_btn" href=""><i class="far fa-shopping-basket"></i> Add To Cart
                                 <span></span></button>
                             </form>
-                            <a class="love" href="#"><i class="far fa-heart"></i></a>
+                            <a class="love" href="{{ route('adToWishlist', $productInfo->id) }}"><i class="far fa-heart"></i></a>
                         </div>
                         <p class="category"><span>Category:</span> {{ $productInfo->productcategories->name }}</p>
                         <p class="sku"><span>SKU:</span> {{ $productInfo->sku }}</p>

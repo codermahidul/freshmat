@@ -32,7 +32,12 @@ class CartController extends Controller
 
 // If the product is already in the cart, update its quantity
 if ($existingItemIndex !== -1) {
-    $cartItems[$existingItemIndex]['quantity'] += $quantity;
+    if (cartQti($productId) == $quantity) {
+         $cartItems[$existingItemIndex]['quantity'] += 1;
+
+    }else{
+        $cartItems[$existingItemIndex]['quantity'] = $request->input('quantity');
+    }
 } else {
     // Otherwise, add a new item to the cart
     $cartItems[] = [
@@ -47,7 +52,7 @@ if ($existingItemIndex !== -1) {
 
         Session::put('cart', $cartItems);
         return back();
-        
+
 }
 
 
@@ -69,8 +74,8 @@ if ($existingItemIndex !== -1) {
             Session::put('cart', $filteredArray);
         }
 
-
-        return back()->with('success','Item Removed!');
+        toast('Item Removed!','success')->width('350');
+        return back();
     }
 
 

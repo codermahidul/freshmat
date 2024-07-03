@@ -150,7 +150,7 @@ class CouponController extends Controller
                         } else {
                             return back()->with('nofound', 'Your claimed coupon maximum order ammount $'.$coupon->maxOrder.'!');
                         }
-                        
+
                     } else {
                         if ($coupon->limit <= 0) {
                             return back()->with('nofound', 'Your claimed coupon has no limit!');
@@ -181,15 +181,15 @@ class CouponController extends Controller
                             }
                         }
                     }
-                    
+
                 }
             } else {
                 return back()->with('nofound', 'Your claimed coupon vlidity expired!');
             }
-        
+
         }
-        
-    
+
+
     }
 
 
@@ -204,8 +204,8 @@ class CouponController extends Controller
 
 
     public function checkroute(){
-        
-        return 1000+lastInvoiceId();
+
+        return cartQti(1);
 
     }
 

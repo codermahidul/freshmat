@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 @empty
-                    <span>No Wishlist Product Found!</span>
+                    <span>Empty!</span>
                 @endforelse
             </div>
         </div>
