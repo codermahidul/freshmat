@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($orders as $order)     
+                        @forelse ($orders as $order)
                         <tr>
                             <td>{{ ++$loop->index }}</td>
                             <td>{{ $order->invoiceNumber }}</td>
@@ -43,7 +43,7 @@
                               @if ($order->status == 'complete' )
                               <span class="badge badge-success">Complete</span>
                               @elseif($order->status == 'cancel')
-                              <span class="badge badge-danger">Cancel</span>                                 
+                              <span class="badge badge-danger">Cancel</span>
                               @elseif($order->status == 'new')
                               <span class="badge badge-primary">New</span>
                               @elseif($order->status == 'delevery-in-process')
@@ -61,7 +61,7 @@
                             <td>
                                 <a class="btn btn-primary btn-sm" href="#">
                                   <i class="fas fa-eye"></i>
-                                </a>                                
+                                </a>
                                 <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-default-{{ $order->id }}">
                                   <i class="fas fa-car-side"></i>
                                 </button>
@@ -79,7 +79,7 @@
 
 
 {{-- Modal --}}
-@foreach ($orders as $order)  
+@foreach ($orders as $order)
 <div class="modal fade" id="modal-default-{{ $order->id }}">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -98,7 +98,7 @@
               <option {{ ( $order->payment == 'pending' ) ? 'selected' : '' }} value="pending">Pending</option>
               <option {{ ( $order->payment == 'success' ) ? 'selected' : '' }} value="success">Success</option>
             </select>
-          </div>          
+          </div>
           <div class="form-group">
             <label for="status">Order</label>
             <select name="status" id="status" class="form-control">
@@ -121,48 +121,3 @@
 </div>
 @endforeach
 {{-- Modal --}}
-
-@push('scripts')
-    <script>
-        $(function() {
-            $("#example1").DataTable({
-                "responsive": false,
-                "lengthChange": true,
-                "autoWidth": true,
-                "buttons": ["excel", "pdf", "print"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
-        });
-    </script>
-@endpush
-
-@if (session('success'))
-<script>
-
-  const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-right',
-      iconColor: 'white',
-      customClass: {
-        popup: 'colored-toast',
-      },
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-    })
-
-    Toast.fire({
-      icon: 'success',
-      title: "{{ session('success') }}",
-    })
-  </script>
-@endif
