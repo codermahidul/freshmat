@@ -30,10 +30,13 @@ class FrontendController extends Controller
     public function shop(Request $request){
 
         $query = Product::where('status','active');
-         $featuredProducts = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
+          return $featuredProducts = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
         ->groupBy('productId')->orderByDesc('totalQuantity')->take(3)
         ->with(['product' => function($query){
-            $query->select('id','title','selePrice','thumbnail');
+            $query->select('id','title','selePrice','thumbnail','slug')
+            ->with('reviews', function($query){
+                $query->select('productId', DB::raw('AVG(rating) as averageRating'))->groupBy('productId');
+            });
         }])->get();
 
         if ($request->has('search')) {

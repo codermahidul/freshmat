@@ -80,14 +80,17 @@
                                         <img src="{{ asset($item->product->thumbnail) }}" alt="product" class="img-fluid w-100">
                                     </div>
                                     <div class="text">
-                                        <a href="shop_details.html">Porcelain Garlic</a>
-                                        <p>$15.00</p>
+                                        <a href="{{ route('productDetails',$item->product->slug) }}">{{ $item->product->title }}</a>
+                                        <p>${{ $item->product->selePrice }}</p>
                                         <span>
+                                            {{ $item->rating }}
+                                          @for ($i = 0; $i > $item->rating ; $i++)
+                                            {{ '<i class="fas fa-star"></i>' }}
+                                          @endfor
+                                            {{-- <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
+                                            <i class="fas fa-star-half-alt"></i> --}}
                                         </span>
                                     </div>
                                 </li>
