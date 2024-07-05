@@ -149,7 +149,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/product/edit/{id}', [ProductController::class, 'productedit'])->name('productedit');
     Route::post('/product/update/{id}', [ProductController::class, 'productupdate'])->name('productupdate');
     Route::get('/product/delete/{id}', [ProductController::class, 'productdelete'])->name('productdelete');
-
+    Route::get('/product/gellery-image/delete/{id}', [ProductController::class, 'pgidelete'])->name('productgalleryimagedel');
     //Coupon
     Route::get('/coupon', [CouponController::class, 'index'])->name('coupon');
     Route::get('/coupon/add', [CouponController::class, 'show'])->name('couponadd');
@@ -206,6 +206,10 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/testimonial/update/{id}',[TestimonialController::class, 'update'])->name('testimonial.update');
     Route::get('/testimonial/delete/{id}',[TestimonialController::class, 'delete'])->name('testimonial.delete');
 
+    //Reviews
+    Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
+    Route::post('/reviews/update/{id}', [ReviewsController::class, 'update'])->name('reviews.update');
+    Route::get('/reviews/delete/{id}', [ReviewsController::class, 'delete'])->name('reviews.delete');
     //Setting
     Route::get('/setting', [SettingController::class, 'index'])->name('setting');
     Route::post('/setting/logo-favicon/update', [SettingController::class, 'logoFavicon'])->name('logoFavicon');

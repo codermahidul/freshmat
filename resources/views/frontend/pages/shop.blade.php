@@ -74,9 +74,10 @@
                         <div class="shop_sidebar_product">
                             <h3>Featured Products</h3>
                             <ul>
+                                @foreach ($featuredProducts as $item)
                                 <li>
                                     <div class="img">
-                                        <img src="{{ asset('assets') }}/images/sidebar_product_1.jpg" alt="product" class="img-fluid w-100">
+                                        <img src="{{ asset($item->product->thumbnail) }}" alt="product" class="img-fluid w-100">
                                     </div>
                                     <div class="text">
                                         <a href="shop_details.html">Porcelain Garlic</a>
@@ -90,38 +91,7 @@
                                         </span>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="img">
-                                        <img src="{{ asset('assets') }}/images/sidebar_product_2.jpg" alt="product" class="img-fluid w-100">
-                                    </div>
-                                    <div class="text">
-                                        <a href="shop_details.html">Vegetables Meat</a>
-                                        <p>$20.00</p>
-                                        <span>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                        </span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="img">
-                                        <img src="{{ asset('assets') }}/images/sidebar_product_3.jpg" alt="product" class="img-fluid w-100">
-                                    </div>
-                                    <div class="text">
-                                        <a href="shop_details.html">Orange Slice Mix</a>
-                                        <p>$32.00</p>
-                                        <span>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </span>
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -186,29 +156,15 @@
                                         <i class="far fa-star"></i>
                                         <span>Review (20)</span>
                                     </p>
-                                    <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
+                                    <p class="price">$ <span class="selePrice">{{ $product->selePrice }}</span> <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                     <div class="details_quentity_area">
                                         <p><span>Qti</span> (in {{ $product->unitType }}) :</p>
                                         <div class="button_area">
-                                            <button onclick="decrement()" class="disabled">-</button>
-                                            <input type="text" value="1" id="quantity" name="quantity">
-                                            <button id="increment" class="disabled" onclick="increment()">+</button>
-                                            {{-- <script>
-                                                var quantityInput = document.getElementById('quantity');
-                                                function decrement() {
-                                                    var value = parseInt(quantityInput.value);
-                                                    if (value > 1) {
-                                                        quantityInput.value = value - 1;
-                                                    }
-                                                }
-                                        
-                                                function increment() {
-                                                    var value = parseInt(quantityInput.value);
-                                                    quantityInput.value = value + 1;
-                                                }
-                                            </script> --}}
+                                            <button type="button" class="decrement">-</button>
+                                            <input type="text" value="{{ cartQti($product->id) }}" class="quantity" name="quantity">
+                                            <button type="button" class="increment">+</button>
                                         </div>
-                                        <h3>= ${{ $product->selePrice }}</h3>
+                                        <h3>= $ <span class="mathPrice">{{ $product->selePrice * cartQti($product->id) }}</span></h3>
                                     </div>
                                     <div class="details_cart_btn">
                                         <button type="submit" class="common_btn"><i class="far fa-shopping-basket"></i>
@@ -244,3 +200,34 @@
         SHOP PAGE END
     ==========================-->
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+
+            //increment
+            $('.increment').on('click',function(){
+                let $quantity = $(this).siblings('.quantity');
+                //let selePrice = parseInt($(this).siblings('.selePrice'));
+                //let mathPrice = $(this).siblings('.mathPrice');
+                alert(mathPrice);
+                let value = parseInt($quantity.val(),10);
+                value++
+                $('.quantity').val(value);
+            });
+
+            //decrement
+            $('.decrement').on('click', function(){
+                let $quantity = $(this).siblings('.quantity');
+
+                let value = parseInt($quantity.val(),10);
+                if (value > 1) {
+                    value--
+                }
+                $quantity.val(value);
+            });
+
+
+        });
+    </script>
+@endpush

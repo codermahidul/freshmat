@@ -22,7 +22,7 @@
                         {{$message}}
                     </span>
                 @enderror
-                </div> 
+                </div>
                 <div class="form-group">
                   <label for="slug">{{ __('Slug') }}</label>
                   <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Enter Slug" name="slug" value="{{old('slug')}} {{ $product->slug }}">
@@ -50,7 +50,7 @@
                       <div class="form-group">
                           <label>{{ __('Category') }}</label>
                           <select class="form-control" name="categoryId">
-                              @foreach ($categories as $category)   
+                              @foreach ($categories as $category)
                               <option value="{{$category->id}}" {{ ($category->slug == 'uncategorized') ? 'selected' : '' }} >{{$category->name}}</option>
                               @endforeach
                           </select>
@@ -127,7 +127,7 @@
                                   {{$message}}
                               </span>
                           @enderror
-                          </div> 
+                          </div>
                     </div>
                   </div>
 
@@ -135,7 +135,7 @@
                     @forelse ($product->productgallery as $item)
                     <div class="col-md-2">
                         <img src="{{ asset($item->photo) }}" class="img-fluid" alt="...">
-                        <a href="#">Delete</a>
+                        <a class="delete-item" href="{{ route('productgalleryimagedel',$item->id) }}">Delete</a>
                     </div>
                     @empty
                             <span class="text-danger ml-2">No photos found!</span>
@@ -164,8 +164,8 @@
                               {{$message}}
                           </span>
                       @enderror
-                      </div> 
-                
+                      </div>
+
                   <div class="form-group">
                     <label>Status</label>
                     <select class="form-control" name="status">
@@ -176,28 +176,66 @@
                 <button type="submit" class="btn btn-primary">Product Update</button>
             </form>
           </div>
-          @if (session('success'))
-          <script>
 
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-right',
-                iconColor: 'white',
-                customClass: {
-                  popup: 'colored-toast',
-                },
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-              })
-
-              Toast.fire({
-                icon: 'success',
-                title: "{{ session('success') }}",
-              })
-            </script>
-          @endif
         </div>
       </div>
     </div>
   </section>
+
+
+  @push('scripts')
+<script>
+    $(document).ready(function() {
+    $(document).on('click', '.delete-item', function(e) {
+        e.preventDefault();
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                let url = $(this).attr('href');
+                $.ajax({
+                    method: 'GET',
+                    url: url,
+                    success: function(data) {
+                        if (data.status == 'success') {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: data.message,
+                                icon: "success"
+                            }).then(() => {
+                                  window.location.reload();
+                                });
+                        } else if(data.status == 'have') {
+                            Swal.fire({
+                                title: "Warning!",
+                                text: data.message,
+                                icon: "warning"
+                            });
+                        } else {
+                            Swal.fire({
+                                title: "Error!",
+                                text: data.message,
+                                icon: "error"
+                            });
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire({
+                            title: "Error!",
+                            text: "An error occurred while processing your request.",
+                            icon: "error"
+                        });
+                    }
+                });
+            }
+        });
+    });
+});
+</script>
+@endpush

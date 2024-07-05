@@ -30,6 +30,11 @@ class FrontendController extends Controller
     public function shop(Request $request){
 
         $query = Product::where('status','active');
+         $featuredProducts = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
+        ->groupBy('productId')->orderByDesc('totalQuantity')->take(3)
+        ->with(['product' => function($query){
+            $query->select('id','title','selePrice','thumbnail');
+        }])->get();
 
         if ($request->has('search')) {
             $query->where('title','like','%'.$request->input('search').'%');
@@ -63,6 +68,7 @@ class FrontendController extends Controller
         $products = $query->paginate(9);
         return view('frontend.pages.shop',compact([
             'products',
+            'featuredProducts',
         ]));
     }
 

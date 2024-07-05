@@ -200,7 +200,7 @@ class ProductController extends Controller
                     'productId' => $product->id,
                     'photo' => $gallery_image_url,
                 ]);
-        
+
             }
 
         }
@@ -280,7 +280,7 @@ class ProductController extends Controller
                     'productId' => $id,
                     'photo' => $gallery_image_url,
                 ]);
-        
+
             }
 
         }
@@ -299,9 +299,9 @@ class ProductController extends Controller
             }else{
                 $thumbnailUrl = Product::where('id',$id)->first()->thumbnail;
                 unlink(base_path('public/'.$thumbnailUrl));
-        
+
                $imageGallery = ProductGallery::where('productId',$id)->get();
-        
+
                 if (count($imageGallery) > 0 ) {
                     foreach ($imageGallery as $image) {
                         $imgUrl = $image->photo;
@@ -309,7 +309,7 @@ class ProductController extends Controller
                         $image->delete();
                     }
                 }
-        
+
                 Product::where('id',$id)->first()->delete();
                 return response()->json(['status' => 'success', 'message' => 'Product Delete Successfull.']);
             }
@@ -318,6 +318,17 @@ class ProductController extends Controller
         }
     }
 
+
+    public function pgidelete($id){
+        try {
+            $image = ProductGallery::find($id);
+            unlink(base_path('public/'.$image->photo));
+            $image->delete();
+            return response(['status' => 'success', 'message' => 'Gallery image delete successfull!']);
+        } catch (\Throwable $th) {
+            return response(['status' => 'error', 'message' => 'Somthing went wrong!']);
+        }
+    }
 
 
 

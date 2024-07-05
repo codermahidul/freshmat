@@ -15,7 +15,7 @@
                 <div class="col-xl-6 m-auto">
                     <div class="product_filter mb_25">
                         <button class=" active" data-filter="*">All Products</button>
-                        @foreach ($topCategories as $topcategory)     
+                        @foreach ($topCategories as $topcategory)
                         <button data-filter=".{{ $topcategory->slug.$topcategory->id }}">{{ $topcategory->name }}</button>
                         @endforeach
                     </div>
@@ -48,7 +48,7 @@
             </div>
         </div>
     </section>
-    
+
     @foreach ($latestProduct as $product)
     <form action="{{ route('addToCart') }}" method="post">
         @csrf
@@ -80,23 +80,9 @@
                                     <div class="details_quentity_area">
                                         <p><span>Qti</span> (in {{ $product->unitType }}) :</p>
                                         <div class="button_area">
-                                            <button onclick="decrement()" class="disabled">-</button>
-                                            <input type="text" value="1" id="quantity" name="quantity">
-                                            <button id="increment" class="disabled" onclick="increment()">+</button>
-                                            {{-- <script>
-                                                var quantityInput = document.getElementById('quantity');
-                                                function decrement() {
-                                                    var value = parseInt(quantityInput.value);
-                                                    if (value > 1) {
-                                                        quantityInput.value = value - 1;
-                                                    }
-                                                }
-                                        
-                                                function increment() {
-                                                    var value = parseInt(quantityInput.value);
-                                                    quantityInput.value = value + 1;
-                                                }
-                                            </script> --}}
+                                            <button class="decrement" type="button">-</button>
+                                            <input type="text" value="{{ cartQti($product->id) }}" class="quantity" name="quantity">
+                                            <button class="increment" type="button">+</button>
                                         </div>
                                         <h3>= ${{ $product->selePrice }}</h3>
                                     </div>
@@ -133,3 +119,34 @@
     <!--=========================
         FRESH PRODUCTS END
     ==========================-->
+
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            //increment
+            $('.increment').on('click',function(){
+                let $quantity = $(this).siblings('.quantity');
+                let value = parseInt($quantity.val(),10);
+                value++
+                $('.quantity').val(value);
+            });
+
+            //decrement
+            $('.decrement').on('click', function(){
+                let $quantity = $(this).siblings('.quantity');
+
+                let value = parseInt($quantity.val(),10);
+                if (value > 1) {
+                    value--
+                }
+                $quantity.val(value);
+            });
+
+
+        });
+    </script>
+@endpush
+
+<button>-</button>
+<input type="number">
+<button>+</button>

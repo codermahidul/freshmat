@@ -36,25 +36,25 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Orders</p>
                 </a>
-              </li>              
+              </li>
               <li class="nav-item">
                 <a href="{{ route('newOrder') }}" class="nav-link {{ (Route::currentRouteNamed('newOrder')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>New Orders</p>
                 </a>
-              </li>              
+              </li>
               <li class="nav-item">
                 <a href="{{ route('deliveryInProcess') }}" class="nav-link {{ (Route::currentRouteNamed('deliveryInProcess')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Processing Orders</p>
                 </a>
-              </li>              
+              </li>
               <li class="nav-item">
                 <a href="{{ route('complateOrder') }}" class="nav-link {{ (Route::currentRouteNamed('complateOrder')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Complete Orders</p>
                 </a>
-              </li>              
+              </li>
               <li class="nav-item">
                 <a href="{{ route('cancelOrder') }}" class="nav-link {{ (Route::currentRouteNamed('cancelOrder')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
@@ -105,7 +105,7 @@
               </li>
             </ul>
           </li>
-          
+
           <li class="nav-item {{ Route::currentRouteNamed('category.edit','blog','blog.add','category','category.add','category.insert','comments') ? 'menu-open':''}}">
             <a href="#" class="nav-link {{ Route::currentRouteNamed('blog','blog.add','category','category.add','category.insert','comments') ? 'active':''}}">
               <i class="nav-icon fas fa-pen-alt"></i>
@@ -132,7 +132,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Category</p>
                 </a>
-              </li>              
+              </li>
               <li class="nav-item">
                 <a href="{{route('comments')}}" class="nav-link {{ Route::currentRouteNamed('comments') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
@@ -157,8 +157,8 @@
                   <p>Home One</p>
                 </a>
               </li>
-              @endif              
-              
+              @endif
+
               @if (setting('theme') == 'all' || setting('theme') == 'two')
               <li class="nav-item">
                 <a href="{{ route('hometwobanner') }}" class="nav-link {{ Route::currentRouteNamed('hometwobanner') ? 'active' : '' }}">
@@ -166,7 +166,7 @@
                   <p>Home Two</p>
                 </a>
               </li>
-              @endif  
+              @endif
 
               @if (setting('theme') == 'all' || setting('theme') == 'three')
               <li class="nav-item">
@@ -174,9 +174,9 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home Three</p>
                 </a>
-              </li> 
+              </li>
               @endif
-             
+
               <li class="nav-item">
                 <a href="{{ route('pdpagebannerIndex') }}" class="nav-link {{ Route::currentRouteNamed('pdpagebannerIndex') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
@@ -201,8 +201,8 @@
                   <p>Home One</p>
                 </a>
               </li>
-              @endif              
-              
+              @endif
+
               @if (setting('theme') == 'all' || setting('theme') == 'two')
               <li class="nav-item">
                 <a href="{{ route('homeTwoDeals') }}" class="nav-link {{ Route::currentRouteNamed('homeTwoDeals') ? 'active' : '' }}">
@@ -210,7 +210,7 @@
                   <p>Home Two</p>
                 </a>
               </li>
-              @endif 
+              @endif
 
               @if (setting('theme') == 'all' || setting('theme') == 'three')
               <li class="nav-item">
@@ -218,10 +218,18 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Home Three</p>
                 </a>
-              </li>  
+              </li>
               @endif
-            
+
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('reviews') }}" class="nav-link {{ (Route::currentRouteNamed('reviews')) ? 'active' : '' }}">
+              <i class="nav-icon far fa-comment-dots"></i>
+              <p>
+                Reviews
+              </p>
+            </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('testimonial') }}" class="nav-link {{ (Route::currentRouteNamed('testimonial')) ? 'active' : '' }}">
@@ -238,7 +246,7 @@
                 Section Title
               </p>
             </a>
-          </li> 
+          </li>
           @if (setting('theme') == 'all' || setting('theme') == 'one' || setting('theme') == 'three')
           <li class="nav-item">
             <a href="{{ route('slider') }}" class="nav-link {{ (Route::currentRouteNamed('slider','slider.edit')) ? 'active' : '' }}">
@@ -257,7 +265,7 @@
                 Video Gallery <span class="badge badge-info right">Home 1</span>
               </p>
             </a>
-          </li>            
+          </li>
           @endif
           @if (setting('theme') == 'all' || setting('theme') == 'two')
           <li class="nav-item">
@@ -267,7 +275,7 @@
                 Instagram Post <span class="badge badge-info right">Home 2</span>
               </p>
             </a>
-          </li>          
+          </li>
           <li class="nav-item">
             <a href="{{ route('htpolicy') }}" class="nav-link {{ (Route::currentRouteNamed('htpolicy')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-exchange-alt"></i>
@@ -275,7 +283,7 @@
                 Policy Section <span class="badge badge-info right">Home 2</span>
               </p>
             </a>
-          </li>         
+          </li>
           @endif
           @if (setting('theme') == 'all' || setting('theme') == 'three')
           <li class="nav-item">
@@ -285,7 +293,7 @@
                 Video Section <span class="badge badge-info right">Home 3</span>
               </p>
             </a>
-          </li>   
+          </li>
           @endif
           <li class="nav-item">
             <a href="{{ route('partner') }}" class="nav-link {{ (Route::currentRouteNamed('partner')) ? 'active' : '' }}">
@@ -295,7 +303,7 @@
               </p>
             </a>
           </li>
-          @if (setting('theme') == 'all' || setting('theme') == 'one' || setting('theme') == 'three')           
+          @if (setting('theme') == 'all' || setting('theme') == 'one' || setting('theme') == 'three')
           <li class="nav-item">
             <a href="{{ route('appLinks') }}" class="nav-link {{ (Route::currentRouteNamed('appLinks')) ? 'active' : '' }}">
               <i class="nav-icon fab fa-app-store-ios"></i>

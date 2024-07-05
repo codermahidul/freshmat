@@ -101,7 +101,6 @@
                             text: "An error occurred while processing your request.",
                             icon: "error"
                         });
-                        console.error(error);
                     }
                 });
             }

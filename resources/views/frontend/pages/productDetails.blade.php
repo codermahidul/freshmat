@@ -61,7 +61,7 @@
                             <i class="far fa-star"></i>
                             <span>Review (20)</span>
                         </p>
-                        <p class="price">${{ $productInfo->selePrice }} <del>{{ ($productInfo->regularPrice) ? '$' : '' }}{{ $productInfo->regularPrice }}</del></p>
+                        <p class="price">$<span id="selePrice">{{ $productInfo->selePrice }}</span> <del>{{ ($productInfo->regularPrice) ? '$' : '' }}{{ $productInfo->regularPrice }}</del></p>
                         <div class="details_short_description">
                             <h3>Description</h3>
                             <p>{{ $productInfo->shortDescription }}</p>
@@ -71,11 +71,11 @@
                         <div class="details_quentity_area">
                             <p><span>Qti</span> (in {{ $productInfo->unitType }}) :</p>
                             <div class="button_area">
-                                <button type="button">-</button>
-                                <input type="text" placeholder="01" name="quantity" value="{{ cartQti($productInfo->id) }}">
-                                <button type="button">+</button>
+                                <button type="button" id="decrement">-</button>
+                                <input type="text" placeholder="01" name="quantity" value="{{ cartQti($productInfo->id) }}" id="quantity">
+                                <button type="button" id="increment">+</button>
                             </div>
-                            <h3>= ${{ $productInfo->selePrice * cartQti($productInfo->id) }}</h3>
+                            <h3>= $<span id="mathPrice">{{ $productInfo->selePrice * cartQti($productInfo->id)}}</span></h3>
                         </div>
                         <div class="details_cart_btn">
 
@@ -319,3 +319,28 @@
         RELATED PRODUCT END
     ==========================-->
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function(){
+            //Increment
+            $('#increment').on('click', function(){
+                let value = parseInt($('#quantity').val(),10);
+                value++
+                let selePrice = parseInt($('#selePrice').text());
+                let mathPrice = $('#mathPrice').text(selePrice*value);
+                $('#quantity').val(value);
+            })
+            //Decrement
+            $('#decrement').on('click', function(){
+                let value = parseInt($('#quantity').val(),10);
+                if (value > 1) {
+                    value--
+                    let selePrice = parseInt($('#selePrice').text());
+                    let mathPrice = $('#mathPrice').text(selePrice*value);
+                }
+                $('#quantity').val(value);
+            })
+        })
+    </script>
+@endpush

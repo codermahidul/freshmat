@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('productId');
             $table->text('review');
             $table->integer('rating');
+            $table->enum('status',['pending','approved'])->default('pending');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
 
