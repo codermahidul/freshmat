@@ -30,12 +30,12 @@ class FrontendController extends Controller
     public function shop(Request $request){
 
         $query = Product::where('status','active');
-          return $featuredProducts = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
+           return $featuredProducts = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
         ->groupBy('productId')->orderByDesc('totalQuantity')->take(3)
         ->with(['product' => function($query){
             $query->select('id','title','selePrice','thumbnail','slug')
             ->with('reviews', function($query){
-                $query->select('productId', DB::raw('AVG(rating) as averageRating'))->groupBy('productId');
+                $query->avg('rating');
             });
         }])->get();
 
@@ -93,7 +93,7 @@ class FrontendController extends Controller
 
         $categoryId = $productInfo->productcategories->id;
 
-        $reviews = Reviews::where('productId', $currentProductId)
+        $reviews = Reviews::where('status', 'approved')->where('productId', $currentProductId)
         ->with('user')->latest()->paginate(10);
 
         $relatedProducts = Product::where('categoryId',$categoryId)->where('id','!=',$currentProductId)->latest()->take(10)->get();
