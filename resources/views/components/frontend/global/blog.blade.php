@@ -1,3 +1,5 @@
+@if (globalBlog()->count() > 0)
+
     <!--=========================
         BLOG START
     ==========================-->
@@ -35,7 +37,7 @@
                             <ul class="bottom">
                                 <li><a href="{{ route('blogDetails',$blog->slug) }}">read more <i class="fas fa-long-arrow-right"></i></a>
                                 </li>
-                                <li><span><i class="far fa-comment-dots"></i> {{ $blog->commentsCount }} Comments</span></li>
+                                <li><span><i class="far fa-comment-dots"></i> {{ commentCounter($blog->id) }} Comments</span></li>
                             </ul>
                         </div>
                     </div>
@@ -49,3 +51,4 @@
     <!--=========================
         BLOG END
     ==========================-->
+@endif

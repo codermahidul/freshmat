@@ -1,3 +1,5 @@
+@if ($specialProduct->count() > 0)
+
     <!--=========================
         SPECIAL PRODUCT START
     ==========================-->
@@ -27,14 +29,15 @@
                 </div>
                 <div class="col-xxl-8 col-lg-9 col-xl-9">
                     <div class="row">
+                        @forelse ($specialProduct as $item)
                         <div class="col-md-6">
                             <div class="special_product_item wow fadeInUp">
                                 <div class="special_product_img">
-                                    <img src="{{asset('assets')}}/images/special_product_1.jpg" alt="product" class="img-fluid w-100">
-                                    <span class="discount">save 70%</span>
+                                    <img src="{{ asset($item->product->thumbnail) }}" alt="product" class="img-fluid w-100">
+
                                 </div>
                                 <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Butter garlic crab</a>
+                                    <a class="title" href="">Butter garlic crab {{ $item->product->title }}</a>
                                     <span>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -42,103 +45,13 @@
                                         <i class="fas fa-star-half-alt"></i>
                                         <i class="far fa-star"></i>
                                     </span>
-                                    <p>$10.00 <del>$12.00</del></p>
+                                    <p>${{ $item->product->selePrice }} {{ ($item->product->regularPrice) ?  `<del>`. $item->product->regularPrice .`</del>` : '' }}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="special_product_item wow fadeInUp">
-                                <div class="special_product_img">
-                                    <img src="{{asset('assets')}}/images/special_product_2.jpg" alt="product" class="img-fluid w-100">
-                                </div>
-                                <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Bengal Meat Bone</a>
-                                    <span>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </span>
-                                    <p>$13.00 <del>$15.00</del></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="special_product_item wow fadeInUp">
-                                <div class="special_product_img">
-                                    <img src="{{asset('assets')}}/images/special_product_3.jpg" alt="product" class="img-fluid w-100">
-                                    <span class="discount">save 40%</span>
-                                </div>
-                                <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Three Carrot</a>
-                                    <span>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </span>
-                                    <p>$17.00 <del>$20.00</del></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="special_product_item wow fadeInUp">
-                                <div class="special_product_img">
-                                    <img src="{{asset('assets')}}/images/special_product_4.jpg" alt="product" class="img-fluid w-100">
-                                    <span class="discount">save 50%</span>
-                                </div>
-                                <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Lemon Meat Bone</a>
-                                    <span>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </span>
-                                    <p>$29.00 <del>$32.00</del></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="special_product_item wow fadeInUp">
-                                <div class="special_product_img">
-                                    <img src="{{asset('assets')}}/images/special_product_5.jpg" alt="product" class="img-fluid w-100">
-                                </div>
-                                <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Orange Slice Mix</a>
-                                    <span>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </span>
-                                    <p>$20.00 <del>$22.00</del></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="special_product_item wow fadeInUp">
-                                <div class="special_product_img">
-                                    <img src="{{asset('assets')}}/images/special_product_6.jpg" alt="product" class="img-fluid w-100">
-                                    <span class="discount">save 30%</span>
-                                </div>
-                                <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Carrot Vegetables</a>
-                                    <span>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </span>
-                                    <p>$16.00 <del>$18.00</del></p>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                        No product to shown!
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -147,3 +60,5 @@
     <!--=========================
         SPECIAL PRODUCT END
     ==========================-->
+
+    @endif

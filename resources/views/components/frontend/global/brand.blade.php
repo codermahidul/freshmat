@@ -1,4 +1,5 @@
-    <!--=========================
+@if ($count = partners()->count() > 0)
+            <!--=========================
         BRAND START
     ==========================-->
     <section class="brand mt_115 xs_mt_75 {{ (setting('theme') == 'two') ? 'brand_2' : '' }} {{ (setting('theme') == 'three') ? 'brand_3' : '' }}">
@@ -28,7 +29,7 @@
                             <ul>
                                 @forelse (partners() as $partner)
                                 <li>
-                                    <a href="#">
+                                    <a>
                                         <img src="{{ asset($partner->logo) }}" alt="brand" class="img-fluid w-100">
                                     </a>
                                 </li>
@@ -46,3 +47,5 @@
     <!--=========================
         BRAND END
     ==========================-->
+
+    @endif

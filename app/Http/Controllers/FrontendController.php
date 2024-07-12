@@ -250,6 +250,14 @@ class FrontendController extends Controller
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(8)->get();
         $sliders = Slider::where('status','active')->latest()->get();
         $viewName = 'welcome';
+        $specialProduct = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
+        ->groupBy('productId')->orderByDesc('totalQuantity')->take(3)
+        ->with(['product' => function($query){
+            $query->select('id','title','selePrice','regularPrice','thumbnail','slug')
+            ->with('reviews', function($query){
+                $query->avg('productId','rating');
+            });
+        }])->get();
 
         if (setting('theme') == 'all') {
             $viewName = 'welcome';
@@ -259,6 +267,7 @@ class FrontendController extends Controller
                 'latestProduct',
                 'sliders',
                 'viewName',
+                'specialProduct',
             ]));
         }elseif (setting('theme') == 'one') {
             $viewName = 'welcome';
@@ -296,12 +305,21 @@ class FrontendController extends Controller
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(8)->get();
         $sliders = Slider::where('status','active')->latest()->get();
         $viewName = 'welcome';
+         $specialProduct = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
+        ->groupBy('productId')->orderByDesc('totalQuantity')->take(3)
+        ->with(['product' => function($query){
+            $query->select('id','title','regularPrice','selePrice','thumbnail','slug')
+            ->with('reviews', function($query){
+                $query->avg('productId','rating');
+            });
+        }])->get();
         return view('welcome',compact([
             'productCategories',
             'topCategories',
             'latestProduct',
             'sliders',
             'viewName',
+            'specialProduct',
         ]));
     }
 

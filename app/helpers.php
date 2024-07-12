@@ -284,3 +284,8 @@ function globalBlog(){
         ->count();
     }
  }
+
+
+ function commentCounter($id){
+    return Comment::where('postId',$id)->count();
+ }
