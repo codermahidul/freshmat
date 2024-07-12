@@ -35,7 +35,7 @@ class FrontendController extends Controller
         ->with(['product' => function($query){
             $query->select('id','title','selePrice','thumbnail','slug')
             ->with('reviews', function($query){
-                $query->avg('rating');
+                $query->avg('productId','rating');
             });
         }])->get();
 

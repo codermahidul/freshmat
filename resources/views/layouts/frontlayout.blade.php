@@ -76,7 +76,7 @@
                     <div class="col-lg-8 col-md-9 d-none d-md-block">
                         <ul class="topbar_info d-flex flex-wrap">
                             <li>
-                                <a href="{{ topbarContent('phone') }}"><i class="fas fa-phone-alt"></i>
+                                <a href="tel:{{ topbarContent('phone') }}"><i class="fas fa-phone-alt"></i>
                                     {{ topbarContent('phone') }}</a>
                             </li>
                             <li>
