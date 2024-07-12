@@ -51,6 +51,7 @@ if ($existingItemIndex !== -1) {
 }
 
         Session::put('cart', $cartItems);
+        toast('Item added to cart!','success')->width('350');
         return back();
 
 }

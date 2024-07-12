@@ -85,7 +85,7 @@
                             <button class="common_btn" href=""><i class="far fa-shopping-basket"></i> Add To Cart
                                 <span></span></button>
                             </form>
-                            <a class="love" href="{{ route('adToWishlist', $productInfo->id) }}"><i class="far fa-heart"></i></a>
+                            <a class="love {{ (wishlistHave($productInfo->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist', $productInfo->id) }}"><i class="far fa-heart"></i></a>
                         </div>
                         <p class="category"><span>Category:</span> {{ $productInfo->productcategories->name }}</p>
                         <p class="sku"><span>SKU:</span> {{ $productInfo->sku }}</p>

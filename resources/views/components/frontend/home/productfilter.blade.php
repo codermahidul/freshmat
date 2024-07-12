@@ -91,19 +91,25 @@
                                             Add To
                                             Cart
                                             <span></span></button>
-                                        <a class="love" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
+                                        <a class="love {{ (wishlistHave($product->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
                                     </div>
                                     <p class="category"><span>Category:</span>{{ $product->productcategories->name }}</p>
                                     <ul class="tags">
                                         <li>Tags:</li>
-                                        <li><a href="#">{{ $product->tags }}</a></li>
+                                        <li><a href="#"></a></li>
                                     </ul>
-                                    <ul class="share">
+                                    {{-- <ul class="share">
                                         <li>Share with friends:</li>
                                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                         <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                         <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                    </ul> --}}
+                                    <ul class="share">
+                                        <li>Share with friends:</li>
+                                        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $product->slug) }}&t={{ $product->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="https://twitter.com/share?text={{ $product->title }}&url={{ route('productDetails', $product->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $product->slug) }}&title={{ $product->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -146,7 +152,3 @@
         });
     </script>
 @endpush
-
-<button>-</button>
-<input type="number">
-<button>+</button>
