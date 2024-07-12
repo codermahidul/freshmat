@@ -28,8 +28,8 @@
                         <div class="single_product_img">
                             <img src="{{asset($product->thumbnail)}}" alt="Product" class="img_fluid w-100">
                             <ul>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                <li><a href="{{ route('productDetails',$product->slug) }}"><i class="far fa-eye"></i></a></li>
+                                <li><a class="{{ (wishlistHave($product->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a></li>
                             </ul>
                         </div>
                         <div class="single_product_text">

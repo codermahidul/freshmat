@@ -4,6 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Models\App;
 use App\Models\Banner;
+use App\Models\Wishlist;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\Comment;
@@ -30,6 +31,16 @@ use Illuminate\Support\Facades\Session;
 if (!function_exists('wishlistTotalItem')) {
     function wishlistTotalItem($userId){
         return \App\Models\Wishlist::where('userId',$userId)->count();
+    }
+}
+
+function wishlistHave($id){
+   $have = Wishlist::where('userId', Auth::user()->id)->where('productId',$id)->count();
+//    return $have;
+    if ($have == 1) {
+        return 1;
+    }else{
+        return 0;
     }
 }
 

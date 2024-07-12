@@ -205,7 +205,7 @@ class CouponController extends Controller
 
     public function checkroute(){
 
-        return data('orderToday');
+        return wishlistHave(70);
 
     }
 
