@@ -20,7 +20,6 @@ class Product extends Model
         'thumbnail',
         'sku',
         'status',
-        'tags',
     ];
 
 
