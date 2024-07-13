@@ -280,10 +280,19 @@ class FrontendController extends Controller
             ]));
         }elseif(setting('theme') == 'two'){
             $instagramPost = InstagramPost::latest()->get();
+            $specialProduct = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
+        ->groupBy('productId')->orderByDesc('totalQuantity')->take(4)
+        ->with(['product' => function($query){
+            $query->select('id','title','regularPrice','selePrice','thumbnail','slug')
+            ->with('reviews', function($query){
+                $query->avg('productId','rating');
+            });
+        }])->get();
             $viewName = 'homeTwo';
             return view('homeTwo',compact([
                 'viewName',
                 'instagramPost',
+                'specialProduct',
             ]));
         }elseif(setting('theme') == 'three'){
             $viewName = 'homeThree';
@@ -305,7 +314,7 @@ class FrontendController extends Controller
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(8)->get();
         $sliders = Slider::where('status','active')->latest()->get();
         $viewName = 'welcome';
-         $specialProduct = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
+        $specialProduct = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
         ->groupBy('productId')->orderByDesc('totalQuantity')->take(3)
         ->with(['product' => function($query){
             $query->select('id','title','regularPrice','selePrice','thumbnail','slug')
@@ -325,10 +334,21 @@ class FrontendController extends Controller
 
     public function indexTwo(){
         $viewName = 'homeTwo';
+        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(8)->get();
         $instagramPost = InstagramPost::latest()->get();
+        $specialProduct = InvoicesProducts::select('productId', DB::raw('SUM(quantity) as totalQuantity'))
+        ->groupBy('productId')->orderByDesc('totalQuantity')->take(4)
+        ->with(['product' => function($query){
+            $query->select('id','title','regularPrice','selePrice','thumbnail','slug')
+            ->with('reviews', function($query){
+                $query->avg('productId','rating');
+            });
+        }])->get();
         return view('homeTwo',compact([
             'viewName',
-            'instagramPost'
+            'instagramPost',
+            'latestProduct',
+            'specialProduct'
         ]));
     }
 

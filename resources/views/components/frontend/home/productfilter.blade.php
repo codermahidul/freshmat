@@ -83,8 +83,10 @@
                                             <button class="decrement" type="button">-</button>
                                             <input type="text" value="{{ cartQti($product->id) }}" class="quantity" name="quantity">
                                             <button class="increment" type="button">+</button>
+                                            <input value="{{ $product->selePrice }}" type="hidden" class="selePrice">
                                         </div>
-                                        <h3>= ${{ $product->selePrice }}</h3>
+
+                                        <h3>= $<span class="mathPrice">{{ $product->selePrice * cartQti($product->id)}}</span></h3>
                                     </div>
                                     <div class="details_cart_btn">
                                         <button type="submit" class="common_btn"><i class="far fa-shopping-basket"></i>
@@ -115,7 +117,7 @@
         FRESH PRODUCTS END
     ==========================-->
 
-@push('scripts')
+{{-- @push('scripts')
     <script>
         $(document).ready(function(){
             //increment
@@ -123,6 +125,9 @@
                 let $quantity = $(this).siblings('.quantity');
                 let value = parseInt($quantity.val(),10);
                 value++
+                let selePrice = $(this).siblings('.selePrice').val();
+                let mathPrice = $('.mathPrice').text();
+                alert(mathPrice)
                 $('.quantity').val(value);
             });
 
@@ -139,5 +144,76 @@
 
 
         });
+    </script>
+@endpush --}}
+
+
+{{-- @push('scripts')
+    <script>
+        $(document).ready(function(){
+            //Increment
+            $('#increment').on('click', function(){
+                let value = parseInt($('#quantity').val(),10);
+                value++
+                let selePrice = parseInt($('#selePrice').text());
+                let mathPrice = $('#mathPrice').text(selePrice*value);
+                $('#quantity').val(value);
+            })
+            //Decrement
+            $('#decrement').on('click', function(){
+                let value = parseInt($('#quantity').val(),10);
+                if (value > 1) {
+                    value--
+                    let selePrice = parseInt($('#selePrice').text());
+                    let mathPrice = $('#mathPrice').text(selePrice*value);
+                }
+                $('#quantity').val(value);
+            })
+        })
+    </script>
+@endpush --}}
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+    $('.button_area').each(function() {
+        let $buttonArea = $(this);
+        let $quantityInput = $buttonArea.find('.quantity');
+        let $mathPrice = $buttonArea.next('h3').find('.mathPrice');
+        let pricePerItem = parseFloat($buttonArea.find('.selePrice').val()); // Get initial price
+
+        // Function to update price based on current quantity
+        function updatePrice() {
+            let quantity = parseInt($quantityInput.val());
+            let totalPrice = quantity * pricePerItem;
+            $mathPrice.text(totalPrice.toFixed(2)); // Update displayed price
+        }
+
+        // Decrement button click event
+        $buttonArea.on('click', '.decrement', function() {
+            let currentQuantity = parseInt($quantityInput.val());
+            if (currentQuantity > 1) {
+                $quantityInput.val(currentQuantity - 1);
+                updatePrice(); // Update price when quantity changes
+            }
+        });
+
+        // Increment button click event
+        $buttonArea.on('click', '.increment', function() {
+            let currentQuantity = parseInt($quantityInput.val());
+            $quantityInput.val(currentQuantity + 1);
+            updatePrice(); // Update price when quantity changes
+        });
+
+        // Initial update of price on page load
+        updatePrice();
+
+        // Optional: Update price if quantity input is manually changed
+        $quantityInput.on('input', function() {
+            updatePrice();
+        });
+    });
+});
+
     </script>
 @endpush
