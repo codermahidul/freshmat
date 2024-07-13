@@ -156,15 +156,6 @@
                             </span>
                         @enderror
                           </div>
-                      <div class="form-group">
-                        <label for="tags">{{ __('Tags') }}</label>
-                        <input type="text" class="form-control @error('tags') is-invalid @enderror" id="tags" placeholder="Enter Tag: rice,water" name="tags" value="{{old('tags')}}{{ $product->tags }}">
-                      @error('tags')
-                          <span class="text-danger">
-                              {{$message}}
-                          </span>
-                      @enderror
-                      </div>
 
                   <div class="form-group">
                     <label>Status</label>

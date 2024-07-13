@@ -23,7 +23,6 @@ return new class extends Migration
             $table->unsignedBigInteger('categoryId');
             $table->string('thumbnail');
             $table->string('sku');
-            $table->string('tags')->nullable();
             $table->enum('status',['active','deactive'])->default('active');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

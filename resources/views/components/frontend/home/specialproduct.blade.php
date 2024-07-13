@@ -30,27 +30,34 @@
                 <div class="col-xxl-8 col-lg-9 col-xl-9">
                     <div class="row">
                         @forelse ($specialProduct as $item)
-                        <div class="col-md-6">
-                            <div class="special_product_item wow fadeInUp">
-                                <div class="special_product_img">
-                                    <img src="{{ asset($item->product->thumbnail) }}" alt="product" class="img-fluid w-100">
+                            <div class="col-md-6">
+                                <div class="special_product_item wow fadeInUp">
+                                    <div class="special_product_img">
+                                        <img src="{{ asset($item->product->thumbnail) }}" alt="product"
+                                            class="img-fluid w-100">
+                                        @if ($item->product->regularPrice)
+                                        <span class="discount">save {{ round((($item->product->regularPrice - $item->product->selePrice)/$item->product->regularPrice)*100) }}%</span>
+                                        @endif
 
-                                </div>
-                                <div class="special_product_text">
-                                    <a class="title" href="">Butter garlic crab {{ $item->product->title }}</a>
-                                    <span>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </span>
-                                    <p>${{ $item->product->selePrice }} {{ ($item->product->regularPrice) ?  `<del>`. $item->product->regularPrice .`</del>` : '' }}</p>
+
+                                    </div>
+                                    <div class="special_product_text">
+                                        <a class="title" href="{{ route('productDetails',$item->product->slug) }}">
+                                            {{ $item->product->title }}</a>
+                                        <span>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <i class="far fa-star"></i>
+                                        </span>
+                                        <p>${{ $item->product->selePrice }}<del>{{ $item->product->regularPrice ? '$' : '' }}{{ $item->product->regularPrice }}</del>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @empty
-                        No product to shown!
+                            No product to shown!
                         @endforelse
                     </div>
                 </div>
@@ -61,4 +68,4 @@
         SPECIAL PRODUCT END
     ==========================-->
 
-    @endif
+@endif

@@ -181,7 +181,6 @@ class ProductController extends Controller
             'categoryId' => $request->input('categoryId'),
             'thumbnail' => $save_url,
             'sku' => $request->input('sku'),
-            'tags' => $request->input('tags'),
             'status' => $request->input('status'),
         ]);
 
@@ -261,7 +260,6 @@ class ProductController extends Controller
             'categoryId' => $request->input('categoryId'),
             'thumbnail' => $thumbnailUrl,
             'sku' => $request->input('sku'),
-            'tags' => $request->input('tags'),
             'status' => $request->input('status'),
         ]);
 

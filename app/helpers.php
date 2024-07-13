@@ -35,13 +35,14 @@ if (!function_exists('wishlistTotalItem')) {
 }
 
 function wishlistHave($id){
-   $have = Wishlist::where('userId', Auth::user()->id)->where('productId',$id)->count();
-//    return $have;
+   if (Auth::user()) {
+    $have = Wishlist::where('userId', Auth::user()->id)->where('productId',$id)->count();
     if ($have == 1) {
         return 1;
     }else{
         return 0;
     }
+   }
 }
 
 

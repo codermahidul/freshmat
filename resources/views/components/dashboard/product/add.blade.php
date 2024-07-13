@@ -22,7 +22,7 @@
                         {{$message}}
                     </span>
                 @enderror
-                </div> 
+                </div>
                 <div class="form-group">
                   <label for="slug">{{ __('Slug') }}</label>
                   <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Enter Slug" name="slug" value="{{old('slug')}}">
@@ -53,7 +53,7 @@
                       <div class="form-group">
                           <label>{{ __('Category') }}</label>
                           <select class="form-control" name="categoryId">
-                              @foreach ($categories as $category)   
+                              @foreach ($categories as $category)
                               <option value="{{$category->id}}" {{ ($category->slug == 'uncategorized') ? 'selected' : '' }} >{{$category->name}}</option>
                               @endforeach
                           </select>
@@ -132,7 +132,7 @@
                                   {{$message}}
                               </span>
                           @enderror
-                          </div> 
+                          </div>
                     </div>
                   </div>
 
@@ -153,19 +153,8 @@
                         @enderror
                           </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="tags">{{ __('Tags') }}</label>
-                        <input type="text" class="form-control @error('tags') is-invalid @enderror" id="tags" placeholder="Enter Tag: rice,water" name="tags" value="{{old('tags')}}">
-                      @error('tags')
-                          <span class="text-danger">
-                              {{$message}}
-                          </span>
-                      @enderror
-                      </div> 
-                    </div>
                   </div>
-                
+
                   <div class="form-group">
                     <label>Status</label>
                     <select class="form-control" name="status">
