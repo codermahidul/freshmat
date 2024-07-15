@@ -9,7 +9,7 @@
                         class="img-fluid w-100">
                 </div>
                 <div class="text">
-                    <p><i class="far fa-calendar-alt"></i> {{ $post->created_at->diffForHumans() }}</p>
+                    <p><i class="far fa-calendar-alt"></i> {{ $post->created_at->format('d-M-Y') }}</p>
                     <a href="{{ route('blogDetails',$post->slug) }}">{{ $post->title }}</a>
                 </div>
             </li>

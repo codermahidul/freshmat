@@ -11,7 +11,7 @@
                 <div class="col-xl-8">
                     <div class="banner_content">
                         <div class="row banner_slider">
-                            @forelse ($sliders as $slider)   
+                            @forelse ($sliders as $slider)
                             <div class="col-xl-12">
                                 <div class="single_slider" style="background: url({{ asset($slider->backgroundImg) }});">
                                     <div class="single_slider_text">
@@ -150,24 +150,23 @@
                 <div class="col-xl-7 m-auto">
                     <div class="product_filter mb_25">
                         <button class=" active" data-filter="*">All Products</button>
-                        <button data-filter=".vegetables">Vegetables</button>
-                        <button data-filter=".fruits">Fruits</button>
-                        <button data-filter=".nuts">Nuts</button>
-                        <button data-filter=".drinks">Drinks</button>
-                        <button data-filter=".root">Root</button>
+                        @foreach ($topCategories as $category)
+                        <button data-filter=".{{ $category->slug.$category->id }}">{{ $category->name }}</button>
+                        @endforeach
                     </div>
                 </div>
             </div>
             <div class="row grid">
-                <div class="col-xl-3 col-sm-6 col-lg-4 fruits drinks">
+                @foreach ($latestProduct as $product)
+                <div class="col-xl-3 col-sm-6 col-lg-4 {{ $product->productcategories->slug.$product->productcategories->id }}">
                     <div class="single_product">
                         <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/product_3_img_1.jpg" alt="Product" class="img_fluid w-100">
+                            <img src="{{ asset($product->thumbnail) }}" alt="Product" class="img_fluid w-100">
                             <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal_{{ $product->id }}"><i
                                             class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                <li><a href="{{ route('productDetails',$product->slug) }}"><i class="far fa-eye"></i></a></li>
+                                <li><a class="{{ (wishlistHave($product->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a></li>
                             </ul>
                         </div>
                         <div class="single_product_text">
@@ -178,185 +177,21 @@
                                 <i class="fas fa-star-half-alt"></i>
                                 <i class="far fa-star"></i>
                             </span>
-                            <a class="title" href="shop_details.html">Lemon Meat Bone</a>
-                            <p>$20.00 <del>$25.00</del> </p>
+                            <a class="title" href="{{ route('productDetails',$product->slug) }}">{{ $product->title }}</a>
+                            <p>${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del> </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 vegetables root">
-                    <div class="single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/product_3_img_2.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Fresh Red Seedless</a>
-                            <p>$12.00 <del>$10.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 fruits nuts drinks">
-                    <div class="single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/product_3_img_3.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Carrot Vegetables</a>
-                            <p>$33.00 <del>$28.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 vegetables drinks root">
-                    <div class="single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/product_3_img_4.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Bengal Beef Bone</a>
-                            <p>$12.00 <del>$10.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 fruits root">
-                    <div class="single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/product_3_img_5.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Carrot Vegetables</a>
-                            <p>$45.00 <del>$50.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 vegetables nuts">
-                    <div class="single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/product_3_img_6.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Orange Slice Mix</a>
-                            <p>$29.00 <del>$35.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 fruits nuts root">
-                    <div class="single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/product_3_img_7.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Beef Butter Cake</a>
-                            <p>$30.00 <del>$34.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 vegetables drinks">
-                    <div class="single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/product_3_img_8.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Fresh Mango Fruits</a>
-                            <p>$22.00 <del>$26.00</del> </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
 
+    @foreach ($latestProduct as $product)
+    <form action="{{ route('addToCart') }}" method="post">
+        @csrf
     <div class="cart_popup_modal">
-        <div class="modal fade" id="cart_popup_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="cart_popup_modal_{{ $product->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -365,12 +200,12 @@
                         <div class="row align-items-center">
                             <div class="col-xl-6 col-md-6">
                                 <div class="cart_popup_modal_img">
-                                    <img src="{{ asset('assets') }}/images/home2_product_img_4.jpg" alt="Product img-fluid w-100">
+                                    <img src="{{asset($product->thumbnail)}}" alt="Product img-fluid w-100">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-md-6">
                                 <div class="product_det_text">
-                                    <h2 class="details_title">Nestle Nescafe Classic Instant</h2>
+                                    <h2 class="details_title">{{ $product->title }}</h2>
                                     <p class="rating">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -379,36 +214,31 @@
                                         <i class="far fa-star"></i>
                                         <span>Review (20)</span>
                                     </p>
-                                    <p class="price">$10.50 <del>$12.00</del></p>
+                                    <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                     <div class="details_quentity_area">
-                                        <p><span>Qti Weight</span> (in kg) :</p>
+                                        <p><span>Quantity</span> (in {{ $product->unitType }}) :</p>
                                         <div class="button_area">
-                                            <button>-</button>
-                                            <input type="text" placeholder="01">
-                                            <button>+</button>
+                                            <button class="decrement" type="button">-</button>
+                                            <input type="text" value="{{ cartQti($product->id) }}" class="quantity" name="quantity">
+                                            <button class="increment" type="button">+</button>
+                                            <input value="{{ $product->selePrice }}" type="hidden" class="selePrice">
                                         </div>
-                                        <h3>= $10.50</h3>
+
+                                        <h3>= $<span class="mathPrice">{{ $product->selePrice * cartQti($product->id)}}</span></h3>
                                     </div>
                                     <div class="details_cart_btn">
-                                        <a class="common_btn" href="#"><i class="far fa-shopping-basket"></i>
+                                        <button type="submit" class="common_btn"><i class="far fa-shopping-basket"></i>
                                             Add To
                                             Cart
-                                            <span></span></a>
-                                        <a class="love" href="#"><i class="far fa-heart"></i></a>
+                                            <span></span></button>
+                                        <a class="love {{ (wishlistHave($product->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
                                     </div>
-                                    <p class="category"><span>Category:</span>Coffee</p>
-                                    <ul class="tags">
-                                        <li>Tags:</li>
-                                        <li><a href="#">Black Coffee, </a></li>
-                                        <li><a href="#">Popular,</a></li>
-                                        <li><a href="#">Top Sell</a></li>
-                                    </ul>
+                                    <p class="category"><span>Category:</span>{{ $product->productcategories->name }}</p>
                                     <ul class="share">
                                         <li>Share with friends:</li>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $product->slug) }}&t={{ $product->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="https://twitter.com/share?text={{ $product->title }}&url={{ route('productDetails', $product->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $product->slug) }}&title={{ $product->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -418,6 +248,10 @@
             </div>
         </div>
     </div>
+    <input type="hidden" name="productId" value="{{ $product->id }}">
+</form>
+    @endforeach
+
     <!--=========================
         POPULAR PRODUCTS END
     ==========================-->
@@ -475,7 +309,7 @@
                                 <div class="text">
                                     <p class="rating">
                                         @php
-                                        for ($i=0; $i < $testimonial->rating ; $i++) { 
+                                        for ($i=0; $i < $testimonial->rating ; $i++) {
                                           echo'<i class="fas fa-star"></i>';
                                         }
                                         @endphp
@@ -485,7 +319,7 @@
                                     <p class="designation">{{ $testimonial->designation }}</p>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                         @empty
                             No testimonial found!
                         @endforelse
@@ -584,3 +418,47 @@
     ==========================-->
 
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+    $('.button_area').each(function() {
+        let $buttonArea = $(this);
+        let $quantityInput = $buttonArea.find('.quantity');
+        let $mathPrice = $buttonArea.next('h3').find('.mathPrice');
+        let pricePerItem = parseFloat($buttonArea.find('.selePrice').val()); // Get initial price
+
+        // Function to update price based on current quantity
+        function updatePrice() {
+            let quantity = parseInt($quantityInput.val());
+            let totalPrice = quantity * pricePerItem;
+            $mathPrice.text(totalPrice.toFixed(2)); // Update displayed price
+        }
+
+        // Decrement button click event
+        $buttonArea.on('click', '.decrement', function() {
+            let currentQuantity = parseInt($quantityInput.val());
+            if (currentQuantity > 1) {
+                $quantityInput.val(currentQuantity - 1);
+                updatePrice(); // Update price when quantity changes
+            }
+        });
+
+        // Increment button click event
+        $buttonArea.on('click', '.increment', function() {
+            let currentQuantity = parseInt($quantityInput.val());
+            $quantityInput.val(currentQuantity + 1);
+            updatePrice(); // Update price when quantity changes
+        });
+
+        // Initial update of price on page load
+        updatePrice();
+
+        // Optional: Update price if quantity input is manually changed
+        $quantityInput.on('input', function() {
+            updatePrice();
+        });
+    });
+});
+
+    </script>
+@endpush

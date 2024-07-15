@@ -117,62 +117,6 @@
         FRESH PRODUCTS END
     ==========================-->
 
-{{-- @push('scripts')
-    <script>
-        $(document).ready(function(){
-            //increment
-            $('.increment').on('click',function(){
-                let $quantity = $(this).siblings('.quantity');
-                let value = parseInt($quantity.val(),10);
-                value++
-                let selePrice = $(this).siblings('.selePrice').val();
-                let mathPrice = $('.mathPrice').text();
-                alert(mathPrice)
-                $('.quantity').val(value);
-            });
-
-            //decrement
-            $('.decrement').on('click', function(){
-                let $quantity = $(this).siblings('.quantity');
-
-                let value = parseInt($quantity.val(),10);
-                if (value > 1) {
-                    value--
-                }
-                $quantity.val(value);
-            });
-
-
-        });
-    </script>
-@endpush --}}
-
-
-{{-- @push('scripts')
-    <script>
-        $(document).ready(function(){
-            //Increment
-            $('#increment').on('click', function(){
-                let value = parseInt($('#quantity').val(),10);
-                value++
-                let selePrice = parseInt($('#selePrice').text());
-                let mathPrice = $('#mathPrice').text(selePrice*value);
-                $('#quantity').val(value);
-            })
-            //Decrement
-            $('#decrement').on('click', function(){
-                let value = parseInt($('#quantity').val(),10);
-                if (value > 1) {
-                    value--
-                    let selePrice = parseInt($('#selePrice').text());
-                    let mathPrice = $('#mathPrice').text(selePrice*value);
-                }
-                $('#quantity').val(value);
-            })
-        })
-    </script>
-@endpush --}}
-
 @push('scripts')
     <script>
         $(document).ready(function() {

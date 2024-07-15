@@ -121,13 +121,13 @@ function hovg(){
 
 //Global blogpost
 
-function globalBlog(){
-    $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->take(3)->get();
-     foreach ($blogs as $blog) {
-         $blog->commentsCount = Comment::where('postId',$blog->id)->where('status','approve')->count();
-     }
-     return $blogs;
- }
+// function globalBlog(){
+//     $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->paginate(9);
+//      foreach ($blogs as $blog) {
+//          $blog->commentsCount = Comment::where('postId',$blog->id)->where('status','approve')->count();
+//      }
+//      return $blogs;
+//  }
 
 
  function partners(){
@@ -290,3 +290,4 @@ function globalBlog(){
  function commentCounter($id){
     return Comment::where('postId',$id)->count();
  }
+

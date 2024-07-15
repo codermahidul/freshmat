@@ -675,15 +675,19 @@
             <div class="row">
                 <div class="col-xl-4 col-lg-6">
                     <div class="row">
+                        @foreach ($sbproduct1 as $product)
                         <div class="col-lg-12 col-md-6 wow fadeInLeft">
                             <div class="special_product_item">
                                 <div class="special_product_img">
-                                    <img src="{{ asset('assets') }}/images/special_product_1.jpg" alt="product"
+                                    <img src="{{ asset($product->thumbnail) }}" alt="product"
                                         class="img-fluid w-100">
-                                    <span class="discount">save 70%</span>
+                                        @if ($product->regularPrice)
+                                        <span class="discount">save
+                                            {{ round((($product->regularPrice - $product->selePrice) / $product->regularPrice) * 100) }}%</span>
+                                    @endif
                                 </div>
                                 <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Butter garlic crab</a>
+                                    <a class="title" href="{{ route('productDetails',$product->slug) }}">{{ $product->title }}</a>
                                     <span>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -691,49 +695,11 @@
                                         <i class="fas fa-star-half-alt"></i>
                                         <i class="far fa-star"></i>
                                     </span>
-                                    <p>$10.00 <del>$12.00</del></p>
+                                    <p>${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-md-6 wow fadeInLeft">
-                            <div class="special_product_item">
-                                <div class="special_product_img">
-                                    <img src="{{ asset('assets') }}/images/special_product_3.jpg" alt="product"
-                                        class="img-fluid w-100">
-                                    <span class="discount">save 40%</span>
-                                </div>
-                                <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Three Carrot</a>
-                                    <span>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </span>
-                                    <p>$17.00 <del>$20.00</del></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6 wow fadeInLeft">
-                            <div class="special_product_item">
-                                <div class="special_product_img">
-                                    <img src="{{ asset('assets') }}/images/special_product_2.jpg" alt="product"
-                                        class="img-fluid w-100">
-                                </div>
-                                <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Bengal Meat Bone</a>
-                                    <span>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </span>
-                                    <p>$13.00 <del>$15.00</del></p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-6 wow fadeInUp">
@@ -750,15 +716,19 @@
                 </div>
                 <div class="col-xl-4 col-lg-6">
                     <div class="row">
+                        @foreach ($sbproduct2 as $product)
                         <div class="col-lg-12 col-md-6 wow fadeInRight">
                             <div class="special_product_item">
                                 <div class="special_product_img">
-                                    <img src="{{ asset('assets') }}/images/special_product_4.jpg" alt="product"
+                                    <img src="{{ asset($product->thumbnail) }}" alt="product"
                                         class="img-fluid w-100">
-                                    <span class="discount">save 50%</span>
+                                        @if ($product->regularPrice)
+                                        <span class="discount">save
+                                            {{ round((($product->regularPrice - $product->selePrice) / $product->regularPrice) * 100) }}%</span>
+                                    @endif
                                 </div>
                                 <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Lemon Meat Bone</a>
+                                    <a class="title" href="{{ route('productDetails',$product->slug) }}">{{ $product->title }}</a>
                                     <span>
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -766,49 +736,11 @@
                                         <i class="fas fa-star-half-alt"></i>
                                         <i class="far fa-star"></i>
                                     </span>
-                                    <p>$29.00 <del>$32.00</del></p>
+                                    <p>${{ $product->selePrice }} <del>{{ $product->regularPrice ? "$" : '' }}{{ $product->regularPrice }}</del></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-md-6 wow fadeInRight">
-                            <div class="special_product_item">
-                                <div class="special_product_img">
-                                    <img src="{{ asset('assets') }}/images/special_product_5.jpg" alt="product"
-                                        class="img-fluid w-100">
-                                </div>
-                                <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Orange Slice Mix</a>
-                                    <span>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </span>
-                                    <p>$20.00 <del>$22.00</del></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6 wow fadeInRight">
-                            <div class="special_product_item">
-                                <div class="special_product_img">
-                                    <img src="{{ asset('assets') }}/images/special_product_6.jpg" alt="product"
-                                        class="img-fluid w-100">
-                                    <span class="discount">save 30%</span>
-                                </div>
-                                <div class="special_product_text">
-                                    <a class="title" href="shop_details.html">Carrot Vegetables</a>
-                                    <span>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                    </span>
-                                    <p>$16.00 <del>$18.00</del></p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

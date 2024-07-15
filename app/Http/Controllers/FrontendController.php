@@ -9,6 +9,7 @@ use App\Models\InstagramPost;
 use App\Models\Invoice;
 use App\Models\InvoicesProducts;
 use App\Models\Product;
+use App\Models\BlogPost;
 use App\Models\ProductCategory;
 use App\Models\Slider;
 use App\Models\User;
@@ -42,21 +43,24 @@ class FrontendController extends Controller
         if ($request->has('search')) {
             $query->where('title','like','%'.$request->input('search').'%');
         }
-
+        $selected = '';
         if ($request->has('sort')) {
             switch ($request->sort) {
                 case 'lh':
                     $query->orderBy('selePrice','asc');
+                    $selected = 'lh';
                     break;
 
                 case 'hl' :
                     $query->orderBy('selePrice','desc');
+                    $selected = 'hl';
                     break;
 
                 case 'bs' :
                     $query->withCount(['invoiceProducts as sales_count' => function($query){
                         $query->select(DB::raw('SUM(quantity)'));
                     }])->orderBy('sales_count','desc');
+                    $selected = 'bs';
                     break;
 
                 default:
@@ -72,6 +76,7 @@ class FrontendController extends Controller
         return view('frontend.pages.shop',compact([
             'products',
             'featuredProducts',
+            'selected',
         ]));
     }
 
@@ -245,6 +250,15 @@ class FrontendController extends Controller
     }
 
     public function index(){
+        // function globalBlog(){
+//     $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->paginate(9);
+//      foreach ($blogs as $blog) {
+//          $blog->commentsCount = Comment::where('postId',$blog->id)->where('status','approve')->count();
+//      }
+//      return $blogs;
+//  }
+       $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->take(3)->get();
+
         $productCategories = ProductCategory::where('status','active')->latest()->get();
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(8)->get();
@@ -259,6 +273,7 @@ class FrontendController extends Controller
             });
         }])->get();
 
+
         if (setting('theme') == 'all') {
             $viewName = 'welcome';
             return view('welcome',compact([
@@ -268,8 +283,10 @@ class FrontendController extends Controller
                 'sliders',
                 'viewName',
                 'specialProduct',
+                'blogs',
             ]));
         }elseif (setting('theme') == 'one') {
+
             $viewName = 'welcome';
             return view('welcome',compact([
                 'productCategories',
@@ -277,6 +294,7 @@ class FrontendController extends Controller
                 'latestProduct',
                 'sliders',
                 'viewName',
+                'blogs',
             ]));
         }elseif(setting('theme') == 'two'){
             $instagramPost = InstagramPost::latest()->get();
@@ -288,27 +306,37 @@ class FrontendController extends Controller
                 $query->avg('productId','rating');
             });
         }])->get();
+        $firstThreeIds = $sbproduct1->pluck('id')->toArray();
+        $sbproduct1 =Product::where('status','active')->latest()->take(3)->get();
+        $sbproduct2 = Product::where('status','active')->whereNotIn('id',$firstThreeIds)->latest()->take(3)->get();
             $viewName = 'homeTwo';
             return view('homeTwo',compact([
                 'viewName',
                 'instagramPost',
                 'specialProduct',
+                'sbproduct1',
+                'sbproduct2',
             ]));
         }elseif(setting('theme') == 'three'){
             $viewName = 'homeThree';
             $productCategories = ProductCategory::where('status','active')->latest()->get();
             $sliders = Slider::where('status','active')->latest()->get();
             $backgroundVideo = H3Video::find(1)->first();
+            $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
+            $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(8)->get();
             return view('homeThree',compact([
                 'productCategories',
                 'sliders',
                 'viewName',
                 'backgroundVideo',
+                'topCategories',
+                'latestProduct',
             ]));
         }
     }
 
     public function indexOne(){
+        $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->take(3)->get();
         $productCategories = ProductCategory::where('status','active')->latest()->get();
         $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
         $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(8)->get();
@@ -322,6 +350,7 @@ class FrontendController extends Controller
                 $query->avg('productId','rating');
             });
         }])->get();
+
         return view('welcome',compact([
             'productCategories',
             'topCategories',
@@ -329,6 +358,7 @@ class FrontendController extends Controller
             'sliders',
             'viewName',
             'specialProduct',
+            'blogs',
         ]));
     }
 
@@ -344,11 +374,18 @@ class FrontendController extends Controller
                 $query->avg('productId','rating');
             });
         }])->get();
+        $sbproduct1 =Product::where('status','active')->latest()->take(3)->get();
+        $firstThreeIds = $sbproduct1->pluck('id')->toArray();
+        $sbproduct2 = Product::where('status','active')->whereNotIn('id',$firstThreeIds)->latest()->take(3)->get();
+        $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->take(3)->get();
         return view('homeTwo',compact([
             'viewName',
             'instagramPost',
             'latestProduct',
-            'specialProduct'
+            'specialProduct',
+            'sbproduct1',
+            'sbproduct2',
+            'blogs',
         ]));
     }
 
@@ -357,11 +394,17 @@ class FrontendController extends Controller
         $sliders = Slider::where('status','active')->latest()->get();
         $viewName = 'homeThree';
         $backgroundVideo = H3Video::find(1)->first();
+        $topCategories = ProductCategory::where('status','active')->latest()->take(4)->get();
+        $latestProduct = Product::where('status','active')->with('productcategories','productgallery')->latest()->take(8)->get();
+        $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->take(3)->get();
         return view('homeThree',compact([
             'productCategories',
             'sliders',
             'viewName',
             'backgroundVideo',
+            'topCategories',
+            'latestProduct',
+            'blogs',
         ]));
     }
 
@@ -392,3 +435,4 @@ class FrontendController extends Controller
 
 
 }
+

@@ -19,7 +19,7 @@ class BlogController extends Controller
         $posts = BlogPost::join('users', 'blog_posts.userId', '=', 'users.id')
             ->join('blog_categories', 'blog_posts.categoryId', '=', 'blog_categories.id')
             ->select('blog_posts.*', 'users.name as author', 'blog_categories.name as category')
-            ->latest()->paginate(10);
+            ->latest()->paginate(9);
         return view('dashboard.blog.blog', compact('posts'));
     }
 
@@ -291,7 +291,7 @@ class BlogController extends Controller
 
     function showblogpost()
     {
-        $blogs = BlogPost::where('status', 'publish')->with('blogcategory')->with('user')->latest()->paginate(12);
+        $blogs = BlogPost::where('status', 'publish')->with('blogcategory')->with('user')->latest()->paginate(9);
         foreach ($blogs as $blog) {
             $blog->commentsCount = Comment::where('postId', $blog->id)->where('status', 'approve')->count();
         }
@@ -303,10 +303,11 @@ class BlogController extends Controller
     function blogDetails($slug)
     {
         $blogDetails = BlogPost::where('slug', $slug)->with('blogcategory')->with('user')->first();
-        $comments = Comment::where('status', 'approve')->where('postId', $blogDetails->id)->with('user.userProfile')->latest()->paginate(10);
+        $comments = Comment::where('status', 'approve')->where('postId', $blogDetails->id)->with('user.userProfile')->latest()->paginate(3);
+        $totalComments = $comments->total();
         $recentPosts = BlogPost::latest()->where('id', '!=', $blogDetails->id)->take(3)->get();
         $slug = $slug;
-        return view('frontend.pages.blogdetails', compact('blogDetails', 'comments', 'recentPosts', 'slug'));
+        return view('frontend.pages.blogdetails', compact('blogDetails', 'comments', 'totalComments' , 'recentPosts', 'slug'));
     }
 
     //Category wise blog post

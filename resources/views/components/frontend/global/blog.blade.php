@@ -1,4 +1,4 @@
-@if (globalBlog()->count() > 0)
+@if ($blogs->count() > 0)
 
     <!--=========================
         BLOG START
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="row">
-                @forelse (globalBlog() as $blog)
+                @forelse ($blogs as $blog)
                 <div class="col-lg-4 col-md-6">
                     <div class="blog_item wow fadeInUp">
                         <div class="blog_img">
@@ -45,6 +45,8 @@
                 @empty
                     No Post Found!
                 @endforelse
+                {{-- Pagination --}}
+                {{-- {{ $blogs->links('pagination.frontendPagination') }} --}}
             </div>
         </div>
     </section>
