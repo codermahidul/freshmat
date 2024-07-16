@@ -72,6 +72,7 @@ Route::get('/product/cart/remove/{id}',[CartController::class, 'removeCartItem']
 Route::get('/blog',[BlogController::class, 'showblogpost'])->name('frontendblog');
 Route::get('/blog/{slug}',[BlogController::class, 'blogDetails'])->name('blogDetails');
 Route::get('/blog/category/{slug}',[BlogController::class, 'categoryWiseBlog'])->name('categoryWiseBlog');
+Route::post('/blog/search', [BlogController::class, 'blogSearch'])->name('blogSearch');
 //Coupon
 Route::post('/product/coupon/claim',[CouponController::class, 'couponClaim'])->name('couponClaim');
 Route::get('/checkroute',[CouponController::class, 'checkroute'])->name('checkroute');

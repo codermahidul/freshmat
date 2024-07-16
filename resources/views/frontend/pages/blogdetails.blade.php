@@ -14,7 +14,7 @@
                             <ul>
                                 <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
                                 <li><a href="">Blog</a></li>
-                                <li><a href="">{{ $blogDetails->title }}</a></li>
+                                <li><a href="">Blog Details</a></li>
                             </ul>
                         </div>
                     </div>
@@ -121,9 +121,10 @@
                         <div class="blog_sidebar_search">
                             <div class="sedebar_content">
                                 <h3>Search Here</h3>
-                                <form>
-                                    <input type="text" placeholder="Search...">
-                                    <button><i class="far fa-search"></i></button>
+                                <form method="POST" action="{{ route('blogSearch') }}">
+                                    @csrf
+                                    <input type="text" placeholder="Search..." name="query">
+                                    <button type="submit"><i class="far fa-search"></i></button>
                                 </form>
                             </div>
                         </div>

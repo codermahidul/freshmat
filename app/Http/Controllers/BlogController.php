@@ -339,4 +339,21 @@ class BlogController extends Controller
         toast('Your comment has been submitted.', 'success')->width('400');
         return back();
     }
+
+
+
+    function blogSearch(Request $request){
+
+        if ($request->input('query') == null) {
+            toast('Search field is required!', 'warning')->width('400');
+            return back();
+        }
+
+
+        $blogs = BlogPost::where('title', 'LIKE', "%{$request->input('query')}%")->paginate(9);
+        return view('frontend.pages.blog',compact('blogs'));
+
+    }
+
+
 }
