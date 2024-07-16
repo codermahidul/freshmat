@@ -201,6 +201,29 @@
                         </li>
                         <li><a class="{{ Route::currentRouteNamed('frontendblog') ? 'active' : '' }}"
                                 href="{{ route('frontendblog') }}">blog</a></li>
+                                <li class="relative_li"><a href="#">pages <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+                                    <ul class="menu_droapdown">
+                                        <li><a href="about_us.html">about us</a></li>
+                                        <li><a href="blogs_details.html">blog details</a></li>
+                                        <li><a href="shop_details.html">shop details</a></li>
+                                        <li><a href="cart_view.html">cart view</a></li>
+                                        <li><a href="checkout.html">checkout</a></li>
+                                        <li><a href="payment.html">Payment</a></li>
+                                        <li><a href="dashboard.html">dashboard</a></li>
+                                        <li><a href="order_tracking.html">order tracking</a></li>
+                                        <li><a href="team.html">Our team</a></li>
+                                        <li><a href="team_details.html">team details</a></li>
+                                        <li><a href="error.html">error/404</a></li>
+                                        <li><a href="{{ route('faqsf') }}">faq's</a></li>
+                                        <li><a href="gallery.html">gallery</a></li>
+                                        <li><a href="sign_in.html">sign in</a></li>
+                                        <li><a href="sign_up.html">sign up</a></li>
+                                        <li><a href="forgot_password.html">forgot password</a></li>
+                                        <li><a href="privacy_policy.html">privacy policy</a></li>
+                                        <li><a href="terms_condition.html">terms &amp; condition</a></li>
+                                        <li><a href="flash_sell.html">flash sell</a></li>
+                                    </ul>
+                                </li>
                         <li><a class="{{ Route::currentRouteNamed('aboutUs') ? 'active' : '' }}"
                                 href="{{ route('aboutUs') }}">About Us</a></li>
                         <li><a class="{{ Route::currentRouteNamed('contact') ? 'active' : '' }}"

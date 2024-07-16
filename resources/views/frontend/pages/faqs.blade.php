@@ -55,7 +55,7 @@
                         @endforelse
                     </div>
                     <div class="col-lg-6 wow fadeInRight">
-                        @forelse (faqs('even') as $item)
+                        @foreach (faqs('even') as $item)
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -70,9 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                        @empty
-                            No Faqs found
-                        @endforelse
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -82,4 +80,4 @@
         FAQ PAGE END
     ==========================-->
 @endsection
-    
+
