@@ -108,7 +108,7 @@
                                     <img src="{{ asset($product->thumbnail) }}" alt="Product" class="img_fluid w-100">
                                     <ul>
                                         <li><a href="{{ route('productDetails',$product->slug) }}"><i class="far fa-eye"></i></a></li>
-                                        <li><a href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a></li>
+                                        <li><a class="{{ (wishlistHave($product->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="single_product_text">
@@ -162,7 +162,7 @@
                                         </p>
                                         <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                         <div class="details_quentity_area">
-                                            <p><span>Qti</span> (in {{ $product->unitType }}) :</p>
+                                            <p><span>Quantity</span> (in {{ $product->unitType }}) :</p>
                                             <div class="button_area">
                                                 <button class="decrement" type="button">-</button>
                                                 <input type="text" value="{{ cartQti($product->id) }}" class="quantity" name="quantity">

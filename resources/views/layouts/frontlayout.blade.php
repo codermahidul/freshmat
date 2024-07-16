@@ -202,7 +202,7 @@
                         <li><a class="{{ Route::currentRouteNamed('frontendblog') ? 'active' : '' }}"
                                 href="{{ route('frontendblog') }}">blog</a></li>
                         <li><a class="{{ Route::currentRouteNamed('aboutUs') ? 'active' : '' }}"
-                                href="{{ route('contact') }}">About Us</a></li>
+                                href="{{ route('aboutUs') }}">About Us</a></li>
                         <li><a class="{{ Route::currentRouteNamed('contact') ? 'active' : '' }}"
                                 href="{{ route('contact') }}">contact</a></li>
                     </ul>

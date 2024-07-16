@@ -69,7 +69,7 @@
                         <form action="{{ route('addToCart') }}" method="post" id="addToCart">
                             @csrf
                         <div class="details_quentity_area">
-                            <p><span>Qti</span> (in {{ $productInfo->unitType }}) :</p>
+                            <p><span>Quantity</span> (in {{ $productInfo->unitType }}) :</p>
                             <div class="button_area">
                                 <button type="button" id="decrement">-</button>
                                 <input type="text" placeholder="01" name="quantity" value="{{ cartQti($productInfo->id) }}" id="quantity">
@@ -234,8 +234,8 @@
                         <div class="single_product_img">
                             <img src="{{ asset($singleProduct->thumbnail) }}" alt="Product" class="img_fluid w-100">
                             <ul>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                <li><a href="{{ route('productDetails',$singleProduct->slug) }}"><i class="far fa-eye"></i></a></li>
+                                <li><a class="{{ (wishlistHave($singleProduct->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist',$singleProduct->id) }}"><i class="far fa-heart"></i></a></li>
                             </ul>
                         </div>
                         <div class="single_product_text">
@@ -284,7 +284,7 @@
                                         </p>
                                         <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                         <div class="details_quentity_area">
-                                            <p><span>Qti</span> (in {{ $product->unitType }}) :</p>
+                                            <p><span>Quantity</span> (in {{ $product->unitType }}) :</p>
                                             <div class="button_area">
                                                 <button class="decrement" type="button">-</button>
                                                 <input type="text" value="{{ cartQti($product->id) }}" class="quantity" name="quantity">

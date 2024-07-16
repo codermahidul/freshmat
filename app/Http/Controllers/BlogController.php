@@ -37,15 +37,13 @@ class BlogController extends Controller
             'thumbnail' => 'required|image',
         ]);
 
-        //Auth::user()->id;
-
         //Slug
         $slug = "";
         if ($request->input('slug') == '') {
             $name = $request->input('title');
-            $slug = Str::lower(Str::replace(' ', '-', $name));
+            $slug = Str::slug($name);
         } else {
-            $slug = Str::lower(Str::replace(' ', '-', $request->input('slug')));
+            $slug = Str::slug($request->input('slug'));
         }
 
         //Thumbnail Process
@@ -315,7 +313,7 @@ class BlogController extends Controller
     function categoryWiseBlog($slug)
     {
         $id = BlogCategory::where('slug', $slug)->first()->id;
-        $blogs = BlogPost::where('status', 'publish')->where('categoryId', $id)->with('blogcategory')->with('user')->latest()->paginate(12);
+        $blogs = BlogPost::where('status', 'publish')->where('categoryId', $id)->with('blogcategory')->with('user')->latest()->paginate(9);
         $categroyName = BlogCategory::where('slug', $slug)->first()->name;
         return view('frontend.pages.categorywiseblog', compact('blogs', 'categroyName'));
     }

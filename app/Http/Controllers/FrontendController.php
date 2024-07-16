@@ -250,13 +250,7 @@ class FrontendController extends Controller
     }
 
     public function index(){
-        // function globalBlog(){
-//     $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->paginate(9);
-//      foreach ($blogs as $blog) {
-//          $blog->commentsCount = Comment::where('postId',$blog->id)->where('status','approve')->count();
-//      }
-//      return $blogs;
-//  }
+
        $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->take(3)->get();
 
         $productCategories = ProductCategory::where('status','active')->latest()->get();
@@ -414,11 +408,13 @@ class FrontendController extends Controller
     }
 
     public function aboutUs(){
+        $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->take(3)->get();
         $viewName = 'welcome';
         $contents = AboutUs::find(1);
         return view('frontend.pages.aboutus',compact([
             'contents',
             'viewName',
+            'blogs',
         ]));
     }
 
