@@ -33,11 +33,13 @@ class DatabaseSeeder extends Seeder
         //  FooterSeeder::class,
         //  HomeTwoPolicySeeder::class,
         //  H3VideoSeeder::class,
+        //  PrivacyPolicySeeder::class,
+        //  TermsConditionSeeder::class,
     ]);
 
-     Product::factory(10)->has(
-          ProductGallery::factory(3)
-      ,'productgallery')->create();
+    //  Product::factory(10)->has(
+    //       ProductGallery::factory(3)
+    //   ,'productgallery')->create();
 
     }
 

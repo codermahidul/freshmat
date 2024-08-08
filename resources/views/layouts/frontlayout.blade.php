@@ -219,8 +219,8 @@
                                         <li><a href="sign_in.html">sign in</a></li>
                                         <li><a href="sign_up.html">sign up</a></li>
                                         <li><a href="forgot_password.html">forgot password</a></li>
-                                        <li><a href="privacy_policy.html">privacy policy</a></li>
-                                        <li><a href="terms_condition.html">terms &amp; condition</a></li>
+                                        <li><a href="{{ route('privacyPolicy') }}">privacy policy</a></li>
+                                        <li><a href="{{ route('termsCondition') }}">terms &amp; condition</a></li>
                                         <li><a href="flash_sell.html">flash sell</a></li>
                                     </ul>
                                 </li>

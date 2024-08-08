@@ -9,19 +9,19 @@
          <div class="tab-content">
              <div class="tab-pane active" id="profileSetting">
                  <form class="form-horizontal" action="{{ route('profileUpdate') }}" method="POST" enctype="multipart/form-data">
-                    @csrf 
+                    @csrf
                     <div class="form-group row w-50">
                          <label for="name" class="col-sm-2 col-form-label">Photo</label>
                          <div class="col-sm-10">
-                             <img src="{{ asset(Auth::user()->userProfile->photo) }}" alt="">
+                             <img width="100" src="{{ asset(Auth::user()->userProfile->photo) }}" alt="">
                          </div>
-                     </div>                     
+                     </div>
                      <div class="form-group row">
                          <label for="photo" class="col-sm-2 col-form-label">Photo</label>
                          <div class="col-sm-10">
                              <input type="file" class="form-control" id="photo" name="photo">
                          </div>
-                     </div>                    
+                     </div>
                       <div class="form-group row">
                          <label for="name" class="col-sm-2 col-form-label">Name</label>
                          <div class="col-sm-10">
@@ -39,7 +39,7 @@
                          <div class="col-sm-10">
                              <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone" value="{{ Auth::user()->userProfile->phone }}">
                          </div>
-                     </div>                    
+                     </div>
                       <div class="form-group row">
                          <label for="city" class="col-sm-2 col-form-label">City</label>
                          <div class="col-sm-10">
@@ -70,7 +70,7 @@
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                         </div>
-                    </div>                    
+                    </div>
                     <div class="form-group row">
                         <label for="password" class="col-sm-2 col-form-label">New Password</label>
                         <div class="col-sm-10">
@@ -79,7 +79,7 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                         </div>
-                    </div>                    
+                    </div>
                     <div class="form-group row">
                         <label for="password_confirmation" class="col-sm-2 col-form-label">Confirm Password</label>
                         <div class="col-sm-10">

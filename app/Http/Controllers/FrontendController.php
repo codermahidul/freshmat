@@ -418,6 +418,14 @@ class FrontendController extends Controller
         ]));
     }
 
+    public function privacyPolicy(){
+        return view('frontend.pages.privacyPolicy');
+    }
+
+    public function termsCondition(){
+        return view('frontend.pages.termsCondition');
+    }
+
     public function faqsf(){
         return view('frontend.pages.faqs');
     }

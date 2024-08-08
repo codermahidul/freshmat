@@ -335,6 +335,18 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{ route('privacyPolicy.index') }}" class="nav-link {{ Route::currentRouteNamed('privacyPolicy.index') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Privacy Policy</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('termsConditon.index')}}" class="nav-link {{ Route::currentRouteNamed('termsConditon.index') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Terms & Condition</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{route('faqs')}}" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>FAQs</p>

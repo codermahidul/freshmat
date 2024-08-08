@@ -36,6 +36,8 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ThemeOptionController;
 use App\Http\Controllers\AdminloginController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\TermsConditionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +66,8 @@ Route::get('/shop/product/{slug}', [FrontendController::class, 'productDetails']
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/faqsf', [FrontendController::class, 'faqsf'])->name('faqsf');
+Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacyPolicy');
+Route::get('/terms-and-condition', [FrontendController::class, 'termsCondition'])->name('termsCondition');
 //Cart
 Route::post('/product/cart/add/',[CartController::class, 'addToCart'])->name('addToCart');
 Route::get('/product/cart/',[CartController::class, 'cart'])->name('cart');
@@ -303,10 +307,15 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/order/status/{id}', [OrderController::class, 'orderStatus'])->name('orderStatus');
 
     //Profile
-    Route::get('/admin/profile', [ProfileController::class, 'index'])->name('adminProfile');
-    Route::post('/admin/pfofile/update', [ProfileController::class, 'profileUpdate'])->name('profileUpdate');
-    Route::post('/admin/password/update', [ProfileController::class, 'passwordUpdate'])->name('passwordUpdate');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('adminProfile');
+    Route::post('/pfofile/update', [ProfileController::class, 'profileUpdate'])->name('profileUpdate');
+    Route::post('/password/update', [ProfileController::class, 'passwordUpdate'])->name('passwordUpdate');
 
+    //Privacy Plicy
+    Route::get('/privacy-policy', [PrivacyPolicyController::class, 'index'])->name('privacyPolicy.index');
+    Route::get('/terms-and-condition', [TermsConditionController::class, 'index'])->name('termsConditon.index');
+    Route::post('/privacy-policy/update', [PrivacyPolicyController::class, 'ppupdate'])->name('privacyPolicy.update');
+    Route::post('/terms-condition/update', [TermsConditionController::class, 'tcupdate'])->name('termsCondition.update');
 
 });
 
