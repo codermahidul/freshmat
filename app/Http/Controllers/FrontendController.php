@@ -16,6 +16,8 @@ use App\Models\User;
 use App\Models\Reviews;
 use App\Models\UserProfile;
 use App\Models\Wishlist;
+use App\Models\PrivacyPolicy;
+use App\Models\TermsCondition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -419,11 +421,13 @@ class FrontendController extends Controller
     }
 
     public function privacyPolicy(){
-        return view('frontend.pages.privacyPolicy');
+        $content = PrivacyPolicy::find(1)->first()->content;
+        return view('frontend.pages.privacyPolicy', compact('content'));
     }
 
     public function termsCondition(){
-        return view('frontend.pages.termsCondition');
+        $content = TermsCondition::find(1)->first()->content;
+        return view('frontend.pages.termsCondition', compact('content'));
     }
 
     public function faqsf(){

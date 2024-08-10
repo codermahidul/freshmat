@@ -119,15 +119,6 @@ function hovg(){
     return HomeVideoGallery::where('id',1)->first();
 }
 
-//Global blogpost
-
-// function globalBlog(){
-//     $blogs = BlogPost::where('status','publish')->with('blogcategory')->with('user')->latest()->paginate(9);
-//      foreach ($blogs as $blog) {
-//          $blog->commentsCount = Comment::where('postId',$blog->id)->where('status','approve')->count();
-//      }
-//      return $blogs;
-//  }
 
 
  function partners(){
@@ -291,3 +282,11 @@ function hovg(){
     return Comment::where('postId',$id)->count();
  }
 
+
+ function topFiveCategory(){
+    return ProductCategory::latest()->take(5)->get();
+ }
+
+ function topFiveBlogCategory(){
+    return BlogCategory::latest()->take(5)->get();
+ }

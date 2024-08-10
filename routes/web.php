@@ -317,6 +317,13 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/privacy-policy/update', [PrivacyPolicyController::class, 'ppupdate'])->name('privacyPolicy.update');
     Route::post('/terms-condition/update', [TermsConditionController::class, 'tcupdate'])->name('termsCondition.update');
 
+
+    //Email Template
+
+
+
+
+
 });
 
 

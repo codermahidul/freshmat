@@ -606,11 +606,9 @@
                         <div class="footer_link">
                             <h3>Category</h3>
                             <ul>
-                                <li><a href="shop.html">Milk & Dairy</a></li>
-                                <li><a href="shop.html">Coffee & Drinks</a></li>
-                                <li><a href="shop.html">Fresh & Fruits</a></li>
-                                <li><a href="shop.html">Fresh Dessert</a></li>
-                                <li><a href="shop.html">Cleaning Essential</a></li>
+                                @foreach (topFiveCategory() as $category)
+                                    <li><a href="{{ route('categoryWiseProduct',$category->slug) }}">{{ $category->name }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -618,35 +616,34 @@
                         <div class="footer_link">
                             <h3>Quick Links</h3>
                             <ul>
-                                <li><a href="#">Aarong Dairy</a></li>
-                                <li><a href="#">Alshifa Natural</a></li>
-                                <li><a href="#">Agro Acres</a></li>
-                                <li><a href="#">Service</a></li>
-                                <li><a href="#">News</a></li>
+                                <li><a href="{{ route('frontendblog') }}">Blog</a></li>
+                                <li><a href="{{ route('aboutUs') }}">About Us</a></li>
+                                <li><a href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
+                                <li><a href="{{ route('termsCondition') }}">Terms & condition</a></li>
+                                <li><a href="{{ route('faqsf') }}">FAQs</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 col-sm-6 col-md-4">
                         <div class="footer_link">
-                            <h3>Our Services</h3>
+                            <h3>Blog Category</h3>
                             <ul>
-                                <li><a href="#">Agriculture</a></li>
-                                <li><a href="#">Organic Products</a></li>
-                                <li><a href="#">Milk Sweet</a></li>
-                                <li><a href="#">Delivery Service</a></li>
-                                <li><a href="#">Fresh Vegetables</a></li>
+                                @foreach (topFiveBlogCategory() as $blogCategory)
+                                <li><a href="{{ route('categoryWiseBlog',$blogCategory->slug) }}">{{ $blogCategory->name }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 col-sm-6 col-md-4">
                         <div class="footer_link">
-                            <h3>Contact Us</h3>
+                            <h3>My Account</h3>
                             <ul>
-                                <li><a href="about_us.html">About Us</a></li>
-                                <li><a href="sign_in.html">Sign In</a></li>
-                                <li><a href="sign_up.html">Sign Up</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
-                                <li><a href="team.html">Team</a></li>
+                                <li><a href="{{ route('userDashboard') }}">My Account</a></li>
+                                <li><a href="{{ route('userOrder') }}">Order</a></li>
+                                <li><a href="{{ route('userReview') }}">Reviews</a></li>
+                                <li><a href="{{ route('userWishlist') }}">Wishlist</a></li>
+                                <li><a href="{{ route('shop') }}">Shop</a></li>
+
                             </ul>
                         </div>
                     </div>
