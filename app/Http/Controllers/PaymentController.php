@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Session;
 class PaymentController extends Controller
 {
     public function payment(Request $request){
+        dd($request->all());
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',

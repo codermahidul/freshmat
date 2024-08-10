@@ -380,7 +380,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link {{ Route::currentRouteNamed('') ? 'active' : '' }}">
+                <a href="{{ route('emailTemplate') }}" class="nav-link {{ Route::currentRouteNamed('emailTemplate') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Email Template</p>
                 </a>

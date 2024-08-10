@@ -38,6 +38,9 @@ use App\Http\Controllers\AdminloginController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\TermsConditionController;
+use App\Http\Controllers\EmailTemplateController;
+use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\PaypalPaymentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +51,19 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/home-one', [FrontendController::class, 'indexOne'])->name('indexOne');
 Route::get('/home-two', [FrontendController::class, 'indexTwo'])->name('indexTwo');
 Route::get('/home-three', [FrontendController::class, 'indexThree'])->name('indexThree');
+
+//Payment Getway
+
+//Stripe
+Route::post('stripe/payment', [StripePaymentController::class, 'payment'])->name('stirpe.payment');
+Route::get('stripe/success', [StripePaymentController::class, 'success'])->name('stirpe.success');
+Route::get('stripe/cancel', [StripePaymentController::class, 'cancel'])->name('stirpe.cancel');
+
+//Paypal
+Route::post('paypal/payment', [PaypalPaymentController::class, 'payment'])->name('paypal.payment');
+Route::get('paypal/success', [PaypalPaymentController::class, 'success'])->name('paypal.success');
+Route::get('paypal/cancel', [PaypalPaymentController::class, 'cancel'])->name('paypal.cancel');
+
 
 //Admin Login Page
 Route::get('/admin/login', [AdminloginController::class, 'login'])->name('admin.login');
@@ -319,7 +335,7 @@ Route::group(['middleware' => ['auth','role']], function(){
 
 
     //Email Template
-
+    Route::get('/email-template', [EmailTemplateController::class, 'index'])->name('emailTemplate');
 
 
 
