@@ -1,6 +1,6 @@
 <div class="col-xl-9 col-lg-8 wow fadeInRight">
     <div class="dashboard_content">
-        <a class="back_btn common_btn" href="dashboard_order.html"><i
+        <a class="back_btn common_btn" href="{{ route('userOrder') }}"><i
                 class="far fa-long-arrow-left"></i> Go
             Back <span></span></a>
         <div class="dashboard_order_invoice">

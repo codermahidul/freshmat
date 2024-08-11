@@ -81,7 +81,7 @@ Route::get('/shop/product/{slug}', [FrontendController::class, 'productDetails']
 //pages
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('aboutUs');
-Route::get('/faqsf', [FrontendController::class, 'faqsf'])->name('faqsf');
+Route::get('/faq', [FrontendController::class, 'faqsf'])->name('faqsf');
 Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacyPolicy');
 Route::get('/terms-and-condition', [FrontendController::class, 'termsCondition'])->name('termsCondition');
 //Cart

@@ -17,7 +17,7 @@
               </tr>
             </thead>
             <tbody>
-            
+
                 @forelse ($faqs as $faq)
                 <tr>
                     <td>{{$loop->index + 1}}</td>
@@ -28,7 +28,7 @@
                         <a href="{{route('faqs.delete',$faq->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
-                @empty 
+                @empty
                 <tr align="center">
                   <td colspan="10" class="py-5">No FAQs Found! <a href="{{ route('faqs.add') }}">Add New</a></td>
                 </tr>
@@ -137,7 +137,7 @@
                       <a href="{{route('faqs.delete',$faq->id)}}" class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                   </td>
                 </tr>
-              @empty 
+              @empty
               <tr align="center">
                 <td colspan="10" class="py-5">No FAQs Found! <a href="{{ route('faqs.add') }}">Add New</a></td>
               </tr>
@@ -150,70 +150,3 @@
   </div>
 
 
-  @push('scripts')
-  <script>
-      $(function() {
-          $("#example1").DataTable({
-              "responsive": true,
-              "lengthChange": true,
-              "autoWidth": true,
-              "buttons": ["excel", "pdf", "print"]
-          }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-
-          $('#example2').DataTable({
-              "paging": true,
-              "lengthChange": true,
-              "searching": true,
-              "ordering": true,
-              "info": true,
-              "autoWidth": true,
-              "responsive": true,
-          });
-      });
-  </script>
-@endpush
-
-
-@if (session('success'))
-<script>
-
-const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-right',
-    iconColor: 'white',
-    customClass: {
-      popup: 'colored-toast',
-    },
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-  })
-
-  Toast.fire({
-    icon: 'success',
-    title: "{{ session('success') }}",
-  })
-</script>
-@endif
-</div>
-@if (session('error'))
-<script>
-
-const Toast = Swal.mixin({
-  toast: true,
-  position: 'top-right',
-  iconColor: 'white',
-  customClass: {
-    popup: 'colored-toast',
-  },
-  showConfirmButton: false,
-  timer: 3000,
-  timerProgressBar: true,
-})
-
-Toast.fire({
-  icon: 'error',
-  title: "{{ session('error') }}",
-})
-</script>
-@endif
