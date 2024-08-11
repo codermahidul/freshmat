@@ -192,7 +192,8 @@ class FrontendController extends Controller
     }
 
     public function review(){
-        return view('frontend.pages.dashboard.review');
+        $reviews = Reviews::where('userId', Auth::user()->id)->latest()->paginate(4);
+        return view('frontend.pages.dashboard.review',compact('reviews'));
     }
 
     public function wishlist(){

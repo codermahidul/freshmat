@@ -33,7 +33,7 @@ class ReviewsController extends Controller
             $query->select('id','name');
         }, 'product' => function($query) {
             $query->select('id', 'title'); // Assuming 'id' is the foreign key in the reviews table
-        }])->get();
+        }])->latest()->get();
         return view('dashboard.reviews.index',compact([
             'reviews',
         ]));

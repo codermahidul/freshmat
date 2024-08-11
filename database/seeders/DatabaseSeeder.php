@@ -37,9 +37,9 @@ class DatabaseSeeder extends Seeder
         //  TermsConditionSeeder::class,
     ]);
 
-    //  Product::factory(10)->has(
-    //       ProductGallery::factory(3)
-    //   ,'productgallery')->create();
+     Product::factory(2)->has(
+          ProductGallery::factory(3)
+      ,'productgallery')->create();
 
     }
 

@@ -1,7 +1,7 @@
 @if ($paginator->hasPages())
 <div class="row">
   <div class="pagination mt_25 wow fadeInUp">
-      <ul class="pagination {{ (Route::currentRouteNamed('shop','frontendblog')) ? 'justify-content-center' : 'justify-content-end' }}">
+      <ul class="pagination  {{ (Route::currentRouteNamed('shop','frontendblog')) ? 'justify-content-center' : 'justify-content-end' }}">
         @if ($paginator->onFirstPage())
         <li class="page-item">
           <a class="page-link disabled" href="javascript:void(0)" aria-label="Previous">

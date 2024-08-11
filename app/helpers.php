@@ -167,7 +167,9 @@ function hovg(){
  //Email Configuration
 
  function emailConfig($query){
-    return EmailConfiguration::find(1)->$query;
+    if (isset(EmailConfiguration::find(1)->$query)) {
+        return EmailConfiguration::find(1)->$query;
+    }
  }
 
  function mailServer(){
