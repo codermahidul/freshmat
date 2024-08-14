@@ -205,7 +205,7 @@ class CouponController extends Controller
 
     public function checkroute(){
 
-        return wishlistHave(70);
+        return setting('glrecaptchaStatus');
 
     }
 

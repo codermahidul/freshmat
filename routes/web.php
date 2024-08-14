@@ -41,6 +41,7 @@ use App\Http\Controllers\TermsConditionController;
 use App\Http\Controllers\EmailTemplateController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PaypalPaymentController;
+use App\Http\Controllers\MolliePaymentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -51,18 +52,6 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/home-one', [FrontendController::class, 'indexOne'])->name('indexOne');
 Route::get('/home-two', [FrontendController::class, 'indexTwo'])->name('indexTwo');
 Route::get('/home-three', [FrontendController::class, 'indexThree'])->name('indexThree');
-
-//Payment Getway
-
-//Stripe
-Route::post('stripe/payment', [StripePaymentController::class, 'payment'])->name('stirpe.payment');
-Route::get('stripe/success', [StripePaymentController::class, 'success'])->name('stirpe.success');
-Route::get('stripe/cancel', [StripePaymentController::class, 'cancel'])->name('stirpe.cancel');
-
-//Paypal
-Route::post('paypal/payment', [PaypalPaymentController::class, 'payment'])->name('paypal.payment');
-Route::get('paypal/success', [PaypalPaymentController::class, 'success'])->name('paypal.success');
-Route::get('paypal/cancel', [PaypalPaymentController::class, 'cancel'])->name('paypal.cancel');
 
 
 //Admin Login Page
@@ -115,10 +104,29 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/product/cart/checkout/',[CheckoutController::class, 'checkout'])->name('checkout');
     //Payment
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
+    //Getway
+    Route::get('/getway', [PaymentController::class, 'getway'])->name('getway');
     //Comment
     Route::post('/blog/comment/{slug}', [BlogController::class, 'insertComment'])->name('insertComment');
     //Review
     Route::post('/reviews/insert/{id}', [ReviewsController::class, 'insert'])->name('review');
+
+    //Payment Getway
+
+    //Stripe
+    Route::get('stripe/payment', [StripePaymentController::class, 'payment'])->name('stirpe.payment');
+    Route::get('stripe/success', [StripePaymentController::class, 'success'])->name('stirpe.success');
+    Route::get('stripe/cancel', [StripePaymentController::class, 'cancel'])->name('stirpe.cancel');
+
+    //Paypal
+    Route::get('paypal/payment', [PaypalPaymentController::class, 'payment'])->name('paypal.payment');
+    Route::get('paypal/success', [PaypalPaymentController::class, 'success'])->name('paypal.success');
+    Route::get('paypal/cancel', [PaypalPaymentController::class, 'cancel'])->name('paypal.cancel');
+
+    //Mollie
+    Route::get('mollie/payment', [MolliePaymentController::class, 'payment'])->name('mollie.payment');
+    Route::get('mollie/success', [MolliePaymentController::class, 'success'])->name('mollie.success');
+    Route::get('mollie/cancel', [MolliePaymentController::class, 'cancel'])->name('mollie.cancel');
 
 
 });
@@ -336,6 +344,8 @@ Route::group(['middleware' => ['auth','role']], function(){
 
     //Email Template
     Route::get('/email-template', [EmailTemplateController::class, 'index'])->name('emailTemplate');
+    Route::get('/email-template/insert/{id}', [EmailTemplateController::class, 'edit'])->name('emailTemplate.edit');
+    Route::post('/email-template/update/{id}', [EmailTemplateController::class, 'update'])->name('emailTemplate.update');
 
 
 

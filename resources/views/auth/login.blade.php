@@ -72,7 +72,7 @@
 </div>
 @endsection --}}
 
-{{-- 
+{{--
 @extends('layouts.authlayout')
 @section('title','Login')
 @section('content')
@@ -132,9 +132,6 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
 
-                             <!-- Google Recaptcha -->
-                            <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
-                            
                             <div class="forgot">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -150,7 +147,7 @@
                         <p class="dont_account">Don’t have an account? <a href="{{ route('register') }}">Sign Up</a></p>
                         <p class="or">or</p>
                         <ul>
-                            @if (setting('glstatus') == 'enable')   
+                            @if (setting('glstatus') == 'enable')
                             <li>
                                 <a href="{{ route('google.redirect') }}">
                                     <span>

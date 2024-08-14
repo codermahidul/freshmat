@@ -15,12 +15,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>1</td>
-                            </tr>
+                        @forelse ($emailTemplates as $template)
+                        <tr>
+                            <td>{{ ++$loop->index }}</td>
+                            <td>{{ $template->title }}</td>
+                            <td>{{ $template->subject }}</td>
+                            <td class="text-center">
+                                <a href="{{ route('emailTemplate.edit',$template->id) }}" class="btn-sm btn-primary"><i
+                                        class="fas fa-edit"></i></a>
+                            </td>
+                        </tr>
+                        @empty
+                            No email template found!
+                        @endforelse
                     </tbody>
                 </table>
             </div>

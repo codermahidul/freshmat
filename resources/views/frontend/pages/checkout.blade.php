@@ -1,7 +1,7 @@
 @extends('layouts.frontlayout')
 @section('title','Checkout')
 @section('breadcrumb')
-          <!--=========================
+    <!--=========================
         BREADCRUMB START
     ==========================-->
     <section class="page_breadcrumb" style="background: url({{ asset('assets') }}/images/breadcrumb_bg.jpg);">
@@ -34,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 wow fadeInUp">
-                    <form class="checkout_form" action="{{ route('paypal.payment') }}" method="POST" id="paymentForm">
+                    <form class="checkout_form" action="{{ route('payment') }}" method="POST" id="paymentForm">
                         @csrf
                         <h3>Billing Details</h3>
                         <div class="row">
@@ -88,7 +88,7 @@
                             </div>
 
                         </div>
-
+                    </form>
                 </div>
                 <div class="col-lg-4 col-md-8">
                     <div class="cart_sidebar" id="sticky_sidebar">
@@ -98,16 +98,6 @@
                             <p>Delivery : <span id="charge">0</span></p>
                             <p>Discount : <span>-${{ discount() }}</span></p>
                             <h5>Total : <span></span></h5>
-                            <div class="form-check mb-5">
-                                <input type="checkbox" class="form-check-input" name="stripe">
-                                <label class="form-check-label">Stripe</label>
-                            </div>
-                            <div class="form-check mb-5">
-                                <input type="checkbox" class="form-check-input" name="paypal">
-                                <label class="form-check-label">Paypal</label>
-                            </div>
-
-                        </form>
                             <a class="common_btn" href="#" onclick="submit()">Payment <i class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>

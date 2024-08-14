@@ -18,44 +18,17 @@ class StripePaymentController extends Controller
 {
     public function payment(Request $request)
     {
-        //Basic Works
-        $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email',
-            'charge' => 'required',
-            'city' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-        ]);
-
-        UserProfile::where('userId', Auth::id())->update([
-            'phone' => $request->input('phone'),
-            'city' => $request->input('city'),
-            'address' => $request->input('address'),
-        ]);
-
-        $invoiceId = DB::table('invoices')->insertGetId([
-            'userId' => Auth::id(),
-            'invoiceNumber' => 1000+lastInvoiceId(),
-            'subTotal' => subTotal(),
-            'discount' => discount(),
-            'deliveryCharge' => $request->input('charge'),
-            'total' => (subTotal()-discount())+$request->input('charge'),
-            'note' => $request->input('note'),
-            'status' => 'new',
-        ]);
 
         \Stripe\Stripe::setApiKey(config('stripe.STRIPE_SECRET'));
-        $total = (subTotal()-discount())+$request->input('charge');
         $response = \Stripe\Checkout\Session::create([
             'line_items' => [
                 [
                     'price_data' => [
                         'currency' => 'usd',
                         'product_data' => [
-                            'name' => 'Invoice ID: ' . (1000 + lastInvoiceId()),
+                            'name' => 'Invoice ID: ' . lastInvoiceIdByUser(),
                         ],
-                        'unit_amount' => $total*100,
+                        'unit_amount' => payTotal()*100,
                     ],
                     'quantity' => 1,
                 ],
@@ -70,7 +43,7 @@ class StripePaymentController extends Controller
 
     public function success(Request $request)
     {
-        $invoiceId =lastInvoiceId()-1;
+        $invoiceId =lastInvoiceIdByUser();
 
         Invoice::where('id',$invoiceId)->update([
             'payment' => 'success',
@@ -108,7 +81,7 @@ class StripePaymentController extends Controller
 
     public function cancel()
     {
-        $invoiceId =lastInvoiceId()-1;
+        $invoiceId =lastInvoiceIdByUser();
         Invoice::where('id',$invoiceId)->update([
             'payment' => 'pending',
         ]);

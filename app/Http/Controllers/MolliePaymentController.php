@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use Mollie\Laravel\Facades\Mollie;
 use App\Mail\InvoiceEmail;
 use App\Models\Coupon;
 use App\Models\Invoice;
@@ -14,57 +14,39 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
-class PaypalPaymentController extends Controller
+class MolliePaymentController extends Controller
 {
-    public function payment(Request $request)
-    {
 
-        $provider = new PayPalClient;
+    public function payment(){
+        $invoiceId =lastInvoiceIdByUser();
+        $payment = Mollie::api()->payments->create([
+        "amount" => [
+            "currency" => "USD",
+            "value" => number_format(payTotal(),2,'.',''),
+        ],
+        "description" => "Invoice ".$invoiceId,
+        "redirectUrl" => route('mollie.success'),
+        // "webhookUrl" => route('mollie.cancel'),
+        "metadata" => [
+            "order_id" => $invoiceId,
+        ],
+    ]);
 
-        $provider->setApiCredentials(config('paypal'));
+    session()->put('mollie_id', $payment->id);
 
-        $paypalToken = $provider->getAccessToken();
+    // redirect customer to Mollie checkout page
+    return redirect($payment->getCheckoutUrl(), 303);
 
-        $response = $provider->createOrder([
-            'intent' => 'CAPTURE',
-            'application_context' => [
-                'return_url' => route('paypal.success'),
-                'cancel_url' => route('paypal.cancel'),
-            ],
-            'purchase_units' =>[
-                [
-                    "amount" => [
-                        "currency_code" => 'USD',
-                        'value' => payTotal(),
-                    ]
-                ]
-            ],
-        ]);
-
-        if (isset($response['id']) & $response['id'] != null) {
-            foreach ($response['links'] as $link) {
-                if ($link['rel'] == 'approve') {
-                    return redirect()->away($link['href']);
-                }
-            }
-        }else{
-            return redirect()->route('paypal.cancel');
-        }
     }
 
-    public function success(Request $request)
-    {
-        $provider = new PayPalClient;
 
-        $provider->setApiCredentials(config('paypal'));
+    public function success(){
+        $paymentId = session()->get('mollie_id');
+        $payment = Mollie::api()->payments->get($paymentId);
 
-        $paypalToken = $provider->getAccessToken();
-
-        $response = $provider->capturePaymentOrder($request->token);
-
-        $invoiceId =lastInvoiceIdByUser();
-
-        if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+        if ($payment->isPaid())
+        {
+            $invoiceId =lastInvoiceIdByUser();
             Invoice::where('id',$invoiceId)->update([
                 'payment' => 'success',
             ]);
@@ -89,22 +71,15 @@ class PaypalPaymentController extends Controller
 
             $data['invoice'] = Invoice::where('id',$invoiceId)->first();
             $data['invoiceProduct'] = InvoicesProducts::where('invoiceId',$invoiceId)->get();
-            $data['name'] = $request->user()->name;
+            $data['name'] = Auth::user()->name;
             mailServer();
-            Mail::to($request->user())->send(new InvoiceEmail($data));
+            Mail::to(Auth::user())->send(new InvoiceEmail($data));
 
             Session::forget('cart');
             toast('Payment Success!','success')->width('350');
             return redirect(route('orderInvoice',$invoiceId));
-        }else{
-            return redirect()->route('paypal.cancel');
-        }
 
-    }
-
-
-    public function cancel(Request $request)
-    {
+    }else{
         $invoiceId =lastInvoiceIdByUser();
         Invoice::where('id',$invoiceId)->update([
             'payment' => 'pending',
@@ -130,12 +105,18 @@ class PaypalPaymentController extends Controller
 
         $data['invoice'] = Invoice::where('id',$invoiceId)->first();
         $data['invoiceProduct'] = InvoicesProducts::where('invoiceId',$invoiceId)->get();
-        $data['name'] = $request->user()->name;
+        $data['name'] = Auth::user()->name;
         mailServer();
-        Mail::to($request->user())->send(new InvoiceEmail($data));
+        Mail::to(Auth::user())->send(new InvoiceEmail($data));
 
         Session::forget('cart');
         toast('Payment failed!','error')->width('300');
         return redirect(route('shop'));
+
     }
+
+
+    }
+
+
 }

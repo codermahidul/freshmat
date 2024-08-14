@@ -26,6 +26,7 @@ use App\Models\Setting;
 use App\Models\SocialLinks;
 use App\Models\Testimonial;
 use App\Models\Topbar;
+use App\Models\EmailTemplate;
 use Illuminate\Support\Facades\Session;
 
 if (!function_exists('wishlistTotalItem')) {
@@ -194,6 +195,11 @@ function hovg(){
     config(['services.facebook.redirect' => setting('fbRedirectUrl')]);
  }
 
+ function googleRecaptcha(){
+    config(['services.recaptcha.key' => setting('captchaSiteKey')]);
+    config(['services.recaptcha.secret' => setting('captchaSecretKey')]);
+ }
+
 
  function topbarContent($query){
     return Topbar::find(1)->$query;
@@ -241,6 +247,10 @@ function hovg(){
     $latestInvoice = Invoice::latest('id')->first();
     $newId = $latestInvoice ? $latestInvoice->id + 1 : 1;
     return $newId;
+ };
+
+ function lastInvoiceIdByUser(){
+    return $latestInvoice = Invoice::where('userId',Auth::user()->id)->latest('id')->first()->id;
  };
 
  function cartQti($id){
@@ -291,4 +301,20 @@ function hovg(){
 
  function topFiveBlogCategory(){
     return BlogCategory::latest()->take(5)->get();
+ }
+
+
+ function payTotal(){
+    return Invoice::where('userId',Auth::user()->id)->latest()->first()->total;
+ }
+
+
+ function mailData($id, $string){
+    $getMail = EmailTemplate::where('id',$id)->first();
+
+    if ($string == 'subject') {
+        return $getMail->subject;
+    }elseif ($string == 'content') {
+        return $getMail->content;
+    }
  }

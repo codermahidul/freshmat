@@ -35,11 +35,12 @@ class DatabaseSeeder extends Seeder
         //  H3VideoSeeder::class,
         //  PrivacyPolicySeeder::class,
         //  TermsConditionSeeder::class,
+        EmailTemplateSeeder::class,
     ]);
 
-     Product::factory(2)->has(
-          ProductGallery::factory(3)
-      ,'productgallery')->create();
+    //  Product::factory(2)->has(
+    //       ProductGallery::factory(3)
+    //   ,'productgallery')->create();
 
     }
 

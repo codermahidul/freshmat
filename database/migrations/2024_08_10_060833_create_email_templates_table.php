@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('email_templates', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('subject');
             $table->text('content');
             $table->timestamp('created_at')->useCurrent();

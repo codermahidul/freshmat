@@ -13,6 +13,7 @@
         "laravel/socialite": "^5.14",
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.5",
+        "mollie/laravel-mollie": "^3.0",
         "realrashid/sweet-alert": "^7.1",
         "srmklive/paypal": "~3.0",
         "stripe/stripe-php": "^15.6"

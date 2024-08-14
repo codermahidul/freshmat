@@ -4,9 +4,19 @@
     <title>Contact Form Submission</title>
 </head>
 <body>
-    <h2>Contact Form Submission</h2>
-    <p><strong>Name:</strong> {{ $data['name'] }}</p>
-    <p><strong>Email:</strong> {{ $data['email'] }}</p>
-    <p><strong>Message:</strong>{{ $data['message'] }}</p>
+    <?php
+    $name = $data['name'];
+    $email = $data['email'];
+    $email = $data['subject'];
+    $message = $data['message'];
+
+    $content = mailData(1,'content');
+    $content = str_replace("{{name}}","$name",$content);
+    $content = str_replace("{{email}}","$email",$content);
+    $content = str_replace("{{subject}}","$subject",$content);
+    $content = str_replace("{{message}}","$message",$content);
+    echo $content;
+    ?>
+
 </body>
 </html>
