@@ -296,6 +296,14 @@
           </li>
           @endif
           <li class="nav-item">
+            <a href="{{ route('pg.index') }}" class="nav-link {{ (Route::currentRouteNamed('pg.index')) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-hands-helping"></i>
+              <p>
+                Payment Getway
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('partner') }}" class="nav-link {{ (Route::currentRouteNamed('partner')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-hands-helping"></i>
               <p>

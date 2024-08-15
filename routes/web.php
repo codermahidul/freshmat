@@ -42,6 +42,7 @@ use App\Http\Controllers\EmailTemplateController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PaypalPaymentController;
 use App\Http\Controllers\MolliePaymentController;
+use App\Http\Controllers\PaymentGetwayController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -346,6 +347,10 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/email-template', [EmailTemplateController::class, 'index'])->name('emailTemplate');
     Route::get('/email-template/insert/{id}', [EmailTemplateController::class, 'edit'])->name('emailTemplate.edit');
     Route::post('/email-template/update/{id}', [EmailTemplateController::class, 'update'])->name('emailTemplate.update');
+
+
+    //Payment Getway Backend
+    Route::get('/payment-getway', [PaymentGetwayController::class, 'index'])->name('pg.index');
 
 
 

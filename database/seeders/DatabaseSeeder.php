@@ -35,7 +35,10 @@ class DatabaseSeeder extends Seeder
         //  H3VideoSeeder::class,
         //  PrivacyPolicySeeder::class,
         //  TermsConditionSeeder::class,
-        EmailTemplateSeeder::class,
+        //  EmailTemplateSeeder::class,
+        //  PaypalSeeder::class,
+        // StripeSeeder::class,
+        // MollieSeeder::class,
     ]);
 
     //  Product::factory(2)->has(
