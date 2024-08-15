@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('currencyRatePerUSD')->nullable();
             $table->string('paypalClientId')->nullable();
             $table->string('paypalClientSecret')->nullable();
-            $table->string('image')->default('default/paypal.jpg');
+            $table->string('image')->default('default/paymentGetway/paypal.jpg');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('currencyName')->default('USD');
             $table->string('currencyRatePerUSD')->nullable();
             $table->string('mollieKey')->nullable();
-            $table->string('image')->default('default/mollie.png');
+            $table->string('image')->default('default/paymentGetway/mollie.png');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

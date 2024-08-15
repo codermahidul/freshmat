@@ -1,58 +1,97 @@
-<form action="{{ route('general') }}" method="post">
+<form action="{{ route('paypal.update') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="status">Status</label>
         <select name="status" id="status" class="form-control">
-            <option value="">Active</option>
-            <option value="">Deactive</option>
+            <option {{ ($paypal->status == 'enable') ? 'selected' : '' }} value="enable">Enable</option>
+            <option {{ ($paypal->status == 'disable') ? 'selected' : '' }} value="disable">Dasable</option>
         </select>
+        @error('status')
+          <span class="text-danger">
+              {{$message}}
+          </span>
+        @enderror
     </div>
     <div class="form-group">
         <label for="accountMode">Account Mode</label>
         <select name="accountMode" id="accountMode" class="form-control">
-            <option value="live">Live</option>
-            <option value="sandbox">Sandbox</option>
+            <option {{ ($paypal->accountMode == 'live') ? 'selected' : '' }} value="live">Live</option>
+            <option {{ ($paypal->accountMode == 'sandbox') ? 'selected' : '' }} value="sandbox">Sandbox</option>
         </select>
+        @error('accountMode')
+          <span class="text-danger">
+              {{$message}}
+          </span>
+        @enderror
     </div>
     <div class="form-group">
         <label for="country">Country</label>
         <select name="country" id="country" class="form-control">
             <option value="">Select Country</option>
             @foreach (config('countries') as $code => $country)
-            <option value="{{ $country }}">{{ $country }}</option>
+            <option {{ ($paypal->countryName == $country) ? 'selected' : '' }} value="{{ $country }}">{{ $country }}</option>
             @endforeach
         </select>
+        @error('country')
+          <span class="text-danger">
+              {{$message}}
+          </span>
+        @enderror
     </div>
     <div class="form-group">
         <label for="currency">Currency</label>
         <select name="currency" id="currency" class="form-control">
-            @foreach (config('currencies') as $code => $currency)
             <option value="">Select Currency</option>
-            <option value="{{ $code }}">{{ $currency  }} ({{ $code }})</option>
+            @foreach (config('currencies') as $code => $currency)
+            <option {{ ($paypal->currencyName == $code) ? 'selected' : '' }} value="{{ $code }}">{{ $currency  }} ({{ $code }})</option>
             @endforeach
         </select>
+        @error('currency')
+          <span class="text-danger">
+              {{$message}}
+          </span>
+        @enderror
     </div>
     <div class="form-group">
         <label for="currencyRatePerUSD">Currency rate ( Per USD)</label>
-        <input type="number" name="currencyRatePerUSD" id="currencyRatePerUSD" class="form-control">
+        <input type="number" name="currencyRatePerUSD" id="currencyRatePerUSD" class="form-control" value="{{ $paypal->currencyRatePerUSD  }}">
+        @error('currencyRatePerUSD')
+        <span class="text-danger">
+            {{$message}}
+        </span>
+        @enderror
     </div>
     <div class="form-group">
-        <label for="paypalClientID">Paypal Client Id</label>
-        <input type="text" name="paypalClientID" id="paypalClientID" class="form-control">
+        <label for="paypalClientId">Paypal Client Id</label>
+        <input type="text" name="paypalClientId" id="paypalClientId" class="form-control" value="{{ $paypal->paypalClientId }}">
+        @error('paypalClientId')
+        <span class="text-danger">
+            {{$message}}
+        </span>
+        @enderror
     </div>
     <div class="form-group">
-        <label for="paypalSecretKey">Paypal Secret Key</label>
-        <input type="text" name="paypalSecretKey" id="paypalSecretKey" class="form-control">
+        <label for="paypalClientSecret">Paypal Secret Key</label>
+        <input type="text" name="paypalClientSecret" id="paypalClientSecret" class="form-control" value="{{ $paypal->paypalClientSecret }}">
+        @error('paypalClientSecret')
+        <span class="text-danger">
+            {{$message}}
+        </span>
+        @enderror
     </div>
     <div class="form-group">
-        <label for="exampleInputFile"> {{ __('New Logo') }} </label>
+        <label class="d-block">Image</label>
+        <img src="{{ asset($paypal->image) }}" alt="">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputFile"> {{ __('New Image') }} </label>
         <div class="input-group">
           <div class="custom-file">
-            <input type="file" class="custom-file-input @error('logo') is-invalid @enderror" id="logo" name="logo" value="{{ old('logo') }}">
-            <label class="custom-file-label" for="logo">Choose file</label>
+            <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="image" name="image">
+            <label class="custom-file-label" for="image">Choose file</label>
           </div>
         </div>
-        @error('logo')
+        @error('image')
           <span class="text-danger">
               {{$message}}
           </span>

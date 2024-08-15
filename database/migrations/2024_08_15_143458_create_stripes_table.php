@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('currencyRatePerUSD')->nullable();
             $table->string('stripeClientId')->nullable();
             $table->string('stripeSecretKey')->nullable();
-            $table->string('image')->default('default/stripe.png');
+            $table->string('image')->default('default/paymentGetway/stripe.png');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

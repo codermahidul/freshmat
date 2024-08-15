@@ -351,6 +351,9 @@ Route::group(['middleware' => ['auth','role']], function(){
 
     //Payment Getway Backend
     Route::get('/payment-getway', [PaymentGetwayController::class, 'index'])->name('pg.index');
+    Route::post('/payment-getway/paypal/update', [PaymentGetwayController::class, 'paypalUpdate'])->name('paypal.update');
+    Route::post('/payment-getway/stripe/update', [PaymentGetwayController::class, 'stripeUpdate'])->name('stripe.update');
+    Route::post('/payment-getway/mollie/update', [PaymentGetwayController::class, 'mollieUpdate'])->name('mollie.update');
 
 
 
