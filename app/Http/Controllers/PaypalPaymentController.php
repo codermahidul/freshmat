@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use App\Mail\InvoiceEmail;
+use App\Mail\OrderSuccessfull;
 use App\Models\Coupon;
 use App\Models\Invoice;
 use App\Models\InvoicesProducts;
@@ -90,8 +91,17 @@ class PaypalPaymentController extends Controller
             $data['invoice'] = Invoice::where('id',$invoiceId)->first();
             $data['invoiceProduct'] = InvoicesProducts::where('invoiceId',$invoiceId)->get();
             $data['name'] = $request->user()->name;
+
+            //Data For OrderSuccessfull
+            $OrderSuccessData['user_name'] = $request->user()->name;
+            $OrderSuccessData['total_amount'] = Invoice::where('id',$invoiceId)->first()->total;
+            $OrderSuccessData['payment_method'] = 'Paypal';
+            $OrderSuccessData['payment_status'] = Invoice::where('id',$invoiceId)->first()->payment;
+            $OrderSuccessData['order_status'] = Invoice::where('id',$invoiceId)->first()->status;
+            $OrderSuccessData['order_date'] = Invoice::where('id',$invoiceId)->first()->created_at;
             mailServer();
             Mail::to($request->user())->send(new InvoiceEmail($data));
+            Mail::to($request->user())->send(new OrderSuccessfull($OrderSuccessData));
 
             Session::forget('cart');
             toast('Payment Success!','success')->width('350');

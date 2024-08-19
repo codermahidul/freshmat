@@ -1,9 +1,9 @@
 @extends('layouts.frontlayout')
-@section('title','Checkout')
+@section('title', 'Checkout')
 @section('breadcrumb')
     <!--=========================
-        BREADCRUMB START
-    ==========================-->
+            BREADCRUMB START
+        ==========================-->
     <section class="page_breadcrumb" style="background: url({{ asset('assets') }}/images/breadcrumb_bg.jpg);">
         <div class="breadcrumb_overlay">
             <div class="container">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--=========================
-        BREADCRUMB START
-    ==========================-->
+            BREADCRUMB START
+        ==========================-->
 @endsection
 @section('content')
     <!--=========================
-        CHECKOUT START
-    ==========================-->
+            CHECKOUT START
+        ==========================-->
     <section class="checkout pt_120 xs_pt_75">
         <div class="container">
             <div class="row">
@@ -41,19 +41,22 @@
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Name *</label>
-                                    <input type="text" placeholder="Name" value="{{ Auth::user()->name }}" name="name">
+                                    <input type="text" placeholder="Name" value="{{ Auth::user()->name }}"
+                                        name="name">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Email *</label>
-                                    <input type="email" placeholder="Email" value="{{ Auth::user()->email }}" name="email">
+                                    <input type="email" placeholder="Email" value="{{ Auth::user()->email }}"
+                                        name="email">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>Phone</label>
-                                    <input type="text" placeholder="Phone" value="{{ Auth::user()->userProfile->phone }}" name="phone">
+                                    <input type="text" placeholder="Phone" value="{{ Auth::user()->userProfile->phone }}"
+                                        name="phone">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -62,7 +65,7 @@
                                     <select class="select_2" name="charge" id="delivaryArea" onchange="onChange()">
                                         <option value="0">Area</option>
                                         @foreach ($cities as $city)
-                                        <option value="{{ $city->charge }}">{{ $city->address }}</option>
+                                            <option value="{{ $city->charge }}">{{ $city->address }}</option>
                                         @endforeach
                                     </select>
 
@@ -71,13 +74,15 @@
                             <div class="col-xl-12">
                                 <div class="checkout_input_box">
                                     <label>City *</label>
-                                        <input type="text" placeholder="Address *" value="{{ Auth::user()->userProfile->city }}" name="city">
+                                    <input type="text" placeholder="Address *"
+                                        value="{{ Auth::user()->userProfile->city }}" name="city">
                                 </div>
                             </div>
                             <div class="col-xl-12">
                                 <div class="checkout_input_box">
                                     <label>Address *</label>
-                                        <input type="text" placeholder="Address *" value="{{ Auth::user()->userProfile->address }}" name="address">
+                                    <input type="text" placeholder="Address *"
+                                        value="{{ Auth::user()->userProfile->address }}" name="address">
                                 </div>
                             </div>
                             <div class="col-xl-12">
@@ -94,11 +99,14 @@
                     <div class="cart_sidebar" id="sticky_sidebar">
                         <h3>Total Cart ({{ cartTotal() }})</h3>
                         <div class="cart_sidebar_info">
-                            <h4>Subtotal : <span>${{ subTotal() }}</span></h4>
+                            <h4>Subtotal : <span id="subTotlaLast">${{ subTotal() }}</span></h4>
                             <p>Delivery : <span id="charge">0</span></p>
-                            <p>Discount : <span>-${{ discount() }}</span></p>
-                            <h5>Total : <span></span></h5>
-                            <a class="common_btn" href="#" onclick="submit()">Payment <i class="fas fa-long-arrow-right"></i>
+                            @if (discount() != null)
+                                <p>Discount : <span id="discountLast">-${{ discount() }}</span></p>
+                            @endif
+                            <h5>Total : <span id="lastTotal">$100</span></h5>
+                            <a class="common_btn" href="#" onclick="submit()">Payment <i
+                                    class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
                     </div>
@@ -106,18 +114,40 @@
             </div>
         </div>
     </section>
+    <!--=========================
+            CHECKOUT END
+        ==========================-->
+@endsection
+
+@push('scripts')
     <script>
-        function onChange(){
+        function onChange() {
             var selectElement = document.getElementById("delivaryArea");
             var selectedOption = selectElement.options[selectElement.selectedIndex];
-            var selectedValue = selectedOption.value;
-            document.getElementById("charge").innerText = "+$" + selectedValue;
+            var selectedValue = parseFloat(selectedOption.value);
+
+            document.getElementById("charge").innerText = "+$" + selectedValue.toFixed(2);
+            updateTotal();
         }
-        function submit(){
-           document.getElementById("paymentForm").submit();
+
+        function updateTotal() {
+            let sutotalString = $('#subTotlaLast').text();
+            let subTotlaLast = parseFloat(sutotalString.replace('$', ''));
+            let chargString = $('#charge').text();
+            let charge = parseFloat(chargString.replace('+$', ''));
+            let discountString = $('#discountLast').text();
+            let discountLast = discountString ? parseFloat(discountString.replace('-$', '')) : 0;
+            let total = (subTotlaLast + charge) - discountLast;
+            $('#lastTotal').text('$' + total.toFixed(2));
         }
+
+        function submit() {
+            document.getElementById("paymentForm").submit();
+        }
+
+        $(document).ready(function() {
+            updateTotal();
+        });
     </script>
-    <!--=========================
-        CHECKOUT END
-    ==========================-->
-@endsection
+@endpush
+

@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\DealsController;
 use App\Http\Controllers\DeliveryLocationController;
 use App\Http\Controllers\EmailConfigurationController;
@@ -187,6 +188,14 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/coupon/edit/{id}', [CouponController::class, 'edit'])->name('couponedit');
     Route::post('/coupon/update/{id}', [CouponController::class, 'update'])->name('couponupdate');
     Route::get('/coupon/delete/{id}', [CouponController::class, 'delete'])->name('coupondelete');
+
+    //Currency
+    Route::get('/currency', [CurrencyController::class, 'index'])->name('currency');
+    Route::get('/currency/add', [CurrencyController::class, 'show'])->name('currencyadd');
+    Route::post('/currency/insert', [CurrencyController::class, 'insert'])->name('currencyinsert');
+    Route::get('/currency/edit/{id}', [CurrencyController::class, 'edit'])->name('currencyedit');
+    Route::post('/currency/update/{id}', [CurrencyController::class, 'update'])->name('currencyupdate');
+    Route::get('/currency/delete/{id}', [CurrencyController::class, 'delete'])->name('currencydelete');
 
     //Delivery Location
     Route::get('/delivery/location', [DeliveryLocationController::class, 'index'])->name('delivery.location');

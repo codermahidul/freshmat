@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact Form Submission</title>
+    <title>{{ mailData(1,'subject') }}</title>
 </head>
 <body>
     <?php

@@ -7,6 +7,9 @@ use App\Models\Coupon;
 use App\Models\Invoice;
 use App\Models\InvoicesProducts;
 use App\Models\UserProfile;
+use App\Models\Paypal;
+use App\Models\Stripe;
+use App\Models\Mollie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -45,38 +48,15 @@ class PaymentController extends Controller
 
         return redirect()->route('getway');
 
-    //     $cartItems = Session::get('cart');
-
-    //     if (!is_null($cartItems)) {
-    //         foreach ($cartItems as $cart) {
-    //             InvoicesProducts::insert([
-    //                 'productId' => $cart['productId'],
-    //                 'invoiceId' => $invoiceId,
-    //                 'quantity' => $cart['quantity'],
-    //             ]);
-    //         }
-    //     }
-
-    //     if (Session::has('coupon')) {
-    //         $couponName = Session::get('coupon')['couponName'];
-    //         Coupon::where('name',$couponName)->decrement('limit');
-    //         Session::forget('coupon');
-    //     }
-
-    //     $data['invoice'] = Invoice::where('id',$invoiceId)->first();
-    //     $data['invoiceProduct'] = InvoicesProducts::where('invoiceId',$invoiceId)->get();
-    //     $data['name'] = $request->user()->name;
-    //     mailServer();
-    //     Mail::to($request->user())->send(new InvoiceEmail($data));
-
-    //     Session::forget('cart');
-    //     return redirect(route('orderInvoice',$invoiceId));
      }
 
 
      public function getway(){
+        $paypal = Paypal::where('id',1)->first();
+        $stripe = Stripe::where('id',1)->first();
+        $mollie = Mollie::where('id',1)->first();
         $deliveryCharge =  Invoice::where('userId',Auth::user()->id)->latest()->first()->deliveryCharge;
-        return view('frontend.pages.getway',compact('deliveryCharge'));
+        return view('frontend.pages.getway',compact(['deliveryCharge','paypal','stripe','mollie']));
      }
 
 }

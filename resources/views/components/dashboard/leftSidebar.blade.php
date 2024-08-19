@@ -65,7 +65,7 @@
           </li>
 
           <li class="nav-item {{ (Route::currentRouteNamed('productadd','productedit','products','productCategory','productCategoryAdd','coupon','couponadd','delivery.location','delivery.edit','delivery.add','productcategoryedit')) ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ (Route::currentRouteNamed('productadd','products','productCategory','productCategoryAdd','coupon','couponadd','delivery.location')) ? 'active' : '' }}">
+            <a href="#" class="nav-link {{ (Route::currentRouteNamed('productadd','products','productCategory','productCategoryAdd','coupon','currency','couponadd','delivery.location')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 eCommerce
@@ -95,6 +95,12 @@
                 <a href="{{ route('coupon') }}" class="nav-link {{ (Route::currentRouteNamed('coupon','couponadd')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Coupon</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('currency') }}" class="nav-link {{ (Route::currentRouteNamed('currency')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Currency</p>
                 </a>
               </li>
               <li class="nav-item">

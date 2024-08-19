@@ -35,21 +35,29 @@
                 <div class="col-xl-8 col-lg-7 wow fadeInLeft">
                     <div class="payment_holder">
                         <div class="row">
+                            @if ($paypal->status == 'enable')
                             <div class="col-xl-3 col-6 col-sm-4">
                                 <a class="single_payment" href="{{ route('paypal.payment') }}">
-                                    <img src="{{ asset('assets') }}/images/payment-1.jpg" alt="payment" class="img-fluid w-100">
+                                    <img src="{{ asset($paypal->image) }}" alt="payment" class="img-fluid w-100">
                                 </a>
                             </div>
+                            @endif
+
+                            @if ($stripe->status == 'enable')
                             <div class="col-xl-3 col-6 col-sm-4">
                                 <a class="single_payment" href="{{ route('stirpe.payment') }}">
-                                    <img src="{{ asset('assets') }}/images/payment-2.jpg" alt="payment" class="img-fluid w-100">
+                                    <img src="{{ asset($stripe->image) }}" alt="payment" class="img-fluid w-100">
                                 </a>
                             </div>
+                            @endif
+
+                            @if ($mollie->status == 'enable')
                             <div class="col-xl-3 col-6 col-sm-4">
                                 <a class="single_payment" href="{{ route('mollie.payment') }}">
-                                    <img src="{{ asset('assets') }}/images/payment-3.jpg" alt="payment" class="img-fluid w-100">
+                                    <img src="{{ asset($mollie->image) }}" alt="payment" class="img-fluid w-100">
                                 </a>
                             </div>
+                            @endif
                             <div class="col-xl-3 col-6 col-sm-4">
                                 <a class="single_payment" href="#" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">

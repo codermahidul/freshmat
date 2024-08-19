@@ -12,27 +12,61 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                  <td>&#123;&#123;name&#125;&#125;
-                                <th scope="row">User Name</th>
-                                </td>
-                              </tr>
-                              <tr>
-                                  <td>&#123;&#123;email&#125;&#125;</td>
-                                <th scope="row">User email</th>
-                              </tr>
-                              <tr>
-                                  <td>&#123;&#123;phone&#125;&#125;</td>
-                                <th scope="row">User Phone Number</th>
-                              </tr>
-                              <tr>
-                                  <td>&#123;&#123;subject&#125;&#125;</td>
-                                <th scope="row">Subject of email</th>
-                              </tr>
-                              <tr>
-                                  <td>&#123;&#123;message&#125;&#125;</td>
-                                <th scope="row">Message</th>
-                              </tr>
+                                @if ($emailTemplate->id == 1)
+                                <tr>
+                                    <td>&#123;&#123;name&#125;&#125;
+                                  <th scope="row">User Name</th>
+                                  </td>
+                                </tr>
+                                <tr>
+                                    <td>&#123;&#123;email&#125;&#125;</td>
+                                  <th scope="row">User email</th>
+                                </tr>
+                                <tr>
+                                    <td>&#123;&#123;phone&#125;&#125;</td>
+                                  <th scope="row">User Phone Number</th>
+                                </tr>
+                                <tr>
+                                    <td>&#123;&#123;subject&#125;&#125;</td>
+                                  <th scope="row">Subject of email</th>
+                                </tr>
+                                <tr>
+                                    <td>&#123;&#123;message&#125;&#125;</td>
+                                  <th scope="row">Message</th>
+                                </tr>
+                                @endif
+                                @if ($emailTemplate->id == 2)
+                                <tr>
+                                    <td>&#123;&#123;user_name&#125;&#125;
+                                  <th scope="row">User Name</th>
+                                  </td>
+                                </tr>
+                                <tr>
+                                    <td>&#123;&#123;total_amount&#125;&#125;
+                                  <th scope="row">Total Amount</th>
+                                  </td>
+                                </tr>
+                                <tr>
+                                    <td>&#123;&#123;payment_method&#125;&#125;
+                                  <th scope="row">Payment Method</th>
+                                  </td>
+                                </tr>
+                                <tr>
+                                    <td>&#123;&#123;payment_status&#125;&#125;
+                                  <th scope="row">Payment Status</th>
+                                  </td>
+                                </tr>
+                                <tr>
+                                    <td>&#123;&#123;order_status&#125;&#125;
+                                  <th scope="row">Order Status</th>
+                                  </td>
+                                </tr>
+                                <tr>
+                                    <td>&#123;&#123;order_date&#125;&#125;
+                                  <th scope="row">Order Date</th>
+                                  </td>
+                                </tr>
+                                @endif
                             </tbody>
                           </table>
                     </div>

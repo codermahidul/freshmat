@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
         //  PaypalSeeder::class,
         // StripeSeeder::class,
         // MollieSeeder::class,
+        // CurrencySeeder::class,
     ]);
 
     //  Product::factory(2)->has(

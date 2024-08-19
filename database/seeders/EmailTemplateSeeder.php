@@ -13,18 +13,36 @@ class EmailTemplateSeeder extends Seeder
      */
     public function run(): void
     {
+        // DB::table('email_templates')->insert([
+        //     'title' => 'Contact Email',
+        //     'subject' => 'Contact Email',
+        //     'content' => 'Name: {{name}}
+
+        //     Email: {{email}}
+
+        //     Phone: {{phone}}
+
+        //     Subject: {{subject}}
+
+        //     Message: {{message}}',
+        // ]);
+
         DB::table('email_templates')->insert([
-            'title' => 'Contact Email',
-            'subject' => 'Contact Email',
-            'content' => 'Name: {{name}}
+            'title' => 'Order Successfully',
+            'subject' => 'Order Successfully',
+            'content' => 'Hi {{user_name}},
 
-            Email: {{email}}
+                        Thanks for your new order. Your order id has been submited .
 
-Phone: {{phone}}
+                        Total Amount : {{total_amount}},
 
-Subject: {{subject}}
+                        Payment Method : {{payment_method}},
 
-Message: {{message}}',
+                        Payment Status : {{payment_status}},
+
+                        Order Status : {{order_status}},
+
+                        Order Date: {{order_date}},',
         ]);
     }
 }

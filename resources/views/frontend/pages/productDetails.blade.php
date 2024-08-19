@@ -179,14 +179,6 @@
                                                     </span>
                                                     <input type="hidden" name="rating" value="5">
                                                 </p>
-                                                    {{-- <div class="review_input_box">
-                                                        <label>Name *</label>
-                                                        <input type="text" placeholder="Name" n>
-                                                    </div>
-                                                    <div class="review_input_box">
-                                                        <label>Email *</label>
-                                                        <input type="email" placeholder="Email">
-                                                    </div> --}}
                                                     <div class="review_input_box">
                                                         <label>Write Review *</label>
                                                         <textarea rows="5" placeholder="Write your review" name="review"></textarea>
