@@ -7,63 +7,78 @@
                         <table class="table table-striped">
                             <thead>
                               <tr>
-                                <th scope="col">Variable</th>
-                                <th scope="col">Meaning</th>
+                                <th scope="col">{{ __('Variable') }}</th>
+                                <th scope="col">{{ __('Meaning') }}</th>
                               </tr>
                             </thead>
                             <tbody>
                                 @if ($emailTemplate->id == 1)
                                 <tr>
-                                    <td>&#123;&#123;name&#125;&#125;
-                                  <th scope="row">User Name</th>
+                                    <td>&#123;&#123;{{ __('name') }}&#125;&#125;
+                                  <th scope="row">{{ __('User Name') }}</th>
                                   </td>
                                 </tr>
                                 <tr>
-                                    <td>&#123;&#123;email&#125;&#125;</td>
-                                  <th scope="row">User email</th>
+                                    <td>&#123;&#123;{{ __('email') }}&#125;&#125;</td>
+                                  <th scope="row">{{ __('User email') }}</th>
                                 </tr>
                                 <tr>
-                                    <td>&#123;&#123;phone&#125;&#125;</td>
-                                  <th scope="row">User Phone Number</th>
+                                    <td>&#123;&#123;{{ __('phone') }}&#125;&#125;</td>
+                                  <th scope="row">{{ __('User Phone Number') }}</th>
                                 </tr>
                                 <tr>
-                                    <td>&#123;&#123;subject&#125;&#125;</td>
-                                  <th scope="row">Subject of email</th>
+                                    <td>&#123;&#123;{{ __('subject') }}&#125;&#125;</td>
+                                  <th scope="row">{{ __('Subject of email') }}</th>
                                 </tr>
                                 <tr>
-                                    <td>&#123;&#123;message&#125;&#125;</td>
-                                  <th scope="row">Message</th>
+                                    <td>&#123;&#123;{{ __('message') }}&#125;&#125;</td>
+                                  <th scope="row">{{ __('Message') }}</th>
                                 </tr>
                                 @endif
                                 @if ($emailTemplate->id == 2)
                                 <tr>
-                                    <td>&#123;&#123;user_name&#125;&#125;
-                                  <th scope="row">User Name</th>
+                                    <td>&#123;&#123;{{ __('user_name') }}&#125;&#125;
+                                  <th scope="row">{{ __('User Name') }}</th>
                                   </td>
                                 </tr>
                                 <tr>
-                                    <td>&#123;&#123;total_amount&#125;&#125;
-                                  <th scope="row">Total Amount</th>
+                                    <td>&#123;&#123;{{ __('total_amount') }}&#125;&#125;
+                                  <th scope="row">{{ __('Total Amount') }}</th>
                                   </td>
                                 </tr>
                                 <tr>
-                                    <td>&#123;&#123;payment_method&#125;&#125;
-                                  <th scope="row">Payment Method</th>
+                                    <td>&#123;&#123;{{ __('payment_method') }}&#125;&#125;
+                                  <th scope="row">{{ __('Payment Method') }}</th>
                                   </td>
                                 </tr>
                                 <tr>
-                                    <td>&#123;&#123;payment_status&#125;&#125;
-                                  <th scope="row">Payment Status</th>
+                                    <td>&#123;&#123;{{ __('payment_status') }}&#125;&#125;
+                                  <th scope="row">{{ __('Payment Status') }}</th>
                                   </td>
                                 </tr>
                                 <tr>
-                                    <td>&#123;&#123;order_status&#125;&#125;
-                                  <th scope="row">Order Status</th>
+                                    <td>&#123;&#123;{{ __('order_status') }}&#125;&#125;
+                                  <th scope="row">{{ __('Order Status') }}</th>
                                   </td>
                                 </tr>
                                 <tr>
-                                    <td>&#123;&#123;order_date&#125;&#125;
-                                  <th scope="row">Order Date</th>
+                                    <td>&#123;&#123;{{ __('order_date') }}&#125;&#125;
+                                  <th scope="row">{{ __('Order Date') }}</th>
+                                  </td>
+                                </tr>
+                                @endif
+                                @if ($emailTemplate->id == 3)
+                                <tr>
+                                    <td>&#123;&#123;{{ __('user_name') }}&#125;&#125;
+                                  <th scope="row">{{ __('User Name') }}</th>
+                                  </td>
+                                </tr>
+                                @endif
+
+                                @if ($emailTemplate->id == 4)
+                                <tr>
+                                    <td>&#123;&#123;{{ __('user_name') }}&#125;&#125;
+                                  <th scope="row">{{ __('User Name') }}</th>
                                   </td>
                                 </tr>
                                 @endif
@@ -115,7 +130,7 @@
                     </span>
                 @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
             </form>
           </div>
           @if (session('success'))

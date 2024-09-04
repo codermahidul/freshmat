@@ -1,6 +1,6 @@
 <div class="col-xl-9 col-lg-8 wow fadeInRight">
     <div class="dashboard_content">
-        <h2 class="dashboard_title">Wishlist</h2>
+        <h2 class="dashboard_title">{{ __('Wishlist') }}</h2>
         <div class="dashboard_wishlist">
             <div class="row">
                 @forelse ($wishlists as $wishlist)
@@ -14,16 +14,16 @@
                             <p>${{ $wishlist->products->selePrice }} <del>{{ ($wishlist->products->regularPrice) ? '$' : '' }}{{ $wishlist->products->regularPrice }}</del> </p>
                             <a class="cart_btn" href="shop_details.html" data-bs-toggle="modal"
                                 data-bs-target="#cart_popup_modal{{ $wishlist->id }}"><i
-                                    class="far fa-shopping-basket"></i> Add To Cart
+                                    class="far fa-shopping-basket"></i> {{ __('Add To Cart') }}
                                 <span></span></a>
                                 <a class="cart_btn" href="{{ route('adToWishlist',$wishlist->products->id) }}"><i
-                                    class="far fa-shopping-basket"></i> Remove
+                                    class="far fa-shopping-basket"></i> {{ __('Remove') }}
                                 <span></span></a>
                         </div>
                     </div>
                 </div>
                 @empty
-                    <span>Empty!</span>
+                    <span>{{ __('Empty!') }}</span>
                 @endforelse
             </div>
         </div>

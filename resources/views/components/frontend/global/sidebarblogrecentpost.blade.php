@@ -1,6 +1,6 @@
 <div class="blog_sidebar_product">
     <div class="sedebar_content">
-        <h3>Recent Post</h3>
+        <h3>{{ __('Recent Post') }}</h3>
         <ul>
             @foreach ($recentPosts as $post)
             <li>

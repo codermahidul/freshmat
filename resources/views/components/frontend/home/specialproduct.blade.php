@@ -21,7 +21,7 @@
                             <h5>{{ banner(3)->shortTitle }}</h5>
                             <h3>{{ banner(3)->offerText }}</h3>
                             <p>{{ banner(3)->description }}</p>
-                            <a class="common_btn black_btn" href="{{ banner(3)->link }}">shop now <i
+                            <a class="common_btn black_btn" href="{{ banner(3)->link }}">{{ __('shop now') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                         @empty
-                            No product to shown!
+                            {{ __('No product to shown!') }}
                         @endforelse
                     </div>
                 </div>

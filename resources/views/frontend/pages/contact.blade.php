@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Contact Us</h1>
+                            <h1>{{ __('Contact Us') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">Contact Us</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="">{{ __('Contact Us') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="col-lg-8 wow fadeInRight">
                     <div class="contact_form">
-                        <h3>Contact for Services</h3>
+                        <h3>{{ __('Contact for Services') }}</h3>
                         <form action="{{ route('sendMessage') }}" method="post">
                             @csrf
                         <div class="row">
@@ -113,8 +113,8 @@
                                 @error('message')
                                     <span class="text-danger d-block">{{ $message }}</span>
                                 @enderror
-                                <button type="submit" class="common_btn">Send A
-                                    Message<span></span></button>
+                                <button type="submit" class="common_btn">{{ __('Send A
+                                    Message') }}<span></span></button>
                             </div>
                             @session('success')
                                 <span class="text-success d-block">{{ session('success') }}</span>
@@ -140,4 +140,4 @@
         CONTACT PAGE END
     ==========================-->
 @endsection
-    
+

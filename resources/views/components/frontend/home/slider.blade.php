@@ -16,7 +16,7 @@
                             </a>
                         </li>
                         @empty
-                            No Category Found
+                            {{ __('No Category Found') }}
                         @endforelse
                     </ul>
                 </div>
@@ -30,7 +30,7 @@
                                         <h3>{{ $slider->shortTitle }}</h3>
                                         <h1>{{ $slider->offerText }}</h1>
                                         <p>{{ $slider->description }}</p>
-                                        <a class="common_btn" href="{{ $slider->link }}">shop now <i
+                                        <a class="common_btn" href="{{ $slider->link }}">{{ __('shop now') }} <i
                                                 class="fas fa-long-arrow-right"></i> <span></span></a>
                                     </div>
                                 </div>

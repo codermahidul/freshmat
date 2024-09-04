@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
       {{-- <img src="{{asset('backend/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
-      <span class="brand-text font-weight-light">Freshmat Dashboard</span>
+      <span class="brand-text font-weight-light">{{ __('Freshmat Dashboard') }}</span>
     </a>
 
     <!-- Sidebar -->
@@ -18,7 +18,7 @@
             <a href="{{route('home')}}" class="nav-link {{ Route::currentRouteNamed('home') ? 'active':''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                {{ __('Dashboard') }}
               </p>
             </a>
           </li>
@@ -26,7 +26,7 @@
             <a href="#" class="nav-link {{ (Route::currentRouteNamed('order','newOrder','deliveryInProcess','complateOrder','cancelOrder')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-cart-plus"></i>
               <p>
-                Orders
+                {{ __('Orders') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -34,31 +34,31 @@
               <li class="nav-item">
                 <a href="{{ route('order') }}" class="nav-link {{ (Route::currentRouteNamed('order')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All Orders</p>
+                  <p>{{ __('All Orders') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('newOrder') }}" class="nav-link {{ (Route::currentRouteNamed('newOrder')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>New Orders</p>
+                  <p>{{ __('New Orders') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('deliveryInProcess') }}" class="nav-link {{ (Route::currentRouteNamed('deliveryInProcess')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Processing Orders</p>
+                  <p>{{ __('Processing Orders') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('complateOrder') }}" class="nav-link {{ (Route::currentRouteNamed('complateOrder')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Complete Orders</p>
+                  <p>{{ __('Complete Orders') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('cancelOrder') }}" class="nav-link {{ (Route::currentRouteNamed('cancelOrder')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Canceled Orders</p>
+                  <p>{{ __('Canceled Orders') }}</p>
                 </a>
               </li>
             </ul>
@@ -68,7 +68,7 @@
             <a href="#" class="nav-link {{ (Route::currentRouteNamed('productadd','products','productCategory','productCategoryAdd','coupon','currency','couponadd','delivery.location')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                eCommerce
+                {{ __('eCommerce') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -76,37 +76,37 @@
               <li class="nav-item">
                 <a href="{{ route('productadd') }}" class="nav-link {{ (Route::currentRouteNamed('productadd')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add New Product</p>
+                  <p>{{ __('Add New Product') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('products') }}" class="nav-link {{ (Route::currentRouteNamed('products','productedit')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Product List</p>
+                  <p>{{ __('Product List') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('productCategory') }}" class="nav-link {{ (Route::currentRouteNamed('productCategory','productCategoryAdd','productcategoryedit')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Product Category</p>
+                  <p>{{ __('Product Category') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('coupon') }}" class="nav-link {{ (Route::currentRouteNamed('coupon','couponadd')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Coupon</p>
+                  <p>{{ __('Coupon') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('currency') }}" class="nav-link {{ (Route::currentRouteNamed('currency')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Currency</p>
+                  <p>{{ __('Currency') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('delivery.location') }}" class="nav-link {{ (Route::currentRouteNamed('delivery.location','delivery.edit','delivery.add')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Location</p>
+                  <p>{{ __('Location') }}</p>
                 </a>
               </li>
             </ul>
@@ -116,7 +116,7 @@
             <a href="#" class="nav-link {{ Route::currentRouteNamed('blog','blog.add','category','category.add','category.insert','comments') ? 'active':''}}">
               <i class="nav-icon fas fa-pen-alt"></i>
               <p>
-                Blog
+                {{ __('Blog') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -124,25 +124,25 @@
               <li class="nav-item">
                 <a href="{{route('blog.add')}}" class="nav-link {{Route::currentRouteNamed('blog.add') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>New Post</p>
+                  <p>{{ __('New Post') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('blog') }}" class="nav-link {{ Route::currentRouteNamed('blog') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All Post</p>
+                  <p>{{ __('All Post') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('category')}}" class="nav-link {{ Route::currentRouteNamed('category','category.add','category.edit') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Category</p>
+                  <p>{{ __('Category') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('comments')}}" class="nav-link {{ Route::currentRouteNamed('comments') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Comments</p>
+                  <p>{{ __('Comments') }}</p>
                 </a>
               </li>
             </ul>
@@ -151,7 +151,7 @@
             <a href="#" class="nav-link {{ Route::currentRouteNamed('homeonebanner','pdpagebannerIndex','hometwobanner','homeThreeBanner') ? 'active':''}}">
               <i class="nav-icon fas fa-ad"></i>
               <p>
-                Banners
+                {{ __('Banners') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -160,7 +160,7 @@
               <li class="nav-item">
                 <a href="{{ route('homeonebanner') }}" class="nav-link {{Route::currentRouteNamed('homeonebanner') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Home One</p>
+                  <p>{{ __('Home One') }}</p>
                 </a>
               </li>
               @endif
@@ -169,7 +169,7 @@
               <li class="nav-item">
                 <a href="{{ route('hometwobanner') }}" class="nav-link {{ Route::currentRouteNamed('hometwobanner') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Home Two</p>
+                  <p>{{ __('Home Two') }}</p>
                 </a>
               </li>
               @endif
@@ -178,7 +178,7 @@
               <li class="nav-item">
                 <a href="{{ route('homeThreeBanner') }}" class="nav-link {{ Route::currentRouteNamed('homeThreeBanner') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Home Three</p>
+                  <p>{{ __('Home Three') }}</p>
                 </a>
               </li>
               @endif
@@ -186,7 +186,7 @@
               <li class="nav-item">
                 <a href="{{ route('pdpagebannerIndex') }}" class="nav-link {{ Route::currentRouteNamed('pdpagebannerIndex') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Product Details</p>
+                  <p>{{ __('Product Details') }}</p>
                 </a>
               </li>
             </ul>
@@ -195,7 +195,7 @@
             <a href="#" class="nav-link {{ Route::currentRouteNamed('homeOneDeals','homeTwoDeals','homeThreeDeals') ? 'active':''}}">
               <i class="nav-icon fas fa-comment-dollar"></i>
               <p>
-                Deals
+                {{ __('Deals') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -204,7 +204,7 @@
               <li class="nav-item">
                 <a href="{{ route('homeOneDeals') }}" class="nav-link {{Route::currentRouteNamed('homeOneDeals') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Home One</p>
+                  <p>{{ __('Home One') }}</p>
                 </a>
               </li>
               @endif
@@ -213,7 +213,7 @@
               <li class="nav-item">
                 <a href="{{ route('homeTwoDeals') }}" class="nav-link {{ Route::currentRouteNamed('homeTwoDeals') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Home Two</p>
+                  <p>{{ __('Home Two') }}</p>
                 </a>
               </li>
               @endif
@@ -222,7 +222,7 @@
               <li class="nav-item">
                 <a href="{{ route('homeThreeDeals') }}" class="nav-link {{ Route::currentRouteNamed('homeThreeDeals') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Home Three</p>
+                  <p>{{ __('Home Three') }}</p>
                 </a>
               </li>
               @endif
@@ -233,7 +233,7 @@
             <a href="{{ route('reviews') }}" class="nav-link {{ (Route::currentRouteNamed('reviews')) ? 'active' : '' }}">
               <i class="nav-icon far fa-comment-dots"></i>
               <p>
-                Reviews
+                {{ __('Reviews') }}
               </p>
             </a>
           </li>
@@ -241,7 +241,7 @@
             <a href="{{ route('testimonial') }}" class="nav-link {{ (Route::currentRouteNamed('testimonial')) ? 'active' : '' }}">
               <i class="nav-icon far fa-comment-dots"></i>
               <p>
-                Testimonial
+                {{ __('Testimonial') }}
               </p>
             </a>
           </li>
@@ -249,7 +249,7 @@
             <a href="{{ route('sectionTitle') }}" class="nav-link {{ (Route::currentRouteNamed('sectionTitle')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-puzzle-piece"></i>
               <p>
-                Section Title
+                {{ __('Section Title') }}
               </p>
             </a>
           </li>
@@ -258,7 +258,7 @@
             <a href="{{ route('slider') }}" class="nav-link {{ (Route::currentRouteNamed('slider','slider.edit')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-sliders-h"></i>
               <p>
-                Slider <span class="badge badge-info right">Home 1 & 3</span>
+                {{ __('Slider') }} <span class="badge badge-info right">{{ __('Home 1 & 3') }}</span>
               </p>
             </a>
           </li>
@@ -268,7 +268,7 @@
             <a href="{{ route('homeOneVideoGallery') }}" class="nav-link {{ (Route::currentRouteNamed('homeOneVideoGallery')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-photo-video"></i>
               <p>
-                Video Gallery <span class="badge badge-info right">Home 1</span>
+                {{ __('Video Gallery') }} <span class="badge badge-info right">{{ __('Home 1') }}</span>
               </p>
             </a>
           </li>
@@ -278,7 +278,7 @@
             <a href="{{ route('instagramPost') }}" class="nav-link {{ (Route::currentRouteNamed('instagramPost')) ? 'active' : '' }}">
               <i class="nav-icon fab fa-instagram"></i>
               <p>
-                Instagram Post <span class="badge badge-info right">Home 2</span>
+                {{ __('Instagram Post') }} <span class="badge badge-info right">{{ __('Home 2') }}</span>
               </p>
             </a>
           </li>
@@ -286,7 +286,7 @@
             <a href="{{ route('htpolicy') }}" class="nav-link {{ (Route::currentRouteNamed('htpolicy')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-exchange-alt"></i>
               <p>
-                Policy Section <span class="badge badge-info right">Home 2</span>
+                {{ __('Policy Section') }} <span class="badge badge-info right">{{ __('Home 2') }}</span>
               </p>
             </a>
           </li>
@@ -296,7 +296,7 @@
             <a href="{{ route('h3bvideo') }}" class="nav-link {{ (Route::currentRouteNamed('h3bvideo')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-video"></i>
               <p>
-                Video Section <span class="badge badge-info right">Home 3</span>
+                {{ __('Video Section') }} <span class="badge badge-info right">{{ __('Home 3') }}</span>
               </p>
             </a>
           </li>
@@ -305,7 +305,7 @@
             <a href="{{ route('pg.index') }}" class="nav-link {{ (Route::currentRouteNamed('pg.index')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-hands-helping"></i>
               <p>
-                Payment Getway
+                {{ __('Payment Getway') }}
               </p>
             </a>
           </li>
@@ -313,7 +313,7 @@
             <a href="{{ route('partner') }}" class="nav-link {{ (Route::currentRouteNamed('partner')) ? 'active' : '' }}">
               <i class="nav-icon fas fa-hands-helping"></i>
               <p>
-                Pertner
+                {{ __('Pertner') }}
               </p>
             </a>
           </li>
@@ -322,7 +322,7 @@
             <a href="{{ route('appLinks') }}" class="nav-link {{ (Route::currentRouteNamed('appLinks')) ? 'active' : '' }}">
               <i class="nav-icon fab fa-app-store-ios"></i>
               <p>
-                App Download
+                {{ __('App Download') }}
               </p>
             </a>
           </li>
@@ -331,7 +331,7 @@
             <a href="#" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add','aboutUsPage','contactUsPage') ? 'active' : '' }}">
               <i class="nav-icon fas fa-file-alt"></i>
               <p>
-                Pages
+                {{ __('Pages') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -339,41 +339,41 @@
               <li class="nav-item">
                 <a href="{{route('contactUsPage')}}" class="nav-link {{ Route::currentRouteNamed('contactUsPage') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Contact Us</p>
+                  <p>{{ __('Contact Us') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('aboutUsPage')}}" class="nav-link {{ Route::currentRouteNamed('aboutUsPage') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>About Us</p>
+                  <p>{{ __('About Us') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('privacyPolicy.index') }}" class="nav-link {{ Route::currentRouteNamed('privacyPolicy.index') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Privacy Policy</p>
+                  <p>{{ __('Privacy Policy') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('termsConditon.index')}}" class="nav-link {{ Route::currentRouteNamed('termsConditon.index') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Terms & Condition</p>
+                  <p>{{ __('Terms & Condition') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('faqs')}}" class="nav-link {{ Route::currentRouteNamed('faqs','faqs.add') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>FAQs</p>
+                  <p>{{ __('FAQs') }}</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-header">SETTINGS</li>
+          <li class="nav-header">{{ __('SETTINGS') }}</li>
           <li class="nav-item">
             <a href="{{ route('inbox') }}" class="nav-link {{ Route::currentRouteNamed('inbox') ? 'active' : '' }}">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Message
+                {{ __('Message') }}
                 <span class="badge badge-info right">{{ unreadMessage() }}</span>
               </p>
             </a>
@@ -382,7 +382,7 @@
             <a href="" class="nav-link {{ Route::currentRouteNamed('emailConfig') ? 'active' : '' }}">
               <i class="nav-icon fas fa-file-alt"></i>
               <p>
-                Email Configuration
+                {{ __('Email Configuration') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -390,13 +390,13 @@
               <li class="nav-item">
                 <a href="{{ route('emailConfig') }}" class="nav-link {{ Route::currentRouteNamed('emailConfig') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Setting</p>
+                  <p>{{ __('Setting') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('emailTemplate') }}" class="nav-link {{ Route::currentRouteNamed('emailTemplate') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Email Template</p>
+                  <p>{{ __('Email Template') }}</p>
                 </a>
               </li>
             </ul>
@@ -405,7 +405,7 @@
             <a href="" class="nav-link {{ Route::currentRouteNamed('topbar','footerTop','footer') ? 'active' : '' }}">
               <i class="nav-icon fas fa-warehouse"></i>
               <p>
-                Theme Option
+                {{ __('Theme Option') }}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -413,25 +413,25 @@
               <li class="nav-item">
                 <a href="{{ route('topbar') }}" class="nav-link {{ Route::currentRouteNamed('topbar') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Topbar</p>
+                  <p>{{ __('Topbar') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="" class="nav-link {{ Route::currentRouteNamed('') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Menu</p>
+                  <p>{{ __('Menu') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('footerTop') }}" class="nav-link {{ Route::currentRouteNamed('footerTop') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Footer Top</p>
+                  <p>{{ __('Footer Top') }}</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('footer') }}" class="nav-link {{ Route::currentRouteNamed('footer') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Footer</p>
+                  <p>{{ __('Footer') }}</p>
                 </a>
               </li>
             </ul>
@@ -440,7 +440,7 @@
             <a href="{{ route('setting') }}" class="nav-link {{ Route::currentRouteNamed('setting') ? 'active' : '' }}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
-                Settings
+                {{ __('Settings') }}
               </p>
             </a>
           </li>
@@ -450,7 +450,7 @@
               {{-- <i class="nav-icon far fa-image"></i> --}}
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
-                Logout
+                {{ __('Logout') }}
               </p>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

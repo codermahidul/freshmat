@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">Contact Info</h2>
+                <h2 class="card-title">{{ __('Contact Info') }}</h2>
             </div>
             <div class="card-body">
                 <form action="{{ route('topbarUpdate') }}" method="POST">
@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="phone">Phone</label>
+                                <label for="phone">{{ __('Phone') }}</label>
                                 <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number" value="{{ topbarContent('phone') }}">
                                 @error('phone')
                                     <span class="text-danger d-block">{{ $message }}</span>
@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">{{ __('Email') }}</label>
                                 <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="{{ topbarContent('email') }}">
                                 @error('email')
                                     <span class="text-danger d-block">{{ $message }}</span>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="location">Location</label>
+                                <label for="location">{{ __('Location') }}</label>
                                 <input type="text" name="location" id="location" class="form-control" placeholder="Location" value="{{ topbarContent('location') }}">
                                 @error('location')
                                     <span class="text-danger d-block">{{ $message }}</span>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="location">Support Number</label>
+                                <label for="location">{{ __('Support Number') }}</label>
                                 <input type="text" name="supportNumber" id="supportNumber" class="form-control" placeholder="Location" value="{{ topbarContent('supportNumber') }}">
                                 @error('supportNumber')
                                     <span class="text-danger d-block">{{ $message }}</span>
@@ -46,14 +46,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="location">Support Text</label>
+                                <label for="location">{{ __('Support Text') }}</label>
                                 <input type="text" name="supportText" id="supportText" class="form-control" placeholder="Location" value="{{ topbarContent('supportText') }}">
                                 @error('supportText')
                                     <span class="text-danger d-block">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
                     </div>
                 </form>
             </div>
@@ -65,7 +65,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">Social Links</h2>
+                <h2 class="card-title">{{ __('Social Links') }}</h2>
             </div>
             <div class="card-body">
                 <form action="{{ route('socialLinkInsert') }}" method="post">
@@ -73,17 +73,17 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label for="icon">Social Media</label>
+                                <label for="icon">{{ __('Social Media') }}</label>
                                 <select name="icon" id="icon" class="form-control">
-                                    <option value="fab fa-facebook-f">Facebook</option>
-                                    <option value="fab fa-twitter">Twitter</option>
-                                    <option value="fab fa-linkedin-in">Linkedin</option>
-                                    <option value="fab fa-instagram">Instagram</option>
-                                    <option value="fab fa-youtube">YouTube</option>
-                                    <option value="fab fa-pinterest-p">Pinterest</option>
-                                    <option value="fab fa-snapchat-ghost">Snapchat</option>
-                                    <option value="fab fa-tiktok">TikTok</option>
-                                    <option value="fab fa-reddit-alien">Reddit</option>
+                                    <option value="fab fa-facebook-f">{{ __('Facebook') }}</option>
+                                    <option value="fab fa-twitter">{{ __('Twitter') }}</option>
+                                    <option value="fab fa-linkedin-in">{{ __('Linkedin') }}</option>
+                                    <option value="fab fa-instagram">{{ __('Instagram') }}</option>
+                                    <option value="fab fa-youtube">{{ __('YouTube') }}</option>
+                                    <option value="fab fa-pinterest-p">{{ __('Pinterest') }}</option>
+                                    <option value="fab fa-snapchat-ghost">{{ __('Snapchat') }}</option>
+                                    <option value="fab fa-tiktok">{{ __('TikTok') }}</option>
+                                    <option value="fab fa-reddit-alien">{{ __('Reddit') }}</option>
                                 </select>
                                 @error('icon')
                                  <span class="text-danger d-block">{{ $message }}</span>
@@ -92,7 +92,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="form-group">
-                                <label for="link">Link</label>
+                                <label for="link">{{ __('Link') }}</label>
                                 <input type="text" name="link" id="link" class="form-control" placeholder="Enter Your Link">
                                 @error('link')
                                     <span class="text-danger d-block">{{ $message }}</span>
@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="col-md-2 d-flex align-items-center mt-3">
-                            <button type="submit" class="btn btn-primary">Add New</button>
+                            <button type="submit" class="btn btn-primary">{{ __('Add New') }}</button>
                         </div>
                     </div>
                 </form>
@@ -110,10 +110,10 @@
                     <table class="table table-borderd">
                         <thead>
                             <tr>
-                                <th>Sl</th>
-                                <th>Social Media</th>
-                                <th>Link</th>
-                                <th>Action</th>
+                                <th>{{ __('Sl') }}</th>
+                                <th>{{ __('Social Media') }}</th>
+                                <th>{{ __('Link') }}</th>
+                                <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -131,7 +131,7 @@
                             </tr>
                             @empty
                                 <tr>
-                                    <td>No Social Links found!</td>
+                                    <td>{{ __('No Social Links found!') }}</td>
                                 </tr>
                             @endforelse
                         </tbody>

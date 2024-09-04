@@ -38,13 +38,13 @@
                   </div>
                 </div>
                   <div class="form-group">
-                    <label>Status</label>
+                    <label>{{ __('Status') }}</label>
                     <select class="form-control" name="status">
-                        <option value="active" selected>Active</option>
-                        <option value="deactive">Deactive</option>
+                        <option value="active" selected>{{ __('Active') }}</option>
+                        <option value="deactive">{{ __('Deactive') }}</option>
                     </select>
                   </div>
-                <button type="submit" class="btn btn-primary">Add Delivery Area</button>
+                <button type="submit" class="btn btn-primary">{{ __('Add Delivery Area') }}</button>
             </form>
           </div>
           @if (session('success'))

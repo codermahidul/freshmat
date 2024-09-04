@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Update Password</h1>
+                            <h1>{{ __('Update Password') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">Enter New Password</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="">{{ __('Enter New Password') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-xxl-5 col-md-10 col-lg-7 col-xl-6 wow fadeInRight">
                     <div class="sign_in_form">
-                        <h3>Add New Password? 👋</h3>
+                        <h3>{{ __('Add New Password?') }}</h3>
                         <form action="{{ route('password.update') }}" method="POST">
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
@@ -70,7 +70,7 @@
                                 {{ session('status') }}
                             </div>
                             @endif
-                            <button type="submit" class="common_btn">send<span></span></button>
+                            <button type="submit" class="common_btn">{{ __('Send') }}<span></span></button>
                         </form>
                     </div>
                 </div>

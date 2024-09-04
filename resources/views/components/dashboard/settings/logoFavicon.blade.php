@@ -9,7 +9,7 @@
                 @csrf
               <div class="card-body">
                     <div class="mb-3">
-                        <p>Existing Logo</p>
+                        <p>{{ __('Existing Logo') }}</p>
                         <img src="{{ asset(setting('logo')) }}" class="rounded d-block" alt="...">
                     </div>
                         <div class="form-group">
@@ -17,7 +17,7 @@
                           <div class="input-group">
                             <div class="custom-file">
                               <input type="file" class="custom-file-input @error('logo') is-invalid @enderror" id="logo" name="logo" value="{{ old('logo') }}">
-                              <label class="custom-file-label" for="logo">Choose file</label>
+                              <label class="custom-file-label" for="logo">{{ __('Choose file') }}</label>
                             </div>
                           </div>
                           @error('logo')
@@ -27,7 +27,7 @@
                           @enderror
                         </div>
                         <div class="mb-3">
-                            <p>Existing Footer Logo</p>
+                            <p>{{ __('Existing Footer Logo') }}</p>
                             <img src="{{ asset(setting('footerLogo')) }}" class="rounded d-block" alt="...">
                         </div>
                         <div class="form-group">
@@ -35,7 +35,7 @@
                             <div class="input-group">
                               <div class="custom-file">
                                 <input type="file" class="custom-file-input @error('footerlogo') is-invalid @enderror" id="footerlogo" name="footerlogo" value="{{ old('footerlogo') }}">
-                                <label class="custom-file-label" for="footerlogo">Choose file</label>
+                                <label class="custom-file-label" for="footerlogo">{{ __('Choose file') }}</label>
                               </div>
                             </div>
                             @error('footerlogo')
@@ -45,7 +45,7 @@
                             @enderror
                           </div>
                           <div class="mb-3">
-                            <p>Existing Favicon</p>
+                            <p>{{ __('Existing Favicon') }}</p>
                             <img src="{{ asset(setting('favicon')) }}" class="rounded d-block" alt="...">
                         </div>
                           <div class="form-group">
@@ -53,7 +53,7 @@
                             <div class="input-group">
                               <div class="custom-file">
                                 <input type="file" class="custom-file-input @error('favicon') is-invalid @enderror" id="favicon" name="favicon" value="{{ old('logo') }}">
-                                <label class="custom-file-label" for="favicon">Choose file</label>
+                                <label class="custom-file-label" for="favicon">{{ __('Choose file') }}</label>
                               </div>
                             </div>
                             @error('favicon')
@@ -62,7 +62,7 @@
                               </span>
                             @enderror
                           </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
             </div>
             </form>
           </div>

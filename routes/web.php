@@ -43,17 +43,25 @@ use App\Http\Controllers\EmailTemplateController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PaypalPaymentController;
 use App\Http\Controllers\MolliePaymentController;
+use App\Http\Controllers\RazorpayPaymentController;
 use App\Http\Controllers\PaymentGetwayController;
+use App\Http\Controllers\InstamojoPaymentController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 //User Routes
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/home-one', [FrontendController::class, 'indexOne'])->name('indexOne');
 Route::get('/home-two', [FrontendController::class, 'indexTwo'])->name('indexTwo');
 Route::get('/home-three', [FrontendController::class, 'indexThree'])->name('indexThree');
+
+Route::get('password/reset', [ForgotPasswordController::class, 'showResetForm'])->name('reset.password');
+Route::post('password/send-mail', [ForgotPasswordController::class, 'sendMail'])->name('password.sendMail');
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'passwordReset'])->name('userPasswordReset');
 
 
 //Admin Login Page
@@ -129,6 +137,13 @@ Route::middleware(['auth'])->group(function(){
     Route::get('mollie/payment', [MolliePaymentController::class, 'payment'])->name('mollie.payment');
     Route::get('mollie/success', [MolliePaymentController::class, 'success'])->name('mollie.success');
     Route::get('mollie/cancel', [MolliePaymentController::class, 'cancel'])->name('mollie.cancel');
+
+    //Razorpay
+    Route::post('razorpay/payment', [RazorpayPaymentController::class, 'payment'])->name('razorpay.payment');
+
+    //Instamojo
+    Route::get('instamojo/payment',[InstamojoPaymentController::class, 'payment'])->name('instamojo.payment');
+    Route::get('instamojo/callback', [InstamojoPaymentController::class, 'callback'])->name('instamojo.callback');
 
 
 });

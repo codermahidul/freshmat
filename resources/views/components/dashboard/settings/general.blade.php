@@ -1,20 +1,20 @@
 <form action="{{ route('general') }}" method="post">
     @csrf
     <div class="form-group">
-        <label for="theme">Theme</label>
+        <label for="theme">{{ __('Theme') }}</label>
         <select name="theme" id="theme" class="form-control">
-            <option value="all" {{ (setting('theme') == 'show') ? 'selected' : '' }}>All</option>
-            <option value="one" {{ (setting('theme') == 'one') ? 'selected' : '' }}>Home One</option>
-            <option value="two" {{ (setting('theme') == 'two') ? 'selected' : '' }}>Home Two</option>
-            <option value="three" {{ (setting('theme') == 'three') ? 'selected' : '' }}>Home Three</option>
+            <option value="all" {{ (setting('theme') == 'show') ? 'selected' : '' }}>{{ __('All') }}</option>
+            <option value="one" {{ (setting('theme') == 'one') ? 'selected' : '' }}>{{ __('Home One') }}</option>
+            <option value="two" {{ (setting('theme') == 'two') ? 'selected' : '' }}>{{ __('Home Two') }}</option>
+            <option value="three" {{ (setting('theme') == 'three') ? 'selected' : '' }}>{{ __('Home Three') }}</option>
         </select>
     </div>
     <div class="form-group">
-        <label for="tobpar">Topbar</label>
+        <label for="tobpar">{{ __('Topbar') }}</label>
         <select name="topbar" id="topbar" class="form-control">
-            <option value="show" {{ (setting('topbar') == 'show') ? 'selected' : '' }}>Show</option>
-            <option value="hide" {{ (setting('topbar') == 'hide') ? 'selected' : '' }}>Hide</option>
+            <option value="show" {{ (setting('topbar') == 'show') ? 'selected' : '' }}>{{ __('Show') }}</option>
+            <option value="hide" {{ (setting('topbar') == 'hide') ? 'selected' : '' }}>{{ __('Hide') }}</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
 </form>

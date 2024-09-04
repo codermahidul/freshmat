@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Reviews</h1>
+                            <h1>{{ __('Reviews') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="{{ route('userDashboard') }}">Dashboard</a></li>
-                                <li><a href="">Reviews</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="{{ route('userDashboard') }}">{{ __('Dashboard') }}</a></li>
+                                <li><a href="">{{ __('Reviews') }}</a></li>
                             </ul>
                         </div>
                     </div>

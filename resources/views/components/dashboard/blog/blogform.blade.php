@@ -22,7 +22,7 @@
                         {{$message}}
                     </span>
                 @enderror
-                </div> 
+                </div>
                 <div class="form-group">
                   <label for="slug">{{ __('Slug') }}</label>
                   <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Enter Slug" name="slug" value="{{old('slug')}}">
@@ -39,7 +39,7 @@
                           <div class="input-group">
                             <div class="custom-file">
                               <input type="file" class="custom-file-input @error('thumbnail') is-invalid @enderror" id="thumbnail" name="thumbnail" value="{{ old('thumbnail') }}">
-                              <label class="custom-file-label" for="thumbnail">Choose file</label>
+                              <label class="custom-file-label" for="thumbnail">{{ __('Choose file') }}</label>
                             </div>
                           </div>
                           @error('thumbnail')
@@ -53,7 +53,7 @@
                       <div class="form-group">
                           <label>{{ __('Category') }}</label>
                           <select class="form-control" name="categoryId">
-                              @foreach ($categories as $category)   
+                              @foreach ($categories as $category)
                               <option value="{{$category->id}}" {{ ($category->slug == 'uncategorized') ? 'selected' : '' }} >{{$category->name}}</option>
                               @endforeach
                           </select>
@@ -89,13 +89,13 @@
                   @enderror
                   </div>
                   <div class="form-group">
-                    <label>Status</label>
+                    <label>{{ __('Status') }}</label>
                     <select class="form-control" name="status">
-                        <option value="publish" selected>Publish</option>
-                        <option value="draft">Draft</option>
+                        <option value="publish" selected>{{ __('Publish') }}</option>
+                        <option value="draft">{{ __('Draft') }}</option>
                     </select>
                   </div>
-                <button type="submit" class="btn btn-primary">Add Post</button>
+                <button type="submit" class="btn btn-primary">{{ __('Add Post') }}</button>
             </form>
           </div>
           @if (session('success'))

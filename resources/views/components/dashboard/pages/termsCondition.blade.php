@@ -12,7 +12,7 @@
             </span>
         @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
         <div>
     </form>
 

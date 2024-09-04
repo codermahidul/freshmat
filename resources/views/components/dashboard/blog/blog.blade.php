@@ -3,21 +3,21 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Blog Post</h3>
-                <a href="{{ route('blog.add') }}" class="btn btn-primary ml-auto">Add New</a>
+                <h3 class="card-title">{{ __('Blog Post') }}</h3>
+                <a href="{{ route('blog.add') }}" class="btn btn-primary ml-auto">{{ __('Add New') }}</a>
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped dataTable dtr-inline" id="example1">
                     <thead>
                         <tr>
-                            <td>#</td>
-                            <td>Title</td>
-                            <td>Category</td>
-                            <td>Author</td>
-                            <td>Thumbnail</td>
-                            <td>React</td>
-                            <td>Status</td>
-                            <td>Action</td>
+                            <td>{{ __('#') }}</td>
+                            <td>{{ __('Title') }}</td>
+                            <td>{{ __('Category') }}</td>
+                            <td>{{ __('Author') }}</td>
+                            <td>{{ __('Thumbnail') }}</td>
+                            <td>{{ __('React') }}</td>
+                            <td>{{ __('Status') }}</td>
+                            <td>{{ __('Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,8 +41,8 @@
                             </tr>
                         @empty
                             <tr align="center">
-                                <td colspan="10" class="py-5">No Post Found! <a href="{{ route('blog.add') }}">Add
-                                        New</a></td>
+                                <td colspan="10" class="py-5">{{ __('No Post Found!') }} <a href="{{ route('blog.add') }}">{{ __('Add
+                                        New') }}</a></td>
                             </tr>
                         @endforelse
                     </tbody>

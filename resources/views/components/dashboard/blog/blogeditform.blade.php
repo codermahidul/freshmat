@@ -22,7 +22,7 @@
                         {{$message}}
                     </span>
                 @enderror
-                </div> 
+                </div>
                 <div class="form-group">
                   <label for="slug">{{ __('Slug') }}</label>
                   <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" placeholder="Enter Slug" name="slug" value="{{old('slug')}}{{$post->slug}}">
@@ -63,7 +63,7 @@
                         <div class="form-group">
                             <label>{{ __('Category') }}</label>
                             <select class="form-control" name="categoryId">
-                                @foreach ($categories as $category)   
+                                @foreach ($categories as $category)
                                 <option value="{{$category->id}}" {{ ($category->id == $post->categoryId) ? 'selected' : '' }} >{{$category->name}}</option>
                                 @endforeach
                             </select>
@@ -89,14 +89,14 @@
                   @enderror
                   </div>
                   <div class="form-group">
-                    <label>Status</label>
+                    <label>{{ __('Status') }}</label>
                     <select class="form-control" name="status">
-                        <option value="publish" {{ ($post->status == 'publish' ) ? 'selected' : '' }}>Publish</option>
-                        <option value="draft" {{ ($post->status == 'draft' ) ? 'selected' : '' }}>Draft</option>
+                        <option value="publish" {{ ($post->status == 'publish' ) ? 'selected' : '' }}>{{ __('Publish') }}</option>
+                        <option value="draft" {{ ($post->status == 'draft' ) ? 'selected' : '' }}>{{ __('Draft') }}</option>
                     </select>
                   </div>
-              
-                <button type="submit" class="btn btn-primary">Update Post</button>
+
+                <button type="submit" class="btn btn-primary">{{ __('Update Post') }}</button>
             </form>
           </div>
           @if (session('success'))

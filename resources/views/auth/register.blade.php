@@ -11,10 +11,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Sign Up</h1>
+                            <h1>{{ __('Sign Up') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">Sign Up</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="">{{ __('Sign Up') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-xxl-5 col-md-10 col-lg-7 col-xl-6 wow fadeInRight">
                     <div class="sign_in_form">
-                        <h3>Sign Up to Continue 👋</h3>
+                        <h3>{{ __('Sign Up to Continue') }}</h3>
                         <form action="{{route('register')}}" method="post" id="registerForm">
                             @csrf
                             <input type="text" placeholder="Enter name" name="name">
@@ -68,19 +68,19 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                             @endif
-                            <button type="submit" class="common_btn">Sign Up<span></span></button>
+                            <button type="submit" class="common_btn">{{ __('Sign Up') }}<span></span></button>
                         </form>
 
 
-                        <p class="dont_account">Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
-                        <p class="or">or</p>
+                        <p class="dont_account">{{ __('Already have an account?') }} <a href="{{ route('login') }}">{{ __('Sign In') }}</a></p>
+                        <p class="or">{{ __('or') }}</p>
                         <ul>
                             <li>
                                 <a href="#">
                                     <span>
                                         <img src="{{ asset('assets') }}/images/google_logo.png" alt="google" class="img-fluid w-100">
                                     </span>
-                                    Google
+                                    {{ __('Google') }}
                                 </a>
                             </li>
                             <li>
@@ -88,7 +88,7 @@
                                     <span>
                                         <img src="{{ asset('assets') }}/images/fb_logo.png" alt="google" class="img-fluid w-100">
                                     </span>
-                                    Facebook
+                                    {{ __('Facebook') }}
                                 </a>
                             </li>
                             <li>
@@ -96,7 +96,7 @@
                                     <span>
                                         <img src="{{ asset('assets') }}/images/twitter_logo.png" alt="google" class="img-fluid w-100">
                                     </span>
-                                    Twitter
+                                    {{ __('Twitter') }}
                                 </a>
                             </li>
                         </ul>

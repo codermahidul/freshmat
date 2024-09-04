@@ -4,13 +4,13 @@
         <div class="col-md-10 m-auto">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Edit <b>'{{$category->name}}'</b> Category</h3>
+              <h3 class="card-title"{{ __('Edit') }}->name}}'</b> {{ __('Category') }}</h3>
             </div>
             <form action="{{route('category.update',$category->id)}}" method="POST">
                 @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Category Name</label>
+                  <label for="name">{{ __('Category Name') }}</label>
                   <input type="text" class="form-control @error('name') is-invalid @enderror" id="question" placeholder="Enter Category" name="name" value="{{old('name')}}{{$category->name}}">
                 @error('name')
                     <span class="text-danger">
@@ -19,7 +19,7 @@
                 @enderror
                 </div>
                 <div class="form-group">
-                    <label for="slug">Category Slug</label>
+                    <label for="slug">{{ __('Category Slug') }}</label>
                     <input type="text" class="form-control @error('slug') is-invalid @enderror" id="question" placeholder="Enter Slug" name="slug" value="{{old('slug')}}{{$category->slug}}">
                   @error('slug')
                       <span class="text-danger">
@@ -42,14 +42,14 @@
                     timer: 3000,
                     timerProgressBar: true,
                   })
-    
+
                   Toast.fire({
                     icon: 'success',
                     title: "{{ session('success') }}",
                   })
                 </script>
               @endif
-                <button type="submit" class="btn btn-primary">Update Category</button>
+                <button type="submit" class="btn btn-primary">{{ __('Update Category') }}</button>
             </form>
           </div>
         </div>

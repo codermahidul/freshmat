@@ -2,23 +2,23 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">All Orders</h2>
+                <h2 class="card-title">{{ __('All Orders') }}</h2>
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped dataTable dtr-inline" id="example1">
                     <thead>
                         <tr>
-                            <td>#</td>
-                            <td>Order Id</td>
-                            <td>Custormer Name</td>
-                            <td>Quantity</td>
-                            <td>Discount</td>
-                            <td>Payable</td>
-                            <td>Total</td>
-                            <td>Status</td>
-                            <td>Payment</td>
-                            <td>Order Date</td>
-                            <td>Action</td>
+                            <td>{{ __('#') }}</td>
+                            <td>{{ __('Order Id') }}</td>
+                            <td>{{ __('Custormer Name') }}</td>
+                            <td>{{ __('Quantity') }}</td>
+                            <td>{{ __('Discount') }}</td>
+                            <td>{{ __('Payable') }}</td>
+                            <td>{{ __('Total') }}</td>
+                            <td>{{ __('Status') }}</td>
+                            <td>{{ __('Payment') }}</td>
+                            <td>{{ __('Order Date') }}</td>
+                            <td>{{ __('Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,20 +41,20 @@
                                 <td>{{ $order->total }}</td>
                                 <td>
                                     @if ($order->status == 'complete' )
-                                    <span class="badge badge-success">Complete</span>
+                                    <span class="badge badge-success">{{ __('Complete') }}</span>
                                     @elseif($order->status == 'cancel')
-                                    <span class="badge badge-danger">Cancel</span>                                 
+                                    <span class="badge badge-danger">{{ __('Cancel') }}</span>
                                     @elseif($order->status == 'new')
-                                    <span class="badge badge-primary">New</span>
+                                    <span class="badge badge-primary">{{ __('New') }}</span>
                                     @elseif($order->status == 'delevery-in-process')
-                                    <span class="badge badge-warning">Delevery Processing</span>
+                                    <span class="badge badge-warning">{{ __('Delevery Processing') }}</span>
                                     @endif
                                 </td>
                                 <td>
                                     @if ($order->payment == 'success')
-                                    <span class="badge badge-success">Success</span>
+                                    <span class="badge badge-success">{{ __('Success') }}</span>
                                     @else
-                                    <span class="badge badge-warning">Pending</span>
+                                    <span class="badge badge-warning">{{ __('Pending') }}</span>
                                     @endif
                                 </td>
                                 <td>{{ $order->created_at->format('d-M-Y') }}</td>
@@ -69,7 +69,7 @@
                                 </td>
                             </tr>
                         @empty
-                            No order found!
+                            {{ __('No order found!') }}
                         @endforelse
                     </tbody>
                 </table>
@@ -85,7 +85,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Order Status</h4>
+                    <h4 class="modal-title">{{ __('Order Status') }}</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -94,30 +94,30 @@
                     <form action="{{ route('orderStatus', $order->id) }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="payment">Payment</label>
+                            <label for="payment">{{ __('Payment') }}</label>
                             <select name="payment" id="payment" class="form-control">
                                 <option {{ $order->payment == 'pending' ? 'selected' : '' }} value="pending">
-                                    Pending</option>
+                                    {{ __('Pending') }}</option>
                                 <option {{ $order->payment == 'success' ? 'selected' : '' }} value="success">
-                                    Success</option>
+                                    {{ __('Success') }}</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="status">Order</label>
+                            <label for="status">{{ __('Order') }}</label>
                             <select name="status" id="status" class="form-control">
-                                <option {{ $order->status == 'new' ? 'selected' : '' }} value="new">New</option>
+                                <option {{ $order->status == 'new' ? 'selected' : '' }} value="new">{{ __('New') }}</option>
                                 <option {{ $order->status == 'delevery-in-process' ? 'selected' : '' }}
-                                    value="delevery-in-process">Delevery In Process</option>
+                                    value="delevery-in-process">{{ __('Delevery In Process') }}</option>
                                 <option {{ $order->status == 'complete' ? 'selected' : '' }} value="complete">
-                                    Complate</option>
-                                <option {{ $order->status == 'cancel' ? 'selected' : '' }} value="cancel">Canceled
+                                    {{ __('Complate') }}</option>
+                                <option {{ $order->status == 'cancel' ? 'selected' : '' }} value="cancel">{{ __('Canceled') }}
                                 </option>
                             </select>
                         </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('Close') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Save changes') }}</button>
                     </form>
                 </div>
             </div>

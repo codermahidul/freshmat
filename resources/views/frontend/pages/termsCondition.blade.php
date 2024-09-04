@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Terms & condition</h1>
+                            <h1>{{ __('Terms & condition') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">Terms & condition</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="">{{ __('Terms & condition') }}</a></li>
                             </ul>
                         </div>
                     </div>

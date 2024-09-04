@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Error</h1>
+                            <h1>{{ __('Error') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">404</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="">{{ __('404') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -37,9 +37,9 @@
                         <div class="img">
                             <img src="{{ asset('assets') }}/images/error_img.png" alt="Error" class="img-fluid w-100">
                         </div>
-                        <h3>Opos! Nothing Was Found</h3>
-                        <p>Something went wrong, Looks like this page doesn't exist anymore.</p>
-                        <a class="common_btn" href="{{ route('index') }}"> <i class="fas fa-long-arrow-left"></i> go back home
+                        <h3>{{ __('Opos! Nothing Was Found') }}</h3>
+                        <p>{{ __('Something went wrong, Looks like this page doesn\'t exist anymore.') }}</p>
+                        <a class="common_btn" href="{{ route('index') }}"> <i class="fas fa-long-arrow-left"></i> {{ __('go back home') }}
                             <span></span></a>
                     </div>
                 </div>

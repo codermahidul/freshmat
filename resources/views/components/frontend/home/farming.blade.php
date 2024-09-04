@@ -12,7 +12,7 @@
                             <h2>{{ hovg()->offerText }}</h2>
                         </div>
                         <p>{{ hovg()->description }}</p>
-                        <a class="common_btn" href="{{ hovg()->link }}">Read more <i class="fas fa-long-arrow-right"></i>
+                        <a class="common_btn" href="{{ hovg()->link }}">{{ __('Read more') }} <i class="fas fa-long-arrow-right"></i>
                             <span></span></a>
                     </div>
                 </div>

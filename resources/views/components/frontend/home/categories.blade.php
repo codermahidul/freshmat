@@ -15,7 +15,7 @@
                         </a>
                     </div>
                     @empty
-                        No Category Found!
+                        {{ __('No Category Found!') }}
                     @endforelse
                 </div>
             </div>

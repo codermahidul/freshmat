@@ -29,7 +29,7 @@ class EmailTemplateController extends Controller
         ]);
 
         toast('Template Update Successfully!', 'success')->width('350');
-        return back();
+        return redirect()->route('emailTemplate');
     }
 
 

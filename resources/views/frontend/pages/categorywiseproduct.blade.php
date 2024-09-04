@@ -12,8 +12,8 @@
                         <div class="breadcrumb_text wow fadeInUp">
                             <h1>{{ $categoryName }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="{{ route('shop') }}">Shop</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="{{ route('shop') }}">{{ __('Shop') }}</a></li>
                                 <li><a >{{ $categoryName }}</a></li>
                             </ul>
                         </div>
@@ -44,15 +44,15 @@
                     </div>
                     <div class="col-xl-9 col-lg-8 wow fadeInUp">
                         <div class="shop_page_header">
-                            <p>Showing 1–6 of 10 results</p>
+                            <p>{{ __('Showing 1–6 of 10 results') }}</p>
                             <div class="filter">
-                                <p>Sort by:</p>
+                                <p>{{ __('Sort by') }}:</p>
                                 <select class="select_js">
-                                    <option value=""> Default Sorting</option>
-                                    <option value="">low to high</option>
-                                    <option value="">high to low</option>
-                                    <option value="">Best rating</option>
-                                    <option value="">best sell</option>
+                                    <option value=""> {{ __('Default Sorting') }}</option>
+                                    <option value="">{{ __('low to high') }}</option>
+                                    <option value="">{{ __('high to low') }}</option>
+                                    <option value="">{{ __('Best rating') }}</option>
+                                    <option value="">{{ __('best sell') }}</option>
                                 </select>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-8 col-md-6 order-2 wow fadeInLeft">
                     <div id="sticky_sidebar" class="shop_sidebar">
                         <div class="shop_sidebar_filter shop_sidebar_item">
-                            <h3>Filter by price</h3>
+                            <h3>{{ __('Filter by price') }}</h3>
                             <div class="price_ranger">
                                 <input type="hidden" id="slider_range" class="flat-slider" />
                             </div>
@@ -71,7 +71,7 @@
                         {{-- sidebar categories --}}
                         @include('components.frontend.global.sidebarcategories')
                         <div class="shop_sidebar_product">
-                            <h3>Featured Products</h3>
+                            <h3>{{ __('Featured Products') }}</h3>
                             <ul>
                                 <li>
                                     <div class="img">
@@ -148,7 +148,7 @@
                             </div>
                         </div>
                         @empty
-                            No Products found!
+                            {{ __('No Products found!') }}
                         @endforelse
                     </div>
                     {{-- Pagination --}}
@@ -195,18 +195,18 @@
                                     </div>
                                     <div class="details_cart_btn">
                                         <a class="common_btn" href="{{ route('addToCart',$product->id) }}"><i class="far fa-shopping-basket"></i>
-                                            Add To
-                                            Cart
+                                            {{ __('Add To
+                                            Cart') }}
                                             <span></span></a>
                                         <a class="love" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
                                     </div>
-                                    <p class="category"><span>Category:</span>{{ $product->productcategories->name }}</p>
+                                    <p class="category"><span>{{ __('Category') }}:</span>{{ $product->productcategories->name }}</p>
                                     <ul class="tags">
-                                        <li>Tags:</li>
+                                        <li>{{ __('Tags') }}:</li>
                                         <li><a href="#">{{ $product->tags }}</a></li>
                                     </ul>
                                     <ul class="share">
-                                        <li>Share with friends:</li>
+                                        <li>{{ __('Share with friends') }}:</li>
                                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                         <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>

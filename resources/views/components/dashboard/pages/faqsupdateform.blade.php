@@ -6,7 +6,7 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Edit FAQs</h3>
+              <h3 class="card-title">{{ __('Edit FAQs') }}</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -14,7 +14,7 @@
                 @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="question">Question</label>
+                  <label for="question">{{ __('Question') }}</label>
                   <input type="text" class="form-control @error('question') is-invalid @enderror" id="question" placeholder="Enter Question" name="question" value="{{old('question')}}{{$singleFAQS->question}}">
                 @error('question')
                     <span class="text-danger">
@@ -23,7 +23,7 @@
                 @enderror
             </div>
                 <div class="form-group">
-                    <label>Textarea</label>
+                    <label>{{ __('Textarea') }}</label>
                     <textarea class="form-control @error('answer') is-invalid @enderror" rows="3" placeholder="Enter Answer" name="answer">{{old('answer')}}{{$singleFAQS->answer}}</textarea>
                     @error('answer')
                     <span class="text-danger">
@@ -32,10 +32,10 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <label>Status</label>
+                    <label>{{ __('Status') }}</label>
                     <select class="form-control" name="status">
-                      <option value="active" {{ $singleFAQS->status == 'active' ? 'selected' : ''}}>Active</option>
-                      <option value="deactive" {{ $singleFAQS->status == 'deactive' ? 'selected' : ''}}>Deactive</option>
+                      <option value="active" {{ $singleFAQS->status == 'active' ? 'selected' : ''}}>{{ __('Active') }}</option>
+                      <option value="deactive" {{ $singleFAQS->status == 'deactive' ? 'selected' : ''}}>{{ __('Deactive') }}</option>
                     </select>
                   </div>
               </div>
@@ -54,7 +54,7 @@
                     timer: 3000,
                     timerProgressBar: true,
                   })
-    
+
                   Toast.fire({
                     icon: 'success',
                     title: "{{ session('success') }}",
@@ -63,7 +63,7 @@
               @endif
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
               </div>
             </form>
           </div>

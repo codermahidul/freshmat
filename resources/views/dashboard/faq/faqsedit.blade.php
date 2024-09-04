@@ -6,13 +6,13 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">FAQs</h1>
+        <h1 class="m-0">{{ __('FAQs') }}</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-          <li class="breadcrumb-item"><a href="{{route('faqs')}}">FAQs</a></li>
-          <li class="breadcrumb-item active">FAQs Edit</li>
+          <li class="breadcrumb-item"><a href="{{route('home')}}">{{ __('Home') }}</a></li>
+          <li class="breadcrumb-item"><a href="{{route('faqs')}}">{{ __('FAQs') }}</a></li>
+          <li class="breadcrumb-item active">{{ __('FAQs Edit') }}</li>
         </ol>
       </div>
     </div>

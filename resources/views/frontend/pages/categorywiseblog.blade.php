@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Blogs</h1>
+                            <h1>{{ __('Blogs') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="{{ route('frontendblog') }}">Blog</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="{{ route('frontendblog') }}">{{ __('Blog') }}</a></li>
                                 <li><a href="">{{ $categroyName }}</a></li>
                             </ul>
                         </div>
@@ -46,15 +46,15 @@
                             </ul>
                             <a class="title" href="{{ route('blogDetails',$blog->slug) }}">{{ $blog->title }}</a>
                             <ul class="bottom">
-                                <li><a href="{{ route('blogDetails',$blog->slug) }}">read more <i class="fas fa-long-arrow-right"></i></a>
+                                <li><a href="{{ route('blogDetails',$blog->slug) }}">{{ __('read more') }} <i class="fas fa-long-arrow-right"></i></a>
                                 </li>
-                                <li><span><i class="far fa-comment-dots"></i> {{ $blog->commentsCount }} Comments</span></li>
+                                <li><span><i class="far fa-comment-dots"></i> {{ $blog->commentsCount }} {{ __('Comments') }}</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 @empty
-                    No Post Found!
+                    {{ __('No Post Found!') }}
                 @endforelse
                 {{-- Pagination --}}
                 {{ $blogs->links('pagination.frontendPagination') }}

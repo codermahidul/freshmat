@@ -2,7 +2,7 @@
     <div class="dashboard_content">
         <div class="dashboard_profile_info">
             <div class="dashboard_profile_info_edit">
-                <h2>Edit Information <a href="{{ route('userDashboard') }}">Cancel</a></h2>
+                <h2>{{ __('Edit Information') }} <a href="{{ route('userDashboard') }}">{{ __('Cancel') }}</a></h2>
                 <form class="info_edit_form booking_info_form" method="POST" action="{{ route('profileUpdate') }}">
                     @csrf
                     <div class="row">
@@ -36,7 +36,7 @@
                                 @error('address')
                                     <span class="text-danger">{{ $message }}</span>
                                  @enderror
-                            <button type="submit" class="common_btn">Save Profile
+                            <button type="submit" class="common_btn">{{ __('Save Profile') }}
                                 <span></span></button>
                         </div>
                     </div>

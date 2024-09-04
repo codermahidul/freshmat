@@ -2,20 +2,20 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">All Reviews</h2>
+                <h2 class="card-title">{{ __('All Reviews') }}</h2>
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped dataTable dtr-inline" id="example1">
                     <thead>
                         <tr>
-                            <td>#</td>
-                            <td>Name</td>
-                            <td>Product</td>
-                            <td>Content</td>
-                            <td>Rating</td>
-                            <td>Date</td>
-                            <td>Status</td>
-                            <td>Action</td>
+                            <td>{{ __('#') }}</td>
+                            <td>{{ __('Name') }}</td>
+                            <td>{{ __('Product') }}</td>
+                            <td>{{ __('Content') }}</td>
+                            <td>{{ __('Rating') }}</td>
+                            <td>{{ __('Date') }}</td>
+                            <td>{{ __('Status') }}</td>
+                            <td>{{ __('Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,9 +29,9 @@
                                 <td>{{ $review->created_at->format('d-M-Y') }}</td>
                                 <td>
                                     @if ($review->status == 'approved')
-                                        <span class="badge badge-success">Approved</span>
+                                        <span class="badge badge-success">{{ __('Approved') }}</span>
                                     @else
-                                        <span class="badge badge-warning">Pending</span>
+                                        <span class="badge badge-warning">{{ __('Pending') }}</span>
                                     @endif
                                 </td>
                                 <td>
@@ -45,7 +45,7 @@
                                 </td>
                             </tr>
                         @empty
-                            No review found!
+                            {{ __('No review found!') }}
                         @endforelse
                     </tbody>
                 </table>
@@ -62,7 +62,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Status</h4>
+                    <h4 class="modal-title">{{ __('Status') }}</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -71,18 +71,18 @@
                     <form action="{{ route('reviews.update',$review->id) }}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="status">Status</label>
+                            <label for="status">{{ __('Status') }}</label>
                             <select name="status" id="status" class="form-control">
                                 <option {{ $review->status == 'pending' ? 'selected' : '' }} value="pending">
-                                    Pending</option>
+                                    {{ __('Pending') }}</option>
                                 <option {{ $review->status == 'approved' ? 'selected' : '' }} value="approved">
-                                    Approved</option>
+                                    {{ __('Approved') }}</option>
                             </select>
                         </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('Close') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Save changes') }}</button>
                     </form>
                 </div>
             </div>

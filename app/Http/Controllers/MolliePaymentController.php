@@ -72,8 +72,18 @@ class MolliePaymentController extends Controller
             $data['invoice'] = Invoice::where('id',$invoiceId)->first();
             $data['invoiceProduct'] = InvoicesProducts::where('invoiceId',$invoiceId)->get();
             $data['name'] = Auth::user()->name;
+
+            //Data For OrderSuccessfull
+            $OrderSuccessData['user_name'] = $request->user()->name;
+            $OrderSuccessData['total_amount'] = Invoice::where('id',$invoiceId)->first()->total;
+            $OrderSuccessData['payment_method'] = 'Paypal';
+            $OrderSuccessData['payment_status'] = Invoice::where('id',$invoiceId)->first()->payment;
+            $OrderSuccessData['order_status'] = Invoice::where('id',$invoiceId)->first()->status;
+            $OrderSuccessData['order_date'] = Invoice::where('id',$invoiceId)->first()->created_at;
+
             mailServer();
             Mail::to(Auth::user())->send(new InvoiceEmail($data));
+            Mail::to($request->user())->send(new OrderSuccessfull($OrderSuccessData));
 
             Session::forget('cart');
             toast('Payment Success!','success')->width('350');

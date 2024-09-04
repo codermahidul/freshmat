@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Shop</h1>
+                            <h1>{{ __('Shop') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">Shop</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="">{{ __('Shop') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -43,16 +43,16 @@
                     </div>
                     <div class="col-xl-9 col-lg-8 wow fadeInUp">
                         <div class="shop_page_header">
-                            <p>Showing {{ ($products->currentPage() - 1)*$products->perPage()+1 }}–{{ min($products->currentPage() * $products->perPage(),$products->total()) }} of {{ $products->total() }} results</p>
+                            <p>{{ __('Showing') }} {{ ($products->currentPage() - 1)*$products->perPage()+1 }}–{{ min($products->currentPage() * $products->perPage(),$products->total()) }} {{ __('of') }} {{ $products->total() }} {{ __('results') }}</p>
                             <div class="filter">
-                                <p>Sort by:</p>
+                                <p>{{ __('Sort by') }}:</p>
                                 <form action="{{ route('shop') }}" method="GET">
                                 <select class="select_js" onchange="this.form.submit()" name="sort">
-                                    <option {{ ($selected == '') ? 'selected' : ''  }} value=""> Default Sorting</option>
-                                    <option {{ ($selected == 'lh') ? 'selected' : ''  }} value="lh">low to high</option>
-                                    <option {{ ($selected == 'hl') ? 'selected' : ''  }} value="hl">high to low</option>
+                                    <option {{ ($selected == '') ? 'selected' : ''  }} value=""> {{ __('Default Sorting') }}</option>
+                                    <option {{ ($selected == 'lh') ? 'selected' : ''  }} value="lh">{{ __('low to high') }}</option>
+                                    <option {{ ($selected == 'hl') ? 'selected' : ''  }} value="hl">{{ __('high to low') }}</option>
                                     {{-- <option value="br">Best rating</option> --}}
-                                    <option {{ ($selected == 'bs') ? 'selected' : ''  }} value="bs">best sell</option>
+                                    <option {{ ($selected == 'bs') ? 'selected' : ''  }} value="bs">{{ __('best sell') }}</option>
                                 </select>
                             </form>
                             </div>
@@ -72,7 +72,7 @@
                         {{-- sidebar categories --}}
                         @include('components.frontend.global.sidebarcategories')
                         <div class="shop_sidebar_product">
-                            <h3>Featured Products</h3>
+                            <h3>{{ __('Featured Products') }}</h3>
                             <ul>
                                 @foreach ($featuredProducts as $item)
                                 <li>
@@ -115,14 +115,14 @@
                                     <a class="title" href="{{ route('productDetails',$product->slug) }}">{{ $product->title }}</a>
                                     <p>${{ $product->selePrice }} <del>{{ ($product->regularPrice == '') ? '' : '$' }}{{ $product->regularPrice }}</del> </p>
                                     <a class="cart_btn" href="{{ route('productDetails',$product->slug) }}" data-bs-toggle="modal"
-                                        data-bs-target="#cart_popup_modal{{ $product->id }}"><i class="far fa-shopping-basket"></i> Add To
-                                        Cart
+                                        data-bs-target="#cart_popup_modal{{ $product->id }}"><i class="far fa-shopping-basket"></i> {{ __('Add To
+                                        Cart') }}
                                         <span></span></a>
                                 </div>
                             </div>
                         </div>
                         @empty
-                            No Products found!
+                            {{ __('No Products found!') }}
                         @endforelse
                     </div>
                     {{-- Pagination --}}
@@ -158,11 +158,11 @@
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star-half-alt"></i>
                                             <i class="far fa-star"></i>
-                                            <span>Review (20)</span>
+                                            <span>{{ __('Review (20)') }}</span>
                                         </p>
                                         <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                         <div class="details_quentity_area">
-                                            <p><span>Quantity</span> (in {{ $product->unitType }}) :</p>
+                                            <p><span>{{ __('Quantity') }}</span> (in {{ $product->unitType }}) :</p>
                                             <div class="button_area">
                                                 <button class="decrement" type="button">-</button>
                                                 <input type="text" value="{{ cartQti($product->id) }}" class="quantity" name="quantity">
@@ -174,14 +174,14 @@
                                         </div>
                                         <div class="details_cart_btn">
                                             <button type="submit" class="common_btn"><i class="far fa-shopping-basket"></i>
-                                                Add To
-                                                Cart
+                                                {{ __('Add To
+                                                Cart') }}
                                                 <span></span></button>
                                             <a class="love {{ (wishlistHave($product->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
                                         </div>
-                                        <p class="category"><span>Category:</span>{{ $product->productcategories->name }}</p>
+                                        <p class="category"><span>{{ __('Category') }}:</span>{{ $product->productcategories->name }}</p>
                                         <ul class="share">
-                                            <li>Share with friends:</li>
+                                            <li>{{ __('Share with friends') }}:</li>
                                             <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $product->slug) }}&t={{ $product->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                             <li><a href="https://twitter.com/share?text={{ $product->title }}&url={{ route('productDetails', $product->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
                                             <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $product->slug) }}&title={{ $product->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>

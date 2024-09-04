@@ -39,7 +39,7 @@
                           <div class="input-group">
                             <div class="custom-file">
                               <input type="file" class="custom-file-input @error('thumbnail') is-invalid @enderror" id="thumbnail" name="thumbnail" value="{{ old('thumbnail') }}">
-                              <label class="custom-file-label" for="thumbnail">Choose file</label>
+                              <label class="custom-file-label" for="thumbnail">{{ __('Choose file') }}</label>
                             </div>
                           </div>
                           @error('thumbnail')
@@ -82,7 +82,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="regularPrice">Regular Price</label>
+                            <label for="regularPrice">{{ __('Regular Price') }}</label>
                             <input class="form-control @error('regularPrice') is-invalid @enderror" type="number" name="regularPrice" id="regularPrice" placeholder="Reqular Price" value="{{ old('regularPrice') }}">
                         </div>
                             @error('regularPrice')
@@ -93,7 +93,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="selePrice">Sele Price</label>
+                            <label for="selePrice">{{ __('Sele Price') }}</label>
                             <input class="form-control @error('selePrice') is-invalid @enderror" type="number" name="selePrice" id="selePrice" placeholder="Sele Price" value="{{ old('selePrice') }}">
                         </div>
                             @error('selePrice')
@@ -109,12 +109,12 @@
                         <div class="form-group">
                             <label>{{ __('Unit Type') }}</label>
                             <select class="form-control @error('unitType') is-invalid @enderror" name="unitType">
-                                <option value="">Select Unit Type</option>
-                                <option value="pics">Pics</option>
-                                <option value="kg">KG</option>
-                                <option value="gram">Gram</option>
-                                <option value="leter">Leter</option>
-                                <option value="dozen">Dozen</option>
+                                <option value="">{{ __('Select Unit Type') }}</option>
+                                <option value="pics">{{ __('Pics') }}</option>
+                                <option value="kg">{{ __('KG') }}</option>
+                                <option value="gram">{{ __('Gram') }}</option>
+                                <option value="leter">{{ __('Leter') }}</option>
+                                <option value="dozen">{{ __('Dozen') }}</option>
                             </select>
                             @error('unitType')
                             <span class="text-danger">
@@ -143,7 +143,7 @@
                             <div class="input-group">
                               <div class="custom-file">
                                 <input type="file" class="custom-file-input @error('photo') is-invalid @enderror" id="photo" name="photo[]" multiple value="{{ old('photo') }}">
-                                <label class="custom-file-label" for="photo">Choose file</label>
+                                <label class="custom-file-label" for="photo">{{ __('Choose file') }}</label>
                               </div>
                             </div>
                             @error('productGallery')
@@ -156,13 +156,13 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Status</label>
+                    <label>{{ __('Status') }}</label>
                     <select class="form-control" name="status">
-                        <option value="active" selected>Active</option>
-                        <option value="deactive">Deactive</option>
+                        <option value="active" selected>{{ __('Active') }}</option>
+                        <option value="deactive">{{ __('Deactive') }}</option>
                     </select>
                   </div>
-                <button type="submit" class="btn btn-primary">Add Product</button>
+                <button type="submit" class="btn btn-primary">{{ __('Add Product') }}</button>
             </form>
           </div>
           @if (session('success'))

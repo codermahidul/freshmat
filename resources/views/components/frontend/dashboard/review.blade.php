@@ -1,6 +1,6 @@
 <div class="col-xl-9 col-lg-8 wow fadeInRight">
     <div class="dashboard_content">
-        <h2 class="dashboard_title">Reviews</h2>
+        <h2 class="dashboard_title">{{ __('Reviews') }}</h2>
         <div class="dashboard_reviews">
             @forelse ($reviews as $review)
             <div class="single_review">
@@ -18,7 +18,7 @@
                 </div>
             </div>
             @empty
-                No review found!
+                {{ __('No review found!') }}
             @endforelse
             {{-- Pagination --}}
             {{ $reviews->links('pagination.frontendPagination') }}

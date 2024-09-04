@@ -18,11 +18,11 @@
                         <P>{{ appSection()->description }}</P>
                         <ul>
                             <li>
-                                <a class="common_btn" href="{{ appSection()->appleLink }}"><i class="fab fa-apple"></i> Apple Store
+                                <a class="common_btn" href="{{ appSection()->appleLink }}"><i class="fab fa-apple"></i> {{ __('Apple Store') }}
                                     <span></span></a>
                             </li>
                             <li>
-                                <a href="{{ appSection()->playLink }}"><i class="fab fa-google-play"></i>Play Store</a>
+                                <a href="{{ appSection()->playLink }}"><i class="fab fa-google-play"></i>{{ __('Play Store') }}</a>
                             </li>
                         </ul>
                     </div>

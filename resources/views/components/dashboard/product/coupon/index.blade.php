@@ -2,23 +2,23 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h2 class="card-title">Coupon List</h2>
+                <h2 class="card-title">{{ __('Coupon List') }}</h2>
                 <a href="{{ route('couponadd') }}" class="btn btn-primary ml-auto">Add New</a>
             </div>
             <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Discount</th>
-                            <th>Type</th>
-                            <th>Minimum Order Amount</th>
-                            <th>Maximum Order Amount</th>
-                            <th>Limit</th>
-                            <th>Expire Date</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>{{ __('#') }}</th>
+                            <th>{{ __('Name') }}</th>
+                            <th>{{ __('Discount') }}</th>
+                            <th>{{ __('Type') }}</th>
+                            <th>{{ __('Minimum Order Amount') }}</th>
+                            <th>{{ __('Maximum Order Amount') }}</th>
+                            <th>{{ __('Limit') }}</th>
+                            <th>{{ __('Expire Date') }}</th>
+                            <th>{{ __('Status') }}</th>
+                            <th>{{ __('Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,8 +42,8 @@
                             </tr>
                         @empty
                             <tr align="center">
-                                <td colspan="10" class="py-5">No Coupon Found! <a
-                                        href="{{ route('couponadd') }}">Add New</a></td>
+                                <td colspan="10" class="py-5">{{ __('No Coupon Found!') }} <a
+                                        href="{{ route('couponadd') }}">{{ __('Add New') }}</a></td>
                             </tr>
                         @endforelse
 

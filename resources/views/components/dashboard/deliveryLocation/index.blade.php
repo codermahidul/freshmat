@@ -2,18 +2,18 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h2 class="card-title">Delivery Location list</h2>
-                <a href="{{ route('delivery.add') }}" class="btn btn-primary ml-auto">Add New</a>
+                <h2 class="card-title">{{ __('Delivery Location list') }}</h2>
+                <a href="{{ route('delivery.add') }}" class="btn btn-primary ml-auto">{{ __('Add New') }}</a>
             </div>
             <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Area</th>
-                            <th>Charge</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>{{ __('#') }}</th>
+                            <th>{{ __('Area') }}</th>
+                            <th>{{ __('Charge') }}</th>
+                            <th>{{ __('Status') }}</th>
+                            <th>{{ __('Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,8 +32,8 @@
                             </tr>
                         @empty
                             <tr align="center">
-                                <td colspan="10" class="py-5">No Address Found! <a
-                                        href="{{ route('delivery.add') }}">Add New</a></td>
+                                <td colspan="10" class="py-5">{{ __('No Address Found!') }} <a
+                                        href="{{ route('delivery.add') }}">{{ __('Add New') }}</a></td>
                             </tr>
                         @endforelse
                     </tbody>

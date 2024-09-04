@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Blog Details</h1>
+                            <h1>{{ __('Blog Details') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">Blog</a></li>
-                                <li><a href="">Blog Details</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="">{{ __('Blog') }}</a></li>
+                                <li><a href="">{{ __('Blog Details') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                             </ul>
                         </div>
                         <div class="det_comment_area">
-                            <h3>Comments ({{ $totalComments }})</h3>
+                            <h3>{{ __('Comments') }} ({{ $totalComments }})</h3>
                             @forelse ($comments as $comment)
                                 <div class="single_comment">
                                     <div class="img">
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                             @empty
-                                No Comment
+                                {{ __('No Comment') }}
                             @endforelse
                             {{-- Pagination --}}
                 {{ $comments->links('pagination.frontendPagination') }}
@@ -108,7 +108,7 @@
                                             @enderror
                                         </div>
 
-                                        <button type="submit" class="common_btn">Submit Comment
+                                        <button type="submit" class="common_btn">{{ __('Submit Comment') }}
                                             <span></span></button>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                     <div class="blog_sidebar" id="sticky_sidebar">
                         <div class="blog_sidebar_search">
                             <div class="sedebar_content">
-                                <h3>Search Here</h3>
+                                <h3>{{ __('Search Here') }}</h3>
                                 <form method="POST" action="{{ route('blogSearch') }}">
                                     @csrf
                                     <input type="text" placeholder="Search..." name="query">

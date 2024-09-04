@@ -88,6 +88,8 @@ class RegisterController extends Controller
         UserProfile::insert([
             'userId' => $user->id,
         ]);
+        mailServer();
+        $user->sendEmailVerificationNotification();
 
         return $user;
     }

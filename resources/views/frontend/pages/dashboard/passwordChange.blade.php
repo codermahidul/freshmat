@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Password Change</h1>
+                            <h1>{{ __('Password Change') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="{{ route('userDashboard') }}">Dashboard</a></li>
-                                <li><a href="">Password Change</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="{{ route('userDashboard') }}">{{ __('Dashboard') }}</a></li>
+                                <li><a href="">{{ __('Password Change') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                 @include('components.frontend.dashboard.menu')
                 <div class="col-xl-9 col-lg-8 wow fadeInRight">
                     <div class="dashboard_content">
-                            <h2 class="dashboard_title">Change Password</h2>
+                            <h2 class="dashboard_title">{{ __('Change Password') }}</h2>
                             <form class="dashboard_change_password" action="{{ route('userPasswordUpdate') }}" method="POST">
                                @csrf
                                 <div class="row">
@@ -57,7 +57,7 @@
                                         @error('new_password_confirmation')
                                             <span class="text-danger d-block">{{ $message }}</span>
                                         @enderror
-                                        <button type="submit" class="common_btn">Submit <span></span></button>
+                                        <button type="submit" class="common_btn">{{ __('Submit') }} <span></span></button>
                                     </div>
                                     @if (session('success'))
                                         <span class="text-success d-block">{{ session('success') }}</span>

@@ -37,7 +37,7 @@
                 </div>
             </div>
             @empty
-                No testimonial item not found!
+                {{ __('No testimonial item not found!') }}
             @endforelse
         </div>
     </div>

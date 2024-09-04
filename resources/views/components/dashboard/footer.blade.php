@@ -1,7 +1,8 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; <?php echo date("Y"); ?> <a href="{{url('/')}}">{{config('app.name')}}</a>.</strong>
-    All rights reserved.
+    <strong> {{ __('Copyright') }} &copy; <?php echo date("Y"); ?> <a href="{{url('/')}}">{{config('app.name')}}</a>.</strong>
+    {{ __('All rights reserved.') }}
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
+      <b>{{ __('Version') }}</b> {{ __('3.2.0') }}
     </div>
   </footer>
+

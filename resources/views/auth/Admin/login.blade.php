@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Login</title>
+  <title>{{ __('Admin Login') }}</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -24,7 +24,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">{{ __('Sign in to start your session') }}</p>
 
       <form action="{{route('login')}}" method="POST">
         @csrf
@@ -55,13 +55,13 @@
             <div class="icheck-primary">
               <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
               <label for="remember">
-                Remember Me
+                {{ __('Remember Me') }}
               </label>
             </div>
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">{{ __('Sign In') }}</button>
           </div>
           <!-- /.col -->
         </div>
@@ -69,7 +69,7 @@
 
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a href="forgot-password.html">{{ __('I forgot my password') }}</a>
       </p>
     </div>
     <!-- /.login-card-body -->

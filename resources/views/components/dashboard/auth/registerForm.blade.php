@@ -6,7 +6,7 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new admin</p>
+      <p class="login-box-msg">{{ __('Register a new admin') }}</p>
 
       <form action="{{route('register')}}" method="post">
         @csrf
@@ -68,25 +68,25 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" class="btn btn-primary btn-block">{{ __('Register') }}</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
       <div class="social-auth-links text-center">
-        <p>- OR -</p>
+        <p>- {{ __('OR') }} -</p>
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
+          {{ __('Sign up using Facebook') }}
         </a>
         <a href="#" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
+          {{ __('Sign up using Google+') }}
         </a>
       </div>
 
-      <a href="{{route('login')}}" class="text-center">I already have a membership</a>
+      <a href="{{route('login')}}" class="text-center">{{ __('I already have a membership') }}</a>
     </div>
     <!-- /.form-box -->
   </div>

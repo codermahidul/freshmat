@@ -35,15 +35,15 @@
                             </ul>
                             <a class="title" href="{{ route('blogDetails',$blog->slug) }}">{{ $blog->title }}</a>
                             <ul class="bottom">
-                                <li><a href="{{ route('blogDetails',$blog->slug) }}">read more <i class="fas fa-long-arrow-right"></i></a>
+                                <li><a href="{{ route('blogDetails',$blog->slug) }}">{{ __('read more') }} <i class="fas fa-long-arrow-right"></i></a>
                                 </li>
-                                <li><span><i class="far fa-comment-dots"></i> {{ commentCounter($blog->id) }} Comments</span></li>
+                                <li><span><i class="far fa-comment-dots"></i> {{ commentCounter($blog->id) }} {{ __('Comments') }}</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 @empty
-                    No Post Found!
+                    {{ __('No Post Found!') }}
                 @endforelse
                 {{-- Pagination --}}
                 {{-- {{ $blogs->links('pagination.frontendPagination') }} --}}

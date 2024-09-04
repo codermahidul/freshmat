@@ -22,7 +22,7 @@
                             {{$message}}
                         </span>
                     @enderror
-                </div> 
+                </div>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
@@ -37,11 +37,11 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Type</label>
+                      <label>{{ __('Type') }}</label>
                       <select class="form-control @error('type') is-invalid @enderror" name="type">
-                          <option value="" selected>Discount Type</option>
-                          <option value="fixed">Fixed</option>
-                          <option value="flat">Percentage</option>
+                          <option value="" selected>{{ __('Discount Type') }}</option>
+                          <option value="fixed">{{ __('Fixed') }}</option>
+                          <option value="flat">{{ __('Percentage') }}</option>
                       </select>
                       @error('type')
                       <span class="text-danger">
@@ -100,13 +100,13 @@
                   </div>
                 </div>
                   <div class="form-group">
-                    <label>Status</label>
+                    <label>{{ __('Status') }}</label>
                     <select class="form-control" name="status">
-                        <option value="active" selected>Active</option>
-                        <option value="deactive">Deactive</option>
+                        <option value="active" selected>{{ __('Active') }}</option>
+                        <option value="deactive">{{ __('Deactive') }}</option>
                     </select>
                   </div>
-                <button type="submit" class="btn btn-primary">Add New Coupon</button>
+                <button type="submit" class="btn btn-primary">{{ __('Add New Coupon') }}</button>
             </form>
           </div>
           @if (session('success'))

@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Payment</h1>
+                            <h1>{{ __('Payment') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">Payment</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i>{{ __('Home') }}</a></li>
+                                <li><a href="">{{ __('Payment') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -59,14 +59,26 @@
                             </div>
                             @endif
                             <div class="col-xl-3 col-6 col-sm-4">
-                                <a class="single_payment" href="#" data-bs-toggle="modal"
+                                {{-- <a class="single_payment" href="#" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
                                     <img src="{{ asset('assets') }}/images/payment-4.jpg" alt="payment" class="img-fluid w-100">
-                                </a>
+                                </a> --}}
+                                <form action="{{ route('razorpay.payment') }}" method="post">
+                                    @csrf
+                                    <script src="https://checkout.razorpay.com/v1/checkout.js"
+                                        data-key="{{ config('razorpay.key') }}"
+                                        data-amount="{{ 40*100 }}"
+                                        data-buttontext="Pay Amount"
+                                        data-name="Test User"
+                                        data-description=""
+                                        data-prefill.name="User"
+                                        data-prefill.email="user@gmail.com"
+                                        data-theme.color="#ff7529">
+                                    </script>
+                                </form>
                             </div>
                             <div class="col-xl-3 col-6 col-sm-4">
-                                <a class="single_payment" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
+                                <a class="single_payment" href="{{ route('instamojo.payment') }}">
                                     <img src="{{ asset('assets') }}/images/payment-5.jpg" alt="payment" class="img-fluid w-100">
                                 </a>
                             </div>
@@ -118,12 +130,12 @@
 
                 <div class="col-lg-4 col-md-8">
                     <div class="cart_sidebar mt_25">
-                        <h3>Total Cart ({{ cartTotal() }})</h3>
+                        <h3>{{ __('Total Cart') }} ({{ cartTotal() }})</h3>
                         <div class="cart_sidebar_info">
-                            <h4>Subtotal : <span>${{ subTotal() }}</span></h4>
-                            <p>Delivery : <span>${{ $deliveryCharge }}</span></p>
-                            <p>Discount : <span>-${{ discount() }}</span></p>
-                            <h5>Total : <span>${{ payTotal() }}</span></h5>
+                            <h4>{{ __('Subtotal') }} : <span>${{ subTotal() }}</span></h4>
+                            <p>{{ __('Delivery') }} : <span>${{ $deliveryCharge }}</span></p>
+                            <p>{{ __('Discount') }} : <span>-${{ discount() }}</span></p>
+                            <h5>{{ __('Total') }} : <span>${{ payTotal() }}</span></h5>
                         </div>
                     </div>
                 </div>

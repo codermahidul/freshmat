@@ -14,9 +14,9 @@
                 @csrf
               <div class="card-body">
                   <div class="form-group">
-                    <label>Select Currency</label>
+                    <label>{{ __('Select Currency') }}</label>
                     <select class="form-control" name="currency">
-                        <option value="">--Select One--</option>
+                        <option value="">--{{ __('Select One') }}--</option>
                         @foreach (config('currencies') as $code => $currency)
                         <option {{ ($getCurrency->currency == $code) ? 'selected' : '' }} value="{{ $code }}">{{ $code }}</option>
                         @endforeach
@@ -28,13 +28,13 @@
                     @enderror
                   </div>
                    <div class="form-group">
-                    <label>Status</label>
+                    <label>{{ __('Status') }}</label>
                     <select class="form-control" name="status">
-                        <option {{ ($getCurrency->status == 'active') ? 'selected' : '' }} value="active" selected>Active</option>
-                        <option {{ ($getCurrency->status == 'deactive') ? 'selected' : '' }} value="deactive">Deactive</option>
+                        <option {{ ($getCurrency->status == 'active') ? 'selected' : '' }} value="active" selected>{{ __('Active') }}</option>
+                        <option {{ ($getCurrency->status == 'deactive') ? 'selected' : '' }} value="deactive">{{ __('Deactive') }}</option>
                     </select>
                   </div>
-                <button type="submit" class="btn btn-primary">Update Currency</button>
+                <button type="submit" class="btn btn-primary">{{ __('Update Currency') }}</button>
             </form>
           </div>
           @if (session('success'))

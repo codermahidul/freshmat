@@ -4,13 +4,13 @@
         <div class="col-md-10 m-auto">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Add New Category</h3>
+              <h3 class="card-title">{{ __('Add New Category') }}</h3>
             </div>
             <form action="{{route('category.insert')}}" method="POST">
                 @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Category Name</label>
+                  <label for="name">{{ __('Category Name') }}</label>
                   <input type="text" class="form-control @error('name') is-invalid @enderror" id="question" placeholder="Enter Category" name="name" value="{{old('name')}}">
                 @error('name')
                     <span class="text-danger">
@@ -19,7 +19,7 @@
                 @enderror
                 </div>
                 <div class="form-group">
-                    <label for="slug">Category Slug</label>
+                    <label for="slug">{{ __('Category Slug') }}</label>
                     <input type="text" class="form-control @error('slug') is-invalid @enderror" id="question" placeholder="Enter Slug" name="slug" value="{{old('slug')}}">
                     @error('slug')
                         <span class="text-danger">
@@ -49,7 +49,7 @@
                 })
               </script>
               @endif
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary">{{ __('Add') }}</button>
             </form>
           </div>
         </div>

@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>About Us</h1>
+                            <h1>{{ __('About Us') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">About Us</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="">{{ __('About Us') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -52,19 +52,19 @@
                         <p>{{ $contents->description }}</p>
                         <ul>
                             <li>
-                                <span>01</span>
+                                <span>{{ __('01') }}</span>
                                 <h4> {{ $contents->listItemOne }}</h4>
                             </li>
                             <li>
-                                <span>02</span>
+                                <span>{{ __('02') }}</span>
                                 <h4>{{ $contents->listItemTwo }}</h4>
                             </li>
                             <li>
-                                <span>03</span>
+                                <span>{{ __('03') }}</span>
                                 <h4>{{ $contents->listItemThree }}</h4>
                             </li>
                             <li>
-                                <span>04</span>
+                                <span>{{ __('04') }}</span>
                                 <h4>{{ $contents->listItemFour }}</h4>
                             </li>
                         </ul>
@@ -215,4 +215,4 @@
     ==========================-->
 
 @endsection
-    
+

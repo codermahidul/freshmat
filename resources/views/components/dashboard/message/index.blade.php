@@ -2,29 +2,29 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">Message Setting</h2>
+                <h2 class="card-title">{{ __('Message Setting') }}</h2>
             </div>
             <div class="card-body">
                 <form action="{{ route('contactMessageSetingUpdate') }}" method="post">
-                    @csrf 
+                    @csrf
                     <div class="form-group">
-                        <label for="email">Receive contact message email</label>
+                        <label for="email">{{ __('Receive contact message email') }}</label>
                         <input type="email" name="email" id="email" class="form-control" placeholder="Enter Your Email" value="{{ setting('messageReceiveEmail') }}">
                         @error('email')
                             <span class="text-danger d-block">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="dbsave">Want to save email in database?</label>
+                        <label for="dbsave">{{ __('Want to save email in database?') }}</label>
                         <select name="dbsave" id="dbsave" class="form-control">
-                            <option value="yess" @if(setting('messageSaveOnDB') == 'yess') selected @endif>Yess</option>
-                            <option value="no" @if(setting('messageSaveOnDB') == 'no') selected @endif>No</option>
+                            <option value="yess" @if(setting('messageSaveOnDB') == 'yess') selected @endif>{{ __('Yess') }}</option>
+                            <option value="no" @if(setting('messageSaveOnDB') == 'no') selected @endif>{{ __('No') }}</option>
                         </select>
                         @error('dbsave')
                           <span class="text-danger d-block">{{ $message }}</span>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
                 </form>
             </div>
         </div>
@@ -32,18 +32,18 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h3 class="card-title">Message</h3>
+          <h3 class="card-title">{{ __('Message') }}</h3>
         </div>
         <div class="card-body">
           <table class="table table-bordered table-secondary">
             <thead>
               <tr>
-                <th style="width: 4%">#</th>
-                <th style="width: 30%">Name</th>
-                <th>Email</th>
-                <th>Message</th>
-                <th>Time</th>
-                <th class="text-center">Action</th>
+                <th style="width: 4%">{{ __('#') }}</th>
+                <th style="width: 30%">{{ __('Name') }}</th>
+                <th>{{ __('Email') }}</th>
+                <th>{{ __('Message') }}</th>
+                <th>{{ __('Time') }}</th>
+                <th class="text-center">{{ __('Action') }}</th>
               </tr>
             </thead>
             <tbody>
@@ -60,7 +60,7 @@
                 </td>
             </tr>
               @empty
-                  No record found!
+                  {{ __('No record found!') }}
               @endforelse
             </tbody>
           </table>

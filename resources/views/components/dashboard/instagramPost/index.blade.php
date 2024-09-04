@@ -2,13 +2,13 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">Add New Image</h2>
+                <h2 class="card-title">{{ __('Add New Image') }}</h2>
             </div>
             <div class="card-body">
                 <form action="{{ route('instagramPostInsert') }}" method="post" enctype="multipart/form-data">
-                    @csrf 
+                    @csrf
                     <div class="form-group">
-                        <label for="image">Image</label>
+                        <label for="image">{{ __('Image') }}</label>
                         <input type="file" name="image" id="image" class="form-control">
                         @error('image')
                             <span class="text-danger">
@@ -17,7 +17,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="link">Link</label>
+                        <label for="link">{{ __('Link') }}</label>
                         <input type="text" name="link" id="link" class="form-control" placeholder="Link">
                         @error('link')
                             <span class="text-danger d-block">
@@ -26,22 +26,22 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Add New</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Add New') }}</button>
                 </form>
             </div>
         </div>
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">Instagram Post Image List</h2>
+                <h2 class="card-title">{{ __('Instagram Post Image List') }}</h2>
             </div>
             <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th style="width: 4%">#</th>
-                        <th style="width: 30%">Image</th>
-                        <th>Link</th>
-                        <th class="text-center">Action</th>
+                        <th style="width: 4%">{{ __('#') }}</th>
+                        <th style="width: 30%">{{ __('Image') }}</th>
+                        <th>{{ __('Link') }}</th>
+                        <th class="text-center">{{ __('Action') }}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -53,9 +53,9 @@
                             </td>
                             <td>
                                @if ($post->link == null)
-                                    NO LINK
-                                
-                                @else 
+                                    {{ __('NO LINK') }}
+
+                                @else
                                 <a class="btn btn-secondary btn-sm" href="$post->link"><i class="fas fa-link"></i></a>
                                @endif
                             </td>
@@ -64,7 +64,7 @@
                             </td>
                           </tr>
                         @empty
-                            No post image found!
+                            {{ __('No post image found!') }}
                         @endforelse
                     </tbody>
                   </table>

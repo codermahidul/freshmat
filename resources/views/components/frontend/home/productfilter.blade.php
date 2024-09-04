@@ -14,7 +14,7 @@
             <div class="row wow fadeInUp">
                 <div class="col-xl-6 m-auto">
                     <div class="product_filter mb_25">
-                        <button class=" active" data-filter="*">All Products</button>
+                        <button class=" active" data-filter="*">{{ __('All Products') }}</button>
                         @foreach ($topCategories as $topcategory)
                         <button data-filter=".{{ $topcategory->slug.$topcategory->id }}">{{ $topcategory->name }}</button>
                         @endforeach
@@ -36,14 +36,14 @@
                             <a class="title" href="{{ route('productDetails',$product->slug) }}">{{ $product->title }}</a>
                             <p>${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del> </p>
                             <a class="cart_btn" href="shop_details.html" data-bs-toggle="modal"
-                                data-bs-target="#cart_popup_modal{{ $product->id }}"><i class="far fa-shopping-basket"></i> Add To
-                                Cart
+                                data-bs-target="#cart_popup_modal{{ $product->id }}"><i class="far fa-shopping-basket"></i> {{ __('Add To
+                                Cart') }}
                                 <span></span></a>
                         </div>
                     </div>
                 </div>
                 @empty
-                    No Product Found!
+                    {{ __('No Product Found!') }}
                 @endforelse
             </div>
         </div>
@@ -74,11 +74,11 @@
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star-half-alt"></i>
                                         <i class="far fa-star"></i>
-                                        <span>Review (20)</span>
+                                        <span>{{ __('Review (20)') }}</span>
                                     </p>
                                     <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                     <div class="details_quentity_area">
-                                        <p><span>Qti</span> (in {{ $product->unitType }}) :</p>
+                                        <p><span>{{ __('Qti') }}</span> (in {{ $product->unitType }}) :</p>
                                         <div class="button_area">
                                             <button class="decrement" type="button">-</button>
                                             <input type="text" value="{{ cartQti($product->id) }}" class="quantity" name="quantity">
@@ -90,14 +90,14 @@
                                     </div>
                                     <div class="details_cart_btn">
                                         <button type="submit" class="common_btn"><i class="far fa-shopping-basket"></i>
-                                            Add To
-                                            Cart
+                                            {{ __('Add To
+                                            Cart') }}
                                             <span></span></button>
                                         <a class="love {{ (wishlistHave($product->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
                                     </div>
-                                    <p class="category"><span>Category:</span>{{ $product->productcategories->name }}</p>
+                                    <p class="category"><span>{{ __('Category') }}:</span>{{ $product->productcategories->name }}</p>
                                     <ul class="share">
-                                        <li>Share with friends:</li>
+                                        <li>{{ __('Share with friends') }}:</li>
                                         <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $product->slug) }}&t={{ $product->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                         <li><a href="https://twitter.com/share?text={{ $product->title }}&url={{ route('productDetails', $product->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
                                         <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $product->slug) }}&title={{ $product->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>

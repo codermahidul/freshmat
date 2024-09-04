@@ -13,7 +13,7 @@
                         </div>
                         <p>{{ deals(1)->description }}</p>
                         <div class="simply-countdown simply-countdown-one"></div>
-                        <a class="common_btn" href="{{ deals(1)->link }}">shop now <i class="fas fa-long-arrow-right"></i>
+                        <a class="common_btn" href="{{ deals(1)->link }}">{{ __('shop now') }} <i class="fas fa-long-arrow-right"></i>
                             <span></span></a>
                     </div>
                 </div>

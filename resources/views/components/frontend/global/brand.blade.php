@@ -34,7 +34,7 @@
                                     </a>
                                 </li>
                                 @empty
-                                    No Partners
+                                    {{ __('No Partners') }}
                                 @endforelse
 
                             </ul>

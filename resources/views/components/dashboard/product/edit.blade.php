@@ -77,7 +77,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="regularPrice">Regular Price</label>
+                            <label for="regularPrice">{{ __('Regular Price') }}</label>
                             <input class="form-control @error('regularPrice') is-invalid @enderror" type="number" name="regularPrice" id="regularPrice" placeholder="Reqular Price" value="{{ old('regularPrice') }}{{ $product->regularPrice }}">
                         </div>
                             @error('regularPrice')
@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="selePrice">Sele Price</label>
+                            <label for="selePrice">{{ __('Sele Price') }}</label>
                             <input class="form-control @error('selePrice') is-invalid @enderror" type="number" name="selePrice" id="selePrice" placeholder="Sele Price" value="{{ old('selePrice') }}{{ $product->selePrice }}">
                         </div>
                             @error('selePrice')
@@ -104,12 +104,12 @@
                         <div class="form-group">
                             <label>{{ __('Unit Type') }}</label>
                             <select class="form-control @error('unitType') is-invalid @enderror" name="unitType">
-                                <option value="">Select Unit Type</option>
-                                <option {{ ($product->unitType == 'pics' ) ? 'selected' : '' }} value="pics">Pics</option>
-                                <option {{ ($product->unitType == 'kg' ) ? 'selected' : '' }} value="kg">KG</option>
-                                <option {{ ($product->unitType == 'gram' ) ? 'selected' : '' }} value="gram">Gram</option>
-                                <option {{ ($product->unitType == 'leter' ) ? 'selected' : '' }} value="leter">Leter</option>
-                                <option {{ ($product->unitType == 'dozen' ) ? 'selected' : '' }} value="dozen">Dozen</option>
+                                <option value="">{{ __('Select Unit Type') }}</option>
+                                <option {{ ($product->unitType == 'pics' ) ? 'selected' : '' }} value="pics">{{ __('Pics') }}</option>
+                                <option {{ ($product->unitType == 'kg' ) ? 'selected' : '' }} value="kg">{{ __('KG') }}</option>
+                                <option {{ ($product->unitType == 'gram' ) ? 'selected' : '' }} value="gram">{{ __('Gram') }}</option>
+                                <option {{ ($product->unitType == 'leter' ) ? 'selected' : '' }} value="leter">{{ __('Leter') }}</option>
+                                <option {{ ($product->unitType == 'dozen' ) ? 'selected' : '' }} value="dozen">{{ __('Dozen') }}</option>
                             </select>
                             @error('unitType')
                             <span class="text-danger">
@@ -135,10 +135,10 @@
                     @forelse ($product->productgallery as $item)
                     <div class="col-md-2">
                         <img src="{{ asset($item->photo) }}" class="img-fluid" alt="...">
-                        <a class="delete-item" href="{{ route('productgalleryimagedel',$item->id) }}">Delete</a>
+                        <a class="delete-item" href="{{ route('productgalleryimagedel',$item->id) }}">{{ __('Delete') }}</a>
                     </div>
                     @empty
-                            <span class="text-danger ml-2">No photos found!</span>
+                            <span class="text-danger ml-2">{{ __('No photos found!') }}</span>
                     @endforelse
                   </div>
 
@@ -147,7 +147,7 @@
                             <div class="input-group">
                               <div class="custom-file">
                                 <input type="file" class="custom-file-input @error('photo') is-invalid @enderror" id="photo" name="photo[]" multiple value="{{ old('photo') }}">
-                                <label class="custom-file-label" for="photo">Choose file</label>
+                                <label class="custom-file-label" for="photo">{{ __('Choose file') }}</label>
                               </div>
                             </div>
                             @error('productGallery')
@@ -158,13 +158,13 @@
                           </div>
 
                   <div class="form-group">
-                    <label>Status</label>
+                    <label>{{ __('Status') }}</label>
                     <select class="form-control" name="status">
-                        <option value="active" {{ ($product->status == 'active' ) ? 'selected' : '' }} >Active</option>
-                        <option value="deactive" {{ ($product->status == 'deactive' ) ? 'selected' : '' }}>Deactive</option>
+                        <option value="active" {{ ($product->status == 'active' ) ? 'selected' : '' }} >{{ __('Active') }}</option>
+                        <option value="deactive" {{ ($product->status == 'deactive' ) ? 'selected' : '' }}>{{ __('Deactive') }}</option>
                     </select>
                   </div>
-                <button type="submit" class="btn btn-primary">Product Update</button>
+                <button type="submit" class="btn btn-primary">{{ __('Product Update') }}</button>
             </form>
           </div>
 

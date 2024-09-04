@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Product Details</h1>
+                            <h1>{{ __('Product Details') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="{{ route('shop') }}">Shop</a></li>
-                                <li><a href="">Product Details</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="{{ route('shop') }}">{{ __('Shop') }}</a></li>
+                                <li><a href="">{{ __('Product Details') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -59,17 +59,17 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                             <i class="far fa-star"></i>
-                            <span>Review (20)</span>
+                            <span>{{ __('Review (20)') }}</span>
                         </p>
                         <p class="price">$<span id="selePrice">{{ $productInfo->selePrice }}</span> <del>{{ ($productInfo->regularPrice) ? '$' : '' }}{{ $productInfo->regularPrice }}</del></p>
                         <div class="details_short_description">
-                            <h3>Description</h3>
+                            <h3>{{ __('Description') }}</h3>
                             <p>{{ $productInfo->shortDescription }}</p>
                         </div>
                         <form action="{{ route('addToCart') }}" method="post" id="addToCart">
                             @csrf
                         <div class="details_quentity_area">
-                            <p><span>Quantity</span> (in {{ $productInfo->unitType }}) :</p>
+                            <p><span>{{ __('Quantity') }}</span> (in {{ $productInfo->unitType }}) :</p>
                             <div class="button_area">
                                 <button type="button" id="decrement">-</button>
                                 <input type="text" placeholder="01" name="quantity" value="{{ cartQti($productInfo->id) }}" id="quantity">
@@ -82,18 +82,18 @@
 
                                 <input type="hidden" name="productId" value="{{ $productInfo->id }}">
 
-                            <button class="common_btn" href=""><i class="far fa-shopping-basket"></i> Add To Cart
+                            <button class="common_btn" href=""><i class="far fa-shopping-basket"></i> {{ __('Add To Cart') }}
                                 <span></span></button>
                             </form>
                             <a class="love {{ (wishlistHave($productInfo->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist', $productInfo->id) }}"><i class="far fa-heart"></i></a>
                         </div>
-                        <p class="category"><span>Category:</span> {{ $productInfo->productcategories->name }}</p>
-                        <p class="sku"><span>SKU:</span> {{ $productInfo->sku }}</p>
+                        <p class="category"><span>{{ __('Category') }}:</span> {{ $productInfo->productcategories->name }}</p>
+                        <p class="sku"><span>{{ __('SKU') }}:</span> {{ $productInfo->sku }}</p>
                         <ul class="tags">
                             <li><a href="#">{{ $productInfo->tags }} </a></li>
                         </ul>
                         <ul class="share">
-                            <li>Share with friends:</li>
+                            <li>{{ ___('Share with friends') }}:</li>
                             <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $productInfo->slug) }}&t={{ $productInfo->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="https://twitter.com/share?text={{ $productInfo->title }}&url={{ route('productDetails', $productInfo->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
                             <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $productInfo->slug) }}&title={{ $productInfo->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
@@ -120,10 +120,10 @@
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-                                    aria-selected="true">Description</button>
+                                    aria-selected="true">{{ __('Description') }}</button>
                                 <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
                                     data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
-                                    aria-selected="false">Reviews</button>
+                                    aria-selected="false">{{ __('Reviews') }}</button>
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
@@ -138,7 +138,7 @@
                                 <div class="shop_det_review_area">
                                     <div class="row">
                                         <div class="col-lg-8">
-                                            <h2>({{ count($reviews) }}) Reviews</h2>
+                                            <h2>({{ count($reviews) }}) {{ __('Reviews') }}</h2>
                                             @forelse ($reviews as $review)
                                             <div class="single_review">
                                                 <div class="img">
@@ -158,18 +158,18 @@
                                                 </div>
                                             </div>
                                             @empty
-                                                No review!
+                                                {{ __('No review!') }}
                                             @endforelse
                                             {{-- Paginate --}}
                                             {{ $reviews->links('pagination.frontendPagination') }}
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="review_input_area">
-                                                <h2>Write A Review</h2>
+                                                <h2>{{ __('Write A Review') }}</h2>
                                                 <form action="{{ route('review',$productInfo->id) }}" method="POST">
                                                     @csrf
                                                 <p>
-                                                    Select Your Rating :
+                                                    {{ __('Select Your Rating') }} :
                                                     <span>
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
@@ -180,13 +180,13 @@
                                                     <input type="hidden" name="rating" value="5">
                                                 </p>
                                                     <div class="review_input_box">
-                                                        <label>Write Review *</label>
+                                                        <label>{{ __('Write Review') }} *</label>
                                                         <textarea rows="5" placeholder="Write your review" name="review"></textarea>
                                                         @error('review')
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
-                                                    <button type="submit" class="common_btn">Submit Review
+                                                    <button type="submit" class="common_btn">{{ __('Submit Review') }}
                                                         <span></span></button>
                                                 </form>
                                             </div>
@@ -214,8 +214,8 @@
             <div class="row">
                 <div class="col-xl-5 wow fadeInLeft">
                     <div class="section_heading heading_left mb_15">
-                        <h4>Our Related Products</h4>
-                        <h2>Related Products</h2>
+                        <h4>{{ __('Our Related Products') }}</h4>
+                        <h2>{{ __('Related Products') }}</h2>
                     </div>
                 </div>
             </div>
@@ -234,13 +234,13 @@
                             <a class="title" href="{{ route('productDetails',$singleProduct->slug) }}">{{ $singleProduct->title }}</a>
                             <p>${{ $singleProduct->selePrice }} <del>{{ ($singleProduct->regularPrice) ? '$' : '' }}{{ $singleProduct->regularPrice }}</del> </p>
                             <a class="cart_btn" href="{{ route('productDetails',$singleProduct->slug) }}" data-bs-toggle="modal"
-                                data-bs-target="#cart_popup_modal{{ $singleProduct->id }}"><i class="far fa-shopping-basket"></i> Add To Cart
+                                data-bs-target="#cart_popup_modal{{ $singleProduct->id }}"><i class="far fa-shopping-basket"></i> {{ __('Add To Cart') }}
                                 <span></span></a>
                         </div>
                     </div>
                 </div>
                 @empty
-                   <span class="text-center"> No related product found!</span>
+                   <span class="text-center"> {{ __('No related product found!') }}</span>
                 @endforelse
             </div>
         </div>
@@ -272,7 +272,7 @@
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star-half-alt"></i>
                                             <i class="far fa-star"></i>
-                                            <span>Review (20)</span>
+                                            <span>{{ __('Review (20)') }}</span>
                                         </p>
                                         <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                         <div class="details_quentity_area">
@@ -288,14 +288,14 @@
                                         </div>
                                         <div class="details_cart_btn">
                                             <button type="submit" class="common_btn"><i class="far fa-shopping-basket"></i>
-                                                Add To
-                                                Cart
+                                                {{ __('Add To
+                                                Cart') }}
                                                 <span></span></button>
                                             <a class="love {{ (wishlistHave($product->id) == 1) ? 'have' : '' }}" href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
                                         </div>
-                                        <p class="category"><span>Category:</span>{{ $product->productcategories->name }}</p>
+                                        <p class="category"><span>{{ __('Category') }}:</span>{{ $product->productcategories->name }}</p>
                                         <ul class="share">
-                                            <li>Share with friends:</li>
+                                            <li>{{ __('Share with friends') }}:</li>
                                             <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $product->slug) }}&t={{ $product->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                             <li><a href="https://twitter.com/share?text={{ $product->title }}&url={{ route('productDetails', $product->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
                                             <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $product->slug) }}&title={{ $product->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>

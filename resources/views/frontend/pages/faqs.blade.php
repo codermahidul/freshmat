@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>FAQ's</h1>
+                            <h1>{{ __('FAQ\'s') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="">FAQ's</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="">{{ __('FAQ\'s') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         @empty
-                            No Faqs found
+                            {{ __('No Faqs found') }}
                         @endforelse
                     </div>
                     <div class="col-lg-6 wow fadeInRight">

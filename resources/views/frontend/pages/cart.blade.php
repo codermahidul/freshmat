@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Cart View</h1>
+                            <h1>{{ __('Cart View') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="{{ route('shop') }}">Shop</a></li>
-                                <li><a href="">Cart</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="{{ route('shop') }}">{{ __('Shop') }}</a></li>
+                                <li><a href="">{{ __('Cart') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,12 +39,12 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="images">Image</th>
-                                        <th class="name">Product Name</th>
-                                        <th class="price">Price</th>
-                                        <th class="qty">Quantity</th>
-                                        <th class="total">Total</th>
-                                        <th class="delete">Delete</th>
+                                        <th class="images">{{ __('Image') }}</th>
+                                        <th class="name">{{ __('Product Name') }}</th>
+                                        <th class="price">{{ __('Price') }}</th>
+                                        <th class="qty">{{ __('Quantity') }}</th>
+                                        <th class="total">{{ __('Total') }}</th>
+                                        <th class="delete">{{ __('Delete') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,7 +79,7 @@
 
                                     @else
                                         <tr>
-                                            <td colspan="8">No cart item found!</td>
+                                            <td colspan="8">{{ __('No cart item found!') }}</td>
                                         </tr>
                                     @endif
                                 </tbody>
@@ -89,7 +89,7 @@
                             <form action="{{ route('couponClaim') }}" method="POST">
                                 @csrf
                                 <input type="text" placeholder="Coupon Code" name="coupon" value="{{ old('coupon') }}">
-                                <button type="submit" class="common_btn">Apply Coupon <span></span></button>
+                                <button type="submit" class="common_btn">{{ __('Apply Coupon') }} <span></span></button>
                                 @error('coupon')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -108,15 +108,15 @@
                     <div class="cart_sidebar" id="sticky_sidebar">
                         <h3>Total Cart ({{ cartTotal() }})</h3>
                         <div class="cart_sidebar_info">
-                            <h4>Subtotal : <span>$ <span id="subtotal">{{ subTotal() }}</span></span></h4>
+                            <h4>{{ __('Subtotal') }} : <span>$ <span id="subtotal">{{ subTotal() }}</span></span></h4>
                             @if (Session::has('coupon'))
-                                <p>Discount : {{ Session::get('coupon')['couponName'] }}
+                                <p>{{ __('Discount') }} : {{ Session::get('coupon')['couponName'] }}
                                     <span>$
                                         <span id="discount">{{ discount() }}</span>
                                     </span>
                                 </p>
                             @endif
-                            <h5>Total : <span>$ <span
+                            <h5>{{ __('Total') }} : <span>$ <span
                                         id="total">{{ subTotal() - (Session::has('coupon') ? discount() : 0) }}</span></span>
                             </h5>
                             @if (session('couponName'))
@@ -124,7 +124,7 @@
                             @else
                                 <?php $coupon = null; ?>
                             @endif
-                            <a class="common_btn" href="{{ route('checkout', $coupon) }}">Checkout <i
+                            <a class="common_btn" href="{{ route('checkout', $coupon) }}">{{ __('Checkout') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>

@@ -10,11 +10,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_text wow fadeInUp">
-                            <h1>Checkout</h1>
+                            <h1>{{ __('Checkout') }}</h1>
                             <ul>
-                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> Home</a></li>
-                                <li><a href="{{ route('shop') }}">Shop</a></li>
-                                <li><a href="">Checkout</a></li>
+                                <li><a href="{{ route('index') }}"><i class="fal fa-home-lg"></i> {{ __('Home') }}</a></li>
+                                <li><a href="{{ route('shop') }}">{{ __('Shop') }}</a></li>
+                                <li><a href="">{{ __('Checkout') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -36,34 +36,34 @@
                 <div class="col-lg-8 wow fadeInUp">
                     <form class="checkout_form" action="{{ route('payment') }}" method="POST" id="paymentForm">
                         @csrf
-                        <h3>Billing Details</h3>
+                        <h3>{{ __('Billing Details') }}</h3>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
-                                    <label>Name *</label>
+                                    <label>{{ __('Name') }} *</label>
                                     <input type="text" placeholder="Name" value="{{ Auth::user()->name }}"
                                         name="name">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
-                                    <label>Email *</label>
+                                    <label>{{ __('Email') }} *</label>
                                     <input type="email" placeholder="Email" value="{{ Auth::user()->email }}"
                                         name="email">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
-                                    <label>Phone</label>
+                                    <label>{{ __('Phone') }}</label>
                                     <input type="text" placeholder="Phone" value="{{ Auth::user()->userProfile->phone }}"
                                         name="phone">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
-                                    <label>Delivary Area *</label>
+                                    <label>{{ __('Delivary Area') }} *</label>
                                     <select class="select_2" name="charge" id="delivaryArea" onchange="onChange()">
-                                        <option value="0">Area</option>
+                                        <option value="0">{{ __('Area') }}</option>
                                         @foreach ($cities as $city)
                                             <option value="{{ $city->charge }}">{{ $city->address }}</option>
                                         @endforeach
@@ -73,21 +73,21 @@
                             </div>
                             <div class="col-xl-12">
                                 <div class="checkout_input_box">
-                                    <label>City *</label>
+                                    <label>{{ __('City') }} *</label>
                                     <input type="text" placeholder="Address *"
                                         value="{{ Auth::user()->userProfile->city }}" name="city">
                                 </div>
                             </div>
                             <div class="col-xl-12">
                                 <div class="checkout_input_box">
-                                    <label>Address *</label>
+                                    <label>{{ __('Address') }} *</label>
                                     <input type="text" placeholder="Address *"
                                         value="{{ Auth::user()->userProfile->address }}" name="address">
                                 </div>
                             </div>
                             <div class="col-xl-12">
                                 <div class="checkout_input_box">
-                                    <label>Note</label>
+                                    <label>{{ __('Note') }}</label>
                                     <textarea rows="5" placeholder="Note" name="note"></textarea>
                                 </div>
                             </div>
@@ -97,15 +97,15 @@
                 </div>
                 <div class="col-lg-4 col-md-8">
                     <div class="cart_sidebar" id="sticky_sidebar">
-                        <h3>Total Cart ({{ cartTotal() }})</h3>
+                        <h3>{{ __('Total Cart') }} ({{ cartTotal() }})</h3>
                         <div class="cart_sidebar_info">
-                            <h4>Subtotal : <span id="subTotlaLast">${{ subTotal() }}</span></h4>
-                            <p>Delivery : <span id="charge">0</span></p>
+                            <h4>{{ __('Subtotal') }} : <span id="subTotlaLast">${{ subTotal() }}</span></h4>
+                            <p>{{ __('Delivery') }} : <span id="charge">0</span></p>
                             @if (discount() != null)
-                                <p>Discount : <span id="discountLast">-${{ discount() }}</span></p>
+                                <p>{{ __('Discount') }} : <span id="discountLast">-${{ discount() }}</span></p>
                             @endif
-                            <h5>Total : <span id="lastTotal">$100</span></h5>
-                            <a class="common_btn" href="#" onclick="submit()">Payment <i
+                            <h5>{{ __('Total') }} : <span id="lastTotal">$100</span></h5>
+                            <a class="common_btn" href="#" onclick="submit()">{{ __('Payment') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>

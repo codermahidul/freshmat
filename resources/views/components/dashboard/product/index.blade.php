@@ -2,22 +2,22 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="card-title">Products List</h3>
-                <a href="{{ route('productadd') }}" class="btn btn-primary ml-auto">Add New</a>
+                <h3 class="card-title">{{ __('Products List') }}</h3>
+                <a href="{{ route('productadd') }}" class="btn btn-primary ml-auto">{{ __('Add New') }}</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Product Title</th>
-                            <th>Category</th>
-                            <th>Thumbnail</th>
-                            <th>Price</th>
-                            <th>Unit Type</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>{{ __('#') }}</th>
+                            <th>{{ __('Product Title') }}</th>
+                            <th>{{ __('Category') }}</th>
+                            <th>{{ __('Thumbnail') }}</th>
+                            <th>{{ __('Price') }}</th>
+                            <th>{{ __('Unit Type') }}</th>
+                            <th>{{ __('Status') }}</th>
+                            <th>{{ __('Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,8 +41,8 @@
                             </tr>
                         @empty
                             <tr align="center">
-                                <td colspan="10" class="py-5">No Product Found! <a
-                                        href="{{ route('productadd') }}">Add New</a></td>
+                                <td colspan="10" class="py-5">{{ __('No Product Found!') }} <a
+                                        href="{{ route('productadd') }}">{{ __('Add New') }}</a></td>
                             </tr>
                         @endforelse
                     </tbody>

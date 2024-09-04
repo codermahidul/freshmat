@@ -9,7 +9,7 @@
                         <div class="add_banner_item_text wow fadeInLeft">
                             <h4>{{ banner(1)->shortTitle }}</h4>
                             <h2>{{ banner(1)->offerText }}</h2>
-                            <a class="common_btn" href="{{ banner(1)->link }}">shop now <i
+                            <a class="common_btn" href="{{ banner(1)->link }}">{{ __('shop now') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
@@ -20,7 +20,7 @@
                         <div class="add_banner_item_text wow fadeInLeft">
                             <h4>{{ banner(2)->shortTitle }}</h4>
                             <h2>{{ banner(2)->offerText }}</h2>
-                            <a class="common_btn bg_blck" href="{{ banner(2)->link }}">shop now <i
+                            <a class="common_btn bg_blck" href="{{ banner(2)->link }}">{{ __('shop now') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
