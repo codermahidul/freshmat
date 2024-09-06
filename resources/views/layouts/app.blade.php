@@ -1,400 +1,302 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" class="default-style">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title')</title>
-    <style>
-        .colored-toast.swal2-icon-success {
-            background-color: #a5dc86 !important;
-        }
+<title>@yield('title')</title>
 
-        .colored-toast.swal2-icon-error {
-            background-color: #f27474 !important;
-        }
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-        .colored-toast.swal2-icon-warning {
-            background-color: #f8bb86 !important;
-        }
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
 
-        .colored-toast.swal2-icon-info {
-            background-color: #3fc3ee !important;
-        }
+  <!-- Icon fonts -->
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/fonts/fontawesome.css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/fonts/ionicons.css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/fonts/linearicons.css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/fonts/open-iconic.css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/fonts/pe-icon-7-stroke.css">
 
-        .colored-toast.swal2-icon-question {
-            background-color: #87adbd !important;
-        }
+  <!-- Core stylesheets -->
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/css/rtl/bootstrap.css" class="theme-settings-bootstrap-css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/css/rtl/qadmin.css" class="theme-settings-qadmin-css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/css/rtl/theme-corporate.css" class="theme-settings-theme-css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/css/rtl/colors.css" class="theme-settings-colors-css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/css/rtl/uikit.css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/css/demo.css">
 
-        .colored-toast .swal2-title {
-            color: white;
-        }
+  <script src="{{ asset('backend') }}/assets/vendor/js/material-ripple.js"></script>
+  <script src="{{ asset('backend') }}/assets/vendor/js/layout-helpers.js"></script>
 
-        .colored-toast .swal2-close {
-            color: white;
-        }
+  <!-- Theme settings -->
+  <!-- This file MUST be included after core stylesheets and layout-helpers.js in the <head> section -->
+  <script src="{{ asset('backend') }}/assets/vendor/js/theme-settings.js"></script>
+  <script>
+    window.themeSettings = new ThemeSettings({
+      cssPath: {{ asset('backend') }}'/assets/vendor/css/rtl/',
+      themesPath: {{ asset('backend') }}'/assets/vendor/css/rtl/'
+    });
+  </script>
 
-        .colored-toast .swal2-html-container {
-            color: white;
-        }
-    </style>
-    <link rel="icon" type="image/png" href="{{ asset(setting('favicon')) }}">
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet"
-        href="{{ asset('backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/jqvmap/jqvmap.min.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/daterangepicker/daterangepicker.css') }}">
-    <!-- summernote -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/summernote/summernote-bs4.min.css') }}">
-    <!-- toastr alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
-    <!-- toastr alert -->
-    <script src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+  <!-- Core scripts -->
+  <script src="{{ asset('backend') }}/assets/vendor/js/pace.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Libs -->
+  <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
+
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
+<body>
+  <div class="page-loader">
+    <div class="bg-primary"></div>
+  </div>
 
-        <!-- Preloader -->
-        {{-- <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{asset('backend/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
-  </div> --}}
+  <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-2">
+    <div class="layout-inner">
 
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('home') }}" class="nav-link">Dashboard</a>
-                </li>
-            </ul>
+      <!-- Layout sidenav -->
+      <div id="layout-sidenav" class="layout-sidenav sidenav sidenav-vertical bg-dark">
 
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('index') }}" target="_blank">
-                        <i class="fas fa-home"></i>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('adminProfile') }}">
-                        <i class="fas fa-user"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        @include('components.dashboard.leftSidebar')
-        <div class="content-wrapper">
-            <div class="container-fluid">
-                @yield('breadcrumb')
-                @yield('content')
-            </div>
+        <!-- Brand demo (see assets/css/demo/demo.css) -->
+        <div class="app-brand demo">
+          <span class="app-brand-logo demo bg-primary">
+            <svg viewBox="0 0 148 80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient id="a" x1="46.49" x2="62.46" y1="53.39" y2="48.2" gradientUnits="userSpaceOnUse"><stop stop-opacity=".25" offset="0"></stop><stop stop-opacity=".1" offset=".3"></stop><stop stop-opacity="0" offset=".9"></stop></linearGradient><linearGradient id="e" x1="76.9" x2="92.64" y1="26.38" y2="31.49" xlink:href="#a"></linearGradient><linearGradient id="d" x1="107.12" x2="122.74" y1="53.41" y2="48.33" xlink:href="#a"></linearGradient></defs><path style="fill: #fff;" transform="translate(-.1)" d="M121.36,0,104.42,45.08,88.71,3.28A5.09,5.09,0,0,0,83.93,0H64.27A5.09,5.09,0,0,0,59.5,3.28L43.79,45.08,26.85,0H.1L29.43,76.74A5.09,5.09,0,0,0,34.19,80H53.39a5.09,5.09,0,0,0,4.77-3.26L74.1,35l16,41.74A5.09,5.09,0,0,0,94.82,80h18.95a5.09,5.09,0,0,0,4.76-3.24L148.1,0Z"></path><path transform="translate(-.1)" d="M52.19,22.73l-8.4,22.35L56.51,78.94a5,5,0,0,0,1.64-2.19l7.34-19.2Z" fill="url(#a)"></path><path transform="translate(-.1)" d="M95.73,22l-7-18.69a5,5,0,0,0-1.64-2.21L74.1,35l8.33,21.79Z" fill="url(#e)"></path><path transform="translate(-.1)" d="M112.73,23l-8.31,22.12,12.66,33.7a5,5,0,0,0,1.45-2l7.3-18.93Z" fill="url(#d)"></path></svg>
+          </span>
+          <a href="{{ route('home') }}" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Aprox</a>
+          <a href="javascript:void(0)" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
+            <i class="ion ion-md-menu align-middle"></i>
+          </a>
         </div>
-        @include('components.dashboard.footer')
 
-        <!-- Control Sidebar -->
-        {{-- <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside> --}}
-        <!-- /.control-sidebar -->
+        <div class="sidenav-divider mt-0"></div>
+
+        <!-- Links -->
+        @include('components.dashboard.leftSidebar')
+      </div>
+      <!-- / Layout sidenav -->
+
+      <!-- Layout container -->
+      <div class="layout-container">
+        <!-- Layout navbar -->
+        <nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-white container-p-x" id="layout-navbar">
+
+          <!-- Brand demo (see assets/css/demo/demo.css) -->
+          <a href="{{ route('home') }}" class="navbar-brand app-brand demo d-lg-none py-0 mr-4">
+            <span class="app-brand-logo demo bg-primary">
+              <svg viewBox="0 0 148 80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient id="a" x1="46.49" x2="62.46" y1="53.39" y2="48.2" gradientUnits="userSpaceOnUse"><stop stop-opacity=".25" offset="0"></stop><stop stop-opacity=".1" offset=".3"></stop><stop stop-opacity="0" offset=".9"></stop></linearGradient><linearGradient id="e" x1="76.9" x2="92.64" y1="26.38" y2="31.49" xlink:href="#a"></linearGradient><linearGradient id="d" x1="107.12" x2="122.74" y1="53.41" y2="48.33" xlink:href="#a"></linearGradient></defs><path style="fill: #fff;" transform="translate(-.1)" d="M121.36,0,104.42,45.08,88.71,3.28A5.09,5.09,0,0,0,83.93,0H64.27A5.09,5.09,0,0,0,59.5,3.28L43.79,45.08,26.85,0H.1L29.43,76.74A5.09,5.09,0,0,0,34.19,80H53.39a5.09,5.09,0,0,0,4.77-3.26L74.1,35l16,41.74A5.09,5.09,0,0,0,94.82,80h18.95a5.09,5.09,0,0,0,4.76-3.24L148.1,0Z"></path><path transform="translate(-.1)" d="M52.19,22.73l-8.4,22.35L56.51,78.94a5,5,0,0,0,1.64-2.19l7.34-19.2Z" fill="url(#a)"></path><path transform="translate(-.1)" d="M95.73,22l-7-18.69a5,5,0,0,0-1.64-2.21L74.1,35l8.33,21.79Z" fill="url(#e)"></path><path transform="translate(-.1)" d="M112.73,23l-8.31,22.12,12.66,33.7a5,5,0,0,0,1.45-2l7.3-18.93Z" fill="url(#d)"></path></svg>
+            </span>
+            <span class="app-brand-text demo font-weight-normal ml-2">qadmin</span>
+          </a>
+
+          <!-- Sidenav toggle (see assets/css/demo/demo.css) -->
+          <div class="layout-sidenav-toggle navbar-nav d-lg-none align-items-lg-center mr-auto">
+            <a class="nav-item nav-link px-0 mr-lg-4" href="javascript:void(0)">
+              <i class="ion ion-md-menu text-large align-middle"></i>
+            </a>
+          </div>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#layout-navbar-collapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse" id="layout-navbar-collapse">
+            <!-- Divider -->
+            <hr class="d-lg-none w-100 my-2">
+
+            <div class="navbar-nav align-items-lg-center">
+              <!-- Search -->
+              <label class="nav-item navbar-text navbar-search-box p-0 active">
+                <i class="ion ion-ios-search navbar-icon align-middle"></i>
+                <span class="navbar-search-input pl-2">
+                  <input type="text" class="form-control navbar-text mx-2" placeholder="Search..." style="width:200px">
+                </span>
+              </label>
+            </div>
+
+            <div class="navbar-nav align-items-lg-center ml-auto">
+              <div class="demo-navbar-notifications nav-item dropdown mr-lg-3">
+                <a class="nav-link dropdown-toggle hide-arrow" href="#" data-toggle="dropdown">
+                  <i class="ion ion-md-notifications-outline navbar-icon align-middle"></i>
+                  <span class="badge badge-primary badge-dot indicator"></span>
+                  <span class="d-lg-none align-middle">&nbsp; Notifications</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <div class="bg-primary text-center text-white font-weight-bold p-3">
+                    4 New Notifications
+                  </div>
+                  <div class="list-group list-group-flush">
+                    <a href="javascript:void(0)" class="list-group-item list-group-item-action media d-flex align-items-center">
+                      <div class="ui-icon ui-icon-sm ion ion-md-home bg-secondary border-0 text-white"></div>
+                      <div class="media-body line-height-condenced ml-3">
+                        <div class="text-dark">Login from 192.168.1.1</div>
+                        <div class="text-light small mt-1">
+                          Aliquam ex eros, imperdiet vulputate hendrerit et.
+                        </div>
+                        <div class="text-light small mt-1">12h ago</div>
+                      </div>
+                    </a>
+
+                    <a href="javascript:void(0)" class="list-group-item list-group-item-action media d-flex align-items-center">
+                      <div class="ui-icon ui-icon-sm ion ion-md-person-add bg-info border-0 text-white"></div>
+                      <div class="media-body line-height-condenced ml-3">
+                        <div class="text-dark">You have
+                          <strong>4</strong> new followers</div>
+                        <div class="text-light small mt-1">
+                          Phasellus nunc nisl, posuere cursus pretium nec, dictum vehicula tellus.
+                        </div>
+                      </div>
+                    </a>
+
+                    <a href="javascript:void(0)" class="list-group-item list-group-item-action media d-flex align-items-center">
+                      <div class="ui-icon ui-icon-sm ion ion-md-power bg-danger border-0 text-white"></div>
+                      <div class="media-body line-height-condenced ml-3">
+                        <div class="text-dark">Server restarted</div>
+                        <div class="text-light small mt-1">
+                          19h ago
+                        </div>
+                      </div>
+                    </a>
+
+                    <a href="javascript:void(0)" class="list-group-item list-group-item-action media d-flex align-items-center">
+                      <div class="ui-icon ui-icon-sm ion ion-md-warning bg-warning border-0 text-dark"></div>
+                      <div class="media-body line-height-condenced ml-3">
+                        <div class="text-dark">99% server load</div>
+                        <div class="text-light small mt-1">
+                          Etiam nec fringilla magna. Donec mi metus.
+                        </div>
+                        <div class="text-light small mt-1">
+                          20h ago
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <a href="javascript:void(0)" class="d-block text-center text-light small p-2 my-1">Show all notifications</a>
+                </div>
+              </div>
+
+              <div class="demo-navbar-messages nav-item dropdown mr-lg-3">
+                <a class="nav-link dropdown-toggle hide-arrow" href="#" data-toggle="dropdown">
+                  <i class="ion ion-ios-mail navbar-icon align-middle"></i>
+                  <span class="badge badge-primary badge-dot indicator"></span>
+                  <span class="d-lg-none align-middle">&nbsp; Messages</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <div class="bg-primary text-center text-white font-weight-bold p-3">
+                    4 New Messages
+                  </div>
+                  <div class="list-group list-group-flush">
+                    <a href="javascript:void(0)" class="list-group-item list-group-item-action media d-flex align-items-center">
+                      <img src="{{ asset('backend') }}/assets/img/avatars/6-small.png" class="d-block ui-w-40 rounded-circle" alt>
+                      <div class="media-body ml-3">
+                        <div class="text-dark line-height-condenced">Sit meis deleniti eu, pri vidit meliore docendi ut.</div>
+                        <div class="text-light small mt-1">
+                          Mae Gibson &nbsp;·&nbsp; 58m ago
+                        </div>
+                      </div>
+                    </a>
+
+                    <a href="javascript:void(0)" class="list-group-item list-group-item-action media d-flex align-items-center">
+                      <img src="{{ asset('backend') }}/assets/img/avatars/4-small.png" class="d-block ui-w-40 rounded-circle" alt>
+                      <div class="media-body ml-3">
+                        <div class="text-dark line-height-condenced">Mea et legere fuisset, ius amet purto luptatum te.</div>
+                        <div class="text-light small mt-1">
+                          Kenneth Frazier &nbsp;·&nbsp; 1h ago
+                        </div>
+                      </div>
+                    </a>
+
+                    <a href="javascript:void(0)" class="list-group-item list-group-item-action media d-flex align-items-center">
+                      <img src="{{ asset('backend') }}/assets/img/avatars/5-small.png" class="d-block ui-w-40 rounded-circle" alt>
+                      <div class="media-body ml-3">
+                        <div class="text-dark line-height-condenced">Sit meis deleniti eu, pri vidit meliore docendi ut.</div>
+                        <div class="text-light small mt-1">
+                          Nelle Maxwell &nbsp;·&nbsp; 2h ago
+                        </div>
+                      </div>
+                    </a>
+
+                    <a href="javascript:void(0)" class="list-group-item list-group-item-action media d-flex align-items-center">
+                      <img src="{{ asset('backend') }}/assets/img/avatars/11-small.png" class="d-block ui-w-40 rounded-circle" alt>
+                      <div class="media-body ml-3">
+                        <div class="text-dark line-height-condenced">Lorem ipsum dolor sit amet, vis erat denique in, dicunt prodesset te vix.</div>
+                        <div class="text-light small mt-1">
+                          Belle Ross &nbsp;·&nbsp; 5h ago
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <a href="javascript:void(0)" class="d-block text-center text-light small p-2 my-1">Show all messages</a>
+                </div>
+              </div>
+
+              <!-- Divider -->
+              <div class="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-3 ml-1">|</div>
+
+              <div class="demo-navbar-user nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
+                    <img src="{{ asset('backend') }}/assets/img/avatars/1.png" alt class="d-block ui-w-30 rounded-circle">
+                    <span class="px-1 mr-lg-2 ml-2 ml-lg-0">Mike Greene</span>
+                  </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="ion ion-ios-person text-lightest"></i> &nbsp; My profile</a>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="ion ion-ios-mail text-lightest"></i> &nbsp; Messages</a>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="ion ion-md-settings text-lightest"></i> &nbsp; Account settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    <i class="ion ion-ios-log-out text-danger"></i> &nbsp; Log Out</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- / Layout navbar -->
+
+        <!-- Layout content -->
+        <div class="layout-content">
+
+          <!-- Content -->
+          @yield('content')
+          <!-- / Content -->
+
+          @include('components.dashboard.footer')
+
+        </div>
+        <!-- Layout content -->
+
+      </div>
+      <!-- / Layout container -->
+
     </div>
-    <!-- ./wrapper -->
 
-    <!-- jQuery -->
-    <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="{{ asset('backend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
-    <!-- Bootstrap 4 -->
-    <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- ChartJS -->
-    <script src="{{ asset('backend/plugins/chart.js/Chart.min.js') }}"></script>
-    <!-- Sparkline -->
-    <script src="{{ asset('backend/plugins/sparklines/sparkline.js') }}"></script>
-    <!-- JQVMap -->
-    <script src="{{ asset('backend/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="{{ asset('backend/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-    <!-- daterangepicker -->
-    <script src="{{ asset('backend/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/daterangepicker/daterangepicker.js') }}"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-    <!-- Summernote -->
-    <script src="{{ asset('backend/plugins/summernote/summernote-bs4.min.js') }}"></script>
-    <!-- overlayScrollbars -->
-    <script src="{{ asset('backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{ asset('backend/dist/js/adminlte.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('backend/dist/js/demo.js') }}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('backend/dist/js/pages/dashboard.js') }}"></script>
-    <script src="{{ asset('backend/plugins/tinymce/tinymce.min.js') }}"></script>
-    <script src="{{ asset('backend/dist/js/custom.js') }}"></script>
+    <!-- Overlay -->
+    <div class="layout-overlay layout-sidenav-toggle"></div>
+  </div>
+  <!-- / Layout wrapper -->
 
-    <script src="{{ asset('backend/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/pdfmake/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/pdfmake/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('backend/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('backend/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-    @include('sweetalert::alert')
-    @stack('scripts')
-    <script>
-        $(document).ready(function() {
-            //ajax setup
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+  <!-- Core scripts -->
+  <script src="{{ asset('backend') }}/assets/vendor/libs/popper/popper.js"></script>
+  <script src="{{ asset('backend') }}/assets/vendor/js/bootstrap.js"></script>
+  <script src="{{ asset('backend') }}/assets/vendor/js/sidenav.js"></script>
 
-            //data table
+  <!-- Libs -->
+  <script src="{{ asset('backend') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <script src="{{ asset('backend') }}/assets/vendor/libs/chartjs/chartjs.js"></script>
 
-            $(function() {
-                $("#example1").DataTable({
-                    "responsive": true,
-                    "lengthChange": true,
-                    "autoWidth": true,
-                    "buttons": ["excel", "pdf", "print"]
-                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-
-                $('#example2').DataTable({
-                    "paging": true,
-                    "lengthChange": true,
-                    "searching": true,
-                    "ordering": true,
-                    "info": true,
-                    "autoWidth": true,
-                    "responsive": true,
-                });
-            });
-        })
-    </script>
-    <script>
-        $(function () {
-          /* ChartJS
-           * -------
-           * Here we will create a few charts using ChartJS
-           */
-
-          //--------------
-          //- AREA CHART -
-          //--------------
-
-          // Get context with jQuery - using jQuery's .get() method.
-          var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
-
-          var areaChartData = {
-            labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-              {
-                label               : 'Digital Goods',
-                backgroundColor     : 'rgba(60,141,188,0.9)',
-                borderColor         : 'rgba(60,141,188,0.8)',
-                pointRadius          : false,
-                pointColor          : '#3b8bba',
-                pointStrokeColor    : 'rgba(60,141,188,1)',
-                pointHighlightFill  : '#fff',
-                pointHighlightStroke: 'rgba(60,141,188,1)',
-                data                : [28, 48, 40, 19, 86, 27, 90]
-              },
-              {
-                label               : 'Electronics',
-                backgroundColor     : 'rgba(210, 214, 222, 1)',
-                borderColor         : 'rgba(210, 214, 222, 1)',
-                pointRadius         : false,
-                pointColor          : 'rgba(210, 214, 222, 1)',
-                pointStrokeColor    : '#c1c7d1',
-                pointHighlightFill  : '#fff',
-                pointHighlightStroke: 'rgba(220,220,220,1)',
-                data                : [65, 59, 80, 81, 56, 55, 40]
-              },
-            ]
-          }
-
-          var areaChartOptions = {
-            maintainAspectRatio : false,
-            responsive : true,
-            legend: {
-              display: false
-            },
-            scales: {
-              xAxes: [{
-                gridLines : {
-                  display : false,
-                }
-              }],
-              yAxes: [{
-                gridLines : {
-                  display : false,
-                }
-              }]
-            }
-          }
-
-          // This will get the first returned node in the jQuery collection.
-          new Chart(areaChartCanvas, {
-            type: 'line',
-            data: areaChartData,
-            options: areaChartOptions
-          })
-
-          //-------------
-          //- LINE CHART -
-          //--------------
-          var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
-          var lineChartOptions = $.extend(true, {}, areaChartOptions)
-          var lineChartData = $.extend(true, {}, areaChartData)
-          lineChartData.datasets[0].fill = false;
-          lineChartData.datasets[1].fill = false;
-          lineChartOptions.datasetFill = false
-
-          var lineChart = new Chart(lineChartCanvas, {
-            type: 'line',
-            data: lineChartData,
-            options: lineChartOptions
-          })
-
-          //-------------
-          //- DONUT CHART -
-          //-------------
-          // Get context with jQuery - using jQuery's .get() method.
-          var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-          var donutData        = {
-            labels: [
-                'Chrome',
-                'IE',
-                'FireFox',
-                'Safari',
-                'Opera',
-                'Navigator',
-            ],
-            datasets: [
-              {
-                data: [700,500,400,600,300,100],
-                backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-              }
-            ]
-          }
-          var donutOptions     = {
-            maintainAspectRatio : false,
-            responsive : true,
-          }
-          //Create pie or douhnut chart
-          // You can switch between pie and douhnut using the method below.
-          new Chart(donutChartCanvas, {
-            type: 'doughnut',
-            data: donutData,
-            options: donutOptions
-          })
-
-          //-------------
-          //- PIE CHART -
-          //-------------
-          // Get context with jQuery - using jQuery's .get() method.
-          var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-          var pieData        = donutData;
-          var pieOptions     = {
-            maintainAspectRatio : false,
-            responsive : true,
-          }
-          //Create pie or douhnut chart
-          // You can switch between pie and douhnut using the method below.
-          new Chart(pieChartCanvas, {
-            type: 'pie',
-            data: pieData,
-            options: pieOptions
-          })
-
-          //-------------
-          //- BAR CHART -
-          //-------------
-          var barChartCanvas = $('#barChart').get(0).getContext('2d')
-          var barChartData = $.extend(true, {}, areaChartData)
-          var temp0 = areaChartData.datasets[0]
-          var temp1 = areaChartData.datasets[1]
-          barChartData.datasets[0] = temp1
-          barChartData.datasets[1] = temp0
-
-          var barChartOptions = {
-            responsive              : true,
-            maintainAspectRatio     : false,
-            datasetFill             : false
-          }
-
-          new Chart(barChartCanvas, {
-            type: 'bar',
-            data: barChartData,
-            options: barChartOptions
-          })
-
-          //---------------------
-          //- STACKED BAR CHART -
-          //---------------------
-          var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
-          var stackedBarChartData = $.extend(true, {}, barChartData)
-
-          var stackedBarChartOptions = {
-            responsive              : true,
-            maintainAspectRatio     : false,
-            scales: {
-              xAxes: [{
-                stacked: true,
-              }],
-              yAxes: [{
-                stacked: true
-              }]
-            }
-          }
-
-          new Chart(stackedBarChartCanvas, {
-            type: 'bar',
-            data: stackedBarChartData,
-            options: stackedBarChartOptions
-          })
-        })
-      </script>
+  <!-- Demo -->
+  <script src="{{ asset('backend') }}/assets/js/demo.js"></script>
+  <script src="{{ asset('backend') }}/assets/js/dashboards_dashboard-3.js"></script>
 </body>
 
 </html>

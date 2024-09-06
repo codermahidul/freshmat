@@ -1,8 +1,24 @@
-<footer class="main-footer">
-    <strong> {{ __('Copyright') }} &copy; <?php echo date("Y"); ?> <a href="{{url('/')}}">{{config('app.name')}}</a>.</strong>
+{{-- <footer class="main-footer">
+    <strong> {{ __('Copyright') }} &copy;<a href="{{url('/')}}">{{config('app.name')}}</a>.</strong>
     {{ __('All rights reserved.') }}
     <div class="float-right d-none d-sm-inline-block">
       <b>{{ __('Version') }}</b> {{ __('3.2.0') }}
     </div>
-  </footer>
+  </footer> --}}
 
+
+            <!-- Layout footer -->
+            <nav class="layout-footer footer bg-footer-theme">
+                <div class="container-fluid d-flex flex-wrap justify-content-between text-center container-p-x pb-3">
+                  <div class="pt-3">
+                    <span class="footer-text font-weight-bolder">Aprox</span> ©
+                  </div>
+                  <div>
+                    <a href="javascript:void(0)" class="footer-link pt-3">About Us</a>
+                    <a href="javascript:void(0)" class="footer-link pt-3 ml-4">Help</a>
+                    <a href="javascript:void(0)" class="footer-link pt-3 ml-4">Contact</a>
+                    <a href="javascript:void(0)" class="footer-link pt-3 ml-4">Terms &amp; Conditions</a>
+                  </div>
+                </div>
+              </nav>
+              <!-- / Layout footer -->
