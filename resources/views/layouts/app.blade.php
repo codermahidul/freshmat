@@ -46,7 +46,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- Libs -->
-  <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
+  <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/libs/datatables/datatables.css">
 
 </head>
 
@@ -242,20 +243,24 @@
               <div class="demo-navbar-user nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                   <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
-                    <img src="{{ asset('backend') }}/assets/img/avatars/1.png" alt class="d-block ui-w-30 rounded-circle">
-                    <span class="px-1 mr-lg-2 ml-2 ml-lg-0">Mike Greene</span>
+                    <img src="{{ asset(Auth::user()->userProfile->photo) }}" alt class="d-block ui-w-30 rounded-circle">
+                    <span class="px-1 mr-lg-2 ml-2 ml-lg-0">{{ Auth::user()->name }}</span>
                   </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <a href="javascript:void(0)" class="dropdown-item">
-                    <i class="ion ion-ios-person text-lightest"></i> &nbsp; My profile</a>
-                  <a href="javascript:void(0)" class="dropdown-item">
-                    <i class="ion ion-ios-mail text-lightest"></i> &nbsp; Messages</a>
+                  <a href="{{ route('adminProfile') }}" class="dropdown-item">
+                    <i class="ion ion-ios-person text-lightest"></i> &nbsp; {{ __('My profile') }}</a>
+                  <a href="{{ route('inbox') }}" class="dropdown-item">
+                    <i class="ion ion-ios-mail text-lightest"></i> &nbsp; {{ __('Message') }}</a>
                   <a href="javascript:void(0)" class="dropdown-item">
                     <i class="ion ion-md-settings text-lightest"></i> &nbsp; Account settings</a>
                   <div class="dropdown-divider"></div>
-                  <a href="javascript:void(0)" class="dropdown-item">
-                    <i class="ion ion-ios-log-out text-danger"></i> &nbsp; Log Out</a>
+                  <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+                    <i class="ion ion-ios-log-out text-danger"></i> &nbsp; {{ __('Log Out') }}</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
               </div>
             </div>
@@ -293,10 +298,45 @@
   <!-- Libs -->
   <script src="{{ asset('backend') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
   <script src="{{ asset('backend') }}/assets/vendor/libs/chartjs/chartjs.js"></script>
+  <script src="{{ asset('backend') }}/assets/vendor/libs/datatables/datatables.js"></script>
+
 
   <!-- Demo -->
   <script src="{{ asset('backend') }}/assets/js/demo.js"></script>
   <script src="{{ asset('backend') }}/assets/js/dashboards_dashboard-3.js"></script>
+  @include('sweetalert::alert')
+    @stack('scripts')
+    <script>
+        $(document).ready(function() {
+            //ajax setup
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            //data table
+
+            $(function() {
+                $("#example1").DataTable({
+                    "responsive": true,
+                    "lengthChange": true,
+                    "autoWidth": true,
+                    "buttons": ["excel", "pdf", "print"]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": true,
+                    "responsive": true,
+                });
+            });
+        })
+    </script>
 </body>
 
 </html>

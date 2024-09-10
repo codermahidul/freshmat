@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 px-5 pt-5">
         <div class="card">
             <div class="card-header">
                 <h2 class="card-title">{{ __('Complete Order') }}</h2>
@@ -59,11 +59,12 @@
                           </td>
                             <td>{{ $order->created_at->format('d-M-Y') }}</td>
                             <td>
-                                <a class="btn btn-primary btn-sm" href="#">
-                                  <i class="fas fa-eye"></i>
+                                <a class="btn btn-primary btn-sm" href="{{ route('orderInvoice', $order->id) }}">
+                                    <i class="fas fa-eye"></i>
                                 </a>
-                                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-default-{{ $order->id }}">
-                                  <i class="fas fa-car-side"></i>
+                                <button class="btn btn-info btn-sm" data-toggle="modal"
+                                    data-target="#modal-default-{{ $order->id }}">
+                                    <i class="far fa-edit"></i>
                                 </button>
                             </td>
                         </tr>
@@ -110,7 +111,7 @@
           </div>
       </div>
       <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('Close') }}</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('Close') }}</button>
         <button type="submit" class="btn btn-primary">{{ __('Save changes') }}</button>
       </form>
       </div>

@@ -1,4 +1,5 @@
-{{-- Product Details Page Banner --}}
+<section class="cotent p-5">
+    {{-- Product Details Page Banner --}}
 <div class="card">
     <div class="card-header">
         <h5>{{ __('Product Details Page Banner') }}</h5>
@@ -49,6 +50,7 @@
         </div>
     </div>
 </div>
+</section>
 
 @if (session('success'))
     <script>

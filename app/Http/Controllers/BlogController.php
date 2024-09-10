@@ -172,7 +172,8 @@ class BlogController extends Controller
             'slug' => $slug,
         ]);
 
-        return back()->with('success', 'Category Add Successfully!');
+        toast('Category Add Successfully!','success')->width('350');
+        return redirect()->route('category');
     }
 
     function categoryDelete($id)
@@ -219,7 +220,8 @@ class BlogController extends Controller
             'slug' => $slug,
         ]);
 
-        return back()->with('success', 'Category Update Successfully!');
+        toast('Category Update Successfully!','success')->width('350');
+        return redirect()->route('category');
     }
 
     //Comments

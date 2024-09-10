@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 p-5">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h2 class="card-title">{{ __('Currency List') }}</h2>
@@ -24,9 +24,9 @@
                                 <td> {{ $currency->status }} </td>
                                 <td> {{ $currency->default }} </td>
                                 <td class="text-center">
-                                    <a href="{{ route('currencyedit',$currency->id) }}" class="btn-sm btn-primary"><i
+                                    <a href="{{ route('currencyedit', $currency->id) }}" class="btn-sm btn-primary"><i
                                             class="fas fa-edit"></i></a>
-                                    <a href="{{ route('currencydelete',$currency->id) }}"
+                                    <a href="{{ route('currencydelete', $currency->id) }}"
                                         class="btn-sm btn-danger delete-item"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
@@ -74,15 +74,14 @@
                                         icon: "success"
                                     });
                                     window.location.reload();
-                                }else if(data.status == 'have'){
+                                } else if (data.status == 'have') {
                                     Swal.fire({
                                         title: "error!",
                                         text: data.message,
                                         icon: "error"
                                     });
-                                }
-                                else if (data.status == 'error') {
-                                  Swal.fire({
+                                } else if (data.status == 'error') {
+                                    Swal.fire({
                                         title: "error!",
                                         text: data.message,
                                         icon: "error"
@@ -90,11 +89,11 @@
                                 }
                             },
                             error: function(xhr, status, error) {
-                              Swal.fire({
-                                        title: "error!",
-                                        text: 'An error occurred while processing your request.',
-                                        icon: "error"
-                                    });
+                                Swal.fire({
+                                    title: "error!",
+                                    text: 'An error occurred while processing your request.',
+                                    icon: "error"
+                                });
                             }
                         });
                     }

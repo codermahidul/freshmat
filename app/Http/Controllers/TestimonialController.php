@@ -85,7 +85,7 @@ class TestimonialController extends Controller
         ]);
 
         toast('Testimonial Update Successfull!','success');
-        return back();
+        return redirect()->route('testimonial');
 
     }
 

@@ -1,6 +1,5 @@
-
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 p-5">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3 class="card-title">{{ __('Blog Post') }}</h3>
@@ -41,8 +40,10 @@
                             </tr>
                         @empty
                             <tr align="center">
-                                <td colspan="10" class="py-5">{{ __('No Post Found!') }} <a href="{{ route('blog.add') }}">{{ __('Add
-                                        New') }}</a></td>
+                                <td colspan="10" class="py-5">{{ __('No Post Found!') }} <a
+                                        href="{{ route('blog.add') }}">{{ __('Add
+                                                                                New') }}</a>
+                                </td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -79,14 +80,14 @@
                                         text: data.message,
                                         icon: "success"
                                     }).then(() => {
-                                      window.location.reload();
+                                        window.location.reload();
                                     });
-                                }else if(data.status == 'error'){
-                                  Swal.fire({
-                                    title: "Error!",
-                                    text: data.message,
-                                    icon: "error"
-                                  })
+                                } else if (data.status == 'error') {
+                                    Swal.fire({
+                                        title: "Error!",
+                                        text: data.message,
+                                        icon: "error"
+                                    })
                                 }
                             },
                             error: function(xhr, status, error) {

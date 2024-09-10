@@ -1,4 +1,5 @@
-{{-- Home Three Banner One --}}
+<section class="content p-5">
+    {{-- Home Three Banner One --}}
 <div class="card">
     <div class="card-header">
         <h5>{{ __('Right Top') }}</h5>
@@ -52,7 +53,7 @@
 </div>
 
 {{-- Home Three Banner Two --}}
-<div class="card">
+<div class="card mt-5">
     <div class="card-header">
         <h5>{{ __('Right Bottom') }}</h5>
     </div>
@@ -105,7 +106,7 @@
 </div>
 
 {{-- Home Three Left Banner --}}
-<div class="card">
+<div class="card mt-5">
     <div class="card-header">
         <h5>{{ __('Left Banner') }}</h5>
     </div>
@@ -157,7 +158,7 @@
 
 
 {{-- Home Three Middle Banner --}}
-<div class="card">
+<div class="card mt-5">
     <div class="card-header">
         <h5>{{ __('Middle Banner') }}</h5>
     </div>
@@ -209,7 +210,7 @@
 
 
 {{-- Home Three Right Banner --}}
-<div class="card">
+<div class="card mt-5">
     <div class="card-header">
         <h5>{{ __('Right Banner') }}</h5>
     </div>
@@ -259,6 +260,7 @@
     </div>
 </div>
 
+</section>
 
 
 

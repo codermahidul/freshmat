@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 p-5">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h2 class="card-title">{{ __('Delivery Location list') }}</h2>
@@ -66,21 +66,21 @@
                             method: 'GET',
                             url: url,
                             success: function(data) {
-                              if (data.status == 'success') {
-                                Swal.fire({
-                                    title: "Success!",
-                                    text: data.message,
-                                    icon: "success",
-                                }).then(() => {
-                                  window.location.reload();
-                                });
-                              } else if(data.status == 'error'){
-                                Swal.fire({
-                                    title: "Warning!",
-                                    text: data.message,
-                                    icon: "warning"
-                                });
-                              }
+                                if (data.status == 'success') {
+                                    Swal.fire({
+                                        title: "Success!",
+                                        text: data.message,
+                                        icon: "success",
+                                    }).then(() => {
+                                        window.location.reload();
+                                    });
+                                } else if (data.status == 'error') {
+                                    Swal.fire({
+                                        title: "Warning!",
+                                        text: data.message,
+                                        icon: "warning"
+                                    });
+                                }
                             },
                             error: function(xhr, status, error) {
                                 Swal.fire({

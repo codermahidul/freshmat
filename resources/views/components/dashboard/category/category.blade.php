@@ -1,45 +1,47 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header d-flex justify-content-between align-items-center">
-                <h2 class="card-title">{{ __('Post Category List') }}</h2>
-                <a href="{{ route('category.add') }}" class="btn btn-primary ml-auto">{{ __('Add New') }}</a>
-            </div>
-            <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>{{ __('#') }}</th>
-                            <th>{{ __('Name') }}</th>
-                            <th>{{ __('Slug') }}</th>
-                            <th>{{ __('Action') }}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($categories as $category)
+<section class="content">
+    <div class="row">
+        <div class="col-md-12 p-5">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h2 class="card-title">{{ __('Blog Category List') }}</h2>
+                    <a href="{{ route('category.add') }}" class="btn btn-primary ml-auto">{{ __('Add New') }}</a>
+                </div>
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
                             <tr>
-                                <td> {{ $loop->index + 1 }} </td>
-                                <td> {{ $category->name }} </td>
-                                <td> {{ $category->slug }} </a></td>
-                                <td class="text-center">
-                                    <a href="{{ route('category.edit', $category->id) }}" class="btn-sm btn-primary"><i
-                                            class="fas fa-edit"></i></a>
-                                    <a href="{{ route('category.delete', $category->id) }}" class="btn-sm btn-danger delete-item"><i
-                                            class="fas fa-trash"></i></a>
-                                </td>
+                                <th>{{ __('#') }}</th>
+                                <th>{{ __('Name') }}</th>
+                                <th>{{ __('Slug') }}</th>
+                                <th>{{ __('Action') }}</th>
                             </tr>
-                        @empty
-                            <tr align="center">
-                                <td colspan="10" class="py-5">{{ __('No Category Found!') }} <a
-                                        href="{{ route('category.add') }}">{{ __('Add New') }}</a></td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @forelse ($categories as $category)
+                                <tr>
+                                    <td> {{ $loop->index + 1 }} </td>
+                                    <td> {{ $category->name }} </td>
+                                    <td> {{ $category->slug }} </a></td>
+                                    <td class="text-center">
+                                        <a href="{{ route('category.edit', $category->id) }}" class="btn-sm btn-primary"><i
+                                                class="fas fa-edit"></i></a>
+                                        <a href="{{ route('category.delete', $category->id) }}" class="btn-sm btn-danger delete-item"><i
+                                                class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr align="center">
+                                    <td colspan="10" class="py-5">{{ __('No Category Found!') }} <a
+                                            href="{{ route('category.add') }}">{{ __('Add New') }}</a></td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 
 @push('scripts')
