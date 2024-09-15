@@ -18,35 +18,35 @@ class FooterTopController extends Controller
         $request->validate([
             'icon1' => 'image:jpeg,jpg,png',
             'heading1' => 'required',
-            'subheading1' => 'required',            
-            
+            'subheading1' => 'required',
+
             'icon2' => 'image:jpeg,jpg,png',
             'heading2' => 'required',
-            'subheading2' => 'required', 
+            'subheading2' => 'required',
 
             'icon3' => 'image:jpeg,jpg,png',
             'heading3' => 'required',
-            'subheading3' => 'required',            
-            
+            'subheading3' => 'required',
+
             'icon4' => 'image:jpeg,jpg,png',
             'heading4' => 'required',
             'subheading4' => 'required',
         ],[
-            'icon1.image' => 'The icon field must be an image.',
-            'heading1.required' => 'The heading field is required.',
-            'subheading1.required' => 'The subheading field is required.',            
-            
-            'icon2.image' => 'The icon field must be an image.',
-            'heading2.required' => 'The heading field is required.',
-            'subheading2.required' => 'The subheading field is required.', 
+            'icon1.image' => trans('The icon field must be an image.'),
+            'heading1.required' => trans('The heading field is required.'),
+            'subheading1.required' => trans('The subheading field is required.'),
 
-            'icon3.image' => 'The icon field must be an image.',
-            'heading3.required' => 'The heading field is required.',
-            'subheading3.required' => 'The subheading field is required.',            
-            
-            'icon4.image' => 'The icon field must be an image.',
-            'heading4.required' => 'The heading field is required.',
-            'subheading4.required' => 'The subheading field is required.',
+            'icon2.image' => trans('The icon field must be an image.'),
+            'heading2.required' => trans('The heading field is required.'),
+            'subheading2.required' => trans('The subheading field is required.'),
+
+            'icon3.image' => trans('The icon field must be an image.'),
+            'heading3.required' => trans('The heading field is required.'),
+            'subheading3.required' => trans('The subheading field is required.'),
+
+            'icon4.image' => trans('The icon field must be an image.'),
+            'heading4.required' => trans('The heading field is required.'),
+            'subheading4.required' => trans('The subheading field is required.'),
         ]);
 
         $icon1 = footerTop(1)->icon;
@@ -108,13 +108,13 @@ class FooterTopController extends Controller
             'icon' => $icon1,
             'heading' => $request->input('heading1'),
             'subheading' => $request->input('subheading1'),
-        ]);        
-        
+        ]);
+
         FooterTop::find(2)->update([
             'icon' => $icon2,
             'heading' => $request->input('heading2'),
             'subheading' => $request->input('subheading2'),
-        ]);   
+        ]);
 
         FooterTop::find(3)->update([
             'icon' => $icon3,
@@ -128,7 +128,7 @@ class FooterTopController extends Controller
             'subheading' => $request->input('subheading4'),
         ]);
 
-        toast('Footer top content update successfully!','success');
+        toast(trans('Footer top content update successfully!'),'success');
         return back();
 
 

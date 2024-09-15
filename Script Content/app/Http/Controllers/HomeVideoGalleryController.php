@@ -68,7 +68,7 @@ class HomeVideoGalleryController extends Controller
     //Thumbnail three
     if ($request->file('thumbnail3')) {
         unlink(base_path('public/'.$thumbnail3));
-    
+
         //Thumbnail Process
         $manager = new ImageManager(new Driver());
         $image = $request->file('thumbnail3');
@@ -108,7 +108,7 @@ class HomeVideoGalleryController extends Controller
         'video4' => $request->input('video4'),
     ]);
 
-    toast('Home One Video Gallery Section Update Successully!','success');
+    toast(trans('Home One Video Gallery Section Update Successully!'),'success');
     return back();
 
 

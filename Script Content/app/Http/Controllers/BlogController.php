@@ -67,8 +67,8 @@ class BlogController extends Controller
             'status' => $request->input('status')
         ]);
 
-        toast('Post Added Successfull!', 'success')->width('350');
-        return back();
+        toast(trans('Post Added Successfull!'), 'success')->width('350');
+        return back()->route('blog');
     }
 
     function blogDelete($id)
@@ -78,9 +78,9 @@ class BlogController extends Controller
             $post->thumbnail;
             unlink(base_path('public/' . $post->thumbnail));
             $post->delete();
-            return response()->json(['status' => 'success', 'message' => 'Post Deleted Successfully.']);
+            return response()->json(['status' => 'success', 'message' => trans('Post Deleted Successfully.')]);
         } catch (\Throwable $th) {
-            return response()->json(['status' => 'error', 'message' => 'Something went wrong!']);
+            return response()->json(['status' => 'error', 'message' => trans('Something went wrong!')]);
         }
     }
 
@@ -134,8 +134,8 @@ class BlogController extends Controller
             'seoDescription' => $request->input('seodescription'),
             'status' => $request->input('status')
         ]);
-
-        return back()->with('success', 'Post Update Successfull!');
+        toast(trans('Post Update successfully!'), 'success')->width('350');
+        return redirect()->route('blog');
     }
 
     //Category
@@ -155,7 +155,7 @@ class BlogController extends Controller
         $request->validate([
             'name' => 'required',
         ], [
-            'name.required' => 'Category name field is required.'
+            'name.required' => trans('Category name field is required.')
         ]);
 
         $slug = '';
@@ -172,7 +172,7 @@ class BlogController extends Controller
             'slug' => $slug,
         ]);
 
-        toast('Category Add Successfully!','success')->width('350');
+        toast(trans('Category Add Successfully!'),'success')->width('350');
         return redirect()->route('category');
     }
 
@@ -181,13 +181,13 @@ class BlogController extends Controller
         try {
             $postExistsOnCategory = BlogPost::where('categoryId', $id)->exists();
             if ($postExistsOnCategory) {
-                return response()->json(['status' => 'have', 'message' => 'This category have post. You can\'t delete this category.']);
+                return response()->json(['status' => 'have', 'message' => trans('This category have post. You can\'t delete this category.')]);
             } else {
                 BlogCategory::where('id', $id)->delete();
-                return response()->json(['status' => 'success', 'message' => 'Category Deleted Successfully.']);
+                return response()->json(['status' => 'success', 'message' => trans('Category Deleted Successfully.')]);
             }
         } catch (\Throwable $th) {
-            return response()->json(['status' => 'error', 'message' => 'Something went wrong!']);
+            return response()->json(['status' => 'error', 'message' => trans('Something went wrong!')]);
         }
     }
 
@@ -203,7 +203,7 @@ class BlogController extends Controller
         $request->validate([
             'name' => 'required',
         ], [
-            'name.required' => 'Category name field is required.'
+            'name.required' => trans('Category name field is required.')
         ]);
 
         $slug = '';
@@ -220,7 +220,7 @@ class BlogController extends Controller
             'slug' => $slug,
         ]);
 
-        toast('Category Update Successfully!','success')->width('350');
+        toast(trans('Category Update Successfully!'),'success')->width('350');
         return redirect()->route('category');
     }
 
@@ -250,9 +250,9 @@ class BlogController extends Controller
     {
         try {
             Comment::where('id', $id)->delete();
-            return response()->json(['status' => 'success', 'message' => 'Comment delete successfull.']);
+            return response()->json(['status' => 'success', 'message' => trans('Comment delete successfull.')]);
         } catch (\Throwable $th) {
-            return response()->json(['status' => 'error', 'message' => 'Something went wrong!']);
+            return response()->json(['status' => 'error', 'message' => trans('Something went wrong!')]);
         }
     }
 
@@ -282,7 +282,9 @@ class BlogController extends Controller
             'reply' => $request->input('reply')
         ]);
 
-        return back()->with('success', 'Replied Successully');
+        toast(trans('Replied successfully.'), 'success')->width('350');
+
+        return redirect()->route('comments');
     }
 
 
@@ -338,7 +340,7 @@ class BlogController extends Controller
             'status' => 'pending',
         ]);
 
-        toast('Your comment has been submitted.', 'success')->width('400');
+        toast(trans('Your comment has been submitted.'), 'success')->width('400');
         return back();
     }
 
@@ -347,7 +349,7 @@ class BlogController extends Controller
     function blogSearch(Request $request){
 
         if ($request->input('query') == null) {
-            toast('Search field is required!', 'warning')->width('400');
+            toast(trans('Search field is required!'), 'warning')->width('400');
             return back();
         }
 

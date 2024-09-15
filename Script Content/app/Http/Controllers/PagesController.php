@@ -80,7 +80,7 @@ class PagesController extends Controller
 
         if ($request->file('f1icon')) {
             unlink(base_path('public/'.$f1icon));
-        
+
             $manager = new ImageManager(new Driver());
             $image = $request->file('f1icon');
             $name = 'why_choose_icon_1'.'.'.$image->getClientOriginalExtension();
@@ -95,7 +95,7 @@ class PagesController extends Controller
 
         if ($request->file('f2icon')) {
             unlink(base_path('public/'.$f2icon));
-        
+
             $manager = new ImageManager(new Driver());
             $image = $request->file('f2icon');
             $name = 'why_choose_icon_2'.'.'.$image->getClientOriginalExtension();
@@ -110,7 +110,7 @@ class PagesController extends Controller
 
         if ($request->file('f3icon')) {
             unlink(base_path('public/'.$f3icon));
-        
+
             $manager = new ImageManager(new Driver());
             $image = $request->file('f3icon');
             $name = 'why_choose_icon_3'.'.'.$image->getClientOriginalExtension();
@@ -126,7 +126,7 @@ class PagesController extends Controller
 
         if ($request->file('c1icon')) {
             unlink(base_path('public/'.$c1icon));
-        
+
             $manager = new ImageManager(new Driver());
             $image = $request->file('c1icon');
             $name = 'counter_icon_1'.'.'.$image->getClientOriginalExtension();
@@ -134,14 +134,14 @@ class PagesController extends Controller
             $img = $img->resize(100,100);
             $img->save(base_path('public/default/aboutUs/'.$name));
             $c1icon = 'default/aboutUs/'.$name;
-        }        
-        
+        }
+
         //Image Processing
         $c2icon = AboutUs::find(1)->c2icon;
 
         if ($request->file('c2icon')) {
             unlink(base_path('public/'.$c2icon));
-        
+
             $manager = new ImageManager(new Driver());
             $image = $request->file('c2icon');
             $name = 'counter_icon_2'.'.'.$image->getClientOriginalExtension();
@@ -149,14 +149,14 @@ class PagesController extends Controller
             $img = $img->resize(100,100);
             $img->save(base_path('public/default/aboutUs/'.$name));
             $c2icon = 'default/aboutUs/'.$name;
-        }  
+        }
 
         //Image Processing
         $c3icon = AboutUs::find(1)->c3icon;
 
         if ($request->file('c3icon')) {
             unlink(base_path('public/'.$c3icon));
-        
+
             $manager = new ImageManager(new Driver());
             $image = $request->file('c3icon');
             $name = 'counter_icon_3'.'.'.$image->getClientOriginalExtension();
@@ -171,7 +171,7 @@ class PagesController extends Controller
 
         if ($request->file('c4icon')) {
             unlink(base_path('public/'.$c4icon));
-        
+
             $manager = new ImageManager(new Driver());
             $image = $request->file('c4icon');
             $name = 'counter_icon_4'.'.'.$image->getClientOriginalExtension();
@@ -223,8 +223,8 @@ class PagesController extends Controller
             'c3icon' => $c3icon,
             'c4icon' => $c4icon,
         ]);
-        
-        toast('Page Update Successfull!','success');
+
+        toast(trans('Page Update Successfull!'),'success');
         return back();
     }
 
@@ -288,8 +288,8 @@ class PagesController extends Controller
             $img = $img->resize(90,90);
             $img->save(base_path('public/default/contact/'.$name));
             $b2icon = 'default/contact/'.$name;
-        }        
-        
+        }
+
         //Image Process
         $b3icon = ContactPage::find(1)->b3icon;
 
@@ -303,7 +303,7 @@ class PagesController extends Controller
             $img = $img->resize(90,90);
             $img->save(base_path('public/default/contact/'.$name));
             $b3icon = 'default/contact/'.$name;
-        }  
+        }
 
         //Image Process
         $b4icon = ContactPage::find(1)->b4icon;
@@ -348,7 +348,7 @@ class PagesController extends Controller
             'b1text' => $request->input('b1text'),
             'b2textOne' => $request->input('b2textOne'),
             'b2textTwo' => $request->input('b2textTwo'),
-            'b3textOne' => $request->input('b3textOne'), 
+            'b3textOne' => $request->input('b3textOne'),
             'b3textTwo' => $request->input('b3textTwo'),
             'b4textOne' => $request->input('b4textOne'),
             'b4textTwo' => $request->input('b4textTwo'),
@@ -358,7 +358,7 @@ class PagesController extends Controller
             'googleMap' => $request->input('googleMap'),
         ]);
 
-        toast('Contact Page Update Successfull!','success');
+        toast(trans('Contact Page Update Successfull!'),'success');
         return back();
 
 

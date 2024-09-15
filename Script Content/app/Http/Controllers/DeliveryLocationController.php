@@ -28,7 +28,7 @@ class DeliveryLocationController extends Controller
             'charge' => $request->input('charge'),
             'status' => $request->input('status'),
         ]);
-        toast('Delivery Location Added Successfully!','success')->width('350');
+        toast(trans('Delivery Location Added Successfully!'),'success')->width('350');
         return back();
     }
 
@@ -50,16 +50,16 @@ class DeliveryLocationController extends Controller
             'charge' => $request->input('charge'),
             'status' => $request->input('status'),
         ]);
-        toast('Delivery Location Update Successfully!','success')->width('350');
+        toast(trans('Delivery Location Update Successfully!'),'success')->width('350');
         return back();
     }
 
     public function delete( $id){
         try {
             DeliveryLocation::where('id',$id)->delete();
-        return response()->json(['status' => 'success', 'message' => 'Delivery Location Deleted Successfully.']);
+        return response()->json(['status' => 'success', 'message' => trans('Delivery Location Deleted Successfully.')]);
         } catch (\Throwable $th) {
-            return response()->json(['status' => 'error', 'message' => 'Somthing went wrong!']);
+            return response()->json(['status' => 'error', 'message' => trans('Somthing went wrong!')]);
         }
     }
 

@@ -11,8 +11,8 @@ class DealsController extends Controller
 {
     public function homeOneDeals(){
         return view('dashboard.deals.home-one');
-    } 
-    
+    }
+
     public function homeOneDealsUpdate(Request $request){
         $request->validate([
             'shortTitle' => 'required',
@@ -48,14 +48,14 @@ class DealsController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Deals Update Successfull!','success');
+        toast(trans('Deals Update Successfull!'),'success');
         return back();
 
     }
-    
+
     public function homeTwoDeals(){
         return view('dashboard.deals.home-two');
-    }    
+    }
 
     public function homeTwoDealsUpdate(Request $request){
         $request->validate([
@@ -92,11 +92,11 @@ class DealsController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Deals Update Successfull!','success');
+        toast(trans('Deals Update Successfull!'),'success');
         return back();
 
     }
-    
+
     public function homeThreeDeals(){
         return view('dashboard.deals.home-three');
     }
@@ -134,7 +134,7 @@ class DealsController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Deals Update Successfull!','success');
+        toast(trans('Deals Update Successfull!'),'success');
         return back();
 
     }

@@ -17,10 +17,10 @@ class FAQSController extends Controller
         $singleFAQ = FAQS::where('id',$id)->first();
         if ($singleFAQ->status == 'active') {
             FAQS::where('id',$id)->update(['status' => 'deactive']);
-            return back()->with('deactive','Question Active Successfully!');
+            return back()->with('deactive',trans('Question Active Successfully!'));
         }else {
             FAQS::where('id',$id)->update(['status' => 'active']);
-            toast('Question Deactive Successfully!','success');
+            toast(trans('Question Deactive Successfully!'),'success');
             return back();
         }
     }
@@ -39,13 +39,13 @@ class FAQSController extends Controller
             'answer' => $request->input('answer'),
             'status' => $request->input('status'),
         ]);
-        toast('New Question and Answer Added Successfully!','success');
+        toast(trans('New Question and Answer Added Successfully!'),'success');
         return back();
     }
 
     function faqsDelete($id){
         FAQS::where('id',$id)->delete();
-        toast('FAQ Delete Successfully!','success');
+        toast(trans('FAQ Delete Successfully!'),'success');
         return back();
     }
 
@@ -65,7 +65,7 @@ class FAQSController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        toast('Question Update Successfully!','success');
+        toast(trans('Question Update Successfully!'),'success');
         return back();
 
     }

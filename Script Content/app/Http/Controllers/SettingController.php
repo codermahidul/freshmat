@@ -63,7 +63,7 @@ class SettingController extends Controller
             ]);
         }
 
-        toast('Update Successfully!','success');
+        toast(trans('Update Successfully!'),'success');
         return back();
     }
 
@@ -75,7 +75,7 @@ class SettingController extends Controller
             'topbar' => $request->input('topbar'),
         ]);
 
-        toast('General Settings Update Successfully!','success');
+        toast(trans('General Settings Update Successfully!'),'success');
         return back();
     }
 
@@ -92,7 +92,7 @@ class SettingController extends Controller
             'messageReceiveEmail' => $request->input('email'),
             'messageSaveOnDB' => $request->input('dbsave'),
         ]);
-        toast('Setting Change Successfully!','success');
+        toast(trans('Setting Change Successfully!'),'success');
         return back();
     }
 
@@ -102,7 +102,7 @@ class SettingController extends Controller
             'glanalyticStatus' => $request->input('glanalyticStatus'),
             'analiticTrackingId' => $request->input('analiticTrackingId'),
         ]);
-        toast('Google Analytic Setting Update!','success');
+        toast(trans('Google Analytic Setting Update!'),'success');
         return back();
     }
 
@@ -114,7 +114,7 @@ class SettingController extends Controller
             'captchaSecretKey' => $request->input('captchaSecretKey'),
         ]);
 
-        toast('Google Recptcha Setting Update!','success');
+        toast(trans('Google Recptcha Setting Update!'),'success');
         return back();
     }
 
@@ -123,14 +123,14 @@ class SettingController extends Controller
             'flstatus' => $request->input('flstatus'),
             'fbAppId' => $request->input('fbAppId'),
             'fbSecretKey' => $request->input('fbSecretKey'),
-            'fbRedirectUrl' => $request->input('fbRedirectUrl'),            
+            'fbRedirectUrl' => $request->input('fbRedirectUrl'),
             'glstatus' => $request->input('glstatus'),
             'glClientId' => $request->input('glClientId'),
             'glSecretKey' => $request->input('glSecretKey'),
             'glRedirectUrl' => $request->input('glRedirectUrl'),
         ]);
 
-        toast('Social Login Setting Update@','success');
+        toast(trans('Social Login Setting Update'),'success');
         return back();
     }
 
@@ -141,7 +141,7 @@ class SettingController extends Controller
             'fbAppIdPixel' => $request->input('fbAppIdPixel'),
         ]);
 
-        toast('Facebook Pixel Setting Update!','success');
+        toast(trans('Facebook Pixel Setting Update!'),'success');
         return back();
     }
 

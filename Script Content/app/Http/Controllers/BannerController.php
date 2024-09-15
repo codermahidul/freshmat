@@ -52,7 +52,7 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home One Left Banner Update Successfully!','success');
+        toast(trans('Home One Left Banner Update Successfully!'),'success');
         return back();
 
 
@@ -66,11 +66,11 @@ class BannerController extends Controller
             'link2' => 'required|url:http,https',
             'backgroundImg2' => 'image:jpg,jpeg,png',
         ],[
-            'shortTitle2.required' => 'The short title field is required.',
-            'offerText2.required' => 'The offer text field is required.',
-            'link2.required' => 'The link field is required.',
-            'link2.url' => 'The link field must be a valid URL.',
-            'backgroundImg2.image' => 'The background img field must be an image.',
+            'shortTitle2.required' => trans('The short title field is required.'),
+            'offerText2.required' => trans('The offer text field is required.'),
+            'link2.required' => trans('The link field is required.'),
+            'link2.url' => trans('The link field must be a valid URL.'),
+            'backgroundImg2.image' => trans('The background img field must be an image.'),
         ]);
 
         $save_url = Banner::where('id',2)->first()->backgroundImg;
@@ -95,7 +95,7 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home One Right Banner Update Successfully!','success');
+        toast(trans('Home One Right Banner Update Successfully!'),'success');
         return back();
 
 
@@ -110,15 +110,15 @@ class BannerController extends Controller
                 'links' => 'required|url:http,https',
                 'backgroundImgs' => 'image:jpg,jpeg,png',
             ],[
-                'shortTitles.required' => 'The short title field is required.',
-                'offerTexts.required' => 'The offer text field is required.',
-                'links.required' => 'The link field is required.',
-                'links.url' => 'The link field must be a valid URL.',
-                'backgroundImgs.image' => 'The background img field must be an image.',
+                'shortTitles.required' => trans('The short title field is required.'),
+                'offerTexts.required' => trans('The offer text field is required.'),
+                'links.required' => trans('The link field is required.'),
+                'links.url' => trans('The link field must be a valid URL.'),
+                'backgroundImgs.image' => trans('The background img field must be an image.'),
             ]);
-    
+
             $save_url = Banner::where('id',3)->first()->backgroundImg;
-    
+
             if ($request->file('backgroundImgs')) {
                 unlink(base_path('public/'.$save_url));
                     //Feature Image
@@ -130,8 +130,8 @@ class BannerController extends Controller
                     $img->toJpeg(90)->save(base_path('public/uploads/banners/'.$name));
                     $save_url = 'uploads/banners/'.$name;
             }
-    
-    
+
+
             Banner::where('id',3)->update([
                 'shortTitle' => $request->input('shortTitles'),
                 'offerText' => $request->input('offerTexts'),
@@ -139,11 +139,11 @@ class BannerController extends Controller
                 'description' => $request->input('descriptions'),
                 'backgroundImg' => $save_url,
             ]);
-    
-            toast('Home One Special Banner Update Successfully!','success');
+
+            toast(trans('Home One Special Banner Update Successfully!'),'success');
             return back();
-    
-    
+
+
         }
 
      //Product Details Page Banner
@@ -162,11 +162,11 @@ class BannerController extends Controller
             'linkp' => 'required|url:http,https',
             'backgroundImgp' => 'image:jpg,jpeg,png',
         ],[
-            'shortTitlep.required' => 'The short title field is required.',
-            'offerTextp.required' => 'The offer text field is required.',
-            'linkp.required' => 'The link field is required.',
-            'linkp.url' => 'The link field must be a valid URL.',
-            'backgroundImgp.image' => 'The background img field must be an image.',
+            'shortTitlep.required' => trans('The short title field is required.'),
+            'offerTextp.required' => trans('The offer text field is required.'),
+            'linkp.required' => trans('The link field is required.'),
+            'linkp.url' => trans('The link field must be a valid URL.'),
+            'backgroundImgp.image' => trans('The background img field must be an image.'),
         ]);
 
         $save_url = Banner::where('id',4)->first()->backgroundImg;
@@ -191,7 +191,7 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Product Details Page Banner Update Successfully!','success');
+        toast(trans('Product Details Page Banner Update Successfully!'),'success');
         return back();
 
     }
@@ -224,11 +224,11 @@ class BannerController extends Controller
             'link0' => 'required|url:http,https',
             'backgroundImg0' => 'image:jpg,jpeg,png',
         ],[
-            'shortTitle0.required' => 'The short title field is required.',
-            'offerText0.required' => 'The offer text field is required.',
-            'link0.required' => 'The link field is required.',
-            'link0.url' => 'The link field must be a valid URL.',
-            'backgroundImg0.image' => 'The background img field must be an image.',
+            'shortTitle0.required' => trans('The short title field is required.'),
+            'offerText0.required' => trans('The offer text field is required.'),
+            'link0.required' => trans('The link field is required.'),
+            'link0.url' => trans('The link field must be a valid URL.'),
+            'backgroundImg0.image' => trans('The background img field must be an image.'),
         ]);
 
         $save_url = Banner::where('id',9)->first()->backgroundImg;
@@ -254,7 +254,7 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home two main banner update successfull!','success');
+        toast(trans('Home two main banner update successfull!'),'success');
         return back();
     }
 
@@ -266,11 +266,11 @@ class BannerController extends Controller
             'link1' => 'required|url:http,https',
             'backgroundImg1' => 'image:jpg,jpeg,png',
         ],[
-            'shortTitle1.required' => 'The short title field is required.',
-            'offerText1.required' => 'The offer text field is required.',
-            'link1.required' => 'The link field is required.',
-            'link1.url' => 'The link field must be a valid URL.',
-            'backgroundImg1.image' => 'The background img field must be an image.',
+            'shortTitle1.required' => trans('The short title field is required.'),
+            'offerText1.required' => trans('The offer text field is required.'),
+            'link1.required' => trans('The link field is required.'),
+            'link1.url' => trans('The link field must be a valid URL.'),
+            'backgroundImg1.image' => trans('The background img field must be an image.'),
         ]);
 
         $save_url = Banner::where('id',5)->first()->backgroundImg;
@@ -296,7 +296,7 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home two left banner update successfull!','success');
+        toast(trans('Home two left banner update successfull!'),'success');
         return back();
     }
 
@@ -308,11 +308,11 @@ class BannerController extends Controller
             'link2' => 'required|url:http,https',
             'backgroundImg2' => 'image:jpg,jpeg,png',
         ],[
-            'shortTitle2.required' => 'The short title field is required.',
-            'offerText2.required' => 'The offer text field is required.',
-            'link2.required' => 'The link field is required.',
-            'link2.url' => 'The link field must be a valid URL.',
-            'backgroundImg2.image' => 'The background img field must be an image.',
+            'shortTitle2.required' => trans('The short title field is required.'),
+            'offerText2.required' => trans('The offer text field is required.'),
+            'link2.required' => trans('The link field is required.'),
+            'link2.url' => trans('The link field must be a valid URL.'),
+            'backgroundImg2.image' => trans('The background img field must be an image.'),
         ]);
 
         $save_url = Banner::where('id',6)->first()->backgroundImg;
@@ -338,9 +338,9 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home two right top banner update successfull!','success');
+        toast(trans('Home two right top banner update successfull!'),'success');
         return back();
-    } 
+    }
 
 
     public function htbthUpdate(Request $request){
@@ -350,11 +350,11 @@ class BannerController extends Controller
             'link3' => 'required|url:http,https',
             'backgroundImg3' => 'image:jpg,jpeg,png',
         ],[
-            'shortTitle3.required' => 'The short title field is required.',
-            'offerText3.required' => 'The offer text field is required.',
-            'link3.required' => 'The link field is required.',
-            'link3.url' => 'The link field must be a valid URL.',
-            'backgroundImg3.image' => 'The background img field must be an image.',
+            'shortTitle3.required' => trans('The short title field is required.'),
+            'offerText3.required' => trans('The offer text field is required.'),
+            'link3.required' => trans('The link field is required.'),
+            'link3.url' => trans('The link field must be a valid URL.'),
+            'backgroundImg3.image' => trans('The background img field must be an image.'),
         ]);
 
         $save_url = Banner::where('id',7)->first()->backgroundImg;
@@ -380,9 +380,9 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home two right bottom banner update successfull!','success');
+        toast(trans('Home two right bottom banner update successfull!'),'success');
         return back();
-    } 
+    }
 
 
     public function htbsUpdate(Request $request){
@@ -392,11 +392,11 @@ class BannerController extends Controller
             'link4' => 'required|url:http,https',
             'backgroundImg3' => 'image:jpg,jpeg,png',
         ],[
-            'shortTitle4.required' => 'The short title field is required.',
-            'offerText4.required' => 'The offer text field is required.',
-            'link4.required' => 'The link field is required.',
-            'link4.url' => 'The link field must be a valid URL.',
-            'backgroundImg4.image' => 'The background img field must be an image.',
+            'shortTitle4.required' => trans('The short title field is required.'),
+            'offerText4.required' => trans('The offer text field is required.'),
+            'link4.required' => trans('The link field is required.'),
+            'link4.url' => trans('The link field must be a valid URL.'),
+            'backgroundImg4.image' => trans('The background img field must be an image.'),
         ]);
 
         $save_url = Banner::where('id',8)->first()->backgroundImg;
@@ -422,9 +422,9 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home two special product banner update successfull!','success');
+        toast(trans('Home two special product banner update successfull!'),'success');
         return back();
-    } 
+    }
 
 
     public function htbbsUpdate(Request $request){
@@ -433,10 +433,10 @@ class BannerController extends Controller
             'link5' => 'required|url:http,https',
             'backgroundImg5' => 'image:jpg,jpeg,png',
         ],[
-            'offerText5.required' => 'The offer text field is required.',
-            'link5.required' => 'The link field is required.',
-            'link5.url' => 'The link field must be a valid URL.',
-            'backgroundImg5.image' => 'The background img field must be an image.',
+            'offerText5.required' => trans('The offer text field is required.'),
+            'link5.required' => trans('The link field is required.'),
+            'link5.url' => trans('The link field must be a valid URL.'),
+            'backgroundImg5.image' => trans('The background img field must be an image.'),
         ]);
 
         $save_url = Banner::where('id',10)->first()->backgroundImg;
@@ -461,7 +461,7 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home two Barnd Product banner update successfull!','success');
+        toast(trans('Home two Barnd Product banner update successfull!'),'success');
         return back();
     }
 
@@ -511,7 +511,7 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home three right top banner update successfull!','success');
+        toast(trans('Home three right top banner update successfull!'),'success');
         return back();
     }
 
@@ -523,11 +523,11 @@ class BannerController extends Controller
             'link1' => 'required|url:http,https',
             'backgroundImg1' => 'image:jpg,jpeg,png',
         ],[
-            'shortTitle1.required' => 'The short title field is required.',
-            'offerText1.required' => 'The offer text field is required.',
-            'link1.required' => 'The link field is required.',
-            'link1.url' => 'The link field must be a valid URL.',
-            'backgroundImg1.image' => 'The background img field must be an image.',
+            'shortTitle1.required' => trans('The short title field is required.'),
+            'offerText1.required' => trans('The offer text field is required.'),
+            'link1.required' => trans('The link field is required.'),
+            'link1.url' => trans('The link field must be a valid URL.'),
+            'backgroundImg1.image' => trans('The background img field must be an image.'),
         ]);
 
         $save_url = Banner::where('id',12)->first()->backgroundImg;
@@ -552,7 +552,7 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home three right bottom banner update successfull!','success');
+        toast(trans('Home three right bottom banner update successfull!'),'success');
         return back();
     }
 
@@ -564,11 +564,11 @@ class BannerController extends Controller
             'linkx' => 'required|url:http,https',
             'backgroundImgx' => 'image:jpg,jpeg,png',
         ],[
-            'offerTextx.required' => 'The offer text field is required.',
-            'descriptionx.required' => 'The description field is required.',
-            'linkx.required' => 'The link field is required.',
-            'linkx.url' => 'The link field must be a valid URL.',
-            'backgroundImgx.image' => 'The background img field must be an image.',
+            'offerTextx.required' => trans('The offer text field is required.'),
+            'descriptionx.required' => trans('The description field is required.'),
+            'linkx.required' => trans('The link field is required.'),
+            'linkx.url' => trans('The link field must be a valid URL.'),
+            'backgroundImgx.image' => trans('The background img field must be an image.'),
         ]);
 
         $save_url = Banner::where('id',13)->first()->backgroundImg;
@@ -593,7 +593,7 @@ class BannerController extends Controller
             'backgroundImg' => $save_url,
         ]);
 
-        toast('Home three left banner update successfull!','success');
+        toast(trans('Home three left banner update successfull!'),'success');
         return back();
     }
 
@@ -605,15 +605,15 @@ class BannerController extends Controller
                 'linky' => 'required|url:http,https',
                 'backgroundImgy' => 'image:jpg,jpeg,png',
             ],[
-                'offerTexty.required' => 'The offer text field is required.',
-                'descriptiony.required' => 'The description field is required.',
-                'linky.required' => 'The link field is required.',
-                'linky.url' => 'The link field must be a valid URL.',
-                'backgroundImgy.image' => 'The background img field must be an image.',
+                'offerTexty.required' => trans('The offer text field is required.'),
+                'descriptiony.required' => trans('The description field is required.'),
+                'linky.required' => trans('The link field is required.'),
+                'linky.url' => trans('The link field must be a valid URL.'),
+                'backgroundImgy.image' => trans('The background img field must be an image.'),
             ]);
-    
+
             $save_url = Banner::where('id',14)->first()->backgroundImg;
-    
+
             if ($request->file('backgroundImgy')) {
                 unlink(base_path('public/'.$save_url));
                     //Feature Image
@@ -625,16 +625,16 @@ class BannerController extends Controller
                     $img->save(base_path('public/uploads/banners/'.$name));
                     $save_url = 'uploads/banners/'.$name;
             }
-    
-    
+
+
             Banner::where('id',14)->update([
                 'description' => $request->input('descriptiony'),
                 'offerText' => $request->input('offerTexty'),
                 'link' => $request->input('linky'),
                 'backgroundImg' => $save_url,
             ]);
-    
-            toast('Home three middle banner update successfull!','success');
+
+            toast(trans('Home three middle banner update successfull!'),'success');
             return back();
         }
 
@@ -647,15 +647,15 @@ class BannerController extends Controller
                 'linkz' => 'required|url:http,https',
                 'backgroundImgz' => 'image:jpg,jpeg,png',
             ],[
-                'offerTextz.required' => 'The offer text field is required.',
-                'descriptionz.required' => 'The description field is required.',
-                'linkz.required' => 'The link field is required.',
-                'linkz.url' => 'The link field must be a valid URL.',
-                'backgroundImgz.image' => 'The background img field must be an image.',
+                'offerTextz.required' => trans('The offer text field is required.'),
+                'descriptionz.required' => trans('The description field is required.'),
+                'linkz.required' => trans('The link field is required.'),
+                'linkz.url' => trans('The link field must be a valid URL.'),
+                'backgroundImgz.image' => trans('The background img field must be an image.'),
             ]);
-    
+
             $save_url = Banner::where('id',15)->first()->backgroundImg;
-    
+
             if ($request->file('backgroundImgz')) {
                 unlink(base_path('public/'.$save_url));
                     //Feature Image
@@ -667,18 +667,18 @@ class BannerController extends Controller
                     $img->save(base_path('public/uploads/banners/'.$name));
                     $save_url = 'uploads/banners/'.$name;
             }
-    
-    
+
+
             Banner::where('id',15)->update([
                 'description' => $request->input('descriptionz'),
                 'offerText' => $request->input('offerTextz'),
                 'link' => $request->input('linkz'),
                 'backgroundImg' => $save_url,
             ]);
-    
-            toast('Home three right banner update successfull!','success');
+
+            toast(trans('Home three right banner update successfull!'),'success');
             return back();
         }
 
-    //End  
-} 
+    //End
+}

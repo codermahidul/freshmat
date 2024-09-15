@@ -43,7 +43,7 @@ class TestimonialController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        toast('Successfully your testimonial added!','success');
+        toast(trans('Successfully your testimonial added!'),'success');
         return back();
     }
 
@@ -84,14 +84,14 @@ class TestimonialController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        toast('Testimonial Update Successfull!','success');
+        toast(trans('Testimonial Update Successfull!'),'success');
         return redirect()->route('testimonial');
 
     }
 
     public function delete($id){
         Testimonial::find($id)->delete();
-        toast('Testimonial Deleted Successfull!','success');
+        toast(trans('Testimonial Deleted Successfull!'),'success');
         return back();
     }
 

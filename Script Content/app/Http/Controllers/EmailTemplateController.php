@@ -28,7 +28,7 @@ class EmailTemplateController extends Controller
             'content' => $request->description,
         ]);
 
-        toast('Template Update Successfully!', 'success')->width('350');
+        toast(trans('Template Update Successfully!'), 'success')->width('350');
         return redirect()->route('emailTemplate');
     }
 

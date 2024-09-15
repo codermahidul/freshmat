@@ -55,7 +55,7 @@ class PaymentGetwayController extends Controller
             'image' => $image,
         ]);
 
-        toast('Paypal payment info update successfully!', 'success')->width('350');
+        toast(trans('Paypal payment info update successfully!'), 'success')->width('350');
         return back();
 
     }
@@ -94,7 +94,7 @@ class PaymentGetwayController extends Controller
             'image' => $image,
         ]);
 
-        toast('Stripe payment info update successfully!', 'success')->width('350');
+        toast(trans('Stripe payment info update successfully!'), 'success')->width('350');
         return back();
     }
 
@@ -131,7 +131,7 @@ class PaymentGetwayController extends Controller
             'image' => $image,
         ]);
 
-        toast('Mollie payment info update successfully!', 'success')->width('350');
+        toast(trans('Mollie payment info update successfully!'), 'success')->width('350');
         return back();
     }
 

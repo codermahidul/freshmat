@@ -144,7 +144,8 @@ class FrontendController extends Controller
             'address' => $request->input('address'),
         ]);
 
-        return back()->with('success', 'Your Profile Update Successfully');
+        toast(trans('Your profile update succesfully!'), 'success')->width('350');
+        return back();
     }
 
     public function profileImageUpdate(Request $request){
@@ -170,7 +171,7 @@ class FrontendController extends Controller
         UserProfile::where('userId',Auth::id())->update([
             'photo' => $avatar,
         ]);
-        toast('Profile image update successfull!', 'success')->width('350');
+        toast(trans('Profile image update successfull!'), 'success')->width('350');
         return back();
     }
 
@@ -217,9 +218,9 @@ class FrontendController extends Controller
        }
 
        if ($delete == true) {
-        toast('Wislist item removed!', 'success')->width('350');
+        toast(trans('Wislist item removed!'), 'success')->width('350');
     }else{
-           toast('Wislist item added!', 'success')->width('350');
+           toast(trans('Wislist item added!'), 'success')->width('350');
 
        }
 
@@ -241,14 +242,14 @@ class FrontendController extends Controller
         $user = Auth::user();
 
         if (!Hash::check($request->current_password,$user->password)) {
-            return back()->withErrors(['current_password' => 'The current password does not match our records.']);
+            return back()->withErrors(['current_password' => trans('The current password does not match our records.')]);
         }
 
         User::find($user->id)->update([
             'password' => Hash::make($request->input('new_password')),
         ]);
-
-        return back()->with('success', 'Password changed successfully.');
+        toast(trans('Password changed successfully.'), 'success')->width('350');
+        return back();
 
     }
 

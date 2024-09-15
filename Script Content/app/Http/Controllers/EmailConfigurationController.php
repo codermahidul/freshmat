@@ -34,7 +34,7 @@ class EmailConfigurationController extends Controller
 
         EmailConfiguration::updateOrCreate($attributes,$values);
 
-        toast('Email Configuration Update Successfull!','success');
+        toast(trans('Email Configuration Update Successfull!'),'success');
         return back();
     }
 }

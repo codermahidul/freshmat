@@ -28,7 +28,7 @@ class ThemeOptionController extends Controller
             'supportText' => $request->input('supportText'),
         ]);
 
-        toast('Topbar Content Update Successfully!','success')->width('350');
+        toast(trans('Topbar Content Update Successfully!'),'success')->width('350');
         return back();
     }
 }

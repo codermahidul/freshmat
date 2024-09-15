@@ -51,7 +51,7 @@ if ($existingItemIndex !== -1) {
 }
 
         Session::put('cart', $cartItems);
-        toast('Item added to cart!','success')->width('350');
+        toast(trans('Item added to cart!'),'success')->width('350');
         return back();
 
 }
@@ -75,7 +75,7 @@ if ($existingItemIndex !== -1) {
             Session::put('cart', $filteredArray);
         }
 
-        toast('Item Removed!','success')->width('350');
+        toast(trans('Item Removed!'),'success')->width('350');
         return back();
     }
 

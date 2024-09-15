@@ -22,7 +22,7 @@ class ReviewsController extends Controller
             'review' => $request->input('review'),
         ]);
 
-        toast('Submit successfully!','success')->width('350');
+        toast(trans('Submit successfully!'),'success')->width('350');
         return back();
     }
 
@@ -45,7 +45,7 @@ class ReviewsController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        toast('Status update successfull!','success')->width('350');
+        toast(trans('Status update successfull!'),'success')->width('350');
         return back();
     }
 
@@ -53,9 +53,9 @@ class ReviewsController extends Controller
     public function delete($id){
         try {
             Reviews::find($id)->delete();
-            return response(['status'=>'success', 'message' => 'Review delete successfully!']);
+            return response(['status'=>'success', 'message' => trans('Review delete successfully!')]);
         } catch (\Throwable $th) {
-            return response(['status'=>'error', 'message' => 'Something went worng!']);
+            return response(['status'=>'error', 'message' => trans('Something went worng!')]);
         }
     }
 }

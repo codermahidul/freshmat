@@ -65,7 +65,7 @@ class RegisterController extends Controller
 
             if (setting('glrecaptchaStatus') == 'enable') {
                 $rules['g-recaptcha-response'] = ['required', new Recaptcha];
-                $messages['g-recaptcha-response.required'] = 'The google recaptcha field is required!';
+                $messages['g-recaptcha-response.required'] = trans('The google recaptcha field is required!');
             }
 
             return Validator::make($data, $rules, $messages);

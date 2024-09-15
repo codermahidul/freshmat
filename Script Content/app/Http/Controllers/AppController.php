@@ -45,7 +45,7 @@ class AppController extends Controller
                  //Image
         if ($request->file('image2')) {
             unlink(base_path('public/'.$image2));
-    
+
             //Image Process
             $manager = new ImageManager(new Driver());
             $image2 = $request->file('image2');
@@ -67,7 +67,7 @@ class AppController extends Controller
         'image2' => $image2,
          ]);
 
-         toast('App Section Content Update Successfully!', 'success')->width('350');
+         toast(trans('App Section Content Update Successfully!'), 'success')->width('350');
         return back();
 
 

@@ -39,7 +39,7 @@ class PartnerController extends Controller
         'status' => $request->input('status'),
     ]);
 
-    toast('Partner Added Successfully!','success');
+    toast(trans('Partner Added Successfully!'),'success');
     return back();
 
     }
@@ -77,8 +77,8 @@ class PartnerController extends Controller
              'logo' => $logo,
              ]);
 
-            
-        toast('Partner Update Successfully!','success');
+
+        toast(trans('Partner Update Successfully!'),'success');
         return back();
 
     }
@@ -90,7 +90,7 @@ class PartnerController extends Controller
         $partner = Partner::where('id',$id)->first();
         unlink(base_path('public/'.$partner->logo));
         $partner->delete();
-        toast('Parner Deleted Successfully!','success');
+        toast(trans('Parner Deleted Successfully!'),'success');
         return back();
     }
 

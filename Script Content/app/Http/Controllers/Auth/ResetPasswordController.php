@@ -32,7 +32,7 @@ class ResetPasswordController extends Controller
 
     if (!$passwordReset || !Hash::check($token, $passwordReset->token)) {
         // Token is invalid or expired
-        toast('This password reset token is invalid.','error')->width('350');
+        toast(trans('This password reset token is invalid.'),'error')->width('350');
         return redirect()->route('reset.password');
     }
 

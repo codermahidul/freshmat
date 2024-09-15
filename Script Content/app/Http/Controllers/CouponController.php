@@ -41,7 +41,7 @@ class CouponController extends Controller
             'expireDate' => $request->input('expireDate'),
             'status' => $request->input('status'),
         ]);
-        toast('Copun Added Successfully!','success')->width('350');
+        toast(trans('Copun Added Successfully!'),'success')->width('350');
         return back();
 
     }
@@ -75,7 +75,7 @@ class CouponController extends Controller
             'expireDate' => $request->input('expireDate'),
             'status' => $request->input('status'),
         ]);
-        toast('Coupon Update Successfully!','success')->width('350');
+        toast(trans('Coupon Update Successfully!'),'success')->width('350');
         return back();
     }
 
@@ -84,9 +84,9 @@ class CouponController extends Controller
         try {
             $coupon = Coupon::findOrFail($id);
             $coupon->delete();
-            return response()->json(['status' => 'success','message' => 'Cupon delete successfull.']);
+            return response()->json(['status' => 'success','message' => trans('Cupon delete successfull.')]);
             } catch (\Throwable $th) {
-            return response()->json(['status' => 'error','message' => 'Something went wrong!']);
+            return response()->json(['status' => 'error','message' => trans('Something went wrong!')]);
         }
     }
 
@@ -109,18 +109,19 @@ class CouponController extends Controller
         $coupon = Coupon::where('name',$claimCupon)->where('status','active')->first();
 
         if (empty($coupon)) {
-            return back()->with('nofound', 'Your claimed coupon not found!');
+            toast(trans('Your claimed coupon not found!'),'danger')->width('350');
+            return back()->with('nofound', trans('Your claimed coupon not found!'));
         } else {
             $coupon->expireDate;
             $date = date('Y-m-d');
             if ($date <= $coupon->expireDate) {
                 if ($totalordersum <= $coupon->minOrder) {
-                    return back()->with('nofound', 'Your claimed coupon minimum order ammount $'.$coupon->minOrder.'!');
+                    return back()->with('nofound', trans('Your claimed coupon minimum order ammount $').$coupon->minOrder.'!');
                 }else {
                     if (!empty($coupon->maxOrder)) {
                         if ($totalordersum <= $coupon->maxOrder) {
                             if ($coupon->limit <= 0) {
-                                return back()->with('nofound', 'Your claimed coupon has no limit!');
+                                return back()->with('nofound', trans('Your claimed coupon has no limit!'));
                             }else {
                                 $totalAmountOfOrder = $totalordersum;
                                 $discountType =$coupon->type;
@@ -133,7 +134,7 @@ class CouponController extends Controller
                                     ];
                                      Session::put('coupon',$redemCoupon);
                                     return back()->with([
-                                        'success' => 'Your coupon has been successfully redeemed.'
+                                        'success' => trans('Your coupon has been successfully redeemed.')
                                     ]);
                                 } else{
                                     $discountAmmount = $totalAmountOfOrder - $coupon->discount;
@@ -143,17 +144,17 @@ class CouponController extends Controller
                                     ];
                                     Session::put('coupon',$redemCoupon);
                                     return back()->with([
-                                        'success' => 'Your coupon has been successfully redeemed.'
+                                        'success' => trans('Your coupon has been successfully redeemed.')
                                     ]);
                                 }
                             }
                         } else {
-                            return back()->with('nofound', 'Your claimed coupon maximum order ammount $'.$coupon->maxOrder.'!');
+                            return back()->with('nofound', trans('Your claimed coupon maximum order ammount $').$coupon->maxOrder.'!');
                         }
 
                     } else {
                         if ($coupon->limit <= 0) {
-                            return back()->with('nofound', 'Your claimed coupon has no limit!');
+                            return back()->with('nofound', trans('Your claimed coupon has no limit!'));
                         }else {
                             $totalAmountOfOrder = $totalordersum;
                             $discountType =$coupon->type;
@@ -166,7 +167,7 @@ class CouponController extends Controller
                                 ];
                                  Session::put('coupon',$redemCoupon);
                                 return back()->with([
-                                    'success' => 'Your coupon has been successfully redeemed.',
+                                    'success' => trans('Your coupon has been successfully redeemed.'),
                                 ]);
                             } else{
                                 $discountAmmount = $coupon->discount;
@@ -176,7 +177,7 @@ class CouponController extends Controller
                                 ];
                                 Session::put('coupon',$redemCoupon);
                                 return back()->with([
-                                    'success' => 'Your coupon has been successfully redeemed.',
+                                    'success' => trans('Your coupon has been successfully redeemed.'),
                                 ]);
                             }
                         }
@@ -184,7 +185,7 @@ class CouponController extends Controller
 
                 }
             } else {
-                return back()->with('nofound', 'Your claimed coupon vlidity expired!');
+                return back()->with('nofound', trans('Your claimed coupon vlidity expired!'));
             }
 
         }

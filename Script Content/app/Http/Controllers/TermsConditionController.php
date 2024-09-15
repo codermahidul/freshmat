@@ -21,7 +21,7 @@ class TermsConditionController extends Controller
             'content' => $request->input('content'),
         ]);
 
-        toast('Content Update Successfull!', 'success')->width('350');
+        toast(trans('Content Update Successfull!'), 'success')->width('350');
         return back();
     }
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Policy;
@@ -20,15 +19,15 @@ class PolicyController extends Controller
             'icon2' => 'image:png,jpeg,jpg',
             'icon3' => 'image:png,jpeg,jpg',
         ],[
-            'icon1.image' => 'The icon field must be an image.',
-            'icon2.image' => 'The icon field must be an image.',
-            'icon3.image' => 'The icon field must be an image.',
-            'heading1.required' => 'The heading field is required.',
-            'heading2.required' => 'The heading field is required.',
-            'heading3.required' => 'The heading field is required.',
-            'subheading1.required' => 'The subheading field is required.',
-            'subheading2.required' => 'The subheading field is required.',
-            'subheading3.required' => 'The subheading field is required.',
+            'icon1.image' => trans('The icon field must be an image.'),
+            'icon2.image' => trans('The icon field must be an image.'),
+            'icon3.image' => trans('The icon field must be an image.'),
+            'heading1.required' => trans('The heading field is required.'),
+            'heading2.required' => trans('The heading field is required.'),
+            'heading3.required' => trans('The heading field is required.'),
+            'subheading1.required' => trans('The subheading field is required.'),
+            'subheading2.required' => trans('The subheading field is required.'),
+            'subheading3.required' => trans('The subheading field is required.'),
         ]);
 
 
@@ -62,7 +61,7 @@ class PolicyController extends Controller
             $icon2 = 'uploads/assets/policy/'.$name;
         }
 
-        //Icon 3 
+        //Icon 3
         if ($request->file('icon3')) {
             unlink(base_path('public/'.$icon3));
 
@@ -93,7 +92,7 @@ class PolicyController extends Controller
             'subheading' => $request->input('subheading3'),
         ]);
 
-        toast('Policy Section Updated Successfull!','success');
+        toast(trans('Policy Section Updated Successfull!'),'success');
         return back();
 
 

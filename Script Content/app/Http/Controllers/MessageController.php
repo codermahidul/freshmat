@@ -43,12 +43,12 @@ class MessageController extends Controller
         }
 
 
-        
+
         mailServer();
         //Send Email
         Mail::to($adminEmail)->send(new ContactMail($validated ));
 
-        toast('Your message has been sent successfully!','success');
+        toast(trans('Your message has been sent successfully!'),'success');
         return back();
 
     }
@@ -57,7 +57,7 @@ class MessageController extends Controller
 
     public function messageDelete($id){
         Message::find($id)->delete();
-        toast('Message Deleted Successfully!','success');
+        toast(trans('Message Deleted Successfully!'),'success');
         return redirect(route('inbox'));
     }
 

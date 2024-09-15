@@ -55,7 +55,7 @@ class ProductController extends Controller
             'status' => $request->input('status'),
             'icon' => $save_url,
         ]);
-        toast('Product Category Added Succesfully!','success')->width('350');
+        toast(trans('Product Category Added Succesfully!'),'success')->width('350');
         return back();
 
     }
@@ -100,7 +100,7 @@ class ProductController extends Controller
             'status' => $request->input('status'),
             'icon' => $save_url,
         ]);
-        toast('Product Category Updated Successfully!','success')->width('350');
+        toast(trans('Product Category Updated Successfully!'),'success')->width('350');
         return back();
 
     }
@@ -110,15 +110,15 @@ class ProductController extends Controller
         try {
             $have = Product::where('categoryId',$id)->count();
             if (!$have == 0) {
-                return response()->json(['status' => 'have', 'message' => 'You can\'t delete this category.']);
+                return response()->json(['status' => 'have', 'message' => trans('You can\'t delete this category.')]);
             }
         $product = ProductCategory::where('id',$id)->first();
         $save_url = $product->icon;
         unlink(base_path('public/'.$save_url));
         $product->delete();
-        return response()->json(['status' => 'success', 'message' => 'Product Category Deleted Successfull.']);
+        return response()->json(['status' => 'success', 'message' => trans('Product Category Deleted Successfull.')]);
         } catch (\Throwable $th) {
-        return response()->json(['status' => 'error', 'message' => 'Something went worng!']);
+        return response()->json(['status' => 'error', 'message' => trans('Something went worng!')]);
         }
     }
 
@@ -203,7 +203,7 @@ class ProductController extends Controller
             }
 
         }
-        toast('Product Added Successfully!','success')->width('350');
+        toast(trans('Product Added Successfully!'),'success')->width('350');
         return back();
 
     }
@@ -282,7 +282,7 @@ class ProductController extends Controller
             }
 
         }
-        toast('Product Update Successfully!','success')->width('350');
+        toast(trans('Product Update Successfully!'),'success')->width('350');
         return back();
 
     }
@@ -293,7 +293,7 @@ class ProductController extends Controller
         try {
             $have = InvoicesProducts::where('productId',$id)->count();
             if (!$have == 0) {
-                return response()->json(['status' => 'have', 'message' => 'You can\'t delete this product.']);
+                return response()->json(['status' => 'have', 'message' => trans('You can\'t delete this product.')]);
             }else{
                 $thumbnailUrl = Product::where('id',$id)->first()->thumbnail;
                 unlink(base_path('public/'.$thumbnailUrl));
@@ -309,10 +309,10 @@ class ProductController extends Controller
                 }
 
                 Product::where('id',$id)->first()->delete();
-                return response()->json(['status' => 'success', 'message' => 'Product Delete Successfull.']);
+                return response()->json(['status' => 'success', 'message' => trans('Product Delete Successfull.')]);
             }
         } catch (\Throwable $th) {
-            return response()->json(['status' => 'error', 'message' => 'Somethig went wrong!']);
+            return response()->json(['status' => 'error', 'message' => trans('Somethig went wrong!')]);
         }
     }
 
@@ -322,9 +322,9 @@ class ProductController extends Controller
             $image = ProductGallery::find($id);
             unlink(base_path('public/'.$image->photo));
             $image->delete();
-            return response(['status' => 'success', 'message' => 'Gallery image delete successfull!']);
+            return response(['status' => 'success', 'message' => trans('Gallery image delete successfull!')]);
         } catch (\Throwable $th) {
-            return response(['status' => 'error', 'message' => 'Somthing went wrong!']);
+            return response(['status' => 'error', 'message' => trans('Somthing went wrong!')]);
         }
     }
 

@@ -36,14 +36,14 @@ class InstagramPostController extends Controller
             'link' => $request->input('link'),
         ]);
 
-        toast('Instagram Post Image Added Successfull!','success');
+        toast(trans('Instagram Post Image Added Successfull!'),'success');
         return back();
 
     }
 
     public function delete($id){
         InstagramPost::find($id)->delete();
-        toast('Instagram Post Image Delete Successfull!', 'success');
+        toast(trans('Instagram Post Image Delete Successfull!'), 'success');
         return back();
     }
 

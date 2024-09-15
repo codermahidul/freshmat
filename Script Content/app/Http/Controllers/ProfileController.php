@@ -27,14 +27,14 @@ class ProfileController extends Controller
 
 
         if (!Hash::check($request->input('current_password'),Auth::user()->password)) {
-            throw ValidationException::withMessages(['current_password' => 'Current password not match with our recod.']);
+            throw ValidationException::withMessages(['current_password' => trans('Current password not match with our recod.')]);
         }
 
         User::where('id',Auth::user()->id)->update([
             'password' => Hash::make($request->input('password')),
         ]);
-
-        return back()->with('success','Password Update Successfull');
+        toast(trans('Password update successfully.'),'success')->width('350');
+        return back();
     }
 
 
@@ -72,8 +72,8 @@ class ProfileController extends Controller
             'city' => $request->input('city'),
             'address' => $request->input('address'),
         ]);
-
-        return back()->with('success','Profile Update Successfull');
+        toast(trans('Profile update successfully.'),'success')->width('350');
+        return back();
 
     }
 }

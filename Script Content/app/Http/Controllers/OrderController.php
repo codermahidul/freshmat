@@ -10,12 +10,12 @@ class OrderController extends Controller
     public function index(){
         $orders = Invoice::with('user')->with('invoiceProducts')->latest()->get();
         return view('dashboard.order.index',compact('orders'));
-    }    
-    
+    }
+
     public function newOrder(){
         $orders = Invoice::where('status','new')->with('user')->with('invoiceProducts')->latest()->get();
         return view('dashboard.order.new',compact('orders'));
-    }    
+    }
 
 
     public function deliveryInProcess(){
@@ -39,7 +39,7 @@ class OrderController extends Controller
             'payment' => $request->input('payment'),
             'status' => $request->input('status'),
         ]);
-        toast('Order Status Update!','success');
+        toast(trans('Order Status Update!'),'success');
         return back();
     }
 

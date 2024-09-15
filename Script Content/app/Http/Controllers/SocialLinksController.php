@@ -21,14 +21,14 @@ class SocialLinksController extends Controller
                 'icon' => $request->input('icon'),
                 'url' => $request->input('link'),
             ]);
-            toast('Your Social link added successfully!','success');
+            toast(trans('Your Social link added successfully!'),'success');
             return back();
         }
     }
 
     public function delete($id){
         SocialLinks::find($id)->delete();
-        toast('Social Link Deleted Successfull!','success');
+        toast(trans('Social Link Deleted Successfull!'),'success');
         return back();
     }
 }

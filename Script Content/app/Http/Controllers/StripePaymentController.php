@@ -74,7 +74,7 @@ class StripePaymentController extends Controller
         Mail::to($request->user())->send(new InvoiceEmail($data));
 
         Session::forget('cart');
-        toast('Payment Success!','success')->width('350');
+        toast(trans('Payment Success!'),'success')->width('350');
         return redirect(route('orderInvoice',$invoiceId));
     }
 
@@ -121,7 +121,7 @@ class StripePaymentController extends Controller
         Mail::to($request->user())->send(new OrderSuccessfull($OrderSuccessData));
 
         Session::forget('cart');
-        toast('Payment failed!','error')->width('300');
+        toast(trans('Payment failed!'),'error')->width('300');
         return redirect(route('shop'));
     }
 
