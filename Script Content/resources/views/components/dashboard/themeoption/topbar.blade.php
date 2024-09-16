@@ -133,7 +133,6 @@
                                                 href="{{ $item->url }}"><i class="fas fa-eye"></i></a>
                                         </td>
                                         <td class="text-center">
-                                            {{-- <a href="" class="btn-sm btn-primary"><i class="fas fa-edit"></i></a> --}}
                                             <a href="{{ route('socialLinkDelete', $item->id) }}"
                                                 class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                         </td>
@@ -151,44 +150,3 @@
         </div>
     </div>
 </section>
-
-@if (session('success'))
-    <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-right',
-            iconColor: 'white',
-            customClass: {
-                popup: 'colored-toast',
-            },
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-        })
-
-        Toast.fire({
-            icon: 'success',
-            title: "{{ session('success') }}",
-        })
-    </script>
-@endif
-@if (session('error'))
-    <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-right',
-            iconColor: 'white',
-            customClass: {
-                popup: 'colored-toast',
-            },
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-        })
-
-        Toast.fire({
-            icon: 'error',
-            title: "{{ session('error') }}",
-        })
-    </script>
-@endif

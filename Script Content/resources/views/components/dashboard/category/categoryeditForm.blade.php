@@ -3,7 +3,6 @@
         <div class="col-md-12 p-5">
             <div class="card card-primary">
                 <div class="card-header">
-                    {{-- <h3 class="card-title">{{ __('Edit') }}"> {{ __('Category') }}</h3> --}}
                     <h3 class="card-title">{{ __('Edit') }} <b class="text-primary">{{ $category->name }}</b> {{ __('Category') }}</h3>
                 </div>
                 <form action="{{ route('category.update', $category->id) }}" method="POST">
@@ -31,27 +30,6 @@
                                 </span>
                             @enderror
                         </div>
-
-                        @if (session('success'))
-                            <script>
-                                const Toast = Swal.mixin({
-                                    toast: true,
-                                    position: 'top-right',
-                                    iconColor: 'white',
-                                    customClass: {
-                                        popup: 'colored-toast',
-                                    },
-                                    showConfirmButton: false,
-                                    timer: 3000,
-                                    timerProgressBar: true,
-                                })
-
-                                Toast.fire({
-                                    icon: 'success',
-                                    title: "{{ session('success') }}",
-                                })
-                            </script>
-                        @endif
                         <button type="submit" class="btn btn-primary">{{ __('Update Category') }}</button>
                 </form>
             </div>

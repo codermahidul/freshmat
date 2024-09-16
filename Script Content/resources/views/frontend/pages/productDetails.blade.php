@@ -93,7 +93,7 @@
                             <li><a href="#">{{ $productInfo->tags }} </a></li>
                         </ul>
                         <ul class="share">
-                            <li>{{ ___('Share with friends') }}:</li>
+                            <li>{{ __('Share with friends') }}:</li>
                             <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $productInfo->slug) }}&t={{ $productInfo->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="https://twitter.com/share?text={{ $productInfo->title }}&url={{ route('productDetails', $productInfo->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
                             <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $productInfo->slug) }}&title={{ $productInfo->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
@@ -276,7 +276,7 @@
                                         </p>
                                         <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                         <div class="details_quentity_area">
-                                            <p><span>Quantity</span> (in {{ $product->unitType }}) :</p>
+                                            <p><span>{{ __('Quantity') }}</span> ({{ __('in') }} {{ $product->unitType }}) :</p>
                                             <div class="button_area">
                                                 <button class="decrement" type="button">-</button>
                                                 <input type="text" value="{{ cartQti($product->id) }}" class="quantity" name="quantity">

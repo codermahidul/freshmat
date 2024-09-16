@@ -35,7 +35,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <tr align="center">
+                            <tr>
                                 <td colspan="10" class="py-5">{{ __('No Product Category Found') }} <a
                                         href="{{ route('productCategoryAdd') }}">{{ __('Add New') }}</a></td>
                             </tr>
@@ -56,13 +56,13 @@
             $('.delete-item').on('click', function(e) {
                 e.preventDefault();
                 Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
+                    title: {{ __('Are you sure?') }},
+                    text: {{ __("You won't be able to revert this!") }},
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!"
+                    confirmButtonText: {{ __('Yes, delete it!') }}
                 }).then((result) => {
                     let url = $(this).attr('href');
                     if (result.isConfirmed) {
@@ -72,22 +72,21 @@
                             success: function(data) {
                                 if (data.status == 'success') {
                                     Swal.fire({
-                                        title: "Deleted!",
+                                        title: {{ __('Deleted!') }},
                                         text: data.message,
                                         icon: "success"
                                     }).then(() => {
                                         window.location.reload();
                                     })
-                                } else if(data.status == 'have'){
-                                  Swal.fire({
-                                        title: "Warning!",
+                                } else if (data.status == 'have') {
+                                    Swal.fire({
+                                        title: {{ __('Warning!') }},
                                         text: data.message,
                                         icon: "warning"
                                     })
-                                }
-                                else {
+                                } else {
                                     Swal.fire({
-                                        title: "Error!",
+                                        title: {{ __('Error!') }},
                                         text: data.message,
                                         icon: "error"
                                     });
@@ -101,9 +100,6 @@
                 });
 
             })
-
-
-            //end
         })
     </script>
 @endpush

@@ -39,7 +39,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <tr align="center">
+                            <tr>
                                 <td colspan="10" class="py-5">{{ __('No Post Found!') }} <a
                                         href="{{ route('blog.add') }}">{{ __('Add
                                                                                 New') }}</a>

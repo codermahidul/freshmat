@@ -34,7 +34,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <tr align="center">
+                                <tr>
                                     <td colspan="10" class="py-5">{{ __('No FAQs Found!') }} <a
                                             href="{{ route('faqs.add') }}">{{ __('Add New') }}</a></td>
                                 </tr>

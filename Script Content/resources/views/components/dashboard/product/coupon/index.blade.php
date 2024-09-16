@@ -41,7 +41,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <tr align="center">
+                            <tr>
                                 <td colspan="10" class="py-5">{{ __('No Coupon Found!') }} <a
                                         href="{{ route('couponadd') }}">{{ __('Add New') }}</a></td>
                             </tr>
@@ -63,13 +63,13 @@
             $(document).on('click', '.delete-item', function(e) {
                 e.preventDefault();
                 Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
+                    title: {{ __("Are you sure?") }},
+                    text: {{ __("You won't be able to revert this!") }},
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!"
+                    confirmButtonText: {{ __("Yes, delete it!") }}
                 }).then((result) => {
                     if (result.isConfirmed) {
                         let url = $(this).attr('href');
@@ -79,7 +79,7 @@
                             success: function(data) {
                                 if (data.status == 'success') {
                                     Swal.fire({
-                                        title: "Deleted!",
+                                        title: {{ __("Deleted!") }},
                                         text: data.message,
                                         icon: "success"
                                     });
@@ -87,7 +87,7 @@
                                 }
                                 else if (data.status == 'error') {
                                   Swal.fire({
-                                        title: "error!",
+                                        title: {{ __("error!") }},
                                         text: data.message,
                                         icon: "error"
                                     });
@@ -95,8 +95,8 @@
                             },
                             error: function(xhr, status, error) {
                               Swal.fire({
-                                        title: "error!",
-                                        text: 'An error occurred while processing your request.',
+                                        title: {{ __("error!") }},
+                                        text: {{ __('An error occurred while processing your request.') }},
                                         icon: "error"
                                     });
                             }

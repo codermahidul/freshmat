@@ -31,7 +31,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <tr align="center">
+                            <tr>
                                 <td colspan="10" class="py-5">{{ __('No Address Found!') }} <a
                                         href="{{ route('delivery.add') }}">{{ __('Add New') }}</a></td>
                             </tr>
