@@ -4,7 +4,7 @@
     <li class="sidenav-item {{ Route::currentRouteNamed('home') ? 'active' : '' }}">
         <a href="{{ route('home') }}" class="sidenav-link">
             <i class="sidenav-icon ion ion-md-speedometer"></i>
-            <div>Dashboards</div>
+            <div>{{ __('Dashboards') }}</div>
         </a>
     </li>
 

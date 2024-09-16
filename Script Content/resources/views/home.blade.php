@@ -1,30 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Dashboard')
 @section('content')
-
-{{-- @section('breadcrumb')
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection --}}
-<!-- Main content -->
 <section class="content">
     <div class="container-fluid flex-grow-1 container-p-y">
 
         <h4 class="d-flex justify-content-between align-items-center py-2 mb-4">
-          <div class="font-weight-bold">Shop Overview</div>
-          <button type="button" class="btn btn-outline-primary btn-round">View reports</button>
+          <div class="font-weight-bold">{{ __('Shop Overview') }}</div>
+          <button type="button" class="btn btn-outline-primary btn-round">{{ __('View reports') }}</button>
         </h4>
 
         <hr class="border-light container-m--x my-0">
@@ -37,8 +19,8 @@
             <div class="d-flex align-items-center container-p-x py-4">
               <div class="lnr lnr-cart display-4 text-primary"></div>
               <div class="ml-3">
-                <div class="text-muted small">Monthly sales</div>
-                <div class="text-large">2362</div>
+                <div class="text-muted small">{{ __('Monthly sales') }}</div>
+                <div class="text-large">{{ __('2362') }}</div>
               </div>
             </div>
           </div>

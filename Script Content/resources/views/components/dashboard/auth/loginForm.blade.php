@@ -1,6 +1,6 @@
 <div class="login-box">
     <div class="login-logo">
-      <a><b>Admin </b>Login</a>
+      <a href="{{ route('index') }}"><b>{{ __('Admin') }} </b>{{ __('Login') }}</a>
     </div>
     <!-- /.login-logo -->
   <div class="card">

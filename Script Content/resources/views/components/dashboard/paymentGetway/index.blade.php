@@ -5,18 +5,17 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-5 col-sm-3">
-                            <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
-                                <a class="nav-link active" id="vert-tabs-paypal-tab" data-toggle="pill" href="#vert-tabs-paypal"
-                                    role="tab" aria-controls="vert-tabs-paypal" aria-selected="true">Paypal</a>
-                                <a class="nav-link" id="vert-tabs-stripe-tab" data-toggle="pill" href="#vert-tabs-stripe"
-                                    role="tab" aria-controls="vert-tabs-stripe" aria-selected="false">Stripe</a>
-                                <a class="nav-link" id="vert-tabs-mollie-tab" data-toggle="pill" href="#vert-tabs-mollie"
-                                    role="tab" aria-controls="vert-tabs-mollie" aria-selected="false">Mollie</a>
-                                {{-- Extra --}}
-                                {{-- <a class="nav-link" id="vert-tabs-mollie-tab" data-toggle="pill" href="#vert-tabs-mollie" role="tab" aria-controls="vert-tabs-mollie" aria-selected="false">Google Analytic</a>
-                        <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab" aria-controls="vert-tabs-settings" aria-selected="false">Google Recaptcha</a>
-                        <a class="nav-link" id="vert-tabs-facebook-pixel-tab" data-toggle="pill" href="#vert-tabs-facebook-pixel" role="tab" aria-controls="vert-tabs-facebook-pixel" aria-selected="false">Facebook Pixel</a>
-                        <a class="nav-link" id="vert-tabs-database-tab" data-toggle="pill" href="#vert-tabs-database" role="tab" aria-controls="vert-tabs-database" aria-selected="false">Database</a> --}}
+                            <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist"
+                                aria-orientation="vertical">
+                                <a class="nav-link active" id="vert-tabs-paypal-tab" data-toggle="pill"
+                                    href="#vert-tabs-paypal" role="tab" aria-controls="vert-tabs-paypal"
+                                    aria-selected="true">{{ __('Paypal') }}</a>
+                                <a class="nav-link" id="vert-tabs-stripe-tab" data-toggle="pill"
+                                    href="#vert-tabs-stripe" role="tab" aria-controls="vert-tabs-stripe"
+                                    aria-selected="false">{{ __('Stripe') }}</a>
+                                <a class="nav-link" id="vert-tabs-mollie-tab" data-toggle="pill"
+                                    href="#vert-tabs-mollie" role="tab" aria-controls="vert-tabs-mollie"
+                                    aria-selected="false">{{ __('Mollie') }}</a>
                             </div>
                         </div>
                         <div class="col-7 col-sm-9">
@@ -33,19 +32,6 @@
                                     aria-labelledby="vert-tabs-mollie-tab">
                                     @include('components.dashboard.paymentGetway.mollie')
                                 </div>
-                                {{-- Extra --}}
-                                {{-- <div class="tab-pane fade" id="vert-tabs-settings" role="tabpanel" aria-labelledby="vert-tabs-settings-tab">
-                          @include('components.dashboard.settings.googleRecapcha')
-                        </div>
-                        <div class="tab-pane fade" id="vert-tabs-social-login" role="tabpanel" aria-labelledby="vert-tabs-social-login-tab">
-                          @include('components.dashboard.settings.socialLogin')
-                        </div>
-                        <div class="tab-pane fade" id="vert-tabs-facebook-pixel" role="tabpanel" aria-labelledby="vert-tabs-facebook-pixel-tab">
-                          @include('components.dashboard.settings.facebookPixel')
-                        </div>
-                        <div class="tab-pane fade" id="vert-tabs-database" role="tabpanel" aria-labelledby="vert-tabs-database-tab">
-                          @include('components.dashboard.settings.database')
-                        </div> --}}
                             </div>
                         </div>
                     </div>

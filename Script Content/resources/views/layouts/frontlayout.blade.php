@@ -175,7 +175,7 @@
                                 </a>
                             </li>
                         @empty
-                            No Product Found!
+                            {{ __('No Product Found!') }}
                         @endforelse
                     </ul>
                 </div>
@@ -183,52 +183,37 @@
                     <ul class="menu_item">
                         <li class="relative_li">
                             <a class="{{ Route::currentRouteNamed('index', 'indexTwo', 'indexThree') ? 'active' : '' }}"
-                                href="{{ route('index') }}" href="{{ route('index') }}">home <i
+                                href="{{ route('index') }}" href="{{ route('index') }}">{{ __('home') }} <i
                                     class="@if (setting('theme') == 'all') fas fa-chevron-down @endif"></i></a>
                             @if (setting('theme') == 'all')
                                 <ul class="menu_droapdown">
                                     <li><a class="{{ Route::currentRouteNamed('indexOne') ? 'active' : '' }}"
-                                            href="{{ route('indexOne') }}">Home style 01</a></li>
+                                            href="{{ route('indexOne') }}">{{ __('Home style 01') }}</a></li>
                                     <li><a class="{{ Route::currentRouteNamed('indexTwo') ? 'active' : '' }}"
-                                            href="{{ route('indexTwo') }}">Home style 02</a></li>
+                                            href="{{ route('indexTwo') }}">{{ __('Home style 02') }}</a></li>
                                     <li><a class="{{ Route::currentRouteNamed('indexThree') ? 'active' : '' }}"
-                                            href="{{ route('indexThree') }}">Home style 03</a></li>
+                                            href="{{ route('indexThree') }}">{{ __('Home style 03') }}</a></li>
                                 </ul>
                             @endif
                         </li>
                         <li>
                             <a class="{{ Route::currentRouteNamed('shop') ? 'active' : '' }}"
-                                href="{{ route('shop') }}">shop </a>
+                                href="{{ route('shop') }}">{{ __('shop') }} </a>
                         </li>
                         <li><a class="{{ Route::currentRouteNamed('frontendblog') ? 'active' : '' }}"
                                 href="{{ route('frontendblog') }}">blog</a></li>
                                 <li class="relative_li"><a href="#">pages <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
                                     <ul class="menu_droapdown">
-                                        <li><a href="about_us.html">about us</a></li>
-                                        <li><a href="blogs_details.html">blog details</a></li>
-                                        <li><a href="shop_details.html">shop details</a></li>
-                                        <li><a href="cart_view.html">cart view</a></li>
-                                        <li><a href="checkout.html">checkout</a></li>
-                                        <li><a href="payment.html">Payment</a></li>
-                                        <li><a href="dashboard.html">dashboard</a></li>
-                                        <li><a href="order_tracking.html">order tracking</a></li>
-                                        <li><a href="team.html">Our team</a></li>
-                                        <li><a href="team_details.html">team details</a></li>
-                                        <li><a href="error.html">error/404</a></li>
-                                        <li><a href="{{ route('faqsf') }}">faq's</a></li>
-                                        <li><a href="gallery.html">gallery</a></li>
-                                        <li><a href="sign_in.html">sign in</a></li>
-                                        <li><a href="sign_up.html">sign up</a></li>
-                                        <li><a href="forgot_password.html">forgot password</a></li>
-                                        <li><a href="{{ route('privacyPolicy') }}">privacy policy</a></li>
-                                        <li><a href="{{ route('termsCondition') }}">terms &amp; condition</a></li>
-                                        <li><a href="flash_sell.html">flash sell</a></li>
+                                        <li><a href="{{ route('aboutUs') }}">{{ __('about us') }}</a></li>
+                                        <li><a href="{{ route('faqsf') }}">{{ __('faqs') }}</a></li>
+                                        <li><a href="{{ route('privacyPolicy') }}">{{ __('privacy policy') }}</a></li>
+                                        <li><a href="{{ route('termsCondition') }}">{{ __('terms &amp; condition') }}</a></li>
                                     </ul>
                                 </li>
                         <li><a class="{{ Route::currentRouteNamed('aboutUs') ? 'active' : '' }}"
-                                href="{{ route('aboutUs') }}">About Us</a></li>
+                                href="{{ route('aboutUs') }}">{{ __('About Us') }}</a></li>
                         <li><a class="{{ Route::currentRouteNamed('contact') ? 'active' : '' }}"
-                                href="{{ route('contact') }}">contact</a></li>
+                                href="{{ route('contact') }}">{{ __('contact') }}</a></li>
                     </ul>
                     <ul class="menu_icon">
                         <li><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
@@ -249,7 +234,7 @@
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
             aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel"> my cart <span>({{ cartTotal() }})</span></h5>
+                <h5 class="offcanvas-title" id="offcanvasRightLabel"> {{ __('my cart') }} <span>({{ cartTotal() }})</span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
                         class="far fa-times"></i></button>
             </div>
@@ -274,15 +259,15 @@
                             </li>
                         @endforeach
                     @else
-                        <li>No cart item found!</li>
+                        <li>{{ __('No cart item found!') }}</li>
                     @endif
                 </ul>
-                <h5>sub total <span>${{ subTotal() }}</span></h5>
+                <h5>{{ __('sub total') }} <span>${{ subTotal() }}</span></h5>
                 <div class="minicart_btn_area">
                     @if (Session::has('cart'))
-                        <a class="common_btn" href="{{ route('cart') }}">view cart<span></span></a>
+                        <a class="common_btn" href="{{ route('cart') }}">{{ __('view cart') }}<span></span></a>
                     @else
-                        <a class="common_btn" href="{{ route('shop') }}">Visit Shop<span></span></a>
+                        <a class="common_btn" href="{{ route('shop') }}">{{ __('Visit Shop') }}<span></span></a>
                     @endif
                 </div>
             </div>
@@ -594,9 +579,9 @@
                                     class="img-fluid w-100">
                             </a>
                             <p>{{ footer()->shortInfo }}</p>
-                            <span>Hello to : <a href="mailto:{{ footer()->email }}">{{ footer()->email }}</a></span>
+                            <span>{{ __('Hello to') }} : <a href="mailto:{{ footer()->email }}">{{ footer()->email }}</a></span>
                             <ul>
-                                <li><span>Follow :</span></li>
+                                <li><span>{{ __('Follow') }} :</span></li>
                                 @foreach (socialLinks() as $link)
                                     <li><a href="{{ $link->url }}"><i class="{{ $link->icon }}"></i></a></li>
                                 @endforeach
@@ -605,7 +590,7 @@
                     </div>
                     <div class="col-lg-2 col-sm-6 col-md-4">
                         <div class="footer_link">
-                            <h3>Category</h3>
+                            <h3>{{ __('Category') }}</h3>
                             <ul>
                                 @foreach (topFiveCategory() as $category)
                                     <li><a href="{{ route('categoryWiseProduct',$category->slug) }}">{{ $category->name }}</a></li>
@@ -615,19 +600,19 @@
                     </div>
                     <div class="col-lg-2 col-sm-6 col-md-4">
                         <div class="footer_link">
-                            <h3>Quick Links</h3>
+                            <h3>{{ __('Quick Links') }}</h3>
                             <ul>
-                                <li><a href="{{ route('frontendblog') }}">Blog</a></li>
-                                <li><a href="{{ route('aboutUs') }}">About Us</a></li>
-                                <li><a href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
-                                <li><a href="{{ route('termsCondition') }}">Terms & condition</a></li>
-                                <li><a href="{{ route('faqsf') }}">FAQs</a></li>
+                                <li><a href="{{ route('frontendblog') }}">{{ __('Blog') }}</a></li>
+                                <li><a href="{{ route('aboutUs') }}">{{ __('About Us') }}</a></li>
+                                <li><a href="{{ route('privacyPolicy') }}">{{ __('Privacy Policy') }}</a></li>
+                                <li><a href="{{ route('termsCondition') }}">{{ __('Terms & condition') }}</a></li>
+                                <li><a href="{{ route('faqsf') }}">{{ __('FAQs') }}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 col-sm-6 col-md-4">
                         <div class="footer_link">
-                            <h3>Blog Category</h3>
+                            <h3>{{ __('Blog Category') }}</h3>
                             <ul>
                                 @foreach (topFiveBlogCategory() as $blogCategory)
                                 <li><a href="{{ route('categoryWiseBlog',$blogCategory->slug) }}">{{ $blogCategory->name }}</a></li>
@@ -637,13 +622,13 @@
                     </div>
                     <div class="col-lg-2 col-sm-6 col-md-4">
                         <div class="footer_link">
-                            <h3>My Account</h3>
+                            <h3>{{ __('My Account') }}</h3>
                             <ul>
-                                <li><a href="{{ route('userDashboard') }}">My Account</a></li>
-                                <li><a href="{{ route('userOrder') }}">Order</a></li>
-                                <li><a href="{{ route('userReview') }}">Reviews</a></li>
-                                <li><a href="{{ route('userWishlist') }}">Wishlist</a></li>
-                                <li><a href="{{ route('shop') }}">Shop</a></li>
+                                <li><a href="{{ route('userDashboard') }}">{{ __('My Account') }}</a></li>
+                                <li><a href="{{ route('userOrder') }}">{{ __('Order') }}</a></li>
+                                <li><a href="{{ route('userReview') }}">{{ __('Reviews') }}</a></li>
+                                <li><a href="{{ route('userWishlist') }}">{{ __('Wishlist') }}</a></li>
+                                <li><a href="{{ route('shop') }}">{{ __('Shop') }}</a></li>
 
                             </ul>
                         </div>
@@ -656,7 +641,7 @@
                                 {!! copyright() !!}
                             </p>
                             <ul>
-                                <li>Payment by :</li>
+                                <li>{{ __('Payment by') }} :</li>
                                 <li>
                                     <img src="{{ asset(footer()->paymentGetwayImage) }}" alt="payment"
                                         class="img-fluid w-100">

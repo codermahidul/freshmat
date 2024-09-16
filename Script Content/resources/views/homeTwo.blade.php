@@ -13,7 +13,7 @@
                         <h3>{{ banner(9)->shortTitle }}</h3>
                         <h1>{{ banner(9)->offerText }}</h1>
                         <p>{{ banner(9)->description }}</p>
-                        <a class="common_btn" href="{{ banner(9)->link }}">shop now <i class="fas fa-long-arrow-right"></i>
+                        <a class="common_btn" href="{{ banner(9)->link }}">{{ __('shop now') }} <i class="fas fa-long-arrow-right"></i>
                             <span></span></a>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                             <h5>{{ banner(5)->shortTitle }}</h5>
                             <h3>{{ banner(5)->offerText }}</h3>
                             <p>{{ banner(5)->description }}</p>
-                            <a class="common_btn" href="{{ banner(5)->link }}">shop now <i
+                            <a class="common_btn" href="{{ banner(5)->link }}">{{ __('shop now') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
@@ -99,7 +99,7 @@
                                     <h4>{{ banner(6)->shortTitle }}</h4>
                                     <h2>{{ banner(6)->offerText }}</h2>
                                     <p>{{ banner(6)->description }}</p>
-                                    <a class="common_btn" href="{{ banner(6)->link }}">shop now <i
+                                    <a class="common_btn" href="{{ banner(6)->link }}">{{ __('shop now') }} <i
                                             class="fas fa-long-arrow-right"></i>
                                         <span></span></a>
                                 </div>
@@ -111,7 +111,7 @@
                                     <h4>{{ banner(7)->shortTitle }}</h4>
                                     <h2>{{ banner(7)->offerText }}</h2>
                                     <p>{{ banner(7)->description }}</p>
-                                    <a class="common_btn" href="{{ banner(7)->link }}">shop now <i
+                                    <a class="common_btn" href="{{ banner(7)->link }}">{{ __('shop now') }} <i
                                             class="fas fa-long-arrow-right"></i>
                                         <span></span></a>
                                 </div>
@@ -157,7 +157,7 @@
                                                 class="far fa-heart"></i></a></li>
                                 </ul>
                                 @if ($product->regularPrice)
-                                    <span class="off">save
+                                    <span class="off">{{ __('save') }}
                                         {{ round((($product->regularPrice - $product->selePrice) / $product->regularPrice) * 100) }}%</span>
                                 @endif
                             </div>
@@ -177,181 +177,6 @@
                         </div>
                     </div>
                 @endforeach
-                {{-- <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
-                    <div class="single_product_2 single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/home2_product_img_2.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <span class="new">new</span>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Fresh Red Seedless</a>
-                            <p>$12.00 <del>$10.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
-                    <div class="single_product_2 single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/home2_product_img_3.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <span class="hot">hot</span>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Carrot Vegetables</a>
-                            <p>$33.00 <del>$28.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
-                    <div class="single_product_2 single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/home2_product_img_4.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <span class="off">35% off</span>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Bengal Beef Bone</a>
-                            <p>$12.00 <del>$10.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
-                    <div class="single_product_2 single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/home2_product_img_5.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <span class="hot">hot</span>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Carrot Vegetables</a>
-                            <p>$45.00 <del>$50.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
-                    <div class="single_product_2 single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/home2_product_img_6.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <span class="off">40% off</span>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Orange Slice Mix</a>
-                            <p>$29.00 <del>$35.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
-                    <div class="single_product_2 single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/home2_product_img_7.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <span class="new">new</span>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Beef Butter Cake</a>
-                            <p>$30.00 <del>$34.00</del> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-lg-4 wow fadeInUp">
-                    <div class="single_product_2 single_product">
-                        <div class="single_product_img">
-                            <img src="{{ asset('assets') }}/images/home2_product_img_8.jpg" alt="Product" class="img_fluid w-100">
-                            <ul>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#cart_popup_modal"><i
-                                            class="far fa-shopping-basket"></i></a></li>
-                                <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <span class="off">30% off</span>
-                        </div>
-                        <div class="single_product_text">
-                            <span class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </span>
-                            <a class="title" href="shop_details.html">Fresh Mango Fruits</a>
-                            <p>$22.00 <del>$26.00</del> </p>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>
@@ -381,13 +206,13 @@
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star-half-alt"></i>
                                                 <i class="far fa-star"></i>
-                                                <span>Review (20)</span>
+                                                <span>{{ __('Review (20)') }}</span>
                                             </p>
                                             <p class="price">${{ $product->selePrice }}
                                                 <del>{{ $product->regularPrice ? '$' : '' }}{{ $product->regularPrice }}</del>
                                             </p>
                                             <div class="details_quentity_area">
-                                                <p><span>Qti </span> (in {{ $product->unitType }}) :</p>
+                                                <p><span>{{ __('Qti') }} </span> ({{ __('in') }} {{ $product->unitType }}) :</p>
                                                 <div class="button_area">
                                                     <button type="button" class="decrement">-</button>
                                                     <input type="text" placeholder="01"
@@ -400,16 +225,13 @@
                                             </div>
                                             <div class="details_cart_btn">
                                                 <button type="submit" class="common_btn"><i
-                                                        class="far fa-shopping-basket"></i>
-                                                    Add To
-                                                    Cart
-                                                    <span></span></button>
+                                                        class="far fa-shopping-basket"></i>{{ __('Add To Cart') }}<span></span></button>
                                                 <a class="love {{ wishlistHave($product->id) == 1 ? 'have' : '' }}"
                                                     href="{{ route('adToWishlist',$product->id) }}"><i class="far fa-heart"></i></a>
                                             </div>
-                                            <p class="category"><span>Category:</span>Coffee</p>
+                                            <p class="category"><span>{{ __('Category') }}:</span>{{ __('Coffee') }}</p>
                                             <ul class="share">
-                                                <li>Share with friends:</li>
+                                                <li>{{ __('Share with friends') }}:</li>
                                                 <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $product->slug) }}&t={{ $product->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                                 <li><a href="https://twitter.com/share?text={{ $product->title }}&url={{ route('productDetails', $product->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
                                                 <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $product->slug) }}&title={{ $product->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
@@ -445,7 +267,7 @@
                             </div>
                             <p>{{ deals(2)->description }}</p>
                             <div class="simply-countdown simply-countdown-two"></div>
-                            <a class="common_btn" href="{{ deals(2)->link }}">shop now <i
+                            <a class="common_btn" href="{{ deals(2)->link }}">{{ __('shop now') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
@@ -484,7 +306,7 @@
                         <div class="text">
                             <h5>{{ banner(8)->shortTitle }}</h5>
                             <h3>{{ banner(8)->offerText }}</h3>
-                            <a class="common_btn" href="{{ banner(8)->link }}">shop now <i
+                            <a class="common_btn" href="{{ banner(8)->link }}">{{ __('shop now') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
@@ -506,7 +328,7 @@
                                         <li><a class="{{ wishlistHave($item->product->id) == 1 ? 'have' : '' }}" href="{{ route('adToWishlist',$item->product->id) }}"><i class="far fa-heart"></i></a></li>
                                     </ul>
                                     @if ($item->product->regularPrice)
-                                    <span class="off">save
+                                    <span class="off">{{ __('save') }}
                                         {{ round((($item->product->regularPrice - $item->product->selePrice) / $item->product->regularPrice) * 100) }}%</span>
                                 @endif
                                 </div>
@@ -519,66 +341,6 @@
                             </div>
                         </div>
                         @endforeach
-                        {{-- <div class="col-xl-4">
-                            <div class="single_product_2 single_product">
-                                <div class="single_product_img">
-                                    <img src="{{ asset('assets') }}/images/home2_product_img_2.jpg" alt="Product"
-                                        class="img_fluid w-100">
-                                    <ul>
-                                        <li><a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#cart_popup_modal"><i
-                                                    class="far fa-shopping-basket"></i></a></li>
-                                        <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                        <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                    </ul>
-                                    <span class="new">new</span>
-                                </div>
-                                <div class="single_product_text">
-                                    <a class="title" href="shop_details.html">Fresh Red Seedless</a>
-                                    <p>$12.00 <del>$10.00</del> </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="single_product_2 single_product">
-                                <div class="single_product_img">
-                                    <img src="{{ asset('assets') }}/images/home2_product_img_3.jpg" alt="Product"
-                                        class="img_fluid w-100">
-                                    <ul>
-                                        <li><a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#cart_popup_modal"><i
-                                                    class="far fa-shopping-basket"></i></a></li>
-                                        <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                        <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                    </ul>
-                                    <span class="hot">hot</span>
-                                </div>
-                                <div class="single_product_text">
-                                    <a class="title" href="shop_details.html">Carrot Vegetables</a>
-                                    <p>$33.00 <del>$28.00</del> </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="single_product_2 single_product">
-                                <div class="single_product_img">
-                                    <img src="{{ asset('assets') }}/images/home2_product_img_4.jpg" alt="Product"
-                                        class="img_fluid w-100">
-                                    <ul>
-                                        <li><a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#cart_popup_modal"><i
-                                                    class="far fa-shopping-basket"></i></a></li>
-                                        <li><a href="#"><i class="far fa-eye"></i></a></li>
-                                        <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                    </ul>
-                                    <span class="off">35% off</span>
-                                </div>
-                                <div class="single_product_text">
-                                    <a class="title" href="shop_details.html">Bengal Beef Bone</a>
-                                    <p>$12.00 <del>$10.00</del> </p>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -609,7 +371,7 @@
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star-half-alt"></i>
                                                 <i class="far fa-star"></i>
-                                                <span>Review (20)</span>
+                                                <span>{{ __('Review (20)') }}</span>
                                             </p>
                                             <p class="price">${{ $item->product->selePrice }}
                                                 <del>{{ $item->product->regularPrice ? '$' : '' }}{{ $item->product->regularPrice }}</del>
@@ -628,16 +390,13 @@
                                             </div>
                                             <div class="details_cart_btn">
                                                 <button type="submit" class="common_btn"><i
-                                                        class="far fa-shopping-basket"></i>
-                                                    Add To
-                                                    Cart
-                                                    <span></span></button>
+                                                        class="far fa-shopping-basket"></i>{{ __('Add To Cart') }}<span></span></button>
                                                 <a class="love {{ wishlistHave($item->product->id) == 1 ? 'have' : '' }}"
                                                     href="{{ route('adToWishlist',$item->product->id) }}"><i class="far fa-heart"></i></a>
                                             </div>
-                                            <p class="category"><span>Category:</span>Coffee</p>
+                                            <p class="category"><span>{{ __('Category') }}:</span>{{ __('Coffee') }}</p>
                                             <ul class="share">
-                                                <li>Share with friends:</li>
+                                                <li>{{ __('Share with friends') }}:</li>
                                                 <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $item->product->slug) }}&t={{ $item->product->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                                 <li><a href="https://twitter.com/share?text={{ $item->product->title }}&url={{ route('productDetails', $item->product->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
                                                 <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $item->product->slug) }}&title={{ $item->product->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
@@ -708,7 +467,7 @@
                         <div class="text">
                             <h3>{{ banner(10)->offerText }}</h3>
                             <p>{{ banner(10)->description }}</p>
-                            <a class="common_btn" href="{{ banner(10)->link }}">shop now <i
+                            <a class="common_btn" href="{{ banner(10)->link }}">{{ __('shop now') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>
@@ -790,7 +549,7 @@
                                 </div>
                             </div>
                         @empty
-                            No testimonial found!
+                            {{ __('No testimonial found!') }}
                         @endforelse
                     </div>
                 </div>
@@ -817,7 +576,7 @@
                     </div>
                 </div>
             @empty
-                No post found!
+                {{ __('No post found!') }}
             @endforelse
         </div>
     </section>
