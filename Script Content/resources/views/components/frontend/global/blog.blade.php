@@ -45,8 +45,6 @@
                 @empty
                     {{ __('No Post Found!') }}
                 @endforelse
-                {{-- Pagination --}}
-                {{-- {{ $blogs->links('pagination.frontendPagination') }} --}}
             </div>
         </div>
     </section>

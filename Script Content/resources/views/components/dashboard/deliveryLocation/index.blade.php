@@ -51,13 +51,13 @@
             $(document).on('click', '.delete-item', function(e) {
                 e.preventDefault();
                 Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
+                    title: "{{ __('Are you sure?') }}",
+                    text: "{{ __('You won\'t be able to revert this!') }}",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!"
+                    confirmButtonText: "{{ __('Yes, delete it!') }}"
                 }).then((result) => {
                     if (result.isConfirmed) {
                         let url = $(this).attr('href');
@@ -68,7 +68,7 @@
                             success: function(data) {
                                 if (data.status == 'success') {
                                     Swal.fire({
-                                        title: "Success!",
+                                        title: "{{ __('Success!') }}",
                                         text: data.message,
                                         icon: "success",
                                     }).then(() => {
@@ -76,7 +76,7 @@
                                     });
                                 } else if (data.status == 'error') {
                                     Swal.fire({
-                                        title: "Warning!",
+                                        title: "{{ __('Warning!') }}",
                                         text: data.message,
                                         icon: "warning"
                                     });
@@ -84,8 +84,8 @@
                             },
                             error: function(xhr, status, error) {
                                 Swal.fire({
-                                    title: "Error!",
-                                    text: "An error occurred while processing your request.",
+                                    title: "{{ __('Error!') }}",
+                                    text: "{{ __('An error occurred while processing your request.') }}",
                                     icon: "error"
                                 });
                             }

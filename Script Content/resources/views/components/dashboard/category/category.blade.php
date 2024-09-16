@@ -50,13 +50,13 @@
             $(document).on('click', '.delete-item', function(e) {
                 e.preventDefault();
                 Swal.fire({
-                    title:{{ __("Are you sure?") }},
-                    text: {{ __("You won't be able to revert this!") }},
+                    title:"{{ __('Are you sure?') }}",
+                    text: "{{ __('You won\'t be able to revert this!') }}",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    confirmButtonText: {{ __("Yes, delete it!") }}
+                    confirmButtonText: "{{ __('Yes, delete it!') }}"
                 }).then((result) => {
                     if (result.isConfirmed) {
                       let url = $(this).attr('href');
@@ -67,7 +67,7 @@
                         success: function(data){
                           if (data.status == 'success') {
                             Swal.fire({
-                            title: {{ __("Deleted!") }},
+                            title: "{{ __('Deleted!') }}",
                             text: data.message,
                             icon: "success"
                             }).then(() => {
@@ -75,21 +75,21 @@
                             });
                           } else if(data.status == 'have'){
                             Swal.fire({
-                            title: {{ __("Warning!") }},
+                            title: "{{ __('Warning!') }}",
                             text: data.message,
                             icon: "warning"
                             });
                           }else if(data.status == 'error'){
                             Swal.fire({
-                            title: {{ __( "Error!") }},
+                            title: "{{ __('Error!') }}",
                             text: data.message,
                             icon: "error"
                             })
                           }
                         },error: function(xhr, status, error){
                         Swal.fire({
-                            title: {{ __("Error!") }},
-                            text: {{ __("An error occurred while processing your request.") }},
+                            title: "{{ __('Error!') }}",
+                            text: "{{ __('An error occurred while processing your request.') }}",
                             icon: "error"
                         });
                         }

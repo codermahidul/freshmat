@@ -274,7 +274,7 @@ class FrontendController extends Controller
 
         if (setting('theme') == 'all') {
             $viewName = 'welcome';
-            return view('welcome',compact([
+            return view('index',compact([
                 'productCategories',
                 'topCategories',
                 'latestProduct',
@@ -286,7 +286,7 @@ class FrontendController extends Controller
         }elseif (setting('theme') == 'one') {
 
             $viewName = 'welcome';
-            return view('welcome',compact([
+            return view('index',compact([
                 'productCategories',
                 'topCategories',
                 'latestProduct',
@@ -349,7 +349,7 @@ class FrontendController extends Controller
             });
         }])->get();
 
-        return view('welcome',compact([
+        return view('index',compact([
             'productCategories',
             'topCategories',
             'latestProduct',
