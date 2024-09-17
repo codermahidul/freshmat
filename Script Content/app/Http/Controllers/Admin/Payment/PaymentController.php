@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Payment;
+use App\Http\Controllers\Controller;
 
 use App\Mail\InvoiceEmail;
 use App\Models\Coupon;

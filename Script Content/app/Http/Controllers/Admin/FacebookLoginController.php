@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use App\Models\User;
 use App\Models\UserProfile;
@@ -36,5 +37,5 @@ class FacebookLoginController extends Controller
         Auth::login($user);
         return redirect(RouteServiceProvider::HOME);
     }
-    
+
 }
