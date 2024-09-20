@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-//use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use App\Models\User;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Mail;
@@ -29,14 +28,16 @@ class ForgotPasswordController extends Controller
 
         // Create the password reset token
         $token = Password::broker()->createToken($user);
-
         // Send the custom password reset email
         mailServer();
         $data= [
             'token' => $token,
             'email' => $user->email,
         ];
+
+
         Mail::to($user->email)->send(new ResetPasswordMail($data));
+
         toast(trans('passwords.sent'),'success')->width('350');
         return back();
     }

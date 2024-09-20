@@ -60,7 +60,7 @@ Route::get('/home-three', [FrontendController::class, 'indexThree'])->name('inde
 
 Route::get('password/reset', [ForgotPasswordController::class, 'showResetForm'])->name('reset.password');
 Route::post('password/send-mail', [ForgotPasswordController::class, 'sendMail'])->name('password.sendMail');
-Route::get('password/reset/{token}', [ResetPasswordController::class, 'passwordReset'])->name('userPasswordReset');
+Route::get('password/reset/{token}/{email}', [ResetPasswordController::class, 'passwordReset'])->name('userPasswordReset');
 
 
 //Admin Login Page

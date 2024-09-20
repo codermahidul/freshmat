@@ -43,7 +43,7 @@
                         <form action="{{ route('password.update') }}" method="POST">
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
-                            <input type="email" placeholder="Enter email address" name="email">
+                            <input type="email" placeholder="Enter email address" name="email" value="{{ $email }}">
                             @error('email')
                                 <span class="text-danger">
                                     <strong>{{ $message }}</strong>

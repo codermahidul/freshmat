@@ -26,20 +26,57 @@ class ResetPasswordController extends Controller
 
     //use ResetsPasswords;
 
-    public function passwordReset(Request $request, $token){
-        // Retrieve the password reset record by email
-    $passwordReset = DB::table('password_resets')->where('email', $request->email)->first();
+    public function passwordReset($token,$email){
 
-    if (!$passwordReset || !Hash::check($token, $passwordReset->token)) {
-        // Token is invalid or expired
-        toast(trans('This password reset token is invalid.'),'error')->width('350');
-        return redirect()->route('reset.password');
-    }
+        $resetRecord = DB::table('password_reset_tokens')
+        ->where('email', $email)
+        ->first();
+
+        if (!$resetRecord || !Hash::check($token, $resetRecord->token)) {
+            toast(trans('This password reset token is invalid.'), 'error')->width('350');
+            return redirect()->route('reset.password');
+        }
 
     // Show the reset form
     return view('auth.passwords.reset')->with([
         'token' => $token,
+        'email' => $email,
     ]);
+    }
+
+    public function reset(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'token' => 'required',
+            'password' => 'required|confirmed|min:8',
+        ]);
+
+        $resetRecord = DB::table('password_reset_tokens')
+        ->where('email', $request->email)
+        ->first();
+
+        if (!$resetRecord || !Hash::check($request->token, $resetRecord->token)) {
+            toast(trans('This password reset token is invalid.'), 'error')->width('350');
+            return redirect()->route('reset.password');
+        }
+
+        $user = User::where('email', $request->input('email'))->first();
+
+        if (!$user) {
+            toast(trans('No user found with this email address.'), 'error')->width('350');
+            return redirect()->route('reset.password');
+        }
+
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+
+        DB::table('password_reset_tokens')
+            ->where('email', $request->input('email'))
+            ->delete();
+
+        toast(trans('Your password has been reset successfully!'), 'success')->width('350');
+        return redirect()->route('login');
     }
 
     /**

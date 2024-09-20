@@ -10,8 +10,9 @@
 
     <p>
         Click the link below to reset your password:<br>
-        <a href="{{ route('userPasswordReset',['token' => $data , 'email' => $data->data['email']]) }}">Reset Password</a>
+        <a href="{{ route('userPasswordReset', ['token' => $data['token'], 'email' => $data['email']]) }}">Reset Password</a>
     </p>
+
 
     <p>If you did not request a password reset, no further action is required.</p>
 

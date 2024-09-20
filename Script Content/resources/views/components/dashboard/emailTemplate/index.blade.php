@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title">{{ __('All Orders') }}</h2>
+                    <h2 class="card-title">{{ __('Email Template') }}</h2>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered table-striped dataTable dtr-inline" id="example1">

@@ -35,7 +35,7 @@
                 <div class="col-xl-6 col-sm-9 col-md-8 col-lg-7 m-auto">
                     <div class="error_text">
                         <div class="img">
-                            <img src="{{ asset('assets') }}/images/error_img.png" alt="Error" class="img-fluid w-100">
+                            <img src="{{ asset('assets/images/error_img.png') }}" alt="Error" class="img-fluid w-100">
                         </div>
                         <h3>{{ __('Opos! Nothing Was Found') }}</h3>
                         <p>{{ __('Something went wrong, Looks like this page doesn\'t exist anymore.') }}</p>

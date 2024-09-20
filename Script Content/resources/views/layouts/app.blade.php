@@ -158,8 +158,8 @@
                         <div class="navbar-nav align-items-lg-center ml-auto">
 
                             <div class="demo-navbar-messages nav-item dropdown mr-lg-3">
-                                <a class="nav-link" href="{{ route('index') }}" target="_blank">{{ __('Visit') }}
-                                    <i class="fas fa-globe navbar-icon align-middle"></i>
+                                <a class="nav-link" href="{{ route('index') }}" target="_blank">
+                                    <i class="fas fa-globe navbar-icon align-middle"></i> {{ __('Visit Website') }}
                                 </a>
                             </div>
 
