@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2024 at 06:49 PM
+-- Generation Time: Sep 20, 2024 at 06:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -76,7 +76,7 @@ CREATE TABLE `about_us` (
 --
 
 INSERT INTO `about_us` (`id`, `shortTitle`, `title`, `description`, `image`, `quote`, `listItemOne`, `listItemTwo`, `listItemThree`, `listItemFour`, `f1icon`, `f1title`, `f1description`, `f2icon`, `f2title`, `f2description`, `f3icon`, `f3title`, `f3description`, `w1title`, `w1description`, `w2title`, `w2description`, `w3title`, `w3description`, `w4title`, `w4description`, `c1icon`, `c1number`, `c1text`, `c2icon`, `c2number`, `c2text`, `c3icon`, `c3number`, `c3text`, `c4icon`, `c4number`, `c4text`, `created_at`, `updated_at`) VALUES
-(1, 'About Us', 'Welcome To Organic Agriculture Grocery Shop', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or mori words which slightly believable.', 'default/aboutUs/about_img.jpg', '“There are many variations its of passages of Lorem Ipsum nsi available, but the majority they suffered” Robart Day', 'Organic products who are so', 'Healthy food everyday', 'Local growth of fresh food', 'Demoralized charms of pleasure', 'default/aboutUs/why_choose_icon_1.png', 'All Kind Brand', 'There are many variations of passages of any Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or mori words....', 'default/aboutUs/why_choose_icon_2.png', 'Pesticide Free Goods', 'There are many variations of passages of any Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or mori words....', 'default/aboutUs/why_choose_icon_3.png', 'Curated Products', 'There are many variations of passages of any Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or mori words....', 'Choose The Item', 'There are many variations of Lorem Ipsum available but the ma have suffered.', 'Add to Cart', 'There are many variations of Lorem Ipsum available but the ma have suffered.', 'Payment Your Bill', 'There are many variations of Lorem Ipsum available but the ma have suffered.', 'Received Your Item', 'There are many variations of Lorem Ipsum available but the ma have suffered.', 'default/aboutUs/counter_icon_1.png', '950', 'Happy customers', 'default/aboutUs/counter_icon_2.png', '350', 'Expert farmers', 'default/aboutUs/counter_icon_3.png', '35', 'Award Wining', 'default/aboutUs/counter_icon_4.png', '4.9', 'Avarage Rating', '2024-08-11 08:46:17', '2024-08-11 08:46:17');
+(1, 'About Us', 'Welcome To Organic Agriculture Grocery Shop', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or mori words which slightly believable.', 'default/aboutUs/about_img.jpg', '“There are many variations its of passages of Lorem Ipsum nsi available, but the majority they suffered” Robart Day', 'Organic products who are so', 'Healthy food everyday', 'Local growth of fresh food', 'Demoralized charms of pleasure', 'default/aboutUs/why_choose_icon_1.png', 'All Kind Brand', 'There are many variations of passages of any Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or mori words....', 'default/aboutUs/why_choose_icon_2.png', 'Pesticide Free Goods', 'There are many variations of passages of any Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or mori words....', 'default/aboutUs/why_choose_icon_3.png', 'Curated Products', 'There are many variations of passages of any Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or mori words....', 'Choose The Item', 'There are many variations of Lorem Ipsum available but the ma have suffered.', 'Add to Cart', 'There are many variations of Lorem Ipsum available but the ma have suffered.', 'Payment Your Bill', 'There are many variations of Lorem Ipsum available but the ma have suffered.', 'Received Your Item', 'There are many variations of Lorem Ipsum available but the ma have suffered.', 'default/aboutUs/counter_icon_1.png', '950', 'Happy customers', 'default/aboutUs/counter_icon_2.png', '350', 'Expert farmers', 'default/aboutUs/counter_icon_3.png', '35', 'Award Wining', 'default/aboutUs/counter_icon_4.png', '4.9', 'Avarage Rating', '2024-08-11 08:46:17', '2024-09-16 09:02:44');
 
 -- --------------------------------------------------------
 
@@ -126,17 +126,17 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `shortTitle`, `offerText`, `description`, `link`, `backgroundImg`, `created_at`, `updated_at`) VALUES
-(1, 'Black Friday Offer', 'Organic Foods Up To 45% Off', NULL, '#', 'uploads/banners/home-one-banner-one.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
+(1, 'Black Friday Offer', 'Organic Foods Up To 45% Off', NULL, 'http://127.0.0.1:8000/shop/', 'uploads/banners/home-one-banner-one.jpg', '2024-08-11 08:46:17', '2024-09-16 08:34:49'),
 (2, 'Daily Offer', 'Vegetables Up To 65% Off', NULL, '#', 'uploads/banners/home-one-banner-two.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
 (3, 'Weekly Discounts on', 'Fruits and Vegetables', 'It is a long established fact that a reader acted by the readable content.', '#', 'uploads/banners/home-one-special_pro_banner_img.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
-(4, 'Daily Offer', 'Fresh Organic Food Up To 65% Off', NULL, '#', 'uploads/banners/product-details-banner.png', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
+(4, 'Daily Offer', 'Fresh Organic Food Up To 65% Off', NULL, 'http://127.0.0.1:8000/shop/product/officiis-rerum-error-neque-perspiciatis-ipsum.', 'uploads/banners/product-details-banner.png', '2024-08-11 08:46:17', '2024-09-16 08:35:52'),
 (5, 'Up to 20% all Products', 'Everyday Fresh & Clean With Our Products', 'Don’t miss avail the saving opportunity.', '#', 'uploads/banners/home_two_special_pro_banner_img_2.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
 (6, 'Up To 50% Off', 'Organic Food Collection', 'Don’t miss avail the saving opportunity', '#', 'uploads/banners/home_two_regular_banner_one.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
 (7, 'Organic Food', 'Best For Your Family', 'Limited Time Offer', '#', 'uploads/banners/home_two_regular_banner_two.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
 (8, 'Organic Food', 'Fresh Foods Up To 45% Off', NULL, '#', 'uploads/banners/home_two_special_pro_banner_img_3.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
-(9, 'Select Only Grocery Products', 'Get 30% Discount Of Your First Shopping', 'Contrary to popular belief, Lorem Ipsum is not simply random text piece of classical Latin literature.', 'http://127.0.0.1:8000/shop/product/est-quas-perspiciati', 'uploads/banners/home_two_main_banner.jpg', '2024-08-11 08:46:17', '2024-09-06 07:24:53'),
+(9, 'Select Only Grocery Products', 'Get 30% Discount Of Your First Shopping', 'Contrary to popular belief, Lorem Ipsum is not simply random text piece of classical Latin literature.', 'http://127.0.0.1:8000/shop/product/est-quas-perspiciati', 'uploads/banners/home_two_main_banner.jpg', '2024-08-11 08:46:17', '2024-09-16 08:35:33'),
 (10, NULL, 'Fresh Fruits Healthy Juice', 'Get 50% Off on Selected Organic Items', '#', 'uploads/banners/home_two_special_pro_banner_img_4.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
-(11, 'Summer Offer', 'Healthy Organic Food', NULL, '#', 'uploads/banners/home_three_banner_one.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
+(11, 'Summer Offer', 'Healthy Organic Food', NULL, 'http://127.0.0.1:8000/shop/', 'uploads/banners/home_three_banner_one.jpg', '2024-08-11 08:46:17', '2024-09-16 08:35:44'),
 (12, 'Summer Offer', 'Fresh Organic Food', NULL, '#', 'uploads/banners/home_three_banner_two.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
 (13, NULL, 'Up to 50% off on Special Item', 'Shop our selection of organic fresh vegetables in a discounted price. 50% off', '#', 'uploads/banners/home_three_discount_one.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
 (14, NULL, 'Get 10% off on Fruits Item', 'Shop our selection of organic fresh vegetables in a discounted price. 10% off', '#', 'uploads/banners/home_three_discount_two.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
@@ -175,7 +175,7 @@ INSERT INTO `blog_categories` (`id`, `name`, `slug`, `created_at`, `updated_at`)
 (15, 'News', 'news', '2024-09-10 16:29:21', '2024-09-10 16:29:21'),
 (17, 'Blueberry', 'blueberry', '2024-09-10 16:30:35', '2024-09-10 16:30:35'),
 (18, 'News', 'news', '2024-09-10 16:30:57', '2024-09-10 16:30:57'),
-(19, 'Mahidul Islam', 'mahidul-islam', '2024-09-10 16:34:54', '2024-09-10 16:34:54');
+(19, 'Mahidul Islam', 'mahidul-islam', '2024-09-10 16:34:54', '2024-09-17 10:09:29');
 
 -- --------------------------------------------------------
 
@@ -199,6 +199,13 @@ CREATE TABLE `blog_posts` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `blog_posts`
+--
+
+INSERT INTO `blog_posts` (`id`, `userId`, `categoryId`, `title`, `description`, `slug`, `thumbnail`, `react`, `seoTitle`, `seoDescription`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 18, 'Mollit consequunturvvv', 'Dolores magnam et om', 'repudiandae-unde-nih', 'uploads/thumbnails/thumbnail-580ac67e-ef84-4f99-ad34-35f4c4cb4541.JPG', 0, 'Est nemo ipsam moles', 'Velit soluta odio d', 'publish', '2024-09-15 20:27:48', '2024-09-16 08:37:51');
+
 -- --------------------------------------------------------
 
 --
@@ -215,6 +222,13 @@ CREATE TABLE `comments` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `userId`, `postId`, `content`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Nice', 'approve', '2024-09-15 20:31:12', '2024-09-15 14:31:21');
+
 -- --------------------------------------------------------
 
 --
@@ -229,6 +243,14 @@ CREATE TABLE `comments_replies` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `comments_replies`
+--
+
+INSERT INTO `comments_replies` (`id`, `commentId`, `userId`, `reply`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Thank You', '2024-09-15 20:31:42', '2024-09-15 20:31:42'),
+(2, 1, 1, 'Wow', '2024-09-15 20:32:59', '2024-09-15 20:32:59');
 
 -- --------------------------------------------------------
 
@@ -294,7 +316,7 @@ CREATE TABLE `coupons` (
 
 INSERT INTO `coupons` (`id`, `name`, `discount`, `type`, `minOrder`, `maxOrder`, `limit`, `expireDate`, `status`, `created_at`, `updated_at`) VALUES
 (1, '100TK', 100, 'fixed', 100, 20000, 10, '2024-09-07', 'active', '2024-08-16 11:57:12', '2024-08-16 05:58:54'),
-(2, '10Percent', 10, 'flat', 100, 5000, 100, '2024-08-29', 'active', '2024-08-16 12:04:46', '2024-08-16 12:04:46');
+(2, '10Percent10Percent', 1010, 'flat', 100100, 50005000, 100100, '2024-09-28', 'active', '2024-08-16 12:04:46', '2024-09-16 11:46:12');
 
 -- --------------------------------------------------------
 
@@ -343,7 +365,7 @@ CREATE TABLE `deals` (
 --
 
 INSERT INTO `deals` (`id`, `shortTitle`, `offerText`, `description`, `link`, `date`, `backgroundImg`, `created_at`, `updated_at`) VALUES
-(1, 'Sales on Weekly Offers', 'Our special products deal of the day', 'There are many variations of passages of Lorem Ipsum available butmajority have suffered alteration in some form.', '#', '2023-08-12', 'uploads/deals/home_one_deals_bg.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
+(1, 'Sales on Weekly Offers', 'Our special products deal of the day', 'There are many variations of passages of Lorem Ipsum available butmajority have suffered alteration in some form.', 'http://127.0.0.1:8000/shop', '2024-12-27', 'uploads/deals/home_one_deals_bg.jpg', '2024-08-11 08:46:17', '2024-09-16 08:46:14'),
 (2, 'Monthly Offers', 'Our Specials Products deal of the day', 'There are many variations of passages of Lorem Ipsum butmajority have suffered.', '#', '2023-08-12', 'uploads/deals/home_two_deals_bg.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17'),
 (3, NULL, 'Deals Of The Weeks', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod incididunt ut labore et dolore magna aliqua quis ipsum', '#', '2023-08-12', 'uploads/deals/home_three_deals_bg.jpg', '2024-08-11 08:46:17', '2024-08-11 08:46:17');
 
@@ -888,7 +910,6 @@ CREATE TABLE `password_reset_tokens` (
 --
 
 INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
-('admin@freshmat.com', '$2y$12$FsEhxDhPn63.3gKZ1T5PCObanI0nTG6ly6GshlVg3Y5AIxnww0RfK', '2024-08-22 15:04:22'),
 ('testuser@gmail.com', '$2y$12$gON6S.QZGcNn0gWHfei3r.zHwcNN2ISXTrh6rQZyuyzoOehkKQYHW', '2024-08-19 15:14:08');
 
 -- --------------------------------------------------------
@@ -1349,7 +1370,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Mahidul Islam', 'admin@freshmat.com', NULL, '$2y$12$uKlP.ykmTnkUv0CycEe3J.RsykucPDgFnd469cqT5D2n15HnDY5sO', NULL, '2', '2024-08-11 02:46:17', '2024-08-11 02:46:17'),
+(1, 'Mahidul Islam', 'admin@freshmat.com', NULL, '$2y$12$cIZrNbU0zr83DmVlt1yweuJuFbtPgWa.o.H5N1G9a0jIiUaiJ90uK', NULL, '2', '2024-08-11 02:46:17', '2024-09-19 10:10:19'),
 (2, 'Test User', 'testuser@gmail.com', NULL, '$2y$12$Wgkhu6FOzLHI2/1IWbXQOOzxDdwVwGuglrOu.s6H2HARvqcEOFTqa', NULL, '1', '2024-08-12 11:56:34', '2024-08-12 11:56:34'),
 (3, 'Hollee Grimes', 'soditebeli@mailinator.com', NULL, '$2y$12$.dno0wg1/Z.PFzouRwwkc.cR6gPfK9aHXBvQYxxgfA1wIK59Fgyxe', NULL, '1', '2024-08-14 08:19:13', '2024-08-14 08:19:13'),
 (4, 'Jocelyn Gibson', 'syqatiny@mailinator.com', NULL, '$2y$12$/14xV/7XvlIW9ViBiQmQK.ZYUcoeFisS6VBYBi3EHswogNesY7KrS', NULL, '1', '2024-08-14 08:35:25', '2024-08-14 08:35:25'),
@@ -1747,19 +1768,19 @@ ALTER TABLE `blog_categories`
 -- AUTO_INCREMENT for table `blog_posts`
 --
 ALTER TABLE `blog_posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `comments_replies`
 --
 ALTER TABLE `comments_replies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contact_pages`
