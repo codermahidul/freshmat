@@ -127,7 +127,7 @@
                         {{-- Post Description --}}
                         <div class="form-group">
                             <label for="description"> {{ __('Description') }} </label>
-                            <textarea id="postdescription" name="description">{!! $emailTemplate->content !!}</textarea>
+                            <textarea class="summernote" name="description">{!! $emailTemplate->content !!}</textarea>
                             @error('description')
                                 <span class="text-danger">
                                     {{ $message }}

@@ -37,10 +37,9 @@ class ProductController extends Controller
          }else {
              $slug = Str::slug($request->input('slug'),'-');
          }
-
+ 
 
         //Icon Process
-
         $manager = new ImageManager(new Driver());
         $icon = $request->file('icon');
         $name = $slug.'-'.Str::uuid()->toString().'.'.$icon->getClientOriginalExtension();

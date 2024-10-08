@@ -249,7 +249,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/slider', [SliderController::class, 'index'])->name('slider');
     Route::post('/slider/insert', [SliderController::class, 'insert'])->name('sliderInsert');
     Route::get('/slider/edit/{id}', [SliderController::class, 'edit'])->name('slider.edit');
-    Route::post('/slider/update/{id}', [SliderController::class, 'update'])->name('slider.update');
+    Route::post('/slider/update/{id}', [SliderController::class, 'update'])->name('slider-update');
     Route::get('/slider/delete/{id}', [SliderController::class, 'delete'])->name('slider.delete');
 
     //Testimonial
@@ -280,7 +280,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/partner', [PartnerController::class, 'index'])->name('partner');
     Route::post('/partner/insert', [PartnerController::class, 'insert'])->name('partnerInsert');
     Route::get('/partner/edit/{id}', [PartnerController::class, 'edit'])->name('partner.edit');
-    Route::post('/slider/update/{id}', [PartnerController::class, 'update'])->name('partner.update');
+    Route::post('/partner/update/{id}', [PartnerController::class, 'update'])->name('partner.update');
     Route::get('/partner/delete/{id}', [PartnerController::class, 'delete'])->name('partner.delete');
 
     //App Links

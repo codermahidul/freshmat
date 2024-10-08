@@ -9,6 +9,15 @@
                 <div class="card-body">
                     <form action="{{ route('sliderInsert') }}" method="post" enctype="multipart/form-data">
                         @csrf
+
+                        <div class="form-group">
+                            <label for="backgroundImg">{{ __('Slider Image') }}</label>
+                            <input type="file" name="backgroundImg" id="backgroundImg" class="form-control">
+                            @error('backgroundImg')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        
                         <div class="form-group">
                             <label for="shortTitle">{{ __('Short Title') }}</label>
                             <input type="text" name="shortTitle" placeholder="Short Title" class="form-control">
@@ -37,13 +46,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label for="backgroundImg">{{ __('Slider Image') }}</label>
-                            <input type="file" name="backgroundImg" id="backgroundImg" class="form-control">
-                            @error('backgroundImg')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+                        
                         <div class="form-group">
                             <label for="Status">{{ __('Status') }}</label>
                             <select name="status" class="form-control">

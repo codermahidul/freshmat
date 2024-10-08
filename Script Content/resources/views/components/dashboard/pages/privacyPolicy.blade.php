@@ -12,7 +12,7 @@
                           {{-- Post Description --}}
                         <div class="form-group">
                           <label for="description"> {{ __('Page Content') }} </label>
-                          <textarea id="postdescription"  name="content">{{old('content')}}{{ $content->content }}</textarea>
+                          <textarea class="summernote"  name="content">{{old('content')}}{{ $content->content }}</textarea>
                             @error('content')
                             <span class="text-danger">
                                 {{$message}}

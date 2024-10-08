@@ -87,6 +87,25 @@
         </ul>
     </li>
 
+
+    <li
+        class="sidenav-item {{ Route::currentRouteNamed('slider') ? 'active open' : '' }}">
+        <a href="javascript:void(0)" class="sidenav-link sidenav-toggle active">
+            <i class="sidenav-icon ion ion-ios-albums"></i>
+            <div>{{ __('Manage Section') }}</div>
+        </a>
+
+        <ul class="sidenav-menu">
+            <li class="sidenav-item">
+                <a href="{{ route('slider') }}" class="sidenav-link">
+                    <div>{{ __('Slider') }}</div>
+                </a>
+            </li>
+
+            
+        </ul>
+    </li>
+
     <!-- Blog -->
     <li
         class="sidenav-item {{ Route::currentRouteNamed('category.edit', 'blog', 'blog.add', 'category', 'category.add', 'category.insert', 'comments') ? 'active open' : '' }}">
@@ -213,17 +232,7 @@
         </a>
     </li>
 
-    @if (setting('theme') == 'all' || setting('theme') == 'one' || setting('theme') == 'three')
-    <li class="sidenav-item {{ Route::currentRouteNamed('slider') ? 'active open' : '' }}">
-        <a href="{{ route('slider') }}" class="sidenav-link">
-            <i class="sidenav-icon ion ion-md-quote"></i>
-            <div>{{ __('Slider') }}</div>
-            <div class="pl-1 ml-auto">
-                <div class="badge badge-primary">{{ __('Home 1 & 3') }}</div>
-            </div>
-        </a>
-    </li>
-    @endif
+
 
     @if (setting('theme') == 'all' || setting('theme') == 'one')
     <li class="sidenav-item {{ Route::currentRouteNamed('homeOneVideoGallery') ? 'active open' : '' }}">

@@ -234,32 +234,34 @@
     <script src="{{ asset('backend/assets/vendor/libs/chartjs/chartjs.js') }}"></script>
     <script src="{{ asset('backend/assets/vendor/libs/datatables/datatables.js') }}"></script>
     <script src="{{ asset('backend/assets/js/demo.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/dashboards_dashboard-3.js') }}"></script>
 
-
-    <script src="{{ asset('backend/assets/js/dashboards_dashboard-3.js') }}"></script>
     <script src="{{ asset('backend/assets/js/sweetalert2@11.js') }}"></script>
+
+    <script src="{{ asset('global/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 
     @include('sweetalert::alert')
     @stack('scripts')
     <script>
-        $(document).ready(function() {
-            //ajax setup
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
 
-            //data table
 
-            $(function() {
+        (function($) {
+            "use strict"
+            $(document).ready(function () {
+                
+
+                //ajax setup
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
                 $("#example1").DataTable({
                     "responsive": true,
                     "lengthChange": true,
                     "autoWidth": true,
                     "buttons": false,
-                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                });
 
                 $('#example2').DataTable({
                     "paging": true,
@@ -270,8 +272,22 @@
                     "autoWidth": true,
                     "responsive": true,
                 });
+
+                tinymce.init({
+                    selector: '.summernote',
+                    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+                    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                    tinycomments_mode: 'embedded',
+                    tinycomments_author: 'Author name',
+                    mergetags_list: [
+                        { value: 'First.Name', title: 'First Name' },
+                        { value: 'Email', title: 'Email' },
+                    ]
+                });
+
             });
-        })
+        })(jQuery);
+
     </script>
 </body>
 

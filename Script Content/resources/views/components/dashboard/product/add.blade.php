@@ -79,7 +79,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description"> {{ __('Description') }} </label>
-                            <textarea id="postdescription" name="description">{{ old('description') }}</textarea>
+                            <textarea class="summernote" name="description">{{ old('description') }}</textarea>
                             @error('description')
                                 <span class="text-danger">
                                     {{ $message }}

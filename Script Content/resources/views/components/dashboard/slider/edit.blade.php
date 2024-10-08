@@ -7,8 +7,22 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="{{ route('slider.update', $slider->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('slider-update', $slider->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
+
+                        <div>
+                            <h6 class="text-bold">{{ __('Old Slider Image') }}</h6>
+                            <img class="slider_img" src="{{ asset($slider->backgroundImg) }}" alt="">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="backgroundImg">{{ __('Slider Image') }}</label>
+                            <input type="file" name="backgroundImg" id="backgroundImg"
+                                class="form-control @error('backgroundImg') 'is-invalid' @enderror">
+                            @error('backgroundImg')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="form-group">
                             <label for="shortTitle">{{ __('Short Title') }}</label>
                             <input type="text" name="shortTitle" placeholder="Short Title"
@@ -44,18 +58,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div>
-                            <h6 class="text-bold">{{ __('Old Slider Image') }}</h6>
-                            <img src="{{ asset($slider->backgroundImg) }}" alt="">
-                        </div>
-                        <div class="form-group">
-                            <label for="backgroundImg">{{ __('Slider Image') }}</label>
-                            <input type="file" name="backgroundImg" id="backgroundImg"
-                                class="form-control @error('backgroundImg') 'is-invalid' @enderror">
-                            @error('backgroundImg')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+                        
                         <div class="form-group">
                             <label for="Status">{{ __('Status') }}</label>
                             <select name="status" class="form-control">
