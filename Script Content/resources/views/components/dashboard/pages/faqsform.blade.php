@@ -24,7 +24,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>{{ __('Textarea') }}</label>
+                            <label>{{ __('Answer') }}</label>
                             <textarea class="form-control @error('answer') is-invalid @enderror" rows="3" placeholder="Enter Answer"
                                 name="answer">{{ old('answer') }}</textarea>
                             @error('answer')

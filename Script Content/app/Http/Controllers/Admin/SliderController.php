@@ -44,7 +44,7 @@ class SliderController extends Controller
             'backgroundImg' => $sliderBg,
         ]);
 
-        toast(trans('Slider Item Added Successfully!'),'success');
+        toast(trans('Slider Item Added Successfully!'),'success')->width('350');
         return back();
     }
 
@@ -86,8 +86,8 @@ class SliderController extends Controller
              'backgroundImg' => $sliderBg,
              ]);
 
-        toast(trans('Silder Item Update Successfully!'),'success');
-        return back();
+        toast(trans('Silder Item Update Successfully!'),'success')->width('350');
+        return redirect()->route('slider');
 
     }
 

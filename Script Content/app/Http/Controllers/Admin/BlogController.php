@@ -69,7 +69,7 @@ class BlogController extends Controller
         ]);
 
         toast(trans('Post Added Successfull!'), 'success')->width('350');
-        return back()->route('blog');
+        return redirect()->route('blog');
     }
 
     function blogDelete($id)

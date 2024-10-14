@@ -37,7 +37,7 @@ class ProductController extends Controller
          }else {
              $slug = Str::slug($request->input('slug'),'-');
          }
- 
+
 
         //Icon Process
         $manager = new ImageManager(new Driver());
@@ -56,7 +56,7 @@ class ProductController extends Controller
             'icon' => $save_url,
         ]);
         toast(trans('Product Category Added Succesfully!'),'success')->width('350');
-        return back();
+        return redirect()->route('productCategory');
 
     }
 
@@ -101,7 +101,7 @@ class ProductController extends Controller
             'icon' => $save_url,
         ]);
         toast(trans('Product Category Updated Successfully!'),'success')->width('350');
-        return back();
+        return redirect()->route('productCategory');
 
     }
 

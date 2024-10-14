@@ -10,6 +10,13 @@ use Intervention\Image\ImageManager;
 
 class BannerController extends Controller
 {
+    public function banner(){
+        $homeTwoMainBanner = Banner::where('id',9)->first();
+        return view('dashboard.banner.main-banner', compact('homeTwoMainBanner'));
+    }
+
+
+
     public function homeOneBanner(){
         $homeOneBannerOne = Banner::where('id',1)->first();
         $homeOneBannerTwo = Banner::where('id',2)->first();
@@ -201,14 +208,12 @@ class BannerController extends Controller
     //Home Two Banner
 
     public function homeTwoBanner(){
-        $homeTwoMainBanner = Banner::where('id',9)->first();
         $homeTwoLeftBanner = Banner::where('id',5)->first();
         $homeTwoRightTopBanner = Banner::where('id',6)->first();
         $homeTwoRightBottomBanner = Banner::where('id',7)->first();
         $homeTwoSpecialBanner = Banner::where('id',8)->first();
         $homeTwoBSBanner = Banner::where('id',10)->first();
         return view('dashboard.banner.home-two-banner',compact([
-            'homeTwoMainBanner',
             'homeTwoLeftBanner',
             'homeTwoRightTopBanner',
             'homeTwoRightBottomBanner',

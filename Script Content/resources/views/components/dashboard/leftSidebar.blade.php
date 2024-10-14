@@ -102,7 +102,13 @@
                 </a>
             </li>
 
-            
+            <li class="sidenav-item">
+                <a href="{{ route('mainBanner') }}" class="sidenav-link">
+                    <div>{{ __('Home Two Slider') }}</div>
+                </a>
+            </li>
+
+
         </ul>
     </li>
 

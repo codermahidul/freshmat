@@ -220,6 +220,7 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::get('/delivery/location/delete/{id}', [DeliveryLocationController::class, 'delete'])->name('delivery.delete');
 
     //Home One Banner
+    Route::get('/banner', [BannerController::class, 'banner'])->name('mainBanner');
     Route::get('/add/banner', [BannerController::class, 'homeOneBanner'])->name('homeonebanner');
     Route::post('/home/one/banner/update', [BannerController::class, 'homeOneBannerUpdate'])->name('hobnupdate');
     Route::post('/home/one/banner-two/update', [BannerController::class, 'homeOneBannerTwoUpdate'])->name('hobtupdate');
