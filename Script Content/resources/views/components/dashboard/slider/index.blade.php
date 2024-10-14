@@ -20,28 +20,28 @@
 
                         <div class="form-group">
                             <label for="shortTitle">{{ __('Short Title') }}</label>
-                            <input type="text" name="shortTitle" placeholder="Short Title" class="form-control">
+                            <input type="text" name="shortTitle" placeholder="Short Title" class="form-control" value="{{ old('shortTitle') }}">
                             @error('shortTitle')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="offerText">{{ __('Offer Text') }}</label>
-                            <input type="text" name="offerText" placeholder="Offer Text" class="form-control">
+                            <input type="text" name="offerText" placeholder="Offer Text" class="form-control" value="{{ old('offerText') }}">
                             @error('offerText')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="description">{{ __('Description') }}</label>
-                            <input type="text" name="description" placeholder="Description" class="form-control">
+                            <input type="text" name="description" placeholder="Description" class="form-control" value="{{ old('description') }}">
                             @error('description')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="link">{{ __('Link') }}</label>
-                            <input type="text" name="link" placeholder="Link" class="form-control">
+                            <input type="text" name="link" placeholder="Link" class="form-control" value="{{ old('link') }}">
                             @error('link')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror

@@ -105,9 +105,9 @@
                                 <p>{{ __('Discount') }} : <span id="discountLast">-${{ discount() }}</span></p>
                             @endif
                             <h5>{{ __('Total') }} : <span id="lastTotal">$100</span></h5>
-                            <a class="common_btn" href="#" onclick="submit()">{{ __('Payment') }} <i
+                            <button type="submit" class="common_btn" onclick="submit()">{{ __('Payment') }} <i
                                     class="fas fa-long-arrow-right"></i>
-                                <span></span></a>
+                                <span></span></button>
                         </div>
                     </div>
                 </div>

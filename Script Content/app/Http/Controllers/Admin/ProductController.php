@@ -204,7 +204,7 @@ class ProductController extends Controller
 
         }
         toast(trans('Product Added Successfully!'),'success')->width('350');
-        return back();
+        return redirect()->route('products');
 
     }
 
@@ -283,7 +283,7 @@ class ProductController extends Controller
 
         }
         toast(trans('Product Update Successfully!'),'success')->width('350');
-        return back();
+        return redirect()->route('products');
 
     }
 
