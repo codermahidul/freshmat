@@ -93,10 +93,15 @@ class SliderController extends Controller
 
     //Slider delete
     public function delete($id){
-        $slider = Slider::where('id',$id)->first();
-        unlink(base_path('public/'.$slider->backgroundImg));
-        $slider->delete();
-        toast(trans('Slider Item Deleted Successfully!'),'success');
+
+        try {
+            $slider = Slider::where('id',$id)->first();
+            unlink(base_path('public/'.$slider->backgroundImg));
+            $slider->delete();
+            return response()->json(['status' => 'success', 'message' => trans('Delete successfully!')]);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => trans('Something went wrong!')]);
+        }
         return back();
     }
 
