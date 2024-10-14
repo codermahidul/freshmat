@@ -40,7 +40,7 @@ class PartnerController extends Controller
         'status' => $request->input('status'),
     ]);
 
-    toast(trans('Partner Added Successfully!'),'success');
+    toast(trans('Partner Added Successfully!'),'success')->width('350');
     return back();
 
     }
@@ -79,8 +79,8 @@ class PartnerController extends Controller
              ]);
 
 
-        toast(trans('Partner Update Successfully!'),'success');
-        return back();
+        toast(trans('Partner Update Successfully!'),'success')->width('350');
+        return redirect()->route('partner');
 
     }
 
@@ -88,14 +88,16 @@ class PartnerController extends Controller
 
     //Partner delete
     public function delete($id){
-        $partner = Partner::where('id',$id)->first();
-        unlink(base_path('public/'.$partner->logo));
-        $partner->delete();
-        toast(trans('Parner Deleted Successfully!'),'success');
-        return back();
+        try {
+            $partner = Partner::where('id',$id)->first();
+            unlink(base_path('public/'.$partner->logo));
+            $partner->delete();
+        return response()->json(['status' => 'success', 'message' => trans('Deleted Successfully!')]);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => trans('Somthing went wrong!')]);
+        }
+
     }
-
-
 
 
 }
