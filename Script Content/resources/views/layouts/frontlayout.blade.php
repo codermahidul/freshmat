@@ -285,14 +285,6 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
                     class="fal fa-times"></i></button>
             <div class="offcanvas-body">
-{{-- lklslfldf --}}
-<li><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-    aria-controls="offcanvasRight"><i class="far fa-shopping-basket"></i> <span
-        class="{{ Session::has('cart') ? '' : 'd-none' }}">{{ Session::has('cart') ? count(Session::get('cart')) : '' }}</span></a>
-</li>
-<li><a href="{{ route('userWishlist') }}"><i class="far fa-heart"></i> <span
-        class="{{ wishlistTotalItem(Auth::id()) ? '' : 'd-none' }}">{{ Auth::check() ? wishlistTotalItem(Auth::id()) : '' }}</span></a>
-{{-- jsdjlsdsd --}}
                 <ul class="mobile_menu_header d-flex flex-wrap">
                     <li><a href="cart_view.html"><i class="far fa-shopping-basket"></i> <span>2</span></a>
                     </li>
