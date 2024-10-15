@@ -24,7 +24,11 @@ class PaymentController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
-            'charge' => 'required',
+            'charge' => ['required', function ($attribute, $value, $fail) {
+        if ($value == 0) {
+            $fail(trans('The delivery location field is required.'));
+        }
+    }],
             'city' => 'required',
             'phone' => 'required',
             'address' => 'required',

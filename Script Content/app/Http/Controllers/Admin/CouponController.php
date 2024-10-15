@@ -44,7 +44,7 @@ class CouponController extends Controller
             'status' => $request->input('status'),
         ]);
         toast(trans('Copun Added Successfully!'),'success')->width('350');
-        return back();
+        return redirect()->route('coupon');
 
     }
 
@@ -78,7 +78,7 @@ class CouponController extends Controller
             'status' => $request->input('status'),
         ]);
         toast(trans('Coupon Update Successfully!'),'success')->width('350');
-        return back();
+        return redirect()->route('coupon');
     }
 
 
@@ -111,19 +111,21 @@ class CouponController extends Controller
         $coupon = Coupon::where('name',$claimCupon)->where('status','active')->first();
 
         if (empty($coupon)) {
-            toast(trans('Your claimed coupon not found!'),'danger')->width('350');
-            return back()->with('nofound', trans('Your claimed coupon not found!'));
+            toast(trans('Your claimed coupon not found!'),'error')->width('350');
+            return back();
         } else {
             $coupon->expireDate;
             $date = date('Y-m-d');
             if ($date <= $coupon->expireDate) {
                 if ($totalordersum <= $coupon->minOrder) {
-                    return back()->with('nofound', trans('Your claimed coupon minimum order ammount $').$coupon->minOrder.'!');
+                    toast(trans('Your claimed coupon minimum order ammount $'.$coupon->minOrder.'!'),'error')->width('400');
+                    return back();
                 }else {
                     if (!empty($coupon->maxOrder)) {
                         if ($totalordersum <= $coupon->maxOrder) {
                             if ($coupon->limit <= 0) {
-                                return back()->with('nofound', trans('Your claimed coupon has no limit!'));
+                                toast(trans('Your claimed coupon has no limit!'),'error')->width('350');
+                                return back();
                             }else {
                                 $totalAmountOfOrder = $totalordersum;
                                 $discountType =$coupon->type;
@@ -135,28 +137,28 @@ class CouponController extends Controller
                                         'discountAmmount' => $discountAmmount,
                                     ];
                                      Session::put('coupon',$redemCoupon);
-                                    return back()->with([
-                                        'success' => trans('Your coupon has been successfully redeemed.')
-                                    ]);
+                                     toast(trans('Your coupon has been successfully redeemed.'),'success')->width('350');
+                                    return back();
                                 } else{
-                                    $discountAmmount = $totalAmountOfOrder - $coupon->discount;
+                                    $discountAmmount =  $coupon->discount;
                                     $redemCoupon = [
                                         'couponName' => $coupon->name,
                                         'discountAmmount' => $discountAmmount,
                                     ];
                                     Session::put('coupon',$redemCoupon);
-                                    return back()->with([
-                                        'success' => trans('Your coupon has been successfully redeemed.')
-                                    ]);
+                                    toast(trans('Your coupon has been successfully redeemed.'),'success')->width('350');
+                                    return back();
                                 }
                             }
                         } else {
-                            return back()->with('nofound', trans('Your claimed coupon maximum order ammount $').$coupon->maxOrder.'!');
+                            toast(trans('Your claimed coupon maximum order ammount $'.$coupon->maxOrder.'!'),'error')->width('400');
+                            return back();
                         }
 
                     } else {
                         if ($coupon->limit <= 0) {
-                            return back()->with('nofound', trans('Your claimed coupon has no limit!'));
+                            toast(trans('Your claimed coupon has no limit!'),'error')->width('350');
+                            return back();
                         }else {
                             $totalAmountOfOrder = $totalordersum;
                             $discountType =$coupon->type;
@@ -168,9 +170,8 @@ class CouponController extends Controller
                                     'discountAmmount' => $discountAmmount,
                                 ];
                                  Session::put('coupon',$redemCoupon);
-                                return back()->with([
-                                    'success' => trans('Your coupon has been successfully redeemed.'),
-                                ]);
+                                 toast(trans('Your coupon has been successfully redeemed.'),'success')->width('350');
+                                return back();
                             } else{
                                 $discountAmmount = $coupon->discount;
                                 $redemCoupon = [
@@ -178,16 +179,16 @@ class CouponController extends Controller
                                     'discountAmmount' => $discountAmmount,
                                 ];
                                 Session::put('coupon',$redemCoupon);
-                                return back()->with([
-                                    'success' => trans('Your coupon has been successfully redeemed.'),
-                                ]);
+                                toast(trans('Your coupon has been successfully redeemed.'),'success')->width('350');
+                                return back();
                             }
                         }
                     }
 
                 }
             } else {
-                return back()->with('nofound', trans('Your claimed coupon vlidity expired!'));
+                toast(trans('Your claimed coupon validity expired!'),'error')->width('350');
+                return back();
             }
 
         }

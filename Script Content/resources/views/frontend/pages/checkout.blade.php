@@ -2,8 +2,8 @@
 @section('title', 'Checkout')
 @section('breadcrumb')
     <!--=========================
-            BREADCRUMB START
-        ==========================-->
+                BREADCRUMB START
+            ==========================-->
     <section class="page_breadcrumb" style="background: url({{ asset('assets') }}/images/breadcrumb_bg.jpg);">
         <div class="breadcrumb_overlay">
             <div class="container">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--=========================
-            BREADCRUMB START
-        ==========================-->
+                BREADCRUMB START
+            ==========================-->
 @endsection
 @section('content')
     <!--=========================
-            CHECKOUT START
-        ==========================-->
+                CHECKOUT START
+            ==========================-->
     <section class="checkout pt_120 xs_pt_75">
         <div class="container">
             <div class="row">
@@ -41,8 +41,10 @@
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>{{ __('Name') }} *</label>
-                                    <input type="text" placeholder="Name" value="{{ Auth::user()->name }}"
-                                        name="name">
+                                    <input type="text" placeholder="Name" value="{{ Auth::user()->name }}" name="name">
+                                    @error('name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -50,13 +52,19 @@
                                     <label>{{ __('Email') }} *</label>
                                     <input type="email" placeholder="Email" value="{{ Auth::user()->email }}"
                                         name="email">
+                                        @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout_input_box">
                                     <label>{{ __('Phone') }}</label>
-                                    <input type="text" placeholder="Phone" value="{{ Auth::user()->userProfile->phone }}"
-                                        name="phone">
+                                    <input type="text" placeholder="Phone"
+                                        value="{{ Auth::user()->userProfile->phone }}" name="phone">
+                                        @error('phone')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -68,7 +76,9 @@
                                             <option value="{{ $city->charge }}">{{ $city->address }}</option>
                                         @endforeach
                                     </select>
-
+                                    @error('charge')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-xl-12">
@@ -76,6 +86,9 @@
                                     <label>{{ __('City') }} *</label>
                                     <input type="text" placeholder="Address *"
                                         value="{{ Auth::user()->userProfile->city }}" name="city">
+                                        @error('city')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-xl-12">
@@ -83,12 +96,18 @@
                                     <label>{{ __('Address') }} *</label>
                                     <input type="text" placeholder="Address *"
                                         value="{{ Auth::user()->userProfile->address }}" name="address">
+                                        @error('address')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-xl-12">
                                 <div class="checkout_input_box">
                                     <label>{{ __('Note') }}</label>
                                     <textarea rows="5" placeholder="Note" name="note"></textarea>
+                                    @error('note')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -100,11 +119,11 @@
                         <h3>{{ __('Total Cart') }} ({{ cartTotal() }})</h3>
                         <div class="cart_sidebar_info">
                             <h4>{{ __('Subtotal') }} : <span id="subTotlaLast">${{ subTotal() }}</span></h4>
-                            <p>{{ __('Delivery') }} : <span id="charge">0</span></p>
+                            <p>{{ __('Delivery') }} : <span id="charge">{{ __('0') }}</span></p>
                             @if (discount() != null)
                                 <p>{{ __('Discount') }} : <span id="discountLast">-${{ discount() }}</span></p>
                             @endif
-                            <h5>{{ __('Total') }} : <span id="lastTotal">$100</span></h5>
+                            <h5>{{ __('Total') }} : <span id="lastTotal">{{ __('$100') }}</span></h5>
                             <button type="submit" class="common_btn" onclick="submit()">{{ __('Payment') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></button>
@@ -115,8 +134,8 @@
         </div>
     </section>
     <!--=========================
-            CHECKOUT END
-        ==========================-->
+                CHECKOUT END
+            ==========================-->
 @endsection
 
 @push('scripts')
@@ -150,4 +169,6 @@
         });
     </script>
 @endpush
+
+
 

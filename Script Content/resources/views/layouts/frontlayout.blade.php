@@ -158,9 +158,9 @@
                     <div class="menu_category_bar">
                         <p>
                             <span>
-                                <img src="{{ asset('assets') }}/images/menu_category_icon.png" alt="category icon">
+                                <img src="{{ asset('assets/images/menu_category_icon.png') }}" alt="category icon">
                             </span>
-                            Browse Categories
+                            {{ __('Browse Categories') }}
                         </p>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -175,7 +175,7 @@
                                 </a>
                             </li>
                         @empty
-                            {{ __('No Product Found!') }}
+                            {{ __('No category found!') }}
                         @endforelse
                     </ul>
                 </div>
@@ -201,10 +201,9 @@
                                 href="{{ route('shop') }}">{{ __('shop') }} </a>
                         </li>
                         <li><a class="{{ Route::currentRouteNamed('frontendblog') ? 'active' : '' }}"
-                                href="{{ route('frontendblog') }}">blog</a></li>
-                                <li class="relative_li"><a href="#">pages <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+                                href="{{ route('frontendblog') }}">{{ __('blog') }}</a></li>
+                                <li class="relative_li"><a href="#">{{ __('pages') }} <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
                                     <ul class="menu_droapdown">
-                                        <li><a href="{{ route('aboutUs') }}">{{ __('about us') }}</a></li>
                                         <li><a href="{{ route('faqsf') }}">{{ __('faqs') }}</a></li>
                                         <li><a href="{{ route('privacyPolicy') }}">{{ __('privacy policy') }}</a></li>
                                         <li><a href="{{ route('termsCondition') }}">{{ __('terms &amp; condition') }}</a></li>
@@ -286,12 +285,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
                     class="fal fa-times"></i></button>
             <div class="offcanvas-body">
-
+{{-- lklslfldf --}}
+<li><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+    aria-controls="offcanvasRight"><i class="far fa-shopping-basket"></i> <span
+        class="{{ Session::has('cart') ? '' : 'd-none' }}">{{ Session::has('cart') ? count(Session::get('cart')) : '' }}</span></a>
+</li>
+<li><a href="{{ route('userWishlist') }}"><i class="far fa-heart"></i> <span
+        class="{{ wishlistTotalItem(Auth::id()) ? '' : 'd-none' }}">{{ Auth::check() ? wishlistTotalItem(Auth::id()) : '' }}</span></a>
+{{-- jsdjlsdsd --}}
                 <ul class="mobile_menu_header d-flex flex-wrap">
                     <li><a href="cart_view.html"><i class="far fa-shopping-basket"></i> <span>2</span></a>
                     </li>
                     <li><a href="dashboard_wishlist.html"><i class="far fa-heart"></i> <span>5</span></a></li>
-                    <li><a href="dashboard.html"><i class="far fa-user"></i></a></li>
+                    <li><a href="{{ route('userDashboard') }}"><i class="far fa-user"></i></a></li>
                 </ul>
 
                 <form class="mobile_menu_search">
@@ -304,7 +310,7 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-home" type="button" role="tab"
-                                aria-controls="pills-home" aria-selected="true">Categories</button>
+                                aria-controls="pills-home" aria-selected="true">{{ __('Categories') }}</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
@@ -317,133 +323,13 @@
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                             aria-labelledby="pills-home-tab" tabindex="0">
                             <ul class="main_mobile_menu">
-                                <li class="mobile_dropdown">
-                                    <a href="#">Fresh & Organic</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">Fresh & Organic</a></li>
-                                        <li><a href="shop.html">Sea Fish</a></li>
-                                        <li><a href="shop.html">meat</a></li>
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                        <li><a href="shop.html">Coffee & Drinks</a></li>
-                                        <li><a href="shop.html">Cleaning</a></li>
-                                        <li><a href="shop.html">Sea Fish</a></li>
-                                    </ul>
+                                @forelse (productCategories() as $category)
+                                <li>
+                                    <a href="{{ route('categoryWiseProduct',$category->slug) }}">{{ $category->name }}</a>
                                 </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">Sea Fish</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">meat</a></li>
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">meat</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">Fresh & Organic</a></li>
-                                        <li><a href="shop.html">Sea Fish</a></li>
-                                        <li><a href="shop.html">meat</a></li>
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">Bakery & Biscuites</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                        <li><a href="shop.html">Coffee & Drinks</a></li>
-                                        <li><a href="shop.html">Cleaning</a></li>
-                                        <li><a href="shop.html">Sea Fish</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">Health & Beauty</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                        <li><a href="shop.html">Coffee & Drinks</a></li>
-                                        <li><a href="shop.html">Cleaning</a></li>
-                                        <li><a href="shop.html">Sea Fish</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">Freah Fruits</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">Fresh & Organic</a></li>
-                                        <li><a href="shop.html">Sea Fish</a></li>
-                                        <li><a href="shop.html">meat</a></li>
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">Coffee & Drinks</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">meat</a></li>
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                        <li><a href="shop.html">Coffee & Drinks</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">Cleaning</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">Fresh & Organic</a></li>
-                                        <li><a href="shop.html">Sea Fish</a></li>
-                                        <li><a href="shop.html">meat</a></li>
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">Sea Fish</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                        <li><a href="shop.html">Coffee & Drinks</a></li>
-                                        <li><a href="shop.html">Cleaning</a></li>
-                                        <li><a href="shop.html">Sea Fish</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">Fresh & Organic</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">Fresh & Organic</a></li>
-                                        <li><a href="shop.html">Sea Fish</a></li>
-                                        <li><a href="shop.html">meat</a></li>
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">Bakery & Biscuites</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                        <li><a href="shop.html">Coffee & Drinks</a></li>
-                                        <li><a href="shop.html">Cleaning</a></li>
-                                    </ul>
-                                </li>
-                                <li class="mobile_dropdown">
-                                    <a href="#">Health & Beauty</a>
-                                    <ul class="inner_menu">
-                                        <li><a href="shop.html">meat</a></li>
-                                        <li><a href="shop.html">Bakery & Biscuites</a></li>
-                                        <li><a href="shop.html">Health & Beauty</a></li>
-                                        <li><a href="shop.html">Freah Fruits</a></li>
-                                        <li><a href="shop.html">Coffee & Drinks</a></li>
-                                    </ul>
-                                </li>
+                                @empty
+
+                                @endforelse
                             </ul>
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
@@ -709,6 +595,10 @@
     <script src="{{ asset('assets') }}/js/wow.min.js"></script>
     <!--script js-->
     <script src="{{ asset('assets') }}/js/main.js"></script>
+
+    <script src="{{ asset('backend/assets/js/sweetalert2@11.js') }}"></script>
+
+
     @include('sweetalert::alert')
     <script>
         var deals1 = {{ counter(1) }};

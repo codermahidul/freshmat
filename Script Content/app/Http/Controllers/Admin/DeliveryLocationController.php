@@ -52,7 +52,7 @@ class DeliveryLocationController extends Controller
             'status' => $request->input('status'),
         ]);
         toast(trans('Delivery Location Update Successfully!'),'success')->width('350');
-        return back();
+        return redirect()->route('delivery.location');
     }
 
     public function delete( $id){
