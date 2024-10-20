@@ -35,7 +35,7 @@
                         <div class="single_product_text">
                             <a class="title" href="{{ route('productDetails',$product->slug) }}">{{ $product->title }}</a>
                             <p>${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del> </p>
-                            <a class="cart_btn" href="shop_details.html" data-bs-toggle="modal"
+                            <a class="cart_btn" href="" data-bs-toggle="modal"
                                 data-bs-target="#cart_popup_modal{{ $product->id }}"><i class="far fa-shopping-basket"></i> {{ __('Add To
                                 Cart') }}
                                 <span></span></a>
@@ -74,7 +74,8 @@
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star-half-alt"></i>
                                         <i class="far fa-star"></i>
-                                        <span>{{ __('Review (20)') }}</span>
+                                        <span>{{ __('Review') }} ({{ count(reviews($product->id)) }})</span>
+                                        <span>{{ reviewsAvarage($product->id) }}</span>
                                     </p>
                                     <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                     <div class="details_quentity_area">

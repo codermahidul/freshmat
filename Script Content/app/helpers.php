@@ -26,6 +26,7 @@ use App\Models\Setting;
 use App\Models\SocialLinks;
 use App\Models\Testimonial;
 use App\Models\Topbar;
+use App\Models\Reviews;
 use App\Models\EmailTemplate;
 use Illuminate\Support\Facades\Session;
 
@@ -317,4 +318,18 @@ function hovg(){
     }elseif ($string == 'content') {
         return $getMail->content;
     }
+ }
+
+ function reviews($id){
+    return Reviews::where('productId',$id)->get();
+ }
+
+
+ function reviewsAvarage($productId){
+    $rating = DB::table('reviews')
+              ->where('productId',$productId)
+              ->where('status','approved')
+              ->pluck('rating');
+
+    return round($rating->average(),2);
  }
