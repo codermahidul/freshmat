@@ -54,12 +54,8 @@
                     <div class="product_det_text">
                         <h2 class="details_title">{{ $productInfo->title }}</h2>
                         <p class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <i class="far fa-star"></i>
-                            <span>{{ __('Review (20)') }}</span>
+                            {{ displayRatingStars(reviewsAvarage($productInfo->id)); }}
+                            <span>{{ __('Review') }} ({{ count(reviews($productInfo->id)) }})</span>
                         </p>
                         <p class="price">$<span id="selePrice">{{ $productInfo->selePrice }}</span> <del>{{ ($productInfo->regularPrice) ? '$' : '' }}{{ $productInfo->regularPrice }}</del></p>
                         <div class="details_short_description">
@@ -267,12 +263,8 @@
                                     <div class="product_det_text">
                                         <h2 class="details_title">{{ $product->title }}</h2>
                                         <p class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                            <i class="far fa-star"></i>
-                                            <span>{{ __('Review (20)') }}</span>
+                                            {{ displayRatingStars(reviewsAvarage($product->id)); }}
+                                            <span>{{ __('Review') }} ({{ count(reviews($product->id)) }})</span>
                                         </p>
                                         <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                         <div class="details_quentity_area">

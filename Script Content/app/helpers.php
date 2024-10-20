@@ -325,11 +325,46 @@ function hovg(){
  }
 
 
- function reviewsAvarage($productId){
+ function reviewsAvarage($productId) {
     $rating = DB::table('reviews')
-              ->where('productId',$productId)
-              ->where('status','approved')
+              ->where('productId', $productId)
+              ->where('status', 'approved')
               ->pluck('rating');
 
-    return round($rating->average(),2);
- }
+    $average = $rating->average();
+
+    // Custom rounding logic
+    $fraction = $average - floor($average);
+
+    if ($fraction >= 0 && $fraction <= 0.25) {
+        $roundedAverage = floor($average);
+    } elseif ($fraction > 0.25 && $fraction <= 0.75) {
+        $roundedAverage = floor($average) + 0.5;
+    } else {
+        $roundedAverage = ceil($average);
+    }
+
+    return $roundedAverage;
+}
+
+
+
+function displayRatingStars($rating) {
+    $maxRating = 5;
+
+    // Full stars
+    for ($i = 1; $i <= floor($rating); $i++) {
+        echo '<i class="fas fa-star"></i>';
+    }
+
+    // Half star (if any)
+    if ($rating - floor($rating) >= 0.5) {
+        echo '<i class="fas fa-star-half-alt"></i>';
+    }
+
+    // Empty stars (for the remaining stars up to $maxRating)
+    for ($i = ceil($rating) + 1; $i <= $maxRating; $i++) {
+        echo '<i class="far fa-star"></i>';
+    }
+}
+

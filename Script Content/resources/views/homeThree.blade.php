@@ -179,11 +179,7 @@
                             </div>
                             <div class="single_product_text">
                                 <span class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                    <i class="far fa-star"></i>
+                                    {{ displayRatingStars(reviewsAvarage($product->id)); }}
                                 </span>
                                 <a class="title"
                                     href="{{ route('productDetails', $product->slug) }}">{{ $product->title }}</a>
@@ -218,12 +214,8 @@
                                         <div class="product_det_text">
                                             <h2 class="details_title">{{ $product->title }}</h2>
                                             <p class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half-alt"></i>
-                                                <i class="far fa-star"></i>
-                                                <span>{{ __('Review (20)') }}</span>
+                                                {{ displayRatingStars(reviewsAvarage($product->id)); }}
+                                                <span>{{ __('Review') }} ({{ count(reviews($product->id)) }})</span>
                                             </p>
                                             <p class="price">${{ $product->selePrice }}
                                                 <del>{{ $product->regularPrice ? '$' : '' }}{{ $product->regularPrice }}</del>

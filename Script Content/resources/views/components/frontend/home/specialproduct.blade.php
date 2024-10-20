@@ -45,11 +45,7 @@
                                         <a class="title" href="{{ route('productDetails',$item->product->slug) }}">
                                             {{ $item->product->title }}</a>
                                         <span>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                            <i class="far fa-star"></i>
+                                            {{ displayRatingStars(reviewsAvarage($item->product->id)); }}
                                         </span>
                                         <p>${{ $item->product->selePrice }}<del>{{ $item->product->regularPrice ? '$' : '' }}{{ $item->product->regularPrice }}</del>
                                         </p>
