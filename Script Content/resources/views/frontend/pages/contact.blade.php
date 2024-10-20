@@ -85,31 +85,31 @@
                             @csrf
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" placeholder="Your Name" name="name">
+                                <input type="text" placeholder="{{ __('Your Name') }}" name="name">
                                 @error('name')
                                     <span class="text-danger d-block">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <input type="email" placeholder="Email Address" name="email">
+                                <input type="email" placeholder="{{ __('Email Address') }}" name="email">
                                 @error('email')
                                     <span class="text-danger d-block">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <input type="text" placeholder="Phone Number" name="phone">
+                                <input type="text" placeholder="{{ __('Phone Number') }}" name="phone">
                                 @error('phone')
                                     <span class="text-danger d-block">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <input type="text" placeholder="Subject" name="subject">
+                                <input type="text" placeholder="{{ __('Subject') }}" name="subject">
                                 @error('subject')
                                     <span class="text-danger d-block">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-xl-12">
-                                <textarea rows="6" placeholder="Write Message" name="message"></textarea>
+                                <textarea rows="6" placeholder="{{ __('Write Message') }}" name="message"></textarea>
                                 @error('message')
                                     <span class="text-danger d-block">{{ $message }}</span>
                                 @enderror

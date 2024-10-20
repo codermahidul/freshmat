@@ -106,7 +106,7 @@
                         <div class="text">
                             <h4>{{ banner(4)->shortTitle }}</h4>
                             <h3>{{ banner(4)->offerText }}</h3>
-                            <a class="common_btn" href="{{ banner(4)->link }}">shop now <i
+                            <a class="common_btn" href="{{ banner(4)->link }}">{{ __('shop now') }} <i
                                     class="fas fa-long-arrow-right"></i>
                                 <span></span></a>
                         </div>

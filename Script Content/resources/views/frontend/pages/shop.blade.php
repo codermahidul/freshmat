@@ -64,7 +64,7 @@
                 <div class="col-xl-3 col-lg-4 col-sm-8 col-md-6 order-2 wow fadeInLeft">
                     <div id="sticky_sidebar" class="shop_sidebar">
                         <div class="shop_sidebar_filter shop_sidebar_item">
-                            <h3>Filter by price</h3>
+                            <h3>{{ __('Filter by price') }}</h3>
                             <div class="price_ranger">
                                 <input type="hidden" id="slider_range" class="flat-slider" />
                             </div>
@@ -87,10 +87,6 @@
                                           @for ($i = 0; $i > $item->rating ; $i++)
                                             {{ '<i class="fas fa-star"></i>' }}
                                           @endfor
-                                            {{-- <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i> --}}
                                         </span>
                                     </div>
                                 </li>

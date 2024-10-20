@@ -32,7 +32,6 @@
   <script src="{{ asset('backend') }}/assets/vendor/js/layout-helpers.js"></script>
 
   <!-- Theme settings -->
-  <!-- This file MUST be included after core stylesheets and layout-helpers.js in the <head> section -->
   <script src="{{ asset('backend') }}/assets/vendor/js/theme-settings.js"></script>
   <script>
     window.themeSettings = new ThemeSettings({
@@ -43,8 +42,6 @@
 
   <!-- Core scripts -->
   <script src="{{ asset('backend') }}/assets/vendor/js/pace.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
   <!-- Libs -->
   <link rel="stylesheet" href="{{ asset('backend') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
   <!-- Page -->
