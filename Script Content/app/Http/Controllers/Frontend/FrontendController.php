@@ -87,9 +87,20 @@ class FrontendController extends Controller
         $categoryId = ProductCategory::where('slug',$slug)->first()->id;
         $categoryName = ProductCategory::where('slug',$slug)->first()->name;
         $categoryWiseProducts = Product::where('status','active')->where('categoryId',$categoryId)->latest()->paginate(10);
+
+
+        $featuredProducts = Product::where('status', 'active')
+                        ->where('categoryId', $categoryId)
+                        ->inRandomOrder()
+                        ->limit(3)
+                        ->latest()
+                        ->get();
+
+
         return view('frontend.pages.categorywiseproduct',compact([
             'categoryWiseProducts',
-            'categoryName'
+            'categoryName',
+            'featuredProducts',
         ]));
     }
 

@@ -73,54 +73,22 @@
                         <div class="shop_sidebar_product">
                             <h3>{{ __('Featured Products') }}</h3>
                             <ul>
+                                @forelse ($featuredProducts as $product)
                                 <li>
                                     <div class="img">
-                                        <img src="{{ asset('assets') }}/images/sidebar_product_1.jpg" alt="product" class="img-fluid w-100">
+                                        <img src="{{ asset($product->thumbnail) }}" alt="product" class="img-fluid w-100">
                                     </div>
                                     <div class="text">
-                                        <a href="shop_details.html">Porcelain Garlic</a>
-                                        <p>$15.00</p>
+                                        <a href="{{ route('productDetails',$product->slug) }}">{{ $product->title }}</a>
+                                        <p>${{ $product->selePrice }}</p>
                                         <span>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
+                                            {{ displayRatingStars(reviewsAvarage($product->id)); }}
                                         </span>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="img">
-                                        <img src="{{ asset('assets') }}/images/sidebar_product_2.jpg" alt="product" class="img-fluid w-100">
-                                    </div>
-                                    <div class="text">
-                                        <a href="shop_details.html">Vegetables Meat</a>
-                                        <p>$20.00</p>
-                                        <span>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                        </span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="img">
-                                        <img src="{{ asset('assets') }}/images/sidebar_product_3.jpg" alt="product" class="img-fluid w-100">
-                                    </div>
-                                    <div class="text">
-                                        <a href="shop_details.html">Orange Slice Mix</a>
-                                        <p>$32.00</p>
-                                        <span>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </span>
-                                    </div>
-                                </li>
+                                @empty
+                                    {{ __('empty') }}
+                                @endforelse
                             </ul>
                         </div>
                     </div>
@@ -176,12 +144,8 @@
                                 <div class="product_det_text">
                                     <h2 class="details_title">{{ $product->title }}</h2>
                                     <p class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <i class="far fa-star"></i>
-                                        <span>Review (20)</span>
+                                        {{ displayRatingStars(reviewsAvarage($product->id)); }}
+                                        <span>{{ __('Review') }} ({{ count(reviews($product->id)) }})</span>
                                     </p>
                                     <p class="price">${{ $product->selePrice }} <del>{{ ($product->regularPrice) ? '$' : '' }}{{ $product->regularPrice }}</del></p>
                                     <div class="details_quentity_area">
@@ -207,10 +171,9 @@
                                     </ul>
                                     <ul class="share">
                                         <li>{{ __('Share with friends') }}:</li>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                                        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ route('productDetails', $product->slug) }}&t={{ $product->title }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="https://twitter.com/share?text={{ $product->title }}&url={{ route('productDetails', $product->slug) }}"><i class="fab fa-twitter" target="_blank"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('productDetails', $product->slug) }}&title={{ $product->title }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
