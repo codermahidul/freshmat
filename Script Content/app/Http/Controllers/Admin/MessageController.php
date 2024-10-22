@@ -57,9 +57,14 @@ class MessageController extends Controller
     //Message Delete
 
     public function messageDelete($id){
-        Message::find($id)->delete();
-        toast(trans('Message Deleted Successfully!'),'success');
-        return redirect(route('inbox'));
+
+        try {
+            Message::find($id)->delete();
+            return response()->json(['status' => 'success', 'message' => trans('Deleted Successfull!')]);
+
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => trans('Somthing went wrong!')]);
+        }
     }
 
     //Single message view

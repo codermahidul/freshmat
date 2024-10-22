@@ -134,7 +134,7 @@
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('socialLinkDelete', $item->id) }}"
-                                                class="btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                                class="btn-sm btn-danger delete-item"><i class="fas fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @empty
@@ -150,3 +150,57 @@
         </div>
     </div>
 </section>
+
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', '.delete-item', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: "{{ __('Are you sure?') }}",
+                    text: "{!! __('You won\'t be able to revert this!') !!}",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "{{ __('Yes, delete it!') }}"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        let url = $(this).attr('href');
+
+                        $.ajax({
+                            method: 'GET',
+                            url: url,
+                            success: function(data) {
+                                if (data.status == 'success') {
+                                    Swal.fire({
+                                        title: "{{ __('Deleted!') }}",
+                                        text: data.message,
+                                        icon: "success"
+                                    }).then(() => {
+                                        window.location.reload();
+                                    });
+                                } else if (data.status == 'error') {
+                                    Swal.fire({
+                                        title: "__('Error!')",
+                                        text: data.message,
+                                        icon: "error"
+                                    });
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                Swal.fire({
+                                    title: "{{ __('Error!') }}",
+                                    text: "{{ __('An error occurred while processing your request!') }}",
+                                    icon: "error"
+                                });
+                            }
+                        })
+                    }
+                });
+            })
+
+        })
+    </script>
+@endpush

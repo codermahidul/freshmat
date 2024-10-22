@@ -4,7 +4,7 @@
           <!--=========================
         BREADCRUMB START
     ==========================-->
-    <section class="page_breadcrumb" style="background: url({{ asset('assets') }}/images/breadcrumb_bg.jpg);">
+    <section class="page_breadcrumb" style="background: url({{ asset(setting('breadcrumbImg')) }});">
         <div class="breadcrumb_overlay">
             <div class="container">
                 <div class="row">

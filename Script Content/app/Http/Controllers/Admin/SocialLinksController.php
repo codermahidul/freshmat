@@ -28,7 +28,13 @@ class SocialLinksController extends Controller
     }
 
     public function delete($id){
-        SocialLinks::find($id)->delete();
+
+        try {
+            SocialLinks::find($id)->delete();
+            return response()->json(['status' => 'success', 'message' => 'Deleted Successfully!']);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => trans('Somthing went wrong!')]);
+        }
         toast(trans('Social Link Deleted Successfull!'),'success');
         return back();
     }

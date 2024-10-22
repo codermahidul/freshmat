@@ -360,7 +360,7 @@
         class="mt_200 xs_mt_160 {{ setting('theme') == 'two' ? 'footer_2' : '' }} {{ setting('theme') == 'three' ? 'footer_3' : '' }}">
         <div class="footer_overlay">
             <div class="container">
-                <div class="footer_info" style="background: url({{ asset('assets') }}/images/footer_info_bg.jpg);">
+                <div class="footer_info" style="background: url({{ asset('frontend/assets/images/footer_info_bg.jpg') }});">
                     <div class="row wow fadeInUp">
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer_info_item">
