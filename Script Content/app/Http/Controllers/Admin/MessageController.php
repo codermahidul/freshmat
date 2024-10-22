@@ -49,7 +49,7 @@ class MessageController extends Controller
         //Send Email
         Mail::to($adminEmail)->send(new ContactMail($validated ));
 
-        toast(trans('Your message has been sent successfully!'),'success');
+        toast(trans('Your message has been sent successfully!'),'success')->width('400');
         return back();
 
     }

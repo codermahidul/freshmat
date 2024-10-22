@@ -29,10 +29,10 @@ return new class extends Migration
             $table->string('glRedirectUrl')->nullable();
             //Fb Pixel
             $table->enum('fbPixelStatus',['enable','disable'])->default('disable');
-            $table->string('fbAppIdPixel')->nullable();            
+            $table->string('fbAppIdPixel')->nullable();
             //Google Analytic
             $table->enum('glanalyticStatus',['enable','disable'])->default('disable');
-            $table->string('analiticTrackingId')->nullable();            
+            $table->string('analiticTrackingId')->nullable();
             //Google Recaptcha
             $table->enum('glrecaptchaStatus',['enable','disable'])->default('disable');
             $table->string('captchaSiteKey')->nullable();
@@ -40,6 +40,8 @@ return new class extends Migration
             //Contact Message
             $table->string('messageReceiveEmail')->nullable();
             $table->enum('messageSaveOnDB',['yess','no'])->default('yess');
+            //Breadcrumb Image
+            $table->string('breadcrumbImg')->default('default/breadcrumb/breadcrumb.jpg');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

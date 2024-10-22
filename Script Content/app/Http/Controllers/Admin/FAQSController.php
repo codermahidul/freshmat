@@ -40,14 +40,19 @@ class FAQSController extends Controller
             'answer' => $request->input('answer'),
             'status' => $request->input('status'),
         ]);
-        toast(trans('New Question and Answer Added Successfully!'),'success');
-        return back();
+        toast(trans('New Question and Answer Added Successfully!'),'success')->width('350');
+        return redirect()->route('faqs');
     }
 
     function faqsDelete($id){
-        FAQS::where('id',$id)->delete();
-        toast(trans('FAQ Delete Successfully!'),'success');
-        return back();
+
+        try {
+            FAQS::where('id',$id)->delete();
+            return response()->json(['status' => 'success', 'message' => trans('FAQ Delete Successfully!')]);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => trans('Somthing went wrong!')]);
+        }
+
     }
 
     function faqsEdit($id){

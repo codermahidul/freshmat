@@ -272,6 +272,8 @@ Route::group(['middleware' => ['auth','role']], function(){
     Route::post('/setting/google/recaptcha/update', [SettingController::class, 'googleRecaptcha'])->name('googleRecaptcha');
     Route::post('/setting/social/login/update', [SettingController::class, 'socialLogin'])->name('socialLogin');
     Route::post('/setting/facebook/pixel/update', [SettingController::class, 'facebookPixel'])->name('facebookPixel');
+    Route::get('/breadcrumb', [SettingController::class, 'breadcrumb'])->name('breadcrumb');
+    Route::post('/breadcrumb/update', [SettingController::class, 'breadcrumbUpdate'])->name('breadcrumbUpdate');
 
     //Home One Video Gallery
     Route::get('/video/gallery', [HomeVideoGalleryController::class, 'index'])->name('homeOneVideoGallery');

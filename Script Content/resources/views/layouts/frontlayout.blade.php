@@ -9,59 +9,22 @@
     <title>@yield('title')</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="icon" type="image/png" href="{{ asset(setting('favicon')) }}">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/slick.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/venobox.min.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/scroll_button.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/custom_spacing.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/jquery.exzoom.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/nice-select.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/percircle.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/ranger_slider.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/select2.min.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/animate.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/mobile_menu.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/style.css">
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/responsive.css">
-    <style>
-        .colored-toast.swal2-icon-success {
-            background-color: #a5dc86 !important;
-        }
-
-        .colored-toast.swal2-icon-error {
-            background-color: #f27474 !important;
-        }
-
-        .colored-toast.swal2-icon-warning {
-            background-color: #f8bb86 !important;
-        }
-
-        .colored-toast.swal2-icon-info {
-            background-color: #3fc3ee !important;
-        }
-
-        .colored-toast.swal2-icon-question {
-            background-color: #87adbd !important;
-        }
-
-        .colored-toast .swal2-title {
-            color: white;
-        }
-
-        .colored-toast .swal2-close {
-            color: white;
-        }
-
-        .colored-toast .swal2-html-container {
-            color: white;
-        }
-    </style>
-        <!-- toastr alert -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <link rel="stylesheet" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
-        <!-- toastr alert -->
-        <script src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/venobox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/scroll_button.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom_spacing.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery.exzoom.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/percircle.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/ranger_slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/mobile_menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
 </head>
 
 <body class="{{ setting('theme') == 'two' ? 'home_2' : '' }} {{ setting('theme') == 'three' ? 'home_3' : '' }}">
@@ -158,7 +121,7 @@
                     <div class="menu_category_bar">
                         <p>
                             <span>
-                                <img src="{{ asset('assets/images/menu_category_icon.png') }}" alt="category icon">
+                                <img src="{{ asset('frontend/assets/images/menu_category_icon.png') }}" alt="category icon">
                             </span>
                             {{ __('Browse Categories') }}
                         </p>
@@ -206,7 +169,7 @@
                                     <ul class="menu_droapdown">
                                         <li><a href="{{ route('faqsf') }}">{{ __('faqs') }}</a></li>
                                         <li><a href="{{ route('privacyPolicy') }}">{{ __('privacy policy') }}</a></li>
-                                        <li><a href="{{ route('termsCondition') }}">{{ __('terms &amp; condition') }}</a></li>
+                                        <li><a href="{{ route('termsCondition') }}">{!! __('terms &amp; condition') !!}</a></li>
                                     </ul>
                                 </li>
                         <li><a class="{{ Route::currentRouteNamed('aboutUs') ? 'active' : '' }}"
@@ -550,48 +513,50 @@
 
 
     <!--jquery library js-->
-    <script src="{{ asset('assets') }}/js/jquery-3.7.0.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/jquery-3.7.0.min.js') }}"></script>
     <!--bootstrap js-->
-    <script src="{{ asset('assets') }}/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
     <!--font-awesome js-->
-    <script src="{{ asset('assets') }}/js/Font-Awesome.js"></script>
+    <script src="{{ asset('frontend/assets/js/Font-Awesome.js') }}"></script>
     <!--slick slider js-->
-    <script src="{{ asset('assets') }}/js/slick.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/slick.min.js') }}"></script>
     <!--isotope js-->
-    <script src="{{ asset('assets') }}/js/isotope.pkgd.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/isotope.pkgd.min.js') }}"></script>
     <!--venobox js-->
-    <script src="{{ asset('assets') }}/js/venobox.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/venobox.min.js') }}"></script>
     <!--marquee animi-->
-    <script src="{{ asset('assets') }}/js/jquery.marquee.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/jquery.marquee.min.js') }}"></script>
     <!--simply countdown js-->
-    <script src="{{ asset('assets') }}/js/simplyCountdown.js"></script>
+    <script src="{{ asset('frontend/assets/js/simplyCountdown.js') }}"></script>
     <!--scroll button js-->
-    <script src="{{ asset('assets') }}/js/scroll_button.js"></script>
+    <script src="{{ asset('frontend/assets/js/scroll_button.js') }}"></script>
     <!--counter-up js-->
-    <script src="{{ asset('assets') }}/js/jquery.waypoints.min.js"></script>
-    <script src="{{ asset('assets') }}/js/jquery.countup.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/jquery.countup.min.js') }}"></script>
     <!--exzoom js-->
-    <script src="{{ asset('assets') }}/js/jquery.exzoom.js"></script>
+    <script src="{{ asset('frontend/assets/js/jquery.exzoom.js') }}"></script>
     <!--nice select js-->
-    <script src="{{ asset('assets') }}/js/jquery.nice-select.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/jquery.nice-select.min.js') }}"></script>
     <!--percircle js-->
-    <script src="{{ asset('assets') }}/js/percircle.js"></script>
+    <script src="{{ asset('frontend/assets/js/percircle.js') }}"></script>
     <!--price ranger js-->
-    <script src="{{ asset('assets') }}/js/ranger_jquery-ui.min.js"></script>
-    <script src="{{ asset('assets') }}/js/ranger_slider.js"></script>
+    <script src="{{ asset('frontend/assets/js/ranger_jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/ranger_slider.js') }}"></script>
     <!--select2 js-->
-    <script src="{{ asset('assets') }}/js/select2.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/select2.min.js') }}"></script>
     <!--sticky sidebar js-->
-    <script src="{{ asset('assets') }}/js/sticky_sidebar.js"></script>
+    <script src="{{ asset('frontend/assets/js/sticky_sidebar.js') }}"></script>
     <!--aos js-->
-    <script src="{{ asset('assets') }}/js/wow.min.js"></script>
+    <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
     <!--script js-->
-    <script src="{{ asset('assets') }}/js/main.js"></script>
-
+    <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
+    <!--toastr js-->
+    <script src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
+    <!--sweetalert js-->
     <script src="{{ asset('backend/assets/js/sweetalert2@11.js') }}"></script>
 
-
     @include('sweetalert::alert')
+
     <script>
         var deals1 = {{ counter(1) }};
         var deals2 = {{ counter(2) }};

@@ -21,20 +21,11 @@ class TestimonialController extends Controller
             'name' => 'required',
             'designation' => 'required',
             'quote' => 'required',
-            'rating' => 'required|numeric|min:1|max:5',
+            'rating' => 'required|integer|min:1|max:5',
             'image' => 'required|image:jpg,jpeg,png',
             'status' => 'required',
         ]);
 
-        $rating = $request->input('rating');
-
-        if (is_string($rating)) {
-            $rating = floatval($rating);
-        }
-
-        $rating = (float)$rating;
-        $formattedRating = sprintf("%.1f", $rating);
-        $formattedRating;
 
         //Image Process
         $manager = new ImageManager(new Driver());
@@ -49,12 +40,12 @@ class TestimonialController extends Controller
             'name' => $request->input('name'),
             'designation' => $request->input('designation'),
             'quote' => $request->input('quote'),
-            'rating' => $formattedRating,
+            'rating' => $request->input('rating'),
             'photo' => $imageUrl,
             'status' => $request->input('status'),
         ]);
 
-        toast(trans('Successfully your testimonial added!'),'success');
+        toast(trans('Successfully your testimonial added!'),'success')->width('350');
         return back();
     }
 
@@ -101,9 +92,13 @@ class TestimonialController extends Controller
     }
 
     public function delete($id){
-        Testimonial::find($id)->delete();
-        toast(trans('Testimonial Deleted Successfull!'),'success');
-        return back();
+        try {
+            Testimonial::find($id)->delete();
+            return response()->json(['status' => 'success', 'message' => trans('Testimonial Deleted Successfull!')]);
+
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => trans('Something went wrong!')]);
+        }
     }
 
 

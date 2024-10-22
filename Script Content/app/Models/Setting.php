@@ -29,5 +29,6 @@ class Setting extends Model
         'glrecaptchaStatus',
         'captchaSiteKey',
         'captchaSecretKey',
+        'breadcrumbImg',
     ];
 }

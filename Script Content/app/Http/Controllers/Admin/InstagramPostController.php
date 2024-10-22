@@ -37,15 +37,29 @@ class InstagramPostController extends Controller
             'link' => $request->input('link'),
         ]);
 
-        toast(trans('Instagram Post Image Added Successfull!'),'success');
+        toast(trans('Instagram Post Image Added Successfull!'),'success')->width('350');
         return back();
 
     }
 
     public function delete($id){
-        InstagramPost::find($id)->delete();
-        toast(trans('Instagram Post Image Delete Successfull!'), 'success');
-        return back();
+
+        try {
+            $post = InstagramPost::find($id)->first();
+
+            if ($post && $post->image) {
+                $filePath = base_path('public/'.$post->image);
+
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+
+            $post->delete();
+            return response()->json(['status' => 'success', 'message' => trans('Instagram Post Image Delete Successfull!')]);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => 'error', 'message' => trans('Somthing went wrong!')]);
+        }
     }
 
 }

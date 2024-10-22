@@ -357,12 +357,27 @@ function displayRatingStars($rating) {
         echo '<i class="fas fa-star"></i>';
     }
 
-    // Half star (if any)
+    // Half star
     if ($rating - floor($rating) >= 0.5) {
         echo '<i class="fas fa-star-half-alt"></i>';
     }
 
-    // Empty stars (for the remaining stars up to $maxRating)
+    // Empty stars
+    for ($i = ceil($rating) + 1; $i <= $maxRating; $i++) {
+        echo '<i class="far fa-star"></i>';
+    }
+}
+
+function testimonialRating($rating){
+
+    $maxRating = 5;
+
+    // Full stars
+    for ($i = 1; $i <= floor($rating); $i++) {
+        echo '<i class="fas fa-star"></i>';
+    }
+
+    // Empty stars
     for ($i = ceil($rating) + 1; $i <= $maxRating; $i++) {
         echo '<i class="far fa-star"></i>';
     }

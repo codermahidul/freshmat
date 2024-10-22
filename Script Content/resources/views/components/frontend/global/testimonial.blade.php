@@ -18,10 +18,7 @@
             <div class="col-xl-4">
                 <div class="testimonial_item wow fadeInUp">
                     <p class="rating">
-                        @php
-                        for($i = 0; $i< $testimonial->rating; $i++)
-                        echo '<i class="fas fa-star"></i>';
-                        @endphp
+                        {{ testimonialRating($testimonial->rating) }}
                         <span>{{ $testimonial->rating }}</span>
                     </p>
                     <p class="review_text">{{ $testimonial->quote }}</p>

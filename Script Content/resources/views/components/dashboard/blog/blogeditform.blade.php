@@ -45,6 +45,12 @@
                                 </span>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <label for="description"> {{ __('Old Thumbnail') }} </label>
+                            <div class="img">
+                                <img src="{{ asset($post->thumbnail) }}" alt="">
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -54,7 +60,7 @@
                                             <input type="file"
                                                 class="custom-file-input @error('thumbnail') is-invalid @enderror"
                                                 id="thumbnail" name="thumbnail" value="{{ old('thumbnail') }}">
-                                            <label class="custom-file-label" for="thumbnail">Choose file</label>
+                                            <label class="custom-file-label" for="thumbnail">{{ __('Choose file') }}</label>
                                         </div>
                                     </div>
                                     @error('thumbnail')

@@ -147,4 +147,50 @@ class SettingController extends Controller
     }
 
 
+    public function breadcrumb(){
+        return view('dashboard.setting.breadcrumb');
+    }
+
+    public function breadcrumbUpdate(Request $request){
+        $request->validate([
+            'image' => 'required|image:jpg,jpeg,png',
+        ]);
+
+        $setting = Setting::find(1)->first();
+
+        $orginalPath = $setting->breadcrumbImg;
+
+        if (!$orginalPath == 'default/breadcrumb/breadcrumb.jpg') {
+            if ($setting && $setting->breadcrumbImg) {
+                $filePath = base_path('public/'.$setting->breadcrumbImg);
+
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+        }
+
+        $newPath = base_path('public/'.'uploads/breadcrumb');
+
+        if (!is_dir($newPath)) {
+            mkdir($newPath, 0755, true);
+        }
+
+
+        //Image Process
+        $manager = new ImageManager(new Driver());
+        $image = $request->file('image');
+        $name = 'breadcrumb-'.Str::uuid().'.'.$image->getClientOriginalExtension();
+        $img = $manager->read($image);
+        $img->save(base_path('public/uploads/breadcrumb/'.$name));
+        $url = 'uploads/breadcrumb/'.$name;
+
+        $setting->breadcrumbImg = $url;
+        $setting->save();
+        toast(trans('Update successfull!'),'success')->width('350');
+        return back();
+
+    }
+
+
 }

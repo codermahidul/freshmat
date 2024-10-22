@@ -108,7 +108,11 @@
                 </a>
             </li>
 
-
+            <li class="sidenav-item">
+                <a href="{{ route('breadcrumb') }}" class="sidenav-link">
+                    <div>{{ __('Breadcrumb Image') }}</div>
+                </a>
+            </li>
         </ul>
     </li>
 
