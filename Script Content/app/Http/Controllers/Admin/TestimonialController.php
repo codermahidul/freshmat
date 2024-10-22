@@ -21,10 +21,20 @@ class TestimonialController extends Controller
             'name' => 'required',
             'designation' => 'required',
             'quote' => 'required',
-            'rating' => 'required|decimal:1|min:1|max:5',
+            'rating' => 'required|numeric|min:1|max:5',
             'image' => 'required|image:jpg,jpeg,png',
             'status' => 'required',
         ]);
+
+        $rating = $request->input('rating');
+
+        if (is_string($rating)) {
+            $rating = floatval($rating);
+        }
+
+        $rating = (float)$rating;
+        $formattedRating = sprintf("%.1f", $rating);
+        $formattedRating;
 
         //Image Process
         $manager = new ImageManager(new Driver());
@@ -39,7 +49,7 @@ class TestimonialController extends Controller
             'name' => $request->input('name'),
             'designation' => $request->input('designation'),
             'quote' => $request->input('quote'),
-            'rating' => $request->input('rating'),
+            'rating' => $formattedRating,
             'photo' => $imageUrl,
             'status' => $request->input('status'),
         ]);

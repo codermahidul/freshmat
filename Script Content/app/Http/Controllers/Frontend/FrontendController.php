@@ -126,9 +126,13 @@ class FrontendController extends Controller
 
     //Protected Route
     public function dashboard(){
-        $activeOrder = Invoice::where('userId',Auth::id())->where('status','active')->count();
-        $completedOrder = Invoice::where('userId',Auth::id())->where('status','completed')->count();
+        $activeOrder = Invoice::where('userId',Auth::id())->where(function($query){
+            $query->where('status','new')
+            ->orWhere('status','delevery-in-process');
+        })->count();
+        $completedOrder = Invoice::where('userId',Auth::id())->where('status','complete')->where('payment','success')->count();
         $totalOrder = Invoice::where('userId',Auth::id())->count();
+
         return view('frontend.pages.dashboard.dashboard',compact(
             'activeOrder',
             'completedOrder',
